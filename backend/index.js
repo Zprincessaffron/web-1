@@ -34,4 +34,5 @@ const PORT = process.env.PORT;
 
 app.use('/', authRoutes );
 
+
 app.listen(PORT, () => console.log(`app is running on port ${PORT}`));

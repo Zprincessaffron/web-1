@@ -1,10 +1,12 @@
 import React from 'react'
-import Products from './Products'
+import ProductCard from '../components/product/ProductCard'
+import ProductHistory from '../components/product/ProductHistory'
 
 const Home = () => {
   return (
     <div>
-      <Products/>
+      <ProductCard/>
+      {/* <ProductHistory/> */}
     </div>
   )
 }

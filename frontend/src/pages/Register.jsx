@@ -19,31 +19,31 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
-    recommendations: [],
-    cuisine: "",
-    saffronDishes: [],
-    saffronDishesOther: "",
-    flavorPreference: "",
-    healthBenefits: [],
-    healthBenefitsOther: "",
-    healthConditions: [],
-    healthConditionsOther: "",
-    learning: "",
-    currentMedications: "",
-    primaryBenefits: [],
-    otherPrimaryBenefit: "",
-    consultation: "",
-    concerns: "",
-    skinType: '',
-    primarySkinConcerns: [],
-    otherSkinConcern: '',
-    skincareFrequency: '',
-    usedSaffronProducts: '',
-    satisfactionLevel: '',
-    pregnancyStage: '',
-    previousSaffronUse: '',
-    saffronUsageDuringPregnancy: '',
-    allergies: ''
+    // recommendations: [],
+    // cuisine: "",
+    // saffronDishes: [],
+    // saffronDishesOther: "",
+    // flavorPreference: "",
+    // healthBenefits: [],
+    // healthBenefitsOther: "",
+    // healthConditions: [],
+    // healthConditionsOther: "",
+    // learning: "",
+    // currentMedications: "",
+    // primaryBenefits: [],
+    // otherPrimaryBenefit: "",
+    // consultation: "",
+    // concerns: "",
+    // skinType: '',
+    // primarySkinConcerns: [],
+    // otherSkinConcern: '',
+    // skincareFrequency: '',
+    // usedSaffronProducts: '',
+    // satisfactionLevel: '',
+    // pregnancyStage: '',
+    // previousSaffronUse: '',
+    // saffronUsageDuringPregnancy: '',
+    // allergies: ''
   });
 
   const handleCheckboxChange = (e) => {
@@ -91,62 +91,62 @@ const Register = () => {
       name,
       email,
       password,
-      recommendations,
-      cuisine,
-      saffronDishes,
-      saffronDishesOther,
-      flavorPreference,
-      healthBenefits,
-      healthBenefitsOther,
-      healthConditions,
-      healthConditionsOther,
-      learning,
-      currentMedications,
-      primaryBenefits,
-      otherPrimaryBenefit,
-      consultation,
-      concerns,
-      skinType,
-      primarySkinConcerns,
-      otherSkinConcern,
-      skincareFrequency,
-      usedSaffronProducts,
-      satisfactionLevel,
-      pregnancyStage,
-      previousSaffronUse,
-      saffronUsageDuringPregnancy,
-      allergies
+      // recommendations,
+      // cuisine,
+      // saffronDishes,
+      // saffronDishesOther,
+      // flavorPreference,
+      // healthBenefits,
+      // healthBenefitsOther,
+      // healthConditions,
+      // healthConditionsOther,
+      // learning,
+      // currentMedications,
+      // primaryBenefits,
+      // otherPrimaryBenefit,
+      // consultation,
+      // concerns,
+      // skinType,
+      // primarySkinConcerns,
+      // otherSkinConcern,
+      // skincareFrequency,
+      // usedSaffronProducts,
+      // satisfactionLevel,
+      // pregnancyStage,
+      // previousSaffronUse,
+      // saffronUsageDuringPregnancy,
+      // allergies
     } = data;
     try {
       const { data } = await axios.post("/register", {
         name,
         email,
         password,
-        recommendations,
-        cuisine,
-        saffronDishes,
-        saffronDishesOther,
-        flavorPreference,
-        healthBenefits,
-        healthBenefitsOther,
-        healthConditions,
-        healthConditionsOther,
-        learning,
-        currentMedications,
-        primaryBenefits,
-        otherPrimaryBenefit,
-        consultation,
-        concerns,
-        skinType,
-        primarySkinConcerns,
-        otherSkinConcern,
-        skincareFrequency,
-        usedSaffronProducts,
-        satisfactionLevel,
-        pregnancyStage,
-        previousSaffronUse,
-        saffronUsageDuringPregnancy,
-        allergies
+        // recommendations,
+        // cuisine,
+        // saffronDishes,
+        // saffronDishesOther,
+        // flavorPreference,
+        // healthBenefits,
+        // healthBenefitsOther,
+        // healthConditions,
+        // healthConditionsOther,
+        // learning,
+        // currentMedications,
+        // primaryBenefits,
+        // otherPrimaryBenefit,
+        // consultation,
+        // concerns,
+        // skinType,
+        // primarySkinConcerns,
+        // otherSkinConcern,
+        // skincareFrequency,
+        // usedSaffronProducts,
+        // satisfactionLevel,
+        // pregnancyStage,
+        // previousSaffronUse,
+        // saffronUsageDuringPregnancy,
+        // allergies
       });
       if (data.error) {
         toast.error(data.error);
@@ -155,31 +155,31 @@ const Register = () => {
           name: "",
           email: "",
           password: "",
-          recommendations: [],
-          cuisine: "",
-          saffronDishes: [],
-          saffronDishesOther: "",
-          flavorPreference: "",
-          healthBenefits: [],
-          healthBenefitsOther: "",
-          healthConditions: [],
-          healthConditionsOther: "",
-          learning: "",
-          currentMedications: "",
-          primaryBenefits: [],
-          otherPrimaryBenefit: "",
-          consultation: "",
-          concerns: "",
-          skinType: '',
-          primarySkinConcerns: [],
-          otherSkinConcern: '',
-          skincareFrequency: '',
-          usedSaffronProducts: '',
-          satisfactionLevel: '',
-          pregnancyStage: '',
-          previousSaffronUse: '',
-          saffronUsageDuringPregnancy: '',
-          allergies: ''
+          // recommendations: [],
+          // cuisine: "",
+          // saffronDishes: [],
+          // saffronDishesOther: "",
+          // flavorPreference: "",
+          // healthBenefits: [],
+          // healthBenefitsOther: "",
+          // healthConditions: [],
+          // healthConditionsOther: "",
+          // learning: "",
+          // currentMedications: "",
+          // primaryBenefits: [],
+          // otherPrimaryBenefit: "",
+          // consultation: "",
+          // concerns: "",
+          // skinType: '',
+          // primarySkinConcerns: [],
+          // otherSkinConcern: '',
+          // skincareFrequency: '',
+          // usedSaffronProducts: '',
+          // satisfactionLevel: '',
+          // pregnancyStage: '',
+          // previousSaffronUse: '',
+          // saffronUsageDuringPregnancy: '',
+          // allergies: ''
         });
         toast.success("User Registered Successfully");
         navigate("/login");
@@ -288,7 +288,7 @@ const Register = () => {
 
         {/* useCases */}
 
-        <div className="useCases">
+        {/* <div className="useCases">
           <label>Pick Your UseCases :</label>
           <div>
             <input
@@ -472,11 +472,11 @@ const Register = () => {
               </div>
             )}
           </div>
-        </div>
+        </div> */}
         
         <br />
 
-        <CulinaryUses 
+        {/* <CulinaryUses 
           data={data}
           setData={setData}
           handleCulinaryCheckboxChange={handleCulinaryCheckboxChange}
@@ -484,29 +484,29 @@ const Register = () => {
           handleOtherChange={handleOtherChange}
           handleStartListening={handleStartListening}
           handleReset={handleReset}
-        />
+        /> */}
 
-        <MedicinalUses
+        {/* <MedicinalUses
           data={data}
           setData={setData}
           handleCulinaryCheckboxChange={handleCulinaryCheckboxChange}
           handleInputChange={handleInputChange}
-        />
+        /> */}
 
-        <CosmeticUses
+        {/* <CosmeticUses
           data={data}
           setData={setData}
           handleCulinaryCheckboxChange={handleCulinaryCheckboxChange}
           handleInputChange={handleInputChange}
           handleOtherChange={handleOtherChange}
-        />
+        /> */}
 
-        <PregnantWomenUses
+        {/* <PregnantWomenUses
           data={data}
           setData={setData}
           handleCulinaryCheckboxChange={handleCulinaryCheckboxChange}
           handleInputChange={handleInputChange}
-        />
+        /> */}
         <button type="submit">Register</button>
       </form>
     </div>

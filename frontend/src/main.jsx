@@ -10,9 +10,9 @@ axios.defaults.baseURL = 'http://localhost:4040';
 axios.defaults.withCredentials = true;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  //<React.StrictMode>
     <Router>
       <App />
     </Router>
-  </React.StrictMode>,
+  //</React.StrictMode>,
 )

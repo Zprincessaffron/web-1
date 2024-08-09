@@ -1,53 +1,118 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: 'riviera';
+  src: url('../src/font/RivieraNightsTrial-Ultralight/RivieraNightsTrial-Ultralight.otf') format('opentype');
+}
+
+body {
+  font-family: 'riviera', sans-serif;
+}
+
+/* Product card styles */
+.product-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-slider .slick-center .product-card {
+  transform: scale(1.05); /* Scale up the center card */
+  z-index: 20; /* Ensure it appears on top */
+}
+
+.product-slider .slick-slide {
+  transition: transform 0.5s ease;
+}
+.product-slider .slick-center .relative {
+  transform: scale(1.1);
+}
+
+.product-slider .slick-slide:not(.slick-center) .relative {
+  transform: scale(0.9);
+}
+
+.product-slider .slick-slide img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-slider .slick-slide .slick-center img {
+  transform: scale(1); /* Slightly larger image for the center card */
 }
 
 
-.product{
-  border: 1px solid black;
-  margin-left: 40px;
-}
-.product-card{
-  display: flex;
-  
-}
-
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Custom Pagination Dots with Animated Progress Bar */
+.slick-dots.custom-dots {
+  display: flex !important;
+  justify-content: center;
+  margin: 20px 0 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.slick-dots.custom-dots li {
+  width: 30px;
+  margin: 0 30px;
+}
+
+.slick-dots.custom-dots li button {
+  display: none; /* Hide the default button */
+}
+
+.slick-dots.custom-dots li .progress-bar {
+  width: 100%;
+  height: 4px;
+  background: gray;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 5px;
+}
+
+.slick-dots.custom-dots li.slick-active .progress-bar {
+  animation: progress 3s linear infinite;
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    width: 100%;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* In your styles.css or any global CSS file */
+ .slick-prev {
+  left: 10px;
+  z-index: 10;
 }
 
-.card {
-  padding: 2em;
+.slick-next {
+  right: 10px;
+  z-index: 10;
 }
 
-.read-the-docs {
-  color: #888;
+.slick-prev::before, .slick-next::before {
+  font-family: 'slick';
+  font-size: 50px;
+  line-height: 1;
+  opacity: .75;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
