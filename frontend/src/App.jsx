@@ -25,6 +25,20 @@ import AdminDashboard from "./components/Admin/AdminDashboard";
 import MarketerForm from "./pages/MarketerForm";
 import MarketerDashboard from "./components/marketer/MarketerDashboard";
 import RegisterWholesaler from "./components/WholeSaler/RegisterWholeSaler";
+import Analytics from "./components/Admin/analytics/Analytics";
+import ForbiddenPage from "./components/ProtectedRoute/ForbiddenPage";
+import ProtectedRoute from "./components/ProtectedRoute/ProductedRoute";
+import UserOrders from "./components/Admin/UserOrders";
+import Wholesaler from "../../backend/models/wholesaler";
+import TelecallerOrders from "./components/Admin/TelecallerOrders";
+import ProductList from "./components/Admin/ProductList";
+import AllUsers from "./components/Admin/AllUsers";
+import AllMarketers from "./components/Admin/AllMarketers";
+import AllWholesalers from "./components/Admin/AllWholesalers";
+import DefaultDashboard from "./components/Admin/DefaultDashboard";
+import WholesalerOrders from "./components/Admin/WholesalerOrders";
+import AdminProfile from "./components/Admin/AdminProfile";
+import AdminSetting from "./components/Admin/AdminSetting";
 // import Login from "./components/login/Login"
 
 function App() {
@@ -32,31 +46,149 @@ function App() {
     <UserContextProvider>
       <CartProvider>
         <Toaster position="bottom-center" toastOptions={{ duration: 2000 }} />
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/login" element={<Login />} /> */}
-          <Route path="/product/:id" element={<ProductSection />} />
-          <Route path="/chatbot" element={<Chatbot />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/payment-success" element={<PaymentSuccessPage />} />
-          <Route path="/track-order" element={<OrderTracking />} />
-          <Route path="/order-history/:userId" element={<OrderHistory />} />
+          <Route path="/403" element={<ForbiddenPage />} />
+          <Route
+            path="/product/:id"
+            element={
+              // <ProtectedRoute allowedRoles={["user", "wholesaler", "admin"]}>
+                <ProductSection />
+              // {/* </ProtectedRoute>  */}
+            }
+          />
+          <Route
+            path="/chatbot"
+            element={
+              <ProtectedRoute allowedRoles={["user", "wholesaler"]}>
+                <Chatbot />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <ProtectedRoute allowedRoles={["user", "wholesaler"]}>
+                <CheckoutPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/payment"
+            element={
+              <ProtectedRoute allowedRoles={["user", "wholesaler"]}>
+                <PaymentPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/payment-success"
+            element={
+              <ProtectedRoute allowedRoles={["user", "wholesaler"]}>
+                <PaymentSuccessPage />
+              </ProtectedRoute>
+            }
+          />
           {/* userDashboard */}
-          <Route path="/dashboard" element={<DashboardLayout />}>
-            <Route path="profile" element={<Profile />} />
-            <Route path="orders" element={<Orders />} />
-            <Route path="history" element={<History />} />
-            <Route path="settings" element={<Settings />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute allowedRoles={["user", "wholesaler"]}>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route
+              path="profile"
+              element={
+                <ProtectedRoute allowedRoles={["user", "wholesaler"]}>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="orders"
+              element={
+                <ProtectedRoute allowedRoles={["user", "wholesaler"]}>
+                  <Orders />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="track-order/:id"
+              element={
+                <ProtectedRoute allowedRoles={["user", "wholesaler"]}>
+                  <OrderTracking />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="history/:userId"
+              element={
+                <ProtectedRoute allowedRoles={["user", "wholesaler"]}>
+                  <History />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="settings"
+              element={
+                <ProtectedRoute allowedRoles={["user", "wholesaler"]}>
+                  <Settings />
+                </ProtectedRoute>
+              }
+            />
           </Route>
+
           {/* Admin */}
-          <Route path="/admin" element={<AdminDashboard/>} />
-          <Route path="/register-marketer" element={<MarketerForm/>}/>
-          <Route path="/marketer-dashboard/:id" element={<MarketerDashboard/>} />
-          <Route path="/register-wholesaler/:id" element={<RegisterWholesaler/>} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="dashboard" element={<DefaultDashboard />} />
+            <Route path="user-orders" element={<UserOrders />} />
+            <Route path="wholesaler-orders" element={<WholesalerOrders />} />
+            <Route path="telecaller-orders" element={<TelecallerOrders />} />
+            <Route path="all-products" element={<ProductList />} />
+            <Route path="all-users" element={<AllUsers />} />
+            <Route path="all-marketers" element={<AllMarketers />} />
+            <Route path="all-wholesalers" element={<AllWholesalers />} />
+            <Route path="analytics" element={<Analytics />} />
+            <Route path="profile" element={<AdminProfile />} />
+            <Route path="settings" element={<AdminSetting />} />
+          </Route>
+
+          <Route
+            path="/register-marketer"
+            element={
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <MarketerForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/marketer-dashboard/:id"
+            element={
+              <ProtectedRoute allowedRoles={["marketer"]}>
+                <MarketerDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/register-wholesaler/:id"
+            element={
+              <ProtectedRoute allowedRoles={["marketer"]}>
+                <RegisterWholesaler />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </CartProvider>
     </UserContextProvider>

@@ -1,39 +1,99 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { userContext } from "../../context/UserContext";
 
 const PaymentPage = () => {
   const [paymentMethod, setPaymentMethod] = useState("");
+  const { user } = useContext(userContext); // Access user data from context
   const navigate = useNavigate();
   const location = useLocation();
-  const cartItems = location.state?.cartItems || []; // Access cartItems from location state
+  const { orderID, cartItems } = location.state || {}; // Access orderID and cartItems from location state
 
   const handlePaymentMethodChange = (e) => {
     setPaymentMethod(e.target.value);
   };
 
-  const handlePayment = () => {
-    // Logic for processing the payment goes here
-    // For example, you might make an API call to complete the payment
-
-    // Sample receipt data
-    const receiptData = {
-      orderNumber: "123456",
-      date: new Date().toLocaleDateString(),
-      items: cartItems.map((item) => ({
-        name: item.name,
-        quantity: item.quantity,
-        price: `₹${item.price.toFixed(2)}`,
-      })),
-      total: `₹${calculateTotal().toFixed(2)}`,
-    };
-
-    // On successful payment, navigate to the PaymentSuccessPage with receipt data
-    navigate("/payment-success", { state: { receiptData } });
-  };
-
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const handlePayment = async () => {
+    if (paymentMethod) {
+      const totalAmount = calculateTotal();
+
+      try {
+        // Create Razorpay order
+        const response = await axios.post("/create-order", {
+          amount: totalAmount,
+          currency: "INR",
+          orderID, // Pass the orderID here
+        });
+
+        const { id: order_id, amount, currency } = response.data;
+
+        const options = {
+          key: "rzp_test_E76kAtewr8q6e6",
+          amount: amount,
+          currency: currency,
+          name: "ZPrincessSaffron",
+          description: "Test Transaction",
+          image: "https://example.com/logo.png",
+          order_id: order_id,
+          handler: async function (response) {
+            const paymentDetails = {
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              paymentMethod: paymentMethod, // Add the payment method here
+            };
+
+            try {
+              const verifyResponse = await axios.post("/verify-payment", paymentDetails);
+              if (verifyResponse.data.status === "success") {
+                const receiptData = {
+                  orderNumber: response.razorpay_order_id,
+                  paymentId: response.razorpay_payment_id,
+                  signature: response.razorpay_signature,
+                  date: new Date().toLocaleDateString(),
+                  items: cartItems.map((item) => ({
+                    name: item.name,
+                    quantity: item.quantity,
+                    price: `₹${item.price.toFixed(2)}`,
+                  })),
+                  total: `₹${(amount / 100).toFixed(2)}`,
+                };
+
+                navigate("/payment-success", { state: { receiptData } });
+              } else {
+                console.error("Payment verification failed");
+              }
+            } catch (error) {
+              console.error("Error verifying payment:", error);
+            }
+          },
+          prefill: {
+            name: user?.name || "", // Use user's name from context
+            email: user?.email || "", // Use user's email from context
+            contact: user?.contact || "", // Use user's contact from context
+          },
+          theme: {
+            color: "#3399cc",
+          },
+          notes: {
+            paymentMethod: paymentMethod,
+          },
+        };
+
+        const razorpay = new window.Razorpay(options);
+        razorpay.open();
+      } catch (error) {
+        console.error("Payment failed", error);
+      }
+    } else {
+      console.error("Invalid payment method");
+    }
   };
 
   return (
@@ -63,190 +123,8 @@ const PaymentPage = () => {
               <option value="creditCard">Credit Card</option>
               <option value="debitCard">Debit Card</option>
               <option value="upi">UPI</option>
-              <option value="cashOnDelivery">Cash on Delivery</option>
             </select>
           </div>
-
-          {/* Payment Method Details */}
-          {paymentMethod === "creditCard" && (
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div>
-                <label
-                  htmlFor="cardNumber"
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                >
-                  Card Number
-                </label>
-                <input
-                  id="cardNumber"
-                  type="text"
-                  placeholder="1234 5678 9123 4567"
-                  className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
-                  required
-                />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="expiryDate"
-                    className="block text-gray-700 text-sm font-medium mb-2"
-                  >
-                    Expiry Date
-                  </label>
-                  <input
-                    id="expiryDate"
-                    type="text"
-                    placeholder="MM/YY"
-                    className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="cvv"
-                    className="block text-gray-700 text-sm font-medium mb-2"
-                  >
-                    CVV
-                  </label>
-                  <input
-                    id="cvv"
-                    type="text"
-                    placeholder="123"
-                    className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
-                    required
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="nameOnCard"
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                >
-                  Name on Card
-                </label>
-                <input
-                  id="nameOnCard"
-                  type="text"
-                  className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
-                  required
-                />
-              </div>
-            </motion.div>
-          )}
-
-          {paymentMethod === "debitCard" && (
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div>
-                <label
-                  htmlFor="debitCardNumber"
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                >
-                  Card Number
-                </label>
-                <input
-                  id="debitCardNumber"
-                  type="text"
-                  placeholder="1234 5678 9123 4567"
-                  className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
-                  required
-                />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="debitExpiryDate"
-                    className="block text-gray-700 text-sm font-medium mb-2"
-                  >
-                    Expiry Date
-                  </label>
-                  <input
-                    id="debitExpiryDate"
-                    type="text"
-                    placeholder="MM/YY"
-                    className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="debitCvv"
-                    className="block text-gray-700 text-sm font-medium mb-2"
-                  >
-                    CVV
-                  </label>
-                  <input
-                    id="debitCvv"
-                    type="text"
-                    placeholder="123"
-                    className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
-                    required
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="debitNameOnCard"
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                >
-                  Name on Card
-                </label>
-                <input
-                  id="debitNameOnCard"
-                  type="text"
-                  className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
-                  required
-                />
-              </div>
-            </motion.div>
-          )}
-
-          {paymentMethod === "upi" && (
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div>
-                <label
-                  htmlFor="upiId"
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                >
-                  UPI ID
-                </label>
-                <input
-                  id="upiId"
-                  type="text"
-                  placeholder="example@upi"
-                  className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
-                  required
-                />
-              </div>
-            </motion.div>
-          )}
-
-          {paymentMethod === "cashOnDelivery" && (
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <p className="text-gray-700">
-                You will pay in cash on delivery of the product.
-              </p>
-            </motion.div>
-          )}
 
           <div className="flex justify-center mt-8">
             <button
@@ -287,7 +165,7 @@ const PaymentPage = () => {
                       {item.name}
                     </h3>
                     <p className="text-gray-600">Quantity: {item.quantity}</p>
-                    <p className="text-gray-800">Price: ₹{(item.price)*(item.quantity)}</p>
+                    <p className="text-gray-800">Price: ₹{item.price * item.quantity}</p>
                   </div>
                 </div>
               ))

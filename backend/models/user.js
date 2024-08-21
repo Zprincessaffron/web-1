@@ -13,9 +13,15 @@ const userSchema = new Schema({
     required: true,
     minLength: 6,
   },
+  phone: {
+    type: String,
+    required: true,
+    unique: true
+  },
   uniqueId: { type: String, unique: true },
   role: {
     type: String,
+    enum: ['user', 'admin'],
     default: "user",
     immutable: true,
   },

@@ -11,6 +11,11 @@ const marketerSchema = new Schema({
     required: true,
     unique: true
   },
+  password: {
+    type: String,
+    required: true,
+    minLength: 6,
+  },
   phone: {
     type: String,
     required: true

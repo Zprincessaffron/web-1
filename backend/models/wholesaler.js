@@ -23,6 +23,11 @@ const WholesalerSchema = new Schema({
       message: props => `${props.value} is not a valid email!`
     }
   },
+  password: {
+    type: String,
+    required: true,
+    minLength: 6,
+  },
   phone: {
     type: String,
     required: true,

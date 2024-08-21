@@ -1,44 +1,74 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
-const History = () => {
-  // Sample data to simulate user history
-  const historyData = [
-    { id: 1, date: '2024-07-10', action: 'Purchased Kashmiri Saffron 2g', quantity: 1, amount: '₹525' },
-    { id: 2, date: '2024-07-15', action: 'Purchased Premium Spain Saffron 2g', quantity: 2, amount: '₹1150' },
-    { id: 3, date: '2024-07-20', action: 'Purchased Kashmiri Saffron 5g', quantity: 1, amount: '₹2575' },
-  ];
+const OrderHistory = () => {
+  const { userId } = useParams();
+  const [orders, setOrders] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      if (!userId) {
+        setError("User ID is missing.");
+        return;
+      }
+
+      try {
+        const response = await axios.get(`/history/${userId}`);
+        setOrders(response.data);
+        setError(null);
+      } catch (err) {
+        setError("Error retrieving order history.");
+      }
+    };
+
+    fetchOrders();
+  }, [userId]);
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold">History</h2>
-      <div className="bg-white p-6 rounded-lg space-y-6">
-        {historyData.length === 0 ? (
-          <p className="text-gray-500">No history available.</p>
-        ) : (
-          <table className="min-w-full bg-white">
-            <thead>
-              <tr>
-                <th className="py-2 text-left">Date</th>
-                <th className="py-2 text-left">Action</th>
-                <th className="py-2 text-left">Quantity</th>
-                <th className="py-2 text-left">Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              {historyData.map((entry) => (
-                <tr key={entry.id}>
-                  <td className="py-2 border-b">{entry.date}</td>
-                  <td className="py-2 border-b">{entry.action}</td>
-                  <td className="py-2 border-b">{entry.quantity}</td>
-                  <td className="py-2 border-b">{entry.amount}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </div>
+    <div className="container mx-auto my-10 p-5 max-w-4xl">
+      <h1 className="text-4xl font-bold mb-6 text-gray-900">Order History</h1>
+
+      {error && <p className="text-red-500">{error}</p>}
+      
+      {orders.length === 0 ? (
+        <p className="text-gray-700">No completed orders found.</p>
+      ) : (
+        <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+          {orders.map((order) => (
+            <div key={order._id} className="mb-4 border-b pb-4">
+              <div className="flex justify-between items-center mb-2">
+                <div>
+                  <p className="font-bold text-lg">Order ID: {order._id}</p>
+                  <p className="text-sm text-gray-600">Date: {new Date(order.createdAt).toLocaleDateString()}</p>
+                  <p className="text-sm text-gray-600">Status: <span className={`font-semibold ${order.status === 'Delivered' ? 'text-green-600' : 'text-yellow-600'}`}>{order.status}</span></p>
+                </div>
+                <p className="font-semibold text-xl">₹{order.total}</p>
+              </div>
+              <div className="ml-4">
+                <h2 className="font-bold text-md mb-2">Items:</h2>
+                <ul className="list-disc ml-6">
+                  {order.cartItems.map((item) => (
+                    <li key={item.id} className="mb-1">
+                      <span className="font-medium">{item.name}</span> - {item.quantity} x ₹{item.price}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* <div className="ml-4 mt-4">
+                <h2 className="font-bold text-md mb-2">Shipping Details:</h2>
+                <p className="text-sm text-gray-700">{order.shippingDetails.address}</p>
+                <p className="text-sm text-gray-700">{order.shippingDetails.city}, {order.shippingDetails.state}</p>
+                <p className="text-sm text-gray-700">{order.shippingDetails.zipCode}</p>
+                <p className="text-sm text-gray-700">{order.shippingDetails.country}</p>
+              </div> */}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
-export default History;
+export default OrderHistory;

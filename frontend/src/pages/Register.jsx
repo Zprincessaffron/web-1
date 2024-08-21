@@ -19,6 +19,7 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
+    phone: ""
     // recommendations: [],
     // cuisine: "",
     // saffronDishes: [],
@@ -91,6 +92,7 @@ const Register = () => {
       name,
       email,
       password,
+      phone,
       // recommendations,
       // cuisine,
       // saffronDishes,
@@ -122,6 +124,7 @@ const Register = () => {
         name,
         email,
         password,
+        phone
         // recommendations,
         // cuisine,
         // saffronDishes,
@@ -155,6 +158,7 @@ const Register = () => {
           name: "",
           email: "",
           password: "",
+          phone: ""
           // recommendations: [],
           // cuisine: "",
           // saffronDishes: [],
@@ -283,6 +287,16 @@ const Register = () => {
           placeholder="Type your password"
           value={data.password}
           onChange={(e) => setData({ ...data, password: e.target.value })}
+        />
+        <br />
+
+        <label htmlFor="">Phone</label>
+        <input
+          type="text"
+          name=""
+          placeholder="Type your mobile number"
+          value={data.phone}
+          onChange={(e) => setData({ ...data, phone: e.target.value })}
         />
         <br />
 

@@ -9,8 +9,10 @@ import CartModal from "./CartModel";
 import { motion } from "framer-motion";
 import { CartContext } from "../../context/CartContext";
 import CartIcon from "./CartIcon.jsx";
+import { userContext } from "../../context/UserContext.jsx";
 
 const ProductCard = () => {
+  const { user } = useContext(userContext);
   const { cartItems, addToCart } = useContext(CartContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [quantities, setQuantities] = useState({});
@@ -23,25 +25,37 @@ const ProductCard = () => {
     navigate(`/product/${id}`);
   };
 
-  const handleIncrement = (id, e) => {
+  const getDefaultQuantity = (product) => {
+    if (user?.role === "wholesaler") {
+      if (product.weight === 2) return 5;
+      if (product.weight === 5) return 2;
+    }
+    return 1; // Default quantity for regular users
+  };
+
+  const handleIncrement = (product, e) => {
     e.stopPropagation(); // Prevent click event from bubbling up
     setQuantities((prev) => ({
       ...prev,
-      [id]: (prev[id] || 1) + 1,
+      [product.id]: (prev[product.id] || getDefaultQuantity(product)) + 1,
     }));
   };
 
-  const handleDecrement = (id, e) => {
+  const handleDecrement = (product, e) => {
     e.stopPropagation(); // Prevent click event from bubbling up
-    setQuantities((prev) => ({
-      ...prev,
-      [id]: Math.max((prev[id] || 1) - 1, 1),
-    }));
+    setQuantities((prev) => {
+      const defaultQty = getDefaultQuantity(product);
+      return {
+        ...prev,
+        [product.id]: Math.max((prev[product.id] || defaultQty) - 1, defaultQty),
+      };
+    });
   };
 
   const handleAddToCart = (product, e) => {
     e.stopPropagation(); // Prevent click event from bubbling up
-    addToCart({ ...product, quantity: quantities[product.id] || 1 });
+    const defaultQty = getDefaultQuantity(product);
+    addToCart({ ...product, quantity: quantities[product.id] || defaultQty });
   };
 
   const settings = {
@@ -89,7 +103,7 @@ const ProductCard = () => {
         {products.map((product) => (
           <motion.div
             key={product.id}
-            className="p-4"
+            className="py-10 px-4"
             initial={{ opacity: 0.5, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeInOut" }}
@@ -103,7 +117,7 @@ const ProductCard = () => {
               <div className="relative group">
                 <a href="#">
                   <img
-                    className="w-full h-64 object-cover rounded-t-lg"
+                    className="w-full h-64 object-cover rounded-lg"
                     src={product.img}
                     alt="product image"
                   />
@@ -148,19 +162,20 @@ const ProductCard = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-bold text-gray-900 dark:text-white">
-                    ₹{product.price}
+                    ₹{product.price} / <span className="font-normal text-md">{product.weight}g</span>
                   </span>
+                  
                   <div className="flex items-center">
                     <button
                       className="text-white bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-2"
-                      onClick={(e) => handleDecrement(product.id, e)}
+                      onClick={(e) => handleDecrement(product, e)}
                     >
                       -
                     </button>
-                    <span className="text-lg font-medium mx-2">{quantities[product.id] || 1}</span>
+                    <span className="text-lg font-medium mx-2">{quantities[product.id] || getDefaultQuantity(product)}</span>
                     <button
                       className="text-white bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-2"
-                      onClick={(e) => handleIncrement(product.id, e)}
+                      onClick={(e) => handleIncrement(product, e)}
                     >
                       +
                     </button>
@@ -176,10 +191,10 @@ const ProductCard = () => {
           Click this button to know your matching products
         </p>
         <button
-          className="bg-red-600 text-white hover:bg-red-700 focus:ring-4 focus:ring-red-500 font-medium rounded-lg text-lg px-6 py-3 text-center transition-all duration-300"
+          className="bg-red-500 text-white hover:bg-red-600 px-6 py-3 rounded-lg shadow-lg transition duration-300"
           onClick={() => navigate("/chatbot")}
         >
-          Product Recommender
+          Ask Now
         </button>
       </div>
     </div>

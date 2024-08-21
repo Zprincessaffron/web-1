@@ -4,6 +4,7 @@ import authRoutes from './routes/authRoutes.js'
 import {mongoose} from "mongoose";
 import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
+import jwt from "jsonwebtoken"
 
 const app = express();
 dotenv.config();
@@ -31,6 +32,7 @@ mongoose.connect(process.env.MONGO_URL)
 .catch((err)=> console.log('Database not Connected' , err))
 
 const PORT = process.env.PORT;
+
 
 app.use('/', authRoutes );
 

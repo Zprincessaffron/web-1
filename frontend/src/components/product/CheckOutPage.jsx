@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { CartContext } from "../../context/CartContext";
 import { FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // Import Axios
+import axios from "axios";
 import { userContext } from "../../context/UserContext";
 
 const CheckoutPage = () => {
@@ -19,9 +19,10 @@ const CheckoutPage = () => {
     mobile: "",
     landmark: "",
   });
+  const [orderID, setOrderID] = useState(null); // State to store the order ID
+
   const navigate = useNavigate();
 
-  // Calculate total price of cart items
   const calculateTotalPrice = () => {
     return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   };
@@ -34,36 +35,46 @@ const CheckoutPage = () => {
     });
   };
 
+  const [error, setError] = useState(null);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const totalPrice = calculateTotalPrice(); // Calculate the total price
-
+      const totalPrice = calculateTotalPrice();
+  
       const orderData = {
         shippingDetails,
         items: cartItems,
-        total: totalPrice, // Include total price in the order data
-        user: user
+        total: totalPrice,
+        user: user,
       };
-
-      console.log("Order Data Sent to Backend:", orderData); // Log orderData
-
-      const response = await axios.post('/orders', orderData, {
+  
+      const response = await axios.post("/orders", orderData, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-
+  
       if (response.status === 200) {
-        console.log("Order placed successfully:", response.data);
-        navigate("/payment", { state: { cartItems } });
+        // Ensure the response contains the _id
+        if (response.data && response.data._id) {
+          setOrderID(response.data._id);
+         
+          navigate("/payment", {
+            state: { orderID: response.data._id, cartItems },
+          });
+        } else {
+          throw new Error("Order ID not found in response");
+        }
       } else {
         throw new Error("Failed to place order");
       }
     } catch (error) {
+      setError(error.message);
       console.error("Error placing order:", error);
     }
   };
+  
 
   return (
     <div className="container mx-auto my-10 p-5 max-w-7xl">
@@ -288,6 +299,7 @@ const CheckoutPage = () => {
           )}
         </motion.div>
       </div>
+      {error && <p className="text-red-500">{error}</p>}
     </div>
   );
 };

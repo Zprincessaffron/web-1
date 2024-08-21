@@ -5,9 +5,11 @@ import CartIcon from "./CartIcon";
 import CartModal from "../../components/product/CartModel.jsx";
 import { motion, useAnimation } from "framer-motion";
 import { CartContext } from "../../context/CartContext"; // Adjust the path as needed
-import productBG from "../../assets/Images/productbg.jpeg"
+import { userContext } from "../../context/UserContext.jsx";
+import productBG from "../../assets/Images/productbg.jpeg";
 
 const ProductSection = () => {
+  const { user } = useContext(userContext);
   const { id } = useParams();
   const productId = parseInt(id, 10); // Ensure ID is a number
 
@@ -22,6 +24,17 @@ const ProductSection = () => {
   const [mainImage, setMainImage] = useState(product.img);
   const [extraImages, setExtraImages] = useState(product.extraImages || []);
   const [quantity, setQuantity] = useState(1);
+
+  // Set default quantity based on user role and product pack size
+  useEffect(() => {
+    if (user && user.role === 'wholesaler') {
+      if (product.weight === 2) {
+        setQuantity(5); // Default quantity for 2g pack
+      } else if (product.weight === 5) {
+        setQuantity(2); // Default quantity for 5g pack
+      }
+    }
+  }, [user, product.weight]);
 
   const handleAddToCart = () => {
     const existingItem = cartItems.find((item) => item.id === product.id);
@@ -44,7 +57,18 @@ const ProductSection = () => {
   };
 
   const handleQuantityChange = (amount) => {
-    setQuantity((prevQuantity) => Math.max(prevQuantity + amount, 1)); // Ensure quantity is at least 1
+    // Prevent decrementing below default quantity for wholesalers
+    if (user && user.role === 'wholesaler') {
+      const defaultQuantity = product.weight === 2 ? 5 : 2;
+      if (amount > 0) {
+        setQuantity((prevQuantity) => prevQuantity + amount);
+      } else if (amount < 0) {
+        setQuantity((prevQuantity) => Math.max(prevQuantity + amount, defaultQuantity));
+      }
+    } else {
+      // Normal user logic: decrement and increment as usual
+      setQuantity((prevQuantity) => Math.max(prevQuantity + amount, 1));
+    }
   };
 
   // Animation controls
@@ -73,8 +97,8 @@ const ProductSection = () => {
 
   return (
     <motion.div
-      className="container mx-auto px-4 py-6 bg-cover bg-center bg-no-repeat "
-      // style={{ backgroundImage: `url(${productBG})` }}
+      className="container mx-auto px-4 py-6 bg-fixed bg-center bg-repeat"
+      style={{ backgroundImage: `url(${productBG})` }} 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
@@ -85,7 +109,7 @@ const ProductSection = () => {
         onClose={handleCloseModal}
         updateQuantity={updateQuantity}
       />
-      <div className="flex flex-col md:flex-row shadow-lg rounded-lg bg-white bg-opacity-90 p-4">
+      <div className="flex flex-col md:flex-row shadow-lg rounded-lg  bg-opacity-90 p-4">
         {/* Main Image */}
         <div className="md:w-1/2 p-4 flex justify-center">
           <motion.img
@@ -140,7 +164,7 @@ const ProductSection = () => {
             ))}
           </div>
           <p className="text-xl font-bold mb-4 text-saffron">
-            ₹{product.price}
+            ₹{product.price} / <span className="font-normal text-md">{product.weight}g</span>
           </p>
           <div className="flex items-center mb-4">
             <button
@@ -196,7 +220,7 @@ const ProductSection = () => {
         animate={controlsReview}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-2xl font-bold mb-4 text-saffron">
+        <h2 className="text-3xl font-bold mb-4 text-saffron text-white">
           Customer Reviews
         </h2>
         <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
@@ -236,14 +260,14 @@ const ProductSection = () => {
         animate={controlsRelated}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-2xl font-bold mb-4 text-saffron">
+        <h2 className="text-3xl font-bold mb-4 text-saffron text-white">
           Related Products
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {products.slice(0, 3).map((relatedProduct) => (
             <motion.div
               key={relatedProduct.id}
-              className="border rounded-lg overflow-hidden shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105"
+              className="border rounded-lg bg-white overflow-hidden shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105"
               // {/* Slowed down hover animation */}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

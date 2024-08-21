@@ -1,17 +1,54 @@
+import { hashPassword } from "../helpers/auth.js";
 import Marketer from "../models/marketer.js";
 
 export const registerMarketer = async (req, res) => {
-  const marketer = new Marketer({
-    name: req.body.name,
-    email: req.body.email,
-    phone: req.body.phone,
-  });
-
+  const {
+    name,
+    email,
+    password,
+    phone
+  } = req.body;
   try {
-    const newMarketer = await marketer.save();
-    res.status(201).json(newMarketer);
+    // check if name was entered
+    if (!name) {
+      return res.json({
+        error: "Name is required",
+      });
+    }
+    //check if password is good
+    if (!password || password.length < 6) {
+      return res.json({
+        error: "Password is required and should be at least 6 Characters",
+      });
+    }
+
+    // check if phone number was entered
+    if(!phone){
+      return res.json({
+        error: "Mobile Number is required"
+      })
+    }
+
+    // check if email exist
+    const exist = await Marketer.findOne({ email });
+    if (exist) {
+      return res.json({
+        error: "Email already Exist",
+      });
+    }
+
+    const hashedPassword = await hashPassword(password);
+    const user = await Marketer.create({
+      name,
+      email,
+      password: hashedPassword,
+      phone
+    });
+    // Exclude password in response
+    const { password: _, ...userWithoutPassword } = user.toObject();
+    res.json(userWithoutPassword);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    console.log(error);
   }
 };
 

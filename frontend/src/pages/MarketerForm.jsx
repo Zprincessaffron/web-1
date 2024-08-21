@@ -1,4 +1,3 @@
-// src/components/MarketerForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -7,21 +6,23 @@ import { useNavigate } from 'react-router-dom';
 const MarketerForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState(''); // New state for password
   const [phone, setPhone] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const marketer = { name, email, phone };
+    const marketer = { name, email, password, phone };
 
     try {
       const response = await axios.post('/marketer', marketer);
-      const { _id } = response.data; // Get the _id from the response
+      // const { _id } = response.data; // Get the _id from the response
       setName('');
       setEmail('');
+      setPassword(''); // Clear password field after submission
       setPhone('');
       toast.success("Marketer enrolled successfully");
-      navigate(`/marketer-dashboard/${_id}`); // Navigate with the _id in the URL
+      navigate("/login"); // Navigate with the _id in the URL
     } catch (err) {
       console.error(err);
       toast.error("Error enrolling marketer");
@@ -40,6 +41,7 @@ const MarketerForm = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
             />
           </div>
           <div>
@@ -49,6 +51,18 @@ const MarketerForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700">Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+              minLength="6" // Ensure the password is at least 6 characters long
             />
           </div>
           <div>
@@ -58,6 +72,7 @@ const MarketerForm = () => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
             />
           </div>
           <button

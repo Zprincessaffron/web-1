@@ -1,32 +1,90 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Settings = () => {
-  const [notifications, setNotifications] = useState("Email");
   const [personalInfo, setPersonalInfo] = useState({
-    name: "John Doe",
-    email: "john.doe@example.com",
+    name: "",
+    phone: "",
+    email: "", // Added email to the initial state
   });
+  const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Fetch the current user profile data from the backend
+    const fetchProfile = async () => {
+      try {
+        const response = await axios.get("/profile", {
+          withCredentials: true, // To include cookies in the request
+        });
+        if (response.data) {
+          setPersonalInfo(response.data);
+        } else {
+          console.error("No user data found.");
+        }
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setPersonalInfo((prevInfo) => ({
-      ...prevInfo,
-      [name]: value,
-    }));
+    setPersonalInfo((prevInfo) => {
+      const updatedInfo = {
+        ...prevInfo,
+        [name]: value,
+      };
+      console.log("Updated personal info:", updatedInfo);
+      return updatedInfo;
+    });
   };
 
-  const handleNotificationChange = (e) => {
-    setNotifications(e.target.value);
+  const handleSave = async () => {
+    try {
+      const response = await axios.put("/profile", personalInfo, {
+        withCredentials: true, // Include cookies for authentication
+      });
+
+      if (response.status === 200) {
+        setIsEditing(false); // Exit edit mode after saving
+      } 
+    } catch (error) {
+      console.error("Error saving profile data:", error);
+      // Optionally show an error message
+    }
   };
 
-  const handleSave = () => {
-    // Add logic to save changes
-    console.log("Changes saved:", { notifications, personalInfo });
+  const handleCancel = () => {
+    // Reload the profile data to reset any unsaved changes
+    const fetchProfile = async () => {
+      try {
+        const response = await axios.get("/profile", {
+          withCredentials: true, // To include cookies in the request
+        });
+        if (response.data) {
+          setPersonalInfo(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+    };
+
+    fetchProfile();
+    setIsEditing(false); // Exit edit mode
   };
 
-  const handleLogout = () => {
-    // Add logic to handle logout
-    console.log("User logged out");
+  const handleLogout = async () => {
+    try {
+      await axios.post("/logout", {}, { withCredentials: true });
+      // Redirect to login page
+      navigate("/login"); 
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
   };
 
   return (
@@ -46,7 +104,10 @@ const Settings = () => {
                 name="name"
                 value={personalInfo.name}
                 onChange={handleInputChange}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                disabled={!isEditing}
+                className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 ${
+                  isEditing ? "bg-white" : "bg-gray-100"
+                }`}
               />
             </div>
             <div>
@@ -58,37 +119,56 @@ const Settings = () => {
                 name="email"
                 value={personalInfo.email}
                 onChange={handleInputChange}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                disabled
+                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm bg-gray-100"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Phone
+              </label>
+              <input
+                type="text"
+                name="phone"
+                value={personalInfo.phone}
+                onChange={handleInputChange}
+                disabled={!isEditing}
+                className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 ${
+                  isEditing ? "bg-white" : "bg-gray-100"
+                }`}
               />
             </div>
           </div>
         </div>
 
-        <div>
-          <h3 className="text-lg font-semibold mb-4">
-            Notification Preferences
-          </h3>
-          <select
-            value={notifications}
-            onChange={handleNotificationChange}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-          >
-            <option value="Email">Email</option>
-            <option value="SMS">SMS</option>
-          </select>
-        </div>
-
         <div className="flex justify-between">
-          <button
-            onClick={handleSave}
-            className="bg-indigo-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-indigo-600"
-          >
-            Save Changes
-          </button>
+          {isEditing ? (
+            <>
+              <button
+                onClick={handleSave}
+                className="bg-indigo-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-indigo-600"
+              >
+                Save Changes
+              </button>
+              <button
+                onClick={handleCancel}
+                className="bg-gray-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-gray-600"
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => setIsEditing(true)}
+              className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-600"
+            >
+              Edit
+            </button>
+          )}
 
           <button
             onClick={handleLogout}
-            className="bg-red-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-red-600 mt-4"
+            className="bg-red-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-red-600"
           >
             Log Out
           </button>

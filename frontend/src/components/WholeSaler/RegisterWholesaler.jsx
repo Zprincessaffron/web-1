@@ -1,7 +1,7 @@
-// src/components/RegisterWholesaler.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import toast from 'react-hot-toast'; // Import toast for notifications
 
 const RegisterWholesaler = () => {
   const navigate = useNavigate();
@@ -13,6 +13,7 @@ const RegisterWholesaler = () => {
     phone: '',
     additionalMobile: '',
     businessName: '',
+    password: '', // Add password field
   });
   const [error, setError] = useState(null);
 
@@ -34,8 +35,18 @@ const RegisterWholesaler = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/wholesaler', { ...formData, marketerId : id });
-      navigate(`/marketer-dashboard/${id}`); // Redirect to the marketer's dashboard
+      const response = await axios.post('/wholesaler', { ...formData, marketerId: id });
+
+      if (response.data.error) {
+        // Display error message using toast
+        toast.error(response.data.error);
+      } else {
+        // Display success message using toast
+        toast.success("Wholesaler registered successfully!");
+        navigate("/login");
+        // Redirect to the marketer's dashboard
+        // navigate(`/marketer-dashboard/${id}`);
+      }
     } catch (err) {
       setError('Error registering wholesaler.');
       console.error('Error registering wholesaler:', err);
@@ -102,6 +113,18 @@ const RegisterWholesaler = () => {
               id="businessName"
               name="businessName"
               value={formData.businessName}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="password" className="block text-gray-700">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
               onChange={handleChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               required

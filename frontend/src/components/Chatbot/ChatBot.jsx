@@ -270,7 +270,7 @@ const Chatbot = () => {
         ...newMessages,
         { text: useCaseQuestions.recommendation.question, type: "bot" },
       ]);
-      speak(useCaseQuestions.recommendation.question); // Read aloud
+      speak(useCaseQuestions.recommendation.question); 
       setStep(0);
       return;
     }
@@ -314,7 +314,7 @@ const Chatbot = () => {
             type: "bot",
           },
         ]);
-        speak("Invalid use cases selected. Please try again."); // Read aloud
+        speak("Invalid use cases selected. Please try again."); 
       }
       return;
     }
@@ -335,7 +335,7 @@ const Chatbot = () => {
           ...newMessages,
           { text: nextQuestion.question, type: "bot" },
         ]);
-        speak(nextQuestion.question); // Read aloud
+        speak(nextQuestion.question); 
         setStep(step + 1);
       } else {
         setMessages([
@@ -345,7 +345,7 @@ const Chatbot = () => {
             type: "bot",
           },
         ]);
-        speak("Thank you for your input! We will process your data now."); // Read aloud
+        speak("Thank you for your input! We will process your data now.");
 
         // Send data to backend
         try {
@@ -365,7 +365,7 @@ const Chatbot = () => {
           speak(
             "Thank you for your responses. We have submitted your data.",
             () => {
-              speak(suggestionText); // Read aloud the suggestion from the model
+              speak(suggestionText); 
             }
           );
         } catch (error) {
@@ -377,7 +377,7 @@ const Chatbot = () => {
               type: "bot",
             },
           ]);
-          speak("There was an error submitting your data. Please try again."); // Read aloud error message
+          speak("There was an error submitting your data. Please try again."); 
         }
       }
     }
