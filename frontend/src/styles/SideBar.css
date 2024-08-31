@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'Riviera Nights';
+    src: url('../fonts/RivieraNightsTrial-Ultralight.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+.sidebar_main{
+    font-family: 'Riviera Nights';
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.416);
+    backdrop-filter: blur(30px);
+    width: 35vw;
+    height: 100vh;
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    align-items: end;
+    transition: all 0.3s ease-in-out;
+    float: left;
+
+
+
+}
+.sidebar_main.true{
+    width: 35vw;
+    left: 0;
+
+}
+.sidebar_main.false{
+    width: 0;
+    left: 0;
+}
+.sidebar_main>a{
+    text-decoration: none;
+    font-weight: 600;
+    color: rgb(225, 153, 153);
+    font-size: 20px;
+}
+.sidebar_div1{
+    height: 10%;
+    padding: 20px;
+    color: white;
+    font-size: 1.5rem;
+
+}
+.sidebar_div2{
+    width: 100%;
+    padding-right: 20px;
+
+
+}
+.sidebar_div2>div{
+    color: white;
+    width: 100%;
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+    margin: 30px;
+    font-family: 'Riviera Nights';
+    z-index: 3;
+    padding-left: 30%;
+    cursor: pointer;
+}
+#sidebar_kh{
+    font-weight: bolder;
+    
+}
+.sidebar_arrow{
+    margin-right: 5px;
+}

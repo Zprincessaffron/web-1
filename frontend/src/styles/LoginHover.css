@@ -1,0 +1,98 @@
+.loginhover_main{
+    background-color: white;
+    position: fixed;
+    top: 10vh;
+    right: 5vw;
+    width: 20vw;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+    border: 0.5px solid rgba(128, 128, 128, 0.436);
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+.loginhover_div1{
+    text-align: right;
+    margin: 10px;
+}
+.loginhover_div2{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.loginhover_div2>div{
+    font-size: 12px;
+    text-align: center;
+    font-weight: 500;
+
+}
+.loginhover_div2>p{
+    font-size: 13px;
+    font-weight: 300;
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 15px;
+
+    
+}
+.loginhover_div2>button{
+    padding: 10px 50px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.loginhover_div2>button:hover{
+    padding: 10px 50px;
+    background-color: rgb(48, 48, 48);
+    color: rgb(255, 255, 255);
+    overflow-y: hidden;
+    transition: all 0.3s ease;
+}
+.loginhover_div2>button:active{
+    scale: 95%;
+}
+.loginhover_div3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-color: rgba(104, 104, 104, 0.196);
+
+}
+.loginhover_div3>div{
+    font-size: 12px;
+    text-align: center;
+    font-weight: 500;
+}
+.loginhover_div3>p{
+    font-size: 13px;
+    font-weight: 300;
+    width: 90%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.loginhover_div3>button{
+    padding: 10px 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
+.loginhover_div3>button:hover{
+    background-color: rgb(212, 212, 212);
+
+}
+.loginhover_div3>button:active{
+    scale: 97%;
+
+}

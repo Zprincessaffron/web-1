@@ -387,21 +387,21 @@ const Chatbot = () => {
     messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  return (
-    <div className="flex flex-col h-screen bg-gray-100 p-4">
-      <div className="flex items-center space-x-4 mb-4">
+  return ( 
+    <div className="chat-container">
+      <div className="chat-header">
         <button
           onClick={() => navigate("/")}
-          className="p-2 rounded bg-gray-300 hover:bg-gray-400 transition-colors duration-200"
+          className="chat-back-button"
         >
-          <MdArrowBack className="text-xl text-gray-700" />
+          <MdArrowBack className="chat-back-icon" />
         </button>
-        <h1 className="text-xl font-semibold text-gray-800">Chatbot</h1>
-        <div className="flex-1"></div>
+        <h1 className="chat-title">Chatbot</h1>
+        <div className="chat-spacer"></div>
       </div>
 
-      <div className="flex-1 overflow-auto p-2 bg-white border border-gray-300 rounded-lg">
-        <div className="flex flex-col space-y-4">
+      <div className="chat-message-area">
+        <div className="chat-message-list">
           {messages.map((message, index) => (
             <motion.div
               key={index}
@@ -409,25 +409,21 @@ const Chatbot = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.3 }}
-              className={`my-2 p-3 rounded-lg ${
+              className={`chat-message ${
                 message.type === "bot"
-                  ? "bg-blue-100 text-blue-900"
+                  ? "chat-bot-message"
                   : message.type === "suggestion"
-                  ? "bg-yellow-100 text-yellow-800 suggestion-message"
-                  : "bg-gray-200 text-gray-800"
-              } ${
-                message.type === "user"
-                  ? "flex flex-row-reverse items-center"
-                  : "flex items-center"
-              }`}
+                  ? "chat-suggestion-message"
+                  : "chat-user-message"
+              } ${message.type === "user" ? "chat-user-flex" : "chat-bot-flex"}`}
             >
               {message.type === "user" && (
-                <img src={Client} width={70} alt="" className="ml-4 rounded-full shadow-sm" />
+                <img src={Client} width={70} alt="" className="chat-user-avatar" />
               )}
               {message.type !== "user" && (
-                <img src={SalesExecutive} width={100} alt="" className="mr-4 rounded-full shadow-sm" />
+                <img src={SalesExecutive} width={100} alt="" className="chat-bot-avatar" />
               )}
-              <span className="text-base">{message.text}</span>
+              <span className="chat-message-text">{message.text}</span>
             </motion.div>
           ))}
           {suggestion && <BotProductList />}
@@ -435,12 +431,12 @@ const Chatbot = () => {
         <div ref={messageEndRef} />
       </div>
 
-      <div className="flex items-center mt-4 border-t border-gray-300 pt-2 bg-gray-100 rounded-b-lg">
+      <div className="chat-input-area">
         <button
           onClick={handleMicrophoneClick}
-          className="p-2 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
+          className="chat-microphone-button"
         >
-          <FaMicrophoneAlt className="text-lg" />
+          <FaMicrophoneAlt className="chat-microphone-icon" />
         </button>
         <input
           type="text"
@@ -449,25 +445,25 @@ const Chatbot = () => {
           onKeyDown={(e) => {
             if (e.key === "Enter") handleSubmit();
           }}
-          className="flex-1 p-2 ml-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200"
+          className="chat-input"
         />
         <button
           onClick={() => handleSubmit()}
-          className="p-2 ml-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition-colors duration-200"
+          className="chat-send-button"
         >
-          <IoSend className="text-lg" />
+          <IoSend className="chat-send-icon" />
         </button>
       </div>
 
       {currentQuestions.length > 0 && step > 0 && (
-        <div className="mt-4">
+        <div className="chat-question-area">
           {currentQuestions[step - 1].options && (
-            <div className="flex flex-wrap space-x-2">
+            <div className="chat-option-list">
               {currentQuestions[step - 1].options.map((option, index) => (
                 <motion.button
                   key={index}
                   onClick={() => handleOptionClick(option)}
-                  className="p-2 bg-gray-200 text-gray-800 border border-gray-300 rounded-lg hover:bg-gray-300 transition-colors duration-200"
+                  className="chat-option-button"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}

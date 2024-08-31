@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { loginUser, registerUser, test, getProfile, getUserData, getAdmin, authenticate, authorize } from '../controllers/authController.js';
+import { loginUser, registerUser, test, getProfile, getUserData, getAdmin, authenticate, authorize,verifyOTP,resendOTP } from '../controllers/authController.js';
 import { getAllUsers, updateProfile, userLogout } from '../controllers/userController.js';
 import { analyzeData } from '../controllers/recommenderController.js';
 import { getAllMarketers, getMarketer, registerMarketer } from '../controllers/marketerController.js';
@@ -29,6 +29,8 @@ router.post('/logout', userLogout);
 router.get('/profile', authenticate ,getProfile);
 router.put('/profile', authenticate ,updateProfile)
 
+router.post('/verify-otp', verifyOTP);
+router.post('/resend-otp', resendOTP);
 
 router.get('/getuserdata', getUserData);
 

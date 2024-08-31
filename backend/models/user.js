@@ -15,7 +15,7 @@ const userSchema = new Schema({
   },
   phone: {
     type: String,
-    required: true,
+    required: false,
     unique: true
   },
   uniqueId: { type: String, unique: true },
@@ -29,6 +29,9 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  otp: { type: String },
+  otpExpires: { type: Date },
+  isVerified: { type: Boolean, default: false },
 });
 
 const UserModel = mongoose.model("User", userSchema);

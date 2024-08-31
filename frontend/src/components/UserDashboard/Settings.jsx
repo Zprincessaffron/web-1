@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import '../../styles/UserDashboard.css'
 
 const Settings = () => {
   const [personalInfo, setPersonalInfo] = useState({
@@ -88,71 +89,60 @@ const Settings = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold">Settings</h2>
+    <div className="set-container">
 
-      <div className="bg-white p-6 rounded-lg space-y-6">
+      <div className="set-card">
         <div>
-          <h3 className="text-lg font-semibold mb-4">Personal Information</h3>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Name
-              </label>
+          <h3 className="set-subtitle">SETTINGS</h3>
+          <div className="set-form">
+            <div className="set-field">
+              <label className="set-label">Name</label>
               <input
                 type="text"
                 name="name"
                 value={personalInfo.name}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 ${
-                  isEditing ? "bg-white" : "bg-gray-100"
-                }`}
+                className={`set-input ${isEditing ? "set-input-edit" : "set-input-view"}`}
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
+            <div className="set-field">
+              <label className="set-label">Email</label>
               <input
                 type="email"
                 name="email"
                 value={personalInfo.email}
                 onChange={handleInputChange}
                 disabled
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm bg-gray-100"
+                className="set-input set-input-view"
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Phone
-              </label>
+            <div className="set-field">
+              <label className="set-label">Phone</label>
               <input
                 type="text"
                 name="phone"
                 value={personalInfo.phone}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 ${
-                  isEditing ? "bg-white" : "bg-gray-100"
-                }`}
+                className={`set-input ${isEditing ? "set-input-edit" : "set-input-view"}`}
               />
             </div>
           </div>
         </div>
 
-        <div className="flex justify-between">
+        <div className="set-actions">
           {isEditing ? (
             <>
               <button
                 onClick={handleSave}
-                className="bg-indigo-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-indigo-600"
+                className="set-button set-button-save"
               >
                 Save Changes
               </button>
               <button
                 onClick={handleCancel}
-                className="bg-gray-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-gray-600"
+                className="set-button set-button-cancel"
               >
                 Cancel
               </button>
@@ -160,7 +150,7 @@ const Settings = () => {
           ) : (
             <button
               onClick={() => setIsEditing(true)}
-              className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-600"
+              className="set-button set-button-edit"
             >
               Edit
             </button>
@@ -168,7 +158,7 @@ const Settings = () => {
 
           <button
             onClick={handleLogout}
-            className="bg-red-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-red-600"
+            className="set-button set-button-logout"
           >
             Log Out
           </button>

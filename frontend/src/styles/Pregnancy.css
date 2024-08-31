@@ -1,0 +1,140 @@
+.pu_div1{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+
+
+}
+.pu_div1>h1{
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+}
+.pu_main h1{
+    letter-spacing: 0.5rem;
+}
+.pu_main{
+    background-color: rgb(191, 202, 180)
+}
+.pu_div2 p,.pu_div4 p{
+    color: black;
+    letter-spacing: 1.5px;
+    word-spacing: 2px;
+    line-height: 25px;
+}
+.pu_div2 h1,.pu_div4 h1{
+    color: black;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.pu_div1>h1{
+    font-size: 3.5rem;
+}
+.pu_div1>p{
+    width: 60%;
+    text-align: center;
+    color: white;
+    letter-spacing: 1.5px;
+    word-spacing: 2px;
+}
+.pu_div2{
+    margin-bottom: 10vh;
+    margin-top: 10vh;
+}
+.pu_div2>h1{
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+.pu_div2>div{
+    margin: 5vh 0 10vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.pu_div2>div>h1{
+    text-transform: uppercase;
+    font-size: 1.2rem;
+
+    margin-bottom: 3vh;
+}
+.pu_div2>div>p{
+    width: 60%;
+    letter-spacing: 1.5px;
+    word-spacing: 2px;
+    line-height: 25px;
+    text-align: center;
+}
+.pu_div4>h1{
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+.pu_div4{
+    margin-top: 10vh;
+}
+.pu_div4>div{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 5vw;
+
+
+}
+.pu_div4>div>div{
+    
+    width: 40%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+
+
+}
+
+.pu_div4>div>div>p{
+    width: 80%;
+    text-align: center
+}
+
+.pu_div5>p{
+    width: 80%;
+    text-align: center;
+    color: black;
+    letter-spacing: 2px;
+    line-height: 30px;
+    color: rgb(0, 0, 0);
+    text-transform: capitalize;
+    
+}
+.pu_div5{
+    display: flex;
+    justify-content: center;
+
+
+align-items: center;
+background-color: rgba(112, 158, 115, 0.49);
+padding: 10vh 0;
+
+}
+.pu_img1{
+    height: 300px;
+    margin-bottom: 10px;
+}
+.culinary_subheadings{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.pu_div4 h2{
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 0.3rem;
+}

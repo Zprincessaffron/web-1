@@ -1,0 +1,119 @@
+.Navbar_main{
+    width: 100vw;
+    height: 7vh;
+    background: none;
+    top: 0;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    z-index: 2;
+    transition: all 0.3s ease;
+    
+}
+.Navbar_main.true{
+    background-color: white;
+    color: rgb(0, 0, 0);
+
+}
+.Navbar_main.true>div{
+    color: rgb(0, 0, 0);
+}
+.Navbar_div1{
+    display: flex;
+    width: 20%;
+    padding-left: 20px;
+    color: white;
+    cursor: pointer;
+
+}
+.Navbar_div1>img{
+    width: 50%;
+    margin-left: 10px;
+}
+.Navbar_div2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    width: 70%;
+    color: white;
+    font-weight: 350;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+
+    
+}
+.Navbar_div2.true{
+    color: black;
+}
+.Navbar_div3>button{
+
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: medium;
+    border: none;
+    font-size: larger;
+    background: none;
+    cursor: pointer;
+    color: white;
+    
+
+}
+.Navbar_div3{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.Navbar_div3.true>button{
+    color: black;
+}
+.profile_div{
+    color: white;
+    font-size: 0.8rem;
+}
+.Navbar_div3{
+
+}
+/* ////////////  profile_hover styles   /////////////////// */
+.ph_main{
+    position: fixed;
+    z-index: 2;
+    top: 7vh; 
+    right: 5vw;
+    background-color: white;
+    width: 15vw;
+    gap: 5px;
+    padding: 10px;
+}
+.ph_main>div{
+    color: black;
+    letter-spacing: 1px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.16);
+    cursor: pointer;
+}
+.ph_main>div:hover{
+    background-color: rgba(47, 46, 46, 0.915);
+    color: white;
+}
+@media only screen and (max-width: 480px) {
+    .Navbar_div2{
+        font-size: 10px;
+
+    }
+    .Navbar_div3{
+        font-size: 8px;
+    }
+}

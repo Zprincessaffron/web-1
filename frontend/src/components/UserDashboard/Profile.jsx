@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../../styles/UserDashboard.css'
 
 const Profile = () => {
   const [personalInfo, setPersonalInfo] = useState({
@@ -29,26 +30,25 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold">Profile</h2>
-      <div className="bg-white p-6 rounded-lg">
-        <h3 className="text-lg font-semibold mb-4">Personal Information</h3>
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Name</label>
-            <p className="mt-1 block w-full border-gray-300 rounded-md shadow-sm bg-gray-100 p-2">
+    <div className="profile-container">
+      <div className="profile-card">
+        <h3 className="profile-subtitle">Personal Information</h3>
+        <div className="profile-info">
+          <div className="profile-field">
+            <label className="profile-label">Name</label>
+            <p className="profile-value">
               {personalInfo.name}
             </p>
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Email</label>
-            <p className="mt-1 block w-full border-gray-300 rounded-md shadow-sm bg-gray-100 p-2">
+          <div className="profile-field">
+            <label className="profile-label">Email</label>
+            <p className="profile-value">
               {personalInfo.email}
             </p>
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Phone</label>
-            <p className="mt-1 block w-full border-gray-300 rounded-md shadow-sm bg-gray-100 p-2">
+          <div className="profile-field">
+            <label className="profile-label">Phone</label>
+            <p className="profile-value">
               {personalInfo.phone}
             </p>
           </div>

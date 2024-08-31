@@ -2,10 +2,12 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import { Toaster } from "react-hot-toast";
+import Register from "./components/login/Register";
+import Login from "./components/login/Login";
 import { UserContextProvider } from "./context/UserContext";
+import { UserProvider } from "./context/MainContext";
+import 'react-toastify/dist/ReactToastify.css';
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProductSection from "./components/product/ProductSection";
@@ -39,16 +41,72 @@ import DefaultDashboard from "./components/Admin/DefaultDashboard";
 import WholesalerOrders from "./components/Admin/WholesalerOrders";
 import AdminProfile from "./components/Admin/AdminProfile";
 import AdminSetting from "./components/Admin/AdminSetting";
-// import Login from "./components/login/Login"
+import MainPage from "./components/HomePage/MainPage";
+import About from "./components/HomePage/About";
+import Insight from "./insight/Insight";
+import { ParallaxProvider } from 'react-scroll-parallax';
+
+import KashmiriSaffron from "./insight/KashmiriSaffron";
+import ChooseUs from "./components/ChooseUs";
+import CulinaryUse from "./components/goldenexilir/CulinaryUse";
+import MedicinalUse from "./components/goldenexilir/MedicinalUse";
+import Beauty from "./components/goldenexilir/Beauty";
+import Pregnancy from "./components/goldenexilir/Pregnancy";
+import ContactUs from "./contactus/ContactUs";
+import ProductPage from "./components/product/ProductPage";
+import SingleProduct from "./components/product/SingleProduct";
+import NavProduct from "./components/product/NavProduct";
+import SpainSaffron from "./insight/SpainSaffron";
+import CardProduct from "./components/product/CardProduct";
+import LoginPage from "./components/login/LoginPage";
+import LoginForm from "./components/login/LoginForm";
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 
 function App() {
   return (
+    <UserProvider>
     <UserContextProvider>
       <CartProvider>
-        <Toaster position="bottom-center" toastOptions={{ duration: 2000 }} />
-        {/* <Navbar /> */}
+        <ParallaxProvider>
+        <ToastContainer
+position="top-right"  
+autoClose={5000}
+hideProgressBar
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable={false}
+pauseOnHover
+theme="dark"
+transition={Bounce}
+/>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/products" element={<Home />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/insight" element={<Insight />} />
+          <Route path="/kashmiri-saffron" element={<KashmiriSaffron />}/>
+          <Route path="/spain-saffron" element={<SpainSaffron />}/>
+
+          <Route path="/choose-us" element={<ChooseUs />}/>
+        <Route path="/culinary-use" element={<CulinaryUse />}/>
+        <Route path="/medicine-use" element={<MedicinalUse />}/>
+        <Route path="/beauty-use" element={<Beauty />}/>
+        <Route path="/pregnancy-use" element={<Pregnancy />}/>
+        <Route path="/contactus" element={<ContactUs />}/>
+        <Route path="/productpage" element={<ProductPage />}/>
+        <Route path="/singleproduct" element={<SingleProduct />}/>
+        <Route path="/card-product" element={<CardProduct />}/>
+
+
+
+
+
+
+
+
+
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/403" element={<ForbiddenPage />} />
@@ -190,8 +248,10 @@ function App() {
             }
           />
         </Routes>
+        </ParallaxProvider>
       </CartProvider>
     </UserContextProvider>
+    </UserProvider>
   );
 }
 

@@ -1,0 +1,67 @@
+
+
+.footer_main{
+    width: 100vw;
+    background-color: rgb(4, 8, 42);
+    height: 20vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    font-family: 'Riviera Nights';
+}
+.footer_div1{
+    width: 30%;
+}
+.footer_div1>h3{
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+
+}
+.footer_div1>p{
+    font-size: small;
+    padding-top: 10px;
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1.5px;
+
+}
+.footer_div11{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 1.5rem;
+    width: 150px;
+
+}
+.footer_div11>p{
+    color: rgba(255, 255, 255, 0.474);
+}
+@media only screen and (max-width: 480px) {
+    .footer_main{
+        height: 10vh;
+    }
+    .footer_div1>h3{
+        font-weight: 300;
+        letter-spacing: 1px;
+        font-size: 10px;
+    
+    }
+    .footer_div1>p{
+        font-size: 7px;
+        padding-top: 5px;
+        letter-spacing: 0.5px;
+    
+    }
+    .footer_div11{
+        font-size: 1.5rem;
+        width: fit-content;
+    
+    }
+    .footer_div11>p{
+        font-size: 10px;
+    }
+}

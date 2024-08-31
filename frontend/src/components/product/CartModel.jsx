@@ -19,7 +19,7 @@ const CartModel = ({ isOpen, onClose }) => {
     // Navigate to the checkout page
     navigate('/checkout');
   };
-
+ 
   return (
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 overflow-auto">
       <motion.div

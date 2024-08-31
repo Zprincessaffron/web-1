@@ -1,0 +1,107 @@
+.newsletter_main{
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.newsletter_container{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: row;
+    height: 40px;
+
+}
+.newsletter_container>input{
+    width: 300px;
+    height: 100%;
+    color: rgb(0, 0, 0);
+    background:none;
+    border: none;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    padding-left: 10px;
+    outline: none;
+
+}
+.newsletter_container>button{
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 15px;
+
+  
+}
+.sub_txt{
+    margin: 5vh;
+    letter-spacing: 0.4rem;
+    font-size: calc(0.7rem + 0.5vw);
+    font-weight: bold;
+}
+.nwsletter_main h1{
+    letter-spacing: 0.5rem;
+}
+.nwsletter_main{
+    width: 100vw;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.nwsletter_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+}
+@media only screen and (max-width: 480px) {
+
+    .nwsletter_main{
+        height: 20vh;
+    }
+    .nwsletter_container{
+        gap: 5px;
+    }
+    .sub_txt{
+        margin: 5vh;
+        letter-spacing: 0.1rem;
+        font-size: calc(0.5rem);
+        font-weight: 100;
+    }
+    .newsletter_container{
+    height: fit-content;
+
+}
+.newsletter_container>input{
+    width: 150px;
+    color: rgb(0, 0, 0);
+    background:none;
+    border: none;
+    border-bottom: 0.1px solid rgb(0, 0, 0);
+    padding-left: 10px;
+    outline: none;
+    font-size: 5px;
+
+
+}
+.newsletter_container>button{
+    height: 15px;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 5px 10px;
+    font-size: 5px;
+
+  
+}
+}

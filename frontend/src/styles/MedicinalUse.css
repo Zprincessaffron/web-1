@@ -1,0 +1,180 @@
+.mu_main>h1{  font-size: 4.5rem;
+    letter-spacing: 1rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.264); 
+    color: white;
+}
+ 
+.mu_div1 h1{
+    letter-spacing: 0.5rem;
+}
+
+.mu_main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 3rem;
+}
+.mu_div1 p{
+    font-size: 1rem;
+    color: black;
+    line-height: 25px;
+
+}
+.mu_div1>h1{
+ text-align: center;
+ text-transform: uppercase;
+ margin-bottom: 3vh;
+ 
+}
+.mu_div1>p{
+    width: 60%;
+    text-align: center;
+    
+}
+.mu_div1>div>h1{
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin: 4vh;
+   
+}
+.mu_div1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.mu_div1>div{
+    margin: 5vh 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.mu_div1>div>h1{
+    margin-bottom: 3vh;
+}
+.mu_div1>div>p{
+    line-height: 25px;
+    letter-spacing: 1.5px;
+    word-spacing: 2px;
+    width: 60%;
+    text-align: center;
+}
+.mu_main{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.radio_btton_mu{
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.radio_btton_mu>div{
+    background-color: rgba(229, 236, 241, 0.659);
+    width: 60vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+
+.radio_mu_div2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+}
+.radio_mu_div{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.radio_mu_div1>img{
+    width: 60vw;
+    opacity: 60%;
+
+
+}
+.radio_mu_div2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.radio_mu_div2>p{
+    height: fit-content;
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: rgb(0, 0, 0);
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease-in-out;
+    transition:  background-color 0.3s ease-in-out;
+    cursor: pointer;
+
+
+
+
+}
+.radio_btn_mu.true{
+    background-color: rgba(156, 195, 202, 0.651);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+
+}
+.mu_div1{
+    transition: all 0.5s ease-in-out;
+
+
+}
+
+
+.medicinal_highlighter{
+    font-weight: bold;
+}
+/* //////////depression///////////// */
+.mu_div1.depression{
+    background-color: #c19fc69d;
+}
+.radio_btton_mu.depression{
+    background-color: #c19fc69d;
+}
+
+/* //////////health///////////// */
+.mu_div1.health{
+    background-color: rgb(188, 192, 224);
+}
+.radio_btton_mu.health{
+    background-color: rgb(188, 192, 224);
+}
+
+/* //////////pain///////////// */
+.mu_div1.pain{
+    background-color: #c4d3a9;
+}
+.radio_btton_mu.pain{
+    background-color: #c4d3a9;
+}
+/* //////////digestive///////////// */
+.mu_div1.digestive{
+    background-color: rgb(239, 212, 200)
+}
+.radio_btton_mu.digestive{
+    background-color: rgb(239, 212, 200)
+}

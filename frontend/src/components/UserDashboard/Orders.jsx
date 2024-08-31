@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import axios from 'axios';
 import { userContext } from '../../context/UserContext';
+import '../../styles/UserDashboard.css'
 
 const Orders = () => {
   const { user } = useContext(userContext);
@@ -17,7 +18,6 @@ const Orders = () => {
       axios.get(`/user-orders?userId=${user.id}&page=${currentPage}&limit=${ordersPerPage}`)
         .then(response => {
           const { orders, totalPages, currentPage, totalOrders } = response.data;
-          
           setOrders(orders);
           setTotalPages(totalPages);
           setCurrentPage(currentPage);
@@ -36,29 +36,28 @@ const Orders = () => {
   };
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-extrabold text-gray-900">Your Orders</h2>
-      <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-        <div className="px-4 py-5 sm:px-6">
-          <h3 className="text-lg font-medium text-gray-900">Order Details</h3>
+    <div className="order-container">
+      <div className="order-card">
+        <div className="order-card-header">
+          <h3 className="order-card-subtitle">Order Details</h3>
         </div>
-        <div className="border-t border-gray-200 overflow-y-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+        <div className="order-table-container">
+          <table className="order-table">
+            <thead className="order-table-header">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Track Order</th>
+                <th className="order-table-header-cell">Order ID</th>
+                <th className="order-table-header-cell">Product</th>
+                <th className="order-table-header-cell">Date</th>
+                <th className="order-table-header-cell">Status</th>
+                <th className="order-table-header-cell">Track Order</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="order-table-body">
               {orders.length > 0 ? (
                 orders.map((order) => (
                   <tr key={order._id}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{order._id}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="order-table-cell">{order._id}</td>
+                    <td className="order-table-cell">
                       {order.cartItems && order.cartItems.length > 0 ? (
                         order.cartItems.map((item, index) => (
                           <div key={index}>
@@ -69,52 +68,52 @@ const Orders = () => {
                         "No items"
                       )}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{new Date(order.createdAt).toLocaleDateString()}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{order.status}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium flex justify-center">
+                    <td className="order-table-cell">{new Date(order.createdAt).toLocaleDateString()}</td>
+                    <td className="order-table-cell">{order.status}</td>
+                    <td className="order-table-cell order-track">
                       <Link to={`/dashboard/track-order/${order._id}`}>
-                        <FaMapMarkerAlt size={20} className="text-blue-500 hover:text-blue-700 cursor-pointer" />
+                        <FaMapMarkerAlt size={20} className="order-icon" />
                       </Link>
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="5" className="px-6 py-4 text-center text-sm text-gray-500">No orders found.</td>
+                  <td colSpan="5" className="order-table-cell no-orders">No orders found.</td>
                 </tr>
               )}
             </tbody>
           </table>
         </div>
-        <div className="px-4 py-3 flex items-center justify-between border-t border-gray-200 bg-gray-50 sm:px-6">
-          <div className="flex-1 flex justify-between sm:hidden">
+        <div className="order-pagination">
+          <div className="order-pagination-mobile">
             <a
               href="#"
               onClick={() => handlePageChange(currentPage - 1)}
-              className={`font-medium text-indigo-600 hover:text-indigo-500 ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''}`}
+              className={`order-pagination-link ${currentPage === 1 ? 'disabled' : ''}`}
             >
               Previous
             </a>
             <a
               href="#"
               onClick={() => handlePageChange(currentPage + 1)}
-              className={`font-medium text-indigo-600 hover:text-indigo-500 ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : ''}`}
+              className={`order-pagination-link ${currentPage === totalPages ? 'disabled' : ''}`}
             >
               Next
             </a>
           </div>
-          <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+          <div className="order-pagination-desktop">
             <div>
-              <p className="text-sm text-gray-700">
-                Showing <span className="font-medium">{(currentPage - 1) * ordersPerPage + 1}</span> to <span className="font-medium">{Math.min(currentPage * ordersPerPage, totalOrders)}</span> of <span className="font-medium">{totalOrders}</span> orders
+              <p className="order-pagination-info">
+                Showing <span className="order-pagination-amount">{(currentPage - 1) * ordersPerPage + 1}</span> to <span className="order-pagination-amount">{Math.min(currentPage * ordersPerPage, totalOrders)}</span> of <span className="order-pagination-amount">{totalOrders}</span> orders
               </p>
             </div>
             <div>
-              <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+              <nav className="order-pagination-nav" aria-label="Pagination">
                 <a
                   href="#"
                   onClick={() => handlePageChange(currentPage - 1)}
-                  className={`relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-50'}`}
+                  className={`order-pagination-nav-link ${currentPage === 1 ? 'disabled' : ''}`}
                 >
                   Previous
                 </a>
@@ -123,7 +122,7 @@ const Orders = () => {
                     key={index}
                     href="#"
                     onClick={() => handlePageChange(index + 1)}
-                    className={`relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 ${currentPage === index + 1 ? 'bg-indigo-500 text-white' : 'hover:bg-gray-50'}`}
+                    className={`order-pagination-nav-link ${currentPage === index + 1 ? 'active' : ''}`}
                   >
                     {index + 1}
                   </a>
@@ -131,7 +130,7 @@ const Orders = () => {
                 <a
                   href="#"
                   onClick={() => handlePageChange(currentPage + 1)}
-                  className={`relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-50'}`}
+                  className={`order-pagination-nav-link ${currentPage === totalPages ? 'disabled' : ''}`}
                 >
                   Next
                 </a>

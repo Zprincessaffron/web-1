@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { userContext } from '../../context/UserContext';
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
-  const { user } = useContext(userContext);
+  const { user } = useContext(userContext); 
 
   // Loading state or fallback
   if (user === undefined) {

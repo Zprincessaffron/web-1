@@ -1,0 +1,92 @@
+.contact_div1{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+
+}
+.contact_div11{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 110vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+
+
+}
+.contact_div11>img{
+    width: 100%;
+}
+.contact_div12{
+    position: absolute;
+    right: 25vw;
+    top: 20vh;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+.contact_div12>h1{
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+}
+.contact_div12>p{
+    color: black;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px;
+    letter-spacing: 1.5px;
+    gap: 5px;
+}
+.contact_div121{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+    gap: 10px;
+    font-size: 1.5rem;
+    padding-left: 40px;
+}
+.contact_div121_1{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items:  center;
+}
+.contact_div121_1>input{
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+
+    border: 1px solid gray;
+    font-size: 1rem;
+    padding-left: 10px;
+}
+.contact_div121_1>textarea{
+    width: 400px;
+    border-radius: 5px;
+
+    border: 1px solid gray;
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.contact_div121_1>button{
+    width: fit-content;
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+.contact_needhlp{
+    font-weight: bold;
+    text-transform: capitalize;
+}

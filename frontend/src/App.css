@@ -5,9 +5,8 @@
   src: url('../src/font/RivieraNightsTrial-Ultralight/RivieraNightsTrial-Ultralight.otf') format('opentype');
 }
 
-body {
-  font-family: 'riviera', sans-serif;
-}
+
+
 
 /* Product card styles */
 .product-card {

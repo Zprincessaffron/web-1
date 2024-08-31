@@ -12,6 +12,7 @@ import CartIcon from "./CartIcon.jsx";
 import { userContext } from "../../context/UserContext.jsx";
 
 const ProductCard = () => {
+  
   const { user } = useContext(userContext);
   const { cartItems, addToCart } = useContext(CartContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,7 +33,7 @@ const ProductCard = () => {
     }
     return 1; // Default quantity for regular users
   };
-
+ 
   const handleIncrement = (product, e) => {
     e.stopPropagation(); // Prevent click event from bubbling up
     setQuantities((prev) => ({

@@ -1,68 +1,96 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { userContext } from "../../context/UserContext";
 import { FaUserCircle, FaShoppingBag, FaHistory, FaCog } from "react-icons/fa";
-
+import '../../styles/UserDashboard.css';
+import Navabar from '../../navbar/NavBar'
+import axios from "axios";
+import userpng from '../../images/user.png'
 const DashboardLayout = () => {
   const { user } = useContext(userContext);
+  const [ backChange,setBackChange]=useState('profile')
 
   if (!user) {
-    // Handle the case where user is not available
     return (
-      <div className="h-screen flex bg-gray-100 items-center justify-center">
-        <p className="text-gray-700">Loading user data...</p>
+      <div className="dashboard-loading">
+        <p>Loading user data...</p>
       </div>
     );
   }
+  const [personalInfo, setPersonalInfo] = useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
 
+  useEffect(() => {
+    // Fetch the user profile data from the backend
+    const fetchProfile = async () => {
+      try {
+        const response = await axios.get('/profile', {
+          withCredentials: true, // To include cookies in the request
+        });
+        if (response.data) {
+          setPersonalInfo(response.data);
+        } else {
+          console.error('No user data found.');
+        }
+      } catch (error) {
+        console.error('Error fetching profile data:', error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
   return (
-    <div className="h-screen flex bg-gray-50">
-      <nav className="w-70 bg-gradient-to-b from-blue-800 to-blue-600 h-full fixed top-0 left-0 text-white p-6 space-y-6 shadow-lg">
-        <header className="flex items-center space-x-3 bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-4 px-6 shadow-lg rounded-lg">
-          <FaUserCircle className="text-3xl" />
-          <h1 className="text-2xl font-bold">User Dashboard</h1>
-        </header>
-        <ul className="mt-8 space-y-4">
-          <li>
-            <Link
-              to="/dashboard/profile"
-              className="flex items-center space-x-3 py-3 px-4 rounded-lg text-lg font-medium bg-blue-700 hover:bg-blue-600 transition-colors duration-300"
-            >
+    <div className="dashboard-main">
+      <Navabar/>
+     <div className="dashboard-main2">
+     <div className="dashboard-welcome">
+
+      <div className="dashboard-welcome-png">
+<img src={userpng} alt="" />
+      </div>
+      <div className="dashboard-welcome-hello">
+        <h1>Hello,</h1>
+        <h2>{personalInfo.name}</h2>
+      </div>
+        
+
+      </div>
+     <nav className="dashboard-nav">
+       
+        <ul className="dashboard-menu ">
+          <li >
+            <Link to="/dashboard/profile" onClick={()=>{setBackChange('profile')}} className={`dashboard-link ${backChange=='profile'?'true':""}`}>
               <FaUserCircle />
               <span>Profile</span>
             </Link>
           </li>
           <li>
-            <Link
-              to="/dashboard/orders"
-              className="flex items-center space-x-3 py-3 px-4 rounded-lg text-lg font-medium bg-blue-700 hover:bg-blue-600 transition-colors duration-300"
-            >
+            <Link to="/dashboard/orders" onClick={()=>{setBackChange('orders')}}  className={`dashboard-link ${backChange=='orders'?'true':""}`}>
               <FaShoppingBag />
               <span>Orders</span>
             </Link>
           </li>
           <li>
-            <Link
-              to={`/dashboard/history/${user.id}`} // Make sure userId is defined when generating this link
-              className="flex items-center space-x-3 py-3 px-4 rounded-lg text-lg font-medium bg-blue-700 hover:bg-blue-600 transition-colors duration-300"
-            >
+            <Link to={`/dashboard/history/${user.id}`} onClick={()=>{setBackChange('history')}}  className={`dashboard-link ${backChange=='history'?'true':""}`}>
               <FaHistory />
               <span>History</span>
             </Link>
           </li>
           <li>
-            <Link
-              to="/dashboard/settings"
-              className="flex items-center space-x-3 py-3 px-4 rounded-lg text-lg font-medium bg-blue-700 hover:bg-blue-600 transition-colors duration-300"
-            >
+            <Link to="/dashboard/settings" onClick={()=>{setBackChange('settings')}}  className={`dashboard-link ${backChange=='settings'?'true':""}`}>
               <FaCog />
               <span>Settings</span>
             </Link>
           </li>
         </ul>
       </nav>
-      <main className="flex-1 ml-80 p-10 ">
-        <div className="bg-white rounded-lg shadow-xl p-10 ring-1 ring-gray-200">
+     </div>
+
+      <main className="dashboard-content">
+        <div className="content-box">
           <Outlet />
         </div>
       </main>
