@@ -9,17 +9,17 @@ import jwt from "jsonwebtoken"
 const app = express();
 dotenv.config();
 
-const allowedOrigins = ['https://66deb079aeaf64f4710baf2f--incomparable-lolly-f12851.netlify.app/'];
-app.use(cors({
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true, // Enable credentials
-}));
+// const allowedOrigins = ['https://66deb079aeaf64f4710baf2f--incomparable-lolly-f12851.netlify.app/'];
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     if (allowedOrigins.includes(origin) || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true, // Enable credentials
+// }));
 // middleware
 app.use(express.json())
 app.use(cookieParser())
