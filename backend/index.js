@@ -20,6 +20,12 @@ dotenv.config();
 //   },
 //   credentials: true, // Enable credentials
 // }));
+// Allow requests from your Vercel frontend
+app.use(cors({
+  origin: 'https://web1-client.vercel.app', // Your Vercel domain
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true
+}));
 // middleware
 app.use(express.json())
 app.use(cookieParser())
