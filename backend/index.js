@@ -9,7 +9,7 @@ import jwt from "jsonwebtoken"
 const app = express();
 dotenv.config();
 
-const allowedOrigins = ['https://66dea3a95363bf29ed2672c8--shiny-horse-c153eb.netlify.app/'];
+const allowedOrigins = ['https://66dea9c1c84f8de5369ade00--graceful-lebkuchen-2897b3.netlify.app/'];
 app.use(cors({
   origin: (origin, callback) => {
     if (allowedOrigins.includes(origin) || !origin) {
