@@ -6,9 +6,9 @@ import './index.css'
 import {BrowserRouter as Router} from 'react-router-dom'
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+axios.defaults.baseURL = 'https://web-1-1.onrender.com/';
 axios.defaults.withCredentials = true;
-
+// http://localhost:4040
 ReactDOM.createRoot(document.getElementById('root')).render(
   //<React.StrictMode>
     <Router>
