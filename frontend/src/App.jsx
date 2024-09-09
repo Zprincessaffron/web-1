@@ -26,7 +26,7 @@ import History from "./components/UserDashboard/History";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import MarketerForm from "./pages/MarketerForm";
 import MarketerDashboard from "./components/marketer/MarketerDashboard";
-import RegisterWholesaler from "./components/WholeSaler/RegisterWholeSaler";
+import RegisterWholesaler from "./components/WholeSaler/RegisterWholesaler";
 import Analytics from "./components/Admin/analytics/Analytics";
 import ForbiddenPage from "./components/ProtectedRoute/ForbiddenPage";
 import ProtectedRoute from "./components/ProtectedRoute/ProductedRoute";
