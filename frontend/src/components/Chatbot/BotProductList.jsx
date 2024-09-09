@@ -1,7 +1,7 @@
 import React from 'react';
 import BotProductCard from './BotProductCard';
 import { products } from '../../data/Productdata.js';
-import '../../styles/Chatbot.css'; // Import the CSS file
+import '../../styles/Chatbot.css';
 
 const BotProductList = () => {
   return (
