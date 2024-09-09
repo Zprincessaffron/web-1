@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import "../styles/Navbar.css"
+import "../styles/NavBar.css"
 import { PiUser } from "react-icons/pi";
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/MainContext';
