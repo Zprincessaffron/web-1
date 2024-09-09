@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/chatbot.css'; // Import the CSS file
+import '../../styles/Chatbot.css'; // Import the CSS file
 
 const BotProductCard = ({ product }) => {
   const navigate = useNavigate();
