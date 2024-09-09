@@ -9,17 +9,17 @@ import jwt from "jsonwebtoken"
 const app = express();
 dotenv.config();
 
-const allowedOrigins = ['http://localhost:5173/'];
-app.use(cors({
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true, // Enable credentials
-}));
+// const allowedOrigins = ['http://localhost:5173/'];
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     if (allowedOrigins.includes(origin) || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true, // Enable credentials
+// }));
 // middleware
 app.use(express.json())
 app.use(cookieParser())

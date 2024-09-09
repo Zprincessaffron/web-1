@@ -1,6 +1,6 @@
 import { hashPassword } from "../helpers/auth.js";
-import Wholesaler from "../models/wholesaler.js";
 import mongoose from "mongoose";
+import Wholesaler from "../models/wholesaler.js";
 
 export const registerWholesaler = async (req, res) => {
   const {
