@@ -31,7 +31,6 @@ import Analytics from "./components/Admin/analytics/Analytics";
 import ForbiddenPage from "./components/ProtectedRoute/ForbiddenPage";
 import ProtectedRoute from "./components/ProtectedRoute/ProductedRoute";
 import UserOrders from "./components/Admin/UserOrders";
-import Wholesaler from "../../backend/models/wholesaler";
 import TelecallerOrders from "./components/Admin/TelecallerOrders";
 import ProductList from "./components/Admin/ProductList";
 import AllUsers from "./components/Admin/AllUsers";
