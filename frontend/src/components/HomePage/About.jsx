@@ -14,7 +14,7 @@ import '../../styles/About.css'
 import Navbar from '../../navbar/NavBar';
 
 
-
+ 
 function About() {
     const [trans,setTrans]=useState(120)
     useEffect(() => {

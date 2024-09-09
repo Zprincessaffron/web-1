@@ -61,6 +61,9 @@ import CardProduct from "./components/product/CardProduct";
 import LoginPage from "./components/login/LoginPage";
 import LoginForm from "./components/login/LoginForm";
 import { ToastContainer, toast, Bounce } from 'react-toastify';
+import Cart from './components/cart/Cart'
+import CustomerReviewKashmir from "./components/review/CustomerReviewKashmir";
+import CustomerReviewSpain from "./components/review/CustomerReviewSpain";
 
 function App() {
   return (
@@ -98,6 +101,12 @@ transition={Bounce}
         <Route path="/productpage" element={<ProductPage />}/>
         <Route path="/singleproduct" element={<SingleProduct />}/>
         <Route path="/card-product" element={<CardProduct />}/>
+        <Route path="/cart" element={<Cart/>} />
+        <Route path="/customer-review-kashmirsaffron" element={<CustomerReviewKashmir/>} />
+        <Route path="/customer-review-spainsaffron" element={<CustomerReviewSpain/>} />
+
+
+
 
 
 

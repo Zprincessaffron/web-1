@@ -1,0 +1,118 @@
+.cus_main{
+    width: 100vw;
+    height: 100vh;
+    background-color: #e6ccff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'riviera';
+
+}
+.cus_div{
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.581);
+    backdrop-filter: blur(10px);
+    height: fit-content;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.cus_div.true{
+    scale: 5%;
+}
+.cus_div>div{
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.cus_sub{
+    text-align: center;
+    color: black;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+.cus_div>label{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+.cus_div>input{
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 1rem;
+    border: 1px solid gray;
+    background:none;
+}
+.cus_div>div>button{
+    width: fit-content;
+    margin-top: 1rem;
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    color: white;
+    letter-spacing: 1px;
+    background-color: rgb(101, 45, 121);
+}
+.cusform_div{
+    background-color: rgba(255, 255, 255, 0.581);
+    backdrop-filter: blur(10px);
+    padding: 3rem 2rem;
+    width: 40%;
+    border-radius: 5px;
+}
+.err-msg{
+    color: red;
+    float: left;
+    font-size: 0.8rem;
+}
+.cusform_div1{
+    display: flex;
+    flex-direction: column;
+}
+.cusform_div>div{
+    font-size: 2rem;
+    letter-spacing: 1px;
+
+}
+.cusform_div>div>label{
+    font-size: 1rem;
+    margin: 5px 0;
+}
+.cusform_div>div>textarea{
+    background: none;
+    border-radius: 5px;
+    padding-left: 1rem;
+    padding-top: 1rem;
+}
+.lottie-div{
+    height: fit-content;
+    overflow: hidden;
+    padding: 1rem;
+}
+.cusform_div>p{
+    color: rgb(107, 107, 107);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+@media only screen and (max-width: 480px) {
+    .cus_div{
+        width: 80%;
+       
+    }
+    .cusform_div{
+        width: 80%;
+    }
+    .cusform_div>p{
+        margin: 1rem 0;
+        letter-spacing: 1px;
+    }
+}

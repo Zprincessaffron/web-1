@@ -5,6 +5,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: rgb(255, 231, 255);
+
 }
 .newsletter_container{
     display: flex;
@@ -20,7 +22,7 @@
     color: rgb(0, 0, 0);
     background:none;
     border: none;
-    border-bottom: 2px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(41, 35, 35);
     padding-left: 10px;
     outline: none;
 
@@ -46,6 +48,8 @@
     letter-spacing: 0.5rem;
 }
 .nwsletter_main{
+    background-color: rgb(255, 231, 255);
+
     width: 100vw;
     height: 40vh;
     background-size: cover;
@@ -56,6 +60,8 @@
     background-repeat: no-repeat;
 }
 .nwsletter_container{
+    background-color: rgb(255, 231, 255);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,14 +80,13 @@
         gap: 5px;
     }
     .sub_txt{
-        margin: 5vh;
-        letter-spacing: 0.1rem;
-        font-size: calc(0.5rem);
-        font-weight: 100;
+        margin: 3vh;
+        letter-spacing: 1.5px;
+        font-size: 0.9rem;
+        font-weight: bold;
     }
     .newsletter_container{
     height: fit-content;
-
 }
 .newsletter_container>input{
     width: 150px;
@@ -91,7 +96,7 @@
     border-bottom: 0.1px solid rgb(0, 0, 0);
     padding-left: 10px;
     outline: none;
-    font-size: 5px;
+    font-size: 10px;
 
 
 }

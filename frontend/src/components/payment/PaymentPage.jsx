@@ -3,13 +3,18 @@ import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { userContext } from "../../context/UserContext";
-
+import ProgressBar from "../../components/product/ProgressBar";
+import '../../styles/PaymentPage.css'
+import Footer from "../../footer/Footer";
+import Navbar from "../../navbar/NavBar";
+import SideBar from "../sidebar/SideBar";
+import MenuSlider from "../sidebar/MenuSlider";
 const PaymentPage = () => {
   const [paymentMethod, setPaymentMethod] = useState("");
-  const { user } = useContext(userContext); // Access user data from context
+  const { user } = useContext(userContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const { orderID, cartItems } = location.state || {}; // Access orderID and cartItems from location state
+  const { orderID, cartItems } = location.state || {};
 
   const handlePaymentMethodChange = (e) => {
     setPaymentMethod(e.target.value);
@@ -24,11 +29,10 @@ const PaymentPage = () => {
       const totalAmount = calculateTotal();
 
       try {
-        // Create Razorpay order
         const response = await axios.post("/create-order", {
           amount: totalAmount,
           currency: "INR",
-          orderID, // Pass the orderID here
+          orderID,
         });
 
         const { id: order_id, amount, currency } = response.data;
@@ -46,7 +50,7 @@ const PaymentPage = () => {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
-              paymentMethod: paymentMethod, // Add the payment method here
+              paymentMethod: paymentMethod,
             };
 
             try {
@@ -74,9 +78,9 @@ const PaymentPage = () => {
             }
           },
           prefill: {
-            name: user?.name || "", // Use user's name from context
-            email: user?.email || "", // Use user's email from context
-            contact: user?.contact || "", // Use user's contact from context
+            name: user?.name || "",
+            email: user?.email || "",
+            contact: user?.contact || "",
           },
           theme: {
             color: "#3399cc",
@@ -97,27 +101,28 @@ const PaymentPage = () => {
   };
 
   return (
-    <div className="container mx-auto my-10 p-5 max-w-7xl">
-      <h1 className="text-3xl font-bold mb-6 text-gray-900">Payment</h1>
-      <div className="flex flex-col md:flex-row gap-6">
-        {/* Payment Method and Form */}
+    <>
+    <Navbar/>
+    <SideBar/>
+    <MenuSlider/>
+    <div className="paymentpage_main">
+      <div className="paymentpage-container">
+      <ProgressBar className="payment-progress-bar" currentStep={2} />
+      <h1 className="payment-page-title">Payment</h1>
+      <div className="payment-flex">
         <motion.div
-          className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 flex-1"
+          className="payment-card"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl text-center font-semibold mb-6 text-gray-900">
-            Select Payment Method
-          </h2>
-          <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-medium mb-2">
-              Payment Method
-            </label>
+          <h2 className="payment-card-title">Select Payment Method</h2>
+          <div className="payment-mb-6">
+            <label className="payment-select-label">Payment Method</label>
             <select
               value={paymentMethod}
               onChange={handlePaymentMethodChange}
-              className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
+              className="payment-select-input"
             >
               <option value="">Select an option</option>
               <option value="creditCard">Credit Card</option>
@@ -126,54 +131,59 @@ const PaymentPage = () => {
             </select>
           </div>
 
-          <div className="flex justify-center mt-8">
+          <div className="payment-flex payment-justify-center mt-8">
             <button
               onClick={handlePayment}
-              className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-200"
+              className="payment-button"
             >
               Pay Now
             </button>
           </div>
         </motion.div>
 
-        {/* Cart Items Summary */}
         <motion.div
-          className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 flex-1"
+          className="payment-order-summary"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl text-center font-semibold mb-6 text-gray-900">
-            Order Summary
-          </h2>
-          <div className="space-y-4">
+          <h2 className="payment-summary-title">Order Summary</h2>
+          <div className="payment-space-y-4">
             {cartItems.length === 0 ? (
-              <p className="text-center text-gray-700">No items in the cart.</p>
+              <p className="payment-text-center payment-text-gray-700 payment-tracking-wider">No items in the cart.</p>
             ) : (
               cartItems.map((item) => (
                 <div
-                  key={item.id}
-                  className="flex items-center border-b border-gray-300 py-4"
+                  key={item.name}
+                  className="payment-item"
                 >
                   <img
                     src={item.img}
                     alt={item.name}
-                    className="w-16 h-16 object-cover rounded-md"
+                    className="payment-item-img"
                   />
-                  <div className="ml-4 flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {item.name}
-                    </h3>
-                    <p className="text-gray-600">Quantity: {item.quantity}</p>
-                    <p className="text-gray-800">Price: ₹{item.price * item.quantity}</p>
+                  <div className="payment-item-details">
+                    <h3 className="payment-item-name">{item.name}</h3>
+                    <p className="payment-item-quantity">Quantity: {item.quantity}</p>
+                    <p className="payment-item-price">Price: ₹{item.price * item.quantity}</p>
                   </div>
                 </div>
               ))
+            )}
+            {cartItems.length > 0 && (
+              <div className="payment-total">
+                <span>Total</span>
+                <span>₹{calculateTotal().toFixed(2)}</span>
+              </div>
             )}
           </div>
         </motion.div>
       </div>
     </div>
+    </div>
+    <Footer/>
+    
+</>
   );
 };
 

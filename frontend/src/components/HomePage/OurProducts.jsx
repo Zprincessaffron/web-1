@@ -1,6 +1,8 @@
 import React from 'react'
 import '../../styles/OurProducts.css'
 import ourproductback from '../../images/ourproductsback.jpeg'
+import ourproductback1 from '../../images/homepageback2.jpg'
+
 import { useNavigate } from 'react-router-dom'
 function OurProducts() {
   const navigate=useNavigate()

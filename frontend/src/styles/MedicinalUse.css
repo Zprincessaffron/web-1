@@ -5,7 +5,7 @@
 }
  
 .mu_div1 h1{
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.5rem; 
 }
 
 .mu_main{
@@ -150,31 +150,75 @@
 }
 /* //////////depression///////////// */
 .mu_div1.depression{
-    background-color: #c19fc69d;
+    background-color: #f7f8ff;
 }
 .radio_btton_mu.depression{
-    background-color: #c19fc69d;
+    background-color: #f7f8ff;
 }
 
 /* //////////health///////////// */
 .mu_div1.health{
-    background-color: rgb(188, 192, 224);
+    background-color: #f7f8ff;
 }
 .radio_btton_mu.health{
-    background-color: rgb(188, 192, 224);
+    background-color: #f7f8ff;
 }
 
 /* //////////pain///////////// */
 .mu_div1.pain{
-    background-color: #c4d3a9;
+    background-color: #f7f8ff;
 }
 .radio_btton_mu.pain{
-    background-color: #c4d3a9;
+    background-color: #f7f8ff;
 }
 /* //////////digestive///////////// */
 .mu_div1.digestive{
-    background-color: rgb(239, 212, 200)
+    background-color: #f7f8ff;
 }
 .radio_btton_mu.digestive{
-    background-color: rgb(239, 212, 200)
+    background-color: #f7f8ff;
+}
+
+@media only screen and (max-width: 480px) {
+    .mu_main>h1{
+        font-size: calc(1rem + 2vw);
+        letter-spacing: 2px;
+    }
+
+    .radio_btton_mu{
+        height: 15vh;
+    }
+    .radio_btton_mu>div{
+        width: 95vw;
+        height: 40px;
+       
+    
+    }
+    
+.mu_div1 p{
+    font-size: 0.6rem;
+    color: black;
+    line-height: 15px;
+    width: 90%;
+
+}
+.mu_div1 h1{
+    font-size: 1rem;
+    color: black;
+    letter-spacing: 2px;
+    width: 90%;
+    text-align: center;
+
+}
+.mu_div1>div>h1{
+    font-size: 0.8rem;
+
+}
+.mu_div1>div>p{
+    font-size: 0.6rem;
+    width: 90%;
+    ;line-height: 15px;
+
+}
+    
 }

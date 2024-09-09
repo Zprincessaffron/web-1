@@ -5,7 +5,7 @@ import { useUserContext } from '../context/MainContext'
 import Footer from '../footer/Footer'
 import saffblack1 from '../images/saff black1.jpg'
 import saffronface from '../images/spack.jpg'
-import saffronrice from '../images/sfood.jpg'
+import saffronrice from '../images/culinarymilk.jpeg'
 import saffrontea from '../images/img2.jpg'
 import insightback from '../images/insightback.mp4'
 
@@ -18,7 +18,7 @@ import SideBar from '../components/sidebar/SideBar'
 import MenuSlider from '../components/sidebar/MenuSlider'
 
 
-
+ 
 
 function Insight() {
     const { setShowNav,setSideBar,setMenuSlider }=useUserContext()
@@ -136,6 +136,7 @@ function Insight() {
       setMenuSlider(false)
       setSideBar(false)
     }, [])
+    
   return (
     <div className='insight_main'>
         <Navbar/>

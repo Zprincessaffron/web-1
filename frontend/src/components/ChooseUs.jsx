@@ -15,7 +15,7 @@ import SideBar from './sidebar/SideBar'
 import { useUserContext } from '../context/MainContext'
 import MenuSlider from './sidebar/MenuSlider'
 
-
+ 
 
 function ChooseUs() {
   const { setShowNav,setMenuSlider,setSideBar } =useUserContext()

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CartIcon from './product/CartIcon';
 
 const Navbar = () => {
-  return (
+  return ( 
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-lg font-bold">ZPrincessSaffron</div>

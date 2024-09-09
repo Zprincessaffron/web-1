@@ -5,10 +5,17 @@ import { FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { userContext } from "../../context/UserContext";
+import ProgressBar from "./ProgressBar";
+import "../../styles/CheckoutPage.css"; // Import the CSS file
+import Navbar from "../../navbar/NavBar";
+import SideBar from "../sidebar/SideBar";
+import MenuSlider from "../sidebar/MenuSlider";
+import Footer from "../../footer/Footer";
 
 const CheckoutPage = () => {
-  const { cartItems, removeItem } = useContext(CartContext);
+  const { cartItems, removeItem, updateQuantity } = useContext(CartContext);
   const { user } = useContext(userContext);
+  const [progressStep, setProgressStep] = useState(1);
   const [shippingDetails, setShippingDetails] = useState({
     name: "",
     address: "",
@@ -19,7 +26,8 @@ const CheckoutPage = () => {
     mobile: "",
     landmark: "",
   });
-  const [orderID, setOrderID] = useState(null); // State to store the order ID
+  const [orderID, setOrderID] = useState(null);
+  const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 
@@ -35,37 +43,35 @@ const CheckoutPage = () => {
     });
   };
 
-  const [error, setError] = useState(null);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const totalPrice = calculateTotalPrice();
-  
       const orderData = {
         shippingDetails,
-        items: cartItems,
+        items: cartItems.map((item) => ({
+          variantId: item._id,
+          weight: item.weight,
+          quantity: item.quantity,
+          price: item.price,
+          name: item.name,
+        })),
         total: totalPrice,
         user: user,
       };
-  
+
       const response = await axios.post("/orders", orderData, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-  
-      if (response.status === 200) {
-        // Ensure the response contains the _id
-        if (response.data && response.data._id) {
-          setOrderID(response.data._id);
-         
-          navigate("/payment", {
-            state: { orderID: response.data._id, cartItems },
-          });
-        } else {
-          throw new Error("Order ID not found in response");
-        }
+
+      if (response.status === 200 && response.data && response.data._id) {
+        setOrderID(response.data._id);
+        setProgressStep(2); // Move to the next step in the progress bar
+        navigate("/payment", {
+          state: { orderID: response.data._id, cartItems },
+        });
       } else {
         throw new Error("Failed to place order");
       }
@@ -74,30 +80,53 @@ const CheckoutPage = () => {
       console.error("Error placing order:", error);
     }
   };
-  
+
+  const handleIncrement = (id, weight) => {
+    updateQuantity(id, weight, 1);
+  };
+
+  const handleDecrement = (id, weight) => {
+    updateQuantity(id, weight, -1);
+  };
+
+  // Calculate Subtotal
+  const subtotal = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
+  // Calculate Total including delivery fee
+  const deliveryFee = 0;
+  const total = subtotal + deliveryFee;
+  const handleRemoveItem = (item) => {
+    removeItem(item._id, item.weight); // Pass both id and weight
+  };
 
   return (
-    <div className="container mx-auto my-10 p-5 max-w-7xl">
-      <h1 className="text-3xl font-bold mb-6 text-gray-900">Checkout</h1>
-      <div className="flex flex-col md:flex-row gap-6">
+    <>
+    <div className="cp_maincon">
+      <Navbar/>
+      <SideBar/>
+      <MenuSlider/>
+      <div className="checkout-container">
+      <ProgressBar currentStep={progressStep} className="progress-bar" />
+
+      <h1 className="header">Checkout</h1>
+
+      <div className="checkp_main">
         {/* Shipping Details */}
         <motion.form
           onSubmit={handleSubmit}
-          className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 flex-1"
+          className="shipping-form"
           initial={{ x: "-100vw", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl text-center font-semibold mb-6 text-gray-900">
-            Shipping Details
-          </h2>
-          <div className="space-y-6">
+          <h2 className="shipping-form-title">Shipping Details</h2>
+          <div className="space-y-6 tracking-wider font-semibold">
             {/* Form Fields */}
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-gray-700 text-sm font-medium mb-2"
-              >
+            <div className="form-group">
+              <label htmlFor="name" className="label">
                 Name
               </label>
               <input
@@ -106,15 +135,12 @@ const CheckoutPage = () => {
                 name="name"
                 value={shippingDetails.name}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
+                className="input"
                 required
               />
             </div>
             <div>
-              <label
-                htmlFor="address"
-                className="block text-gray-700 text-sm font-medium mb-2"
-              >
+              <label htmlFor="address" className="label">
                 Address
               </label>
               <input
@@ -123,15 +149,12 @@ const CheckoutPage = () => {
                 name="address"
                 value={shippingDetails.address}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
+                className="input"
                 required
               />
             </div>
             <div>
-              <label
-                htmlFor="landmark"
-                className="block text-gray-700 text-sm font-medium mb-2"
-              >
+              <label htmlFor="landmark" className="label">
                 Landmark
               </label>
               <input
@@ -140,15 +163,12 @@ const CheckoutPage = () => {
                 name="landmark"
                 value={shippingDetails.landmark}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
+                className="input"
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label
-                  htmlFor="city"
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                >
+                <label htmlFor="city" className="label">
                   City
                 </label>
                 <input
@@ -157,15 +177,12 @@ const CheckoutPage = () => {
                   name="city"
                   value={shippingDetails.city}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
+                  className="input"
                   required
                 />
               </div>
               <div>
-                <label
-                  htmlFor="zip"
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                >
+                <label htmlFor="zip" className="label">
                   ZIP Code
                 </label>
                 <input
@@ -174,17 +191,14 @@ const CheckoutPage = () => {
                   name="zip"
                   value={shippingDetails.zip}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
+                  className="input"
                   required
                 />
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label
-                  htmlFor="state"
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                >
+                <label htmlFor="state" className="label">
                   State
                 </label>
                 <input
@@ -193,15 +207,12 @@ const CheckoutPage = () => {
                   name="state"
                   value={shippingDetails.state}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
+                  className="input"
                   required
                 />
               </div>
               <div>
-                <label
-                  htmlFor="country"
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                >
+                <label htmlFor="country" className="label">
                   Country
                 </label>
                 <input
@@ -210,16 +221,13 @@ const CheckoutPage = () => {
                   name="country"
                   value={shippingDetails.country}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
+                  className="input"
                   required
                 />
               </div>
             </div>
             <div>
-              <label
-                htmlFor="mobile"
-                className="block text-gray-700 text-sm font-medium mb-2"
-              >
+              <label htmlFor="mobile" className="label">
                 Mobile Number
               </label>
               <input
@@ -228,15 +236,12 @@ const CheckoutPage = () => {
                 name="mobile"
                 value={shippingDetails.mobile}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 text-gray-900"
+                className="input"
                 required
               />
             </div>
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-200"
-              >
+            <div className="checkout-btn">
+              <button type="submit" className="button-submit">
                 Save and Continue
               </button>
             </div>
@@ -245,7 +250,7 @@ const CheckoutPage = () => {
 
         {/* Cart Items */}
         <motion.div
-          className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 flex-1 flex flex-col"
+          className="cart-items"
           initial={{ x: "100vw", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -254,36 +259,44 @@ const CheckoutPage = () => {
             <p className="text-center text-gray-700">Your cart is empty.</p>
           ) : (
             <>
-              <h2 className="text-2xl text-center font-semibold mb-6 text-gray-900">
-                Cart Items
-              </h2>
+              <h2 className="cart-items-title">Cart Items</h2>
               <div className="flex-1">
                 <div className="space-y-6">
                   {cartItems.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex items-center border-b pb-4 mb-4 relative"
-                    >
-                      <img
-                        src={item.img}
-                        alt={item.name}
-                        className="w-24 h-24 object-cover rounded-md"
-                      />
-                      <div className="ml-4 flex-1">
-                        <h3 className="text-lg font-semibold text-gray-900">
-                          {item.name}
-                        </h3>
-                        <p className="text-gray-700">Price: ₹{item.price}</p>
-                        <p className="text-gray-700">
-                          Quantity: {item.quantity}
-                        </p>
-                        <p className="text-gray-700">
+                    <div key={item._id} className="cart-item">
+                      <img src={item.img} alt={item.name} />
+                      <div className="cart-item-info">
+                        <h3 className="cart-item-title">{item.name}</h3>
+                        <p className="cart-item-price">Price: ₹{item.price}</p>
+                        <div className="cart-item-controls">
+                          <button
+                            onClick={() =>
+                              handleDecrement(item.id, item.weight)
+                            }
+                            className="cart-item-button"
+                            disabled={item.quantity <= 1}
+                            aria-label="Decrement quantity"
+                          >
+                            -
+                          </button>
+                          <p className="cart-item-quantity"> {item.quantity}</p>
+                          <button
+                            onClick={() =>
+                              handleIncrement(item.id, item.weight)
+                            }
+                            className="cart-item-button"
+                            aria-label="Increment quantity"
+                          >
+                            +
+                          </button>
+                        </div>
+                        <p className="cart-item-total">
                           Total: ₹{item.price * item.quantity}
                         </p>
                       </div>
                       <button
-                        onClick={() => removeItem(item.id)}
-                        className="absolute lg:top-10 lg:right-2 right-0 text-red-500 hover:text-red-700 transition duration-200"
+                        onClick={() => handleRemoveItem(item)}
+                        className="remove-item-button"
                         aria-label="Remove item"
                       >
                         <FaTrash />
@@ -292,15 +305,33 @@ const CheckoutPage = () => {
                   ))}
                 </div>
               </div>
-              <div className="mt-4 flex justify-end border-t border-gray-200 pt-4 text-lg font-semibold text-gray-900">
-                <p>Total: ₹{calculateTotalPrice()}</p>
+              {/* Cart Summary */}
+              <div className="cart-summary-container">
+                <div className="cart-summary-row">
+                  <p className="cart-summary-text">Subtotal</p>
+                  <p className="cart-summary-value">₹{subtotal.toFixed(2)}</p>
+                </div>
+                <div className="cart-summary-row mt-2">
+                  <p className="cart-summary-text">Delivery Fee</p>
+                  <p className="cart-summary-value">
+                    ₹{deliveryFee.toFixed(2)}
+                  </p>
+                </div>
+                <div className="cart-summary-row mt-2">
+                  <p className="cart-summary-text">Total</p>
+                  <p className="cart-summary-value">₹{total.toFixed(2)}</p>
+                </div>
               </div>
             </>
           )}
         </motion.div>
       </div>
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="error-message">{error}</p>}
     </div>
+    </div>
+    
+    <Footer/>
+   </>
   );
 };
 

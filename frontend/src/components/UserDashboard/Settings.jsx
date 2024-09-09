@@ -15,7 +15,7 @@ const Settings = () => {
   useEffect(() => {
     // Fetch the current user profile data from the backend
     const fetchProfile = async () => {
-      try {
+      try { 
         const response = await axios.get("/profile", {
           withCredentials: true, // To include cookies in the request
         });

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Parallax } from 'react-scroll-parallax';
 import { useUserContext } from '../context/MainContext'
 
@@ -7,7 +7,9 @@ import kashmirback4 from '../images/kashmir_back4.jpg'
 import cult from '../images/cult.jpg'
 import saffronculinary from '../images/saffronculinary.jpg'
 import saffronhim from '../images/saffranhim.jpg'
-import saffronserum from '../images/beautyback.jpg'
+// import saffronserum from '../images/beautyback.jpg'
+import saffronserum from '../images/beautyback1.jpeg'
+
 import saffronchai from '../images/saffronchai.jpg'
 import Navbar from '../navbar/NavBar';
 import Footer from '../footer/Footer';
@@ -16,6 +18,30 @@ import MenuSlider from '../components/sidebar/MenuSlider';
 
 function KashmiriSaffron() {
   const { setShowNav,setSideBar,setMenuSlider }=useUserContext()
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+      // Function to check if the viewport width is less than or equal to 600px
+      const checkViewportWidth = () => {
+          if (window.matchMedia('(max-width: 600px)').matches) {
+              setIsMobile(true); // Set state to true for mobile devices
+          } else {
+              setIsMobile(false); // Set state to false for larger screens
+          }
+      };
+
+      // Initial check
+      checkViewportWidth();
+
+      // Add an event listener to detect window resize
+      window.addEventListener('resize', checkViewportWidth);
+
+      // Cleanup the event listener on component unmount
+      return () => {
+          window.removeEventListener('resize', checkViewportWidth);
+      };
+  }, []);
+
 
   useEffect(() => {
     setMenuSlider(false)
@@ -54,7 +80,7 @@ function KashmiriSaffron() {
             </Parallax>
             <Parallax speed={10} className="custom-class" y={[-40, 40]} tagOuter="figure">
 
-        <div style={{display:'flex',justifyContent:"right",flexDirection:"row-reverse",alignItems:"end"}}  className='ks_div31' >
+        <div style={{display:'flex',justifyContent:`${isMobile?"centre":"right"}`,flexDirection:`${isMobile?"column-reverse":"row-reverse"}`,alignItems:`${isMobile?"center":"end"}`}}  className='ks_div31' >
           <div>
           <h1>Beauty and Wellness</h1>
           <p>Beyond the kitchen, Kashmiri saffron is a revered component in luxurious beauty rituals. Its high antioxidant content makes it a powerful ally in skincare, capable of brightening and rejuvenating the skin. Used in face masks, creams, and serums, saffron helps to diminish dark spots, even out skin tone, and impart a radiant glow. The benefits of saffron in beauty treatments have been cherished since ancient times, with royal families using it to maintain their timeless allure.</p>
@@ -78,7 +104,7 @@ function KashmiriSaffron() {
         </Parallax>
             <Parallax speed={10} className="custom-class" y={[-40, 40]} tagOuter="figure">
 
-         <div  style={{display:'flex',justifyContent:"center",flexDirection:'row-reverse',alignItems:"end"}}   className='ks_div31' >
+         <div  style={{display:'flex',justifyContent:`${isMobile?"centre":"right"}`,flexDirection:`${isMobile?"column-reverse":"row-reverse"}`,alignItems:`${isMobile?"center":"end"}`}}   className='ks_div31' >
            <div>
            <h1>A Culinary Gem</h1>
           <p>Kashmiri saffron’s high crocin content not only enhances dishes with its unique aroma but also imbues them with a brilliant golden hue. When added to biryanis, pilafs, and stews, it elevates these dishes to a new level of culinary excellence, providing a depth of flavor that is both robust and delicate. Desserts, too, are transformed by its presence, from the creamy richness of saffron-infused ice creams to the delicate sweetness of traditional Indian sweets like kheer and gulab jamun. The versatility of Kashmiri saffron in the kitchen makes it a beloved ingredient among chefs and home cooks alike.</p>

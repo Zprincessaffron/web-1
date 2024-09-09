@@ -17,7 +17,6 @@ function MenuSlider() {
     navigate(`${val}`)
     setMenuSlider(false)
     setSideBar(false)
-    
   }
   return (
     <div className={`ms_main ${menuSlider? "true":"false"}`}>

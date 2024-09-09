@@ -1,6 +1,6 @@
 // import React, { useState } from 'react';
 // import axios from 'axios';
-
+ 
 // const Login = () => {
 //   const [step, setStep] = useState(1); // Step 1: Enter email/phone, Step 2: Enter OTP
 //   const [emailOrPhone, setEmailOrPhone] = useState('');
@@ -195,7 +195,7 @@ import Otp from './Otp'
 import back_register from '../../images/back_register.jpg'
 import LoginForm from './LoginForm'
 function Login() {
-  const { navOtp,setNavOtp }=useUserContext()
+  const { navOtp,setNavOtp,isMobile }=useUserContext()
   
   const [position,setPosition]=useState(true) 
   const [positionForm,setPositionForm]=useState('login') 
@@ -222,7 +222,37 @@ function Login() {
         <source src={backvideo} type="video/mp4" />
 
       </video>
-      <div className='Landermain'>
+     {isMobile?(
+ <div className='Landermain'>
+ <div className='lander_div'>
+ 
+  <div className={`lander_div2`}>
+      {positionForm=='register' &&(<>
+    {navOtp?(<Otp/>):( <>
+        <RegisterForm/>
+        <div className='newuser'>
+          <h1>Existing User?</h1>
+          <button onClick={()=>{setPositionForm('login')}} >Register</button>
+        </div>
+       </>)}
+    </> )}
+       {positionForm=='login' &&(
+       <>
+        <LoginForm/>
+        <div className='newuser'>
+          <h1>Existing User?</h1>
+          <button onClick={()=>{setPositionForm('register')}} >Register</button>
+        </div>
+       </>
+      )}
+    
+
+  </div>
+ </div>
+</div>
+
+     ):(
+       <div className='Landermain'>
        <div className='lander_div'>
         <div className={`lander_div1 ${position?'true':""}`} >
           <div className='lander_div11'>
@@ -260,6 +290,7 @@ function Login() {
         </div>
        </div>
       </div>
+     )}
     </div>
 
   </div>

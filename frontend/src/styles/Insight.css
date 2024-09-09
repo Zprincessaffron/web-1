@@ -217,7 +217,7 @@
     background-color: rgba(0, 0, 0, 0.437);
 }
 .insight_div11>video{
-    width: 200vw;
+    width: 100vw;
     background-position: center;
     background-size: cover;
 }
@@ -421,4 +421,146 @@
 }
 .insigntendimg{
     
+}
+@media only screen and (max-width: 480px) {
+    .insight_div12>h1{
+        font-size: 1.5rem;
+        letter-spacing: 0.2rem;
+    }
+    .insight_div12>p{
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    
+}
+.insight_div1{
+    height: fit-content;
+}
+.insight_div2 h1{
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+
+}
+.insight_div2 p{
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    width: 90%;
+    line-height: 20px;
+
+}
+.insight_div2{
+    height: fit-content;
+    padding: 10px 0;
+
+}
+.insight_div3{
+    display: none;
+}
+
+.insight_div5main{
+    width: 100%;
+    background-color: rgb(225, 255, 254);
+}
+.insight_div5{
+    padding-bottom: 0;
+}
+.insight_div5>div{
+    margin-left: 0;
+    width: 95%;
+
+}
+.insight_div51{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    height: fit-content;
+    gap: 10px;
+    color: rgb(0, 0, 0);
+
+}
+.insight_div52{
+    background-color: rgba(12, 19, 15, 0.237);
+    width: 80%;
+    height: 1px;
+}
+.insight_div511{
+    width: 30%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.insight_div511>img{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 40px;
+    
+}
+.insight_div512{
+    width: 70%;
+}
+.insight_div512>h2{
+    font-size: 1rem;
+}
+.insight_div512>h1{
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-top: 5px;
+
+}.insight_div512>p{
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    width: 95%;
+    text-transform: capitalize;
+    line-height: 15px;
+    margin-top: 10px;
+    color: rgb(0, 0, 0);
+    
+
+}
+
+.insight_div6{
+    height: 40vh;
+    background-color: rgb(41, 11, 59);
+    position: relative;
+    overflow: hidden;
+
+}
+.insight_div6>img{
+    width: 100%;
+    opacity: 0;
+}
+.insight_div61{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.insight_div61>p{
+    width: 90%;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    word-spacing: 1.5px;
+    text-transform: capitalize;
+    line-height: 15px;
+    text-align: center;
+    color: white;
+}
+.insight_div61>h1{
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    color: white;
+   
+}
 }

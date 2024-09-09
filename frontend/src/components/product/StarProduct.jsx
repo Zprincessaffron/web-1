@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 
-function StarProduct() {
+function StarProduct({starValue}) {
     const [value,setValue]=useState(2)
   return (
     <div>
@@ -13,7 +13,7 @@ function StarProduct() {
 
 >
 
-<Rating name="read-only" value={4} 
+<Rating name="read-only" value={starValue} 
     emptyIcon={<StarBorderIcon style={{ color: 'white' }} fontSize="inherit" />}
       readOnly />
 </Box>

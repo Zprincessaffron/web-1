@@ -75,3 +75,18 @@ export const userLogout = async(req,res)=>{
     return res.status(500).json({ message: 'Internal server error' });
   }
 }
+//get user name by unique id
+export const userUnique = async (req, res) => {
+  try {
+    const { uniqueId } = req.params;
+    const user = await User.findOne({ uniqueId });
+    if (user) {
+      res.json({ name: user.name });
+    } else {
+      res.json({ message: 'User not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+

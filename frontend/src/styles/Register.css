@@ -6,7 +6,7 @@
     background-position: center;
     background-size: cover;
   }
-  
+   
   .video-container>video {
     position: absolute;
     top: 50%;
@@ -223,4 +223,36 @@
   letter-spacing: 1.5px;
   margin-bottom: 5px;
 
+}
+@media only screen and (max-width: 480px) {
+
+
+  .lander_div{
+    width: 95vw;
+    height: fit-content;
+  padding: 5vh 0;
+    
+
+  }
+  .Landermain{
+    width: 95vw;
+  }
+  .lander_div2{
+    width: 100%;
+  }
+  .newuser{
+    color: black;
+    font-size: 10px;
+    margin-top: 20px;
+
+  }
+  .newuser>button{
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+
+    background-color: rgb(205, 108, 33);
+  }
 }

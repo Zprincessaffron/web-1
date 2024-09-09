@@ -8,42 +8,14 @@
 }
 
 .beauty_main{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    font-size: 3rem;
-    position: relative;
-    background-size: cover;
-    overflow: hidden;
+   width: 100vw; 
+   height: 100vh;
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   
 }
-.beauty_main>img{
-    width: 100%;
-}
-.beauty_main1{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    color: white;
-    text-shadow: 2px 2px 2px rgba(1, 6, 6, 0.395);
-    letter-spacing: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.181);
-    gap: 20px;
-
-}
-.beauty_main1>h1{
-    font-size: 4.5rem;
-    letter-spacing: 1rem;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.264); 
-    color: white;
-}
 .beauty_div1 p{
     color: black;
     line-height: 25px;
@@ -159,29 +131,79 @@
 
 /* ////////////////////brightning///////////////////// */
 .radio_btton_beauty.brightning{
-    background-color: #c19fc69d;
+    background-color: #f7f8ff;
 }
 .beauty_div1.brightning{
-    background-color: #c19fc69d;
+    background-color: #f7f8ff;
 }
 /* ////////////////////antiaging///////////////////// */
 .radio_btton_beauty.antiaging{
-    background-color: rgb(188, 192, 224);
+    background-color: #f7f8ff;
 }
 .beauty_div1.antiaging{
-    background-color: rgb(188, 192, 224);
+    background-color: #f7f8ff;
 }
 /* ////////////////////skintone///////////////////// */
 .radio_btton_beauty.skintone{
-    background-color: #c4d3a9;
+    background-color: #f7f8ff;
 }
 .beauty_div1.skintone{
-    background-color: #c4d3a9;
+    background-color: #f7f8ff;
 }
 /* ////////////////////acne///////////////////// */
 .radio_btton_beauty.acne{
-    background-color: rgb(239, 212, 200)
+    background-color: #f7f8ff;
 }
 .beauty_div1.acne{
-    background-color: rgb(239, 212, 200)
+    background-color: #f7f8ff;
+}
+@media only screen and (max-width: 480px) {
+    
+.radio_btton_beauty{
+    height: 15vh;
+}
+.radio_btton_beauty>div{
+    width: 95vw;
+    height: 40px;
+
+}
+.radio_btton_beauty>div>h1{
+    font-size: calc(0.25rem + 1vw);
+
+}
+
+.beauty_div1 p{
+    line-height: 15px;
+    margin-bottom: 5px;
+    width: 95%;
+    font-size: 0.6rem;
+    text-align: center;
+
+}
+.beauty_div1>h1{
+ margin-bottom: 5px;
+ font-size: 1rem;
+ letter-spacing: 2px;
+}
+.beauty_div1>p{
+    margin-bottom: 5px;
+    width: 95%;
+    font-size: 0.6rem;
+    text-align: center;
+}
+.beauty_div1>div>h1{
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+.beauty_div1>div>p{
+    letter-spacing: 1px;
+    word-spacing: 1.5px;
+    width: 95%;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.beauty_div1>div>h1{
+    margin: 15px 0;
+}
 }

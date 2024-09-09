@@ -1,0 +1,349 @@
+.review-main{
+    width: 100%;
+    padding: 10vh 10px;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    background-color: rgb(213, 228, 234);
+    gap: 3vw;
+    justify-content: center;
+} 
+.review-div{
+    width: 25%;
+    padding: 20px 0  5px 20px;
+    background-color: white;
+    border-radius: 10px;
+
+
+ 
+}
+.review-div>img{
+    width: 40px;
+}
+.reviewdiv1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
+}
+.reviewdiv1>img{
+ width: 40px;
+ height: auto;
+
+}
+.review-div2{
+    margin-left: 5px;
+    
+}
+.review-div2>h1{
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+.review-div>h2{
+    font-size: 1rem;
+
+}
+.review-div4{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+
+}
+.review-div4>h2{
+    font-size: 0.8rem;
+    
+    margin-left: 5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.review-div4>span{
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+.review-div3>h2{
+    font-size: 0.8rem;
+    color: rgb(136, 131, 131);
+    text-align: left;
+    margin-top: 1rem;
+}
+.review-message{
+    margin: 1rem 0;
+}
+
+.sp-review-main{
+    width: 100%;
+    background-color: white;
+    padding: 5vh 0;
+    font-family: 'Riviera Nights';
+
+}
+.sp-review-div1{
+    display: flex;
+    gap: 10vw;
+    margin: 0 0 2rem 3vw;
+    flex-direction: row;
+    justify-content: left;
+}
+.sp-reviews{
+    padding: 0 2rem;
+}
+.sp-blankdiv{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(128, 128, 128, 0.518);
+    margin: 1rem;
+
+}
+.sp-rating{
+    background-color: rgb(43, 128, 43);
+    width: fit-content;
+    padding: 2px 15px;
+    border-radius: 25px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    
+}
+.sp-reviews-msg{
+    font-size: 1rem;
+    text-transform: capitalize;
+    padding: 1rem 0;
+    letter-spacing: 1px;
+    word-spacing: 1.5px;
+    width: 60% ;
+
+}
+.sp-review-date{
+    font-size: 0.8rem;
+}
+.sp-review-date>span{
+    margin-right: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(63, 62, 62);
+}
+.sp-review-div1>h2{
+    text-transform: capitalize;
+    letter-spacing: 0.2rem;
+    font-size: 2rem;
+
+}
+.sp-review-div1>button{
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    height: fit-content;
+
+}
+.sp-review-div1>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.sp-review-div1>div>span{
+    background-color: rgb(43, 128, 43);
+    width: fit-content;
+    padding: 2px 15px;
+    border-radius: 25px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+
+}
+.sp-submit-review-main{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    font-family: 'Riviera Nights';
+    
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.403);
+}
+.sp-submit-review-div1{
+    width: 40%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.sp-submit-review-div1>label{
+    margin: 10px 0;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+.sp-submit-review-div1>textarea{
+    width: 80%;
+    padding: 5px 10px;
+    line-height: 20px;
+    border-radius: 5px;
+}
+
+.sp-review-end{
+    display: flex;
+    justify-content: center;
+
+}
+.sp-review-end>button{
+    margin-top: 4rem;
+    padding: 10px 25px;
+    background-color: orange;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    letter-spacing: 1px;
+    
+}
+.sp-review-close{
+    width: 98%;
+    text-align: end;
+}
+.boxx{
+    overflow: hidden;
+    height: 30px;
+}
+@media only screen and (max-width: 480px) {
+    .sp_div3{
+        height: fit-content;
+        padding-right: 0;
+        padding-left: 10px;
+        margin-right: 10px;
+    
+        
+    }
+    .sp_div3>button{
+        padding: 10px 10px;
+        letter-spacing: 1px;
+        border-radius: 25px;
+        border: none;
+        background-color: white;
+        box-shadow: 2px 2px 5px 2px  rgba(0, 0, 0, 0.177);
+    
+    }
+    .sp_div3>h1{
+        font-size: 2rem;
+        color: white;
+        text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    
+    }
+    .sp_div2_1>h1{
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }.sp_div2_1>p{
+        font-size: 0.6rem;
+    }
+    .sp_div2{
+        height: fit-content;
+    }
+    .sp_div2_1>img{
+        width: 90%;
+
+
+    }
+    .sp_div3{
+        margin-top: 2rem;
+    }
+    .sp-submit-review-div1{
+        width: 95%;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .review-main{
+        width: 100%;
+        padding: 10vh 10px;
+        display: flex;
+        flex-direction: column;
+        float: left;
+        background-color: rgb(213, 228, 234);
+        gap: 10px;
+        justify-content: center;
+    }
+    .review-div{
+        width: 90%;
+        padding: 10px 0  5px 10px;
+        background-color: white;
+        border-radius: 10px;
+    
+    
+     
+    }
+    .review-main{
+        padding: 10px 10px;
+    }
+    .review-div4 span{
+        font-size: 0.5rem;
+      
+    }
+    .review-div4 h2{
+        font-size: 0.7rem;
+    }
+    .review-div4{
+        margin: 0;
+    }
+    .review-message{
+        font-size: 0.6rem;
+        letter-spacing: 0.5px;
+        margin: 2px 0;
+    }
+    .review-div2>h1{
+
+        font-size: 0.6rem;
+    }
+    .review-div3>h2{
+        font-size: 0.6rem;
+    }
+    .review-bottom{
+        font-size:0.8rem;
+        letter-spacing: 1px;
+    }
+    .review-bottom>button{
+        padding: 10px 15px;
+        border: none;
+        border-radius: 25px;
+        letter-spacing: 1px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        font-size: 0.5rem;
+    }
+    .review-div>img{
+        width: 15px;
+    }
+    .reviewdiv1>img{
+        width: 20px;
+        height: auto;
+       
+       }
+       .reviewdiv1{
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        
+    
+    
+    }
+    .reviewdiv1{
+        margin: 0;
+        padding: 0;
+    }
+    .review-div3>h2{
+        font-size: 0.6rem;
+        color: rgb(136, 131, 131);
+        text-align: left;
+        margin-top: 0;
+    }
+}

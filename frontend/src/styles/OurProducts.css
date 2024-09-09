@@ -51,4 +51,14 @@
     
     
     }
+    .unveil_div1>button{
+        padding: 10px 15px;
+        border-radius: 35px;
+        letter-spacing: 2px;
+        margin-top: 20px;
+        font-size: 0.5rem;
+        border: none;
+        background-color: white;
+        color: rgb(0, 0, 0);
+    }
 }

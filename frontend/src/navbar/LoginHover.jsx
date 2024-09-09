@@ -12,12 +12,11 @@ function LoginHover() {
     function handelMouseLeave(){
         setShowLogin(false)
 
-    }
+    } 
   return (
     <div onMouseLeave={handelMouseLeave} className='loginhover_main'>
         <div  className='loginhover_div1'>
         <IoMdClose onClick={handleClose} />
-
         </div>
         <div className='loginhover_div2'>
             <div>

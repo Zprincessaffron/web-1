@@ -17,7 +17,7 @@ function Beauty() {
         setSideBar(false)
       }, [])
     useEffect(() => {
-        const handleScroll = () => {
+        const handleScroll = () => { 
           if (window.scrollY > 300) {
             setShowNav(true);
           } else {
@@ -48,12 +48,9 @@ function Beauty() {
         <Navbar/>
         <SideBar/>
         <MenuSlider/>
-        <div className='beauty_main'>
-
-            <img src={beautymain} alt="" />
-            <div className='beauty_main1'>
-            <h1>BEAUTY</h1>
-            <h1>CARE</h1>
+        <div className='culinary_div1' style={{backgroundImage:`url(${beautymain})`}}> 
+            <div className='culinary_div11'>
+                <h1>BEAUTY USES</h1>
             </div>
         </div>
         <div className={`radio_btton_beauty ${dish}`}>

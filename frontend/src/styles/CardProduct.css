@@ -1,7 +1,5 @@
-.cp_main{
-    width: 100vw;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+ 
 .cp_div1{
     background-color: #AEAFDB;
     width: 100%;
@@ -10,6 +8,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .cp_div1>div>h1{
     letter-spacing: 0.5rem;
     font-size: 3.5rem;
@@ -32,6 +31,7 @@
     gap: 10vw;
     padding: 5vh 0;
     transition: all 0.3s ease-in-out;
+    
 }
 .cp_div22_1,.cp_div22_2{
     height: 300px;
@@ -40,6 +40,7 @@
     position: relative;
     transition: all 0.3s ease-in-out;
     opacity: 80%;
+    overflow: hidden;
 
 }
 .cp_div22_1{
@@ -48,6 +49,7 @@ background-color: #FCF1F5;
 
 .cp_div22_2{
     background-color: #eeeeff;
+    overflow: hidden;
 }
 
 .cp_div3{
@@ -118,7 +120,6 @@ background-color: #FCF1F5;
     font-size: small;
     transition: scale 0.2s ease-in-out;
     cursor: pointer;
-
 }
 .cp_div22_11_1{
     width: 100%;
@@ -134,17 +135,18 @@ background-color: #FCF1F5;
     margin-left: 10px;
     border-radius: 15px;
     letter-spacing: 1.5px;
-
-
 }
 .cp_div22_2.spain{
     scale: 110%;
+    overflow: hidden;
+
     opacity: 100%;
 
 }
 .cp_div22_1.kashmir{
     scale: 110%;
     opacity: 100%;
+    overflow: hidden;
 
 
 }
@@ -174,7 +176,7 @@ background-color: #FCF1F5;
     word-spacing: 2px;
 }
 .cp_div22_31{
-    padding: 5vh 0;
+    padding: 5vh 1vh;
     
 }
 .cp_div22_31>button{
@@ -186,12 +188,16 @@ background-color: #FCF1F5;
     background-color: rgba(0, 0, 0, 0.774);
     color: white;
     letter-spacing: 1px;
+
+}
+.cp_div22_31>button:checked{
+    scale: 98%;
+    background-color: white;
 }
 .cp_cart_hover{
     background-color: rgb(202, 211, 175);
     padding: 5px 25px ;
     border-radius: 15px;
-
     display: flex;
     flex-direction: row;
     gap:10px;
@@ -241,4 +247,143 @@ background-color: #FCF1F5;
 }
 .cp_cart_hover>button:active{
     scale: 95%;
+}
+
+/* Variant button normal state */
+
+.variant-button {
+    background-color: #f7fafc; /* Default background color */
+    color: #1a202c; /* Default text color */
+    border: 2px solid #e2e8f0;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    scale: 90%;
+
+    
+  }
+  
+  /* Variant button selected state */
+  .variant-button.selected {
+    background-color: #1f704f; /* Change to desired background color */
+    color: #ffffff; /* Change to desired text color */
+    border-color: #4a5568; /* Match the background color */
+    scale: 105%;
+    border: none;
+  }
+  
+  /* Optional hover effect */
+  .variant-button:hover {
+    background-color: black;
+    color: white; 
+  }
+
+
+.cardp_price>p{
+    font-size: 2rem;
+    color: black;
+    letter-spacing: 1px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}
+.carp_stock>p{
+    color: black;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 480px) {
+    .cp_div1{
+        background-color: #AEAFDB;
+        width: 100%;
+        height: 50vh;
+    }
+    .cp_div1>div>h1{
+        letter-spacing: 2px;
+        font-size: 1.5rem;
+    } 
+.cp_div2{
+    background-color: #e1e7d4ca;
+    width: 100%;
+    padding: 10px 0;
+}
+.cp_div21>h1{
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-left: 3vw; 
+}
+.cp_div22{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    height: fit-content;
+
+    padding: 0 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.cp_div22_1{
+background-color: #FCF1F5;   
+}
+.cp_div22_2{
+    background-color: #eeeeff;
+}
+.cp_div22_3{
+    width: 100%;
+    padding-left: 3vw;
+}
+.cp_div22_11_1>h1{
+    padding: 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ismobilediv{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-around;    overflow: hidden;
+    height: fit-content;
+    padding: 30px 2px;
+}
+.cp_div22_1,.cp_div22_2{
+    height: 30vh;
+    width: 40vw;
+    border-radius: 20px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    opacity: 80%;
+    overflow: hidden;
+
+}
+.cp_cart_hover{
+    background-color: rgb(202, 211, 175);
+    padding: 5px 10px ;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+.cp_div22_11_2{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    gap: 10px;
+    justify-content: space-between;
+}
+.cp_div22_11_2>button{
+    background-color: white;
+    padding: 3px 10px;
+    border-radius: 10px;
+    border: none;
+    letter-spacing: 1.5px;
+    font-size: small;
+
+    transition: scale 0.2s ease-in-out;
+    cursor: pointer;
+}
 }

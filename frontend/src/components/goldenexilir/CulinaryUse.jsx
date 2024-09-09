@@ -9,7 +9,7 @@ import SideBar from '../sidebar/SideBar';
 import MenuSlider from '../sidebar/MenuSlider';
 import { useUserContext } from '../../context/MainContext';
 
-function CulinaryUse() {
+function CulinaryUse() { 
     const { setShowNav,setSideBar,setMenuSlider }=useUserContext()
 
     const [dish,setDish]=useState('biryani')

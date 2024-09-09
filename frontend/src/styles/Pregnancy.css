@@ -6,8 +6,9 @@
     align-items: center;
     flex-direction: column;
     background-size: cover;
+    background-position: center; 
 
-
+ 
 }
 .pu_div1>h1{
     color: white;
@@ -17,7 +18,7 @@
     letter-spacing: 0.5rem;
 }
 .pu_main{
-    background-color: rgb(191, 202, 180)
+    background-color: rgb(249, 232, 255)
 }
 .pu_div2 p,.pu_div4 p{
     color: black;
@@ -120,7 +121,7 @@
 
 
 align-items: center;
-background-color: rgba(112, 158, 115, 0.49);
+background-color: rgb(246, 224, 255);
 padding: 10vh 0;
 
 }
@@ -137,4 +138,111 @@ padding: 10vh 0;
     text-transform: uppercase;
     margin-bottom: 20px;
     letter-spacing: 0.3rem;
+}
+@media only screen and (max-width: 480px) {
+    
+.pu_main h1{
+    letter-spacing: 2px;
+    font-size: 1rem;
+}
+.pu_main{
+    background-color: rgb(191, 202, 180)
+}
+.pu_div2 p,.pu_div4 p{
+    letter-spacing: 1px;
+    word-spacing: 1.5px;
+    line-height: 15px;
+}
+.pu_div2 h1,.pu_div4 h1{
+    margin-bottom: 2px;
+}
+.pu_div1>h1{
+    font-size: 1.5rem;
+}
+.pu_div1>p{
+    width: 90%;
+    text-align: center;
+    color: white;
+    letter-spacing: 1px;
+    word-spacing: 1.5px;
+    font-size: 0.8rem;
+}
+
+.pu_div2>div>h1{
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+.pu_div2>div>p{
+    width: 90%;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    word-spacing: 1.5px;
+    font-size: 0.6rem;
+    line-height: 15px;
+    text-align: center;
+}
+.culinary_subheadings{
+    font-size: 0.6rem;
+}
+
+.pu_div4>h1{
+    text-align: center;
+    font-size: 1rem;
+}
+.pu_div4{
+    margin-top: 10px;
+}
+.pu_div4>div{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+
+    gap: 10px;
+
+
+}
+.pu_div4>div>div{
+    
+    width: 100%;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+
+
+}
+
+.pu_div4>div>div>p{
+    width: 90%;
+    text-align: center;
+    font-size: 0.6rem;
+   
+}
+.pu_div4>div>div>img{
+    width: 70%;
+    height: auto;
+   
+}
+.pu_div4>div>div>h2{
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    margin: 0;
+   
+}
+.pu_div5{
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+   
+}
+.pu_div5>p{
+    font-size: 0.6rem;
+    line-height: 15px;
+    width: 90%;
+    margin: 5px 0;
+    letter-spacing: 1px;
+}
+
+
 }

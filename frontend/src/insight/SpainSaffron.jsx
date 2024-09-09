@@ -1,26 +1,49 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { Parallax } from 'react-scroll-parallax';
 import '../styles/KashmiriSaffron.css'
 import kashmirback4 from '../images/kashmir_back4.jpg'
 import cult from '../images/cult.jpg'
 import { useUserContext } from '../context/MainContext'
-
+ 
 import saffronculinary from '../images/saffronculinary.jpg'
 import saffronhim from '../images/saffranhim.jpg'
 import saffronserum from '../images/beautyback.jpg'
 import saffronchai from '../images/saffronchai.jpg'
 import Navbar from '../navbar/NavBar';
 import Footer from '../footer/Footer';
-import spainquality from '../images/spainquality.jpg'
-import spaintraditional from '../images/spaintraditional.jpg'
-import beautyspain from '../images/beautyspain.jpg'
+import spainquality from '../images/crocuspurity.jpeg'
+import spaintraditional from '../images/saffronspainculture.jpg'
+import beautyspain from '../images/saffronfacemix.jpeg'
 import KesariRasmalai from '../images/KesariRasmalai.jpg'
-import spainharvesting from '../images/spainharvesting.jpg'
+import spainharvesting from '../images/saffronfield2.jpg'
 import SideBar from '../components/sidebar/SideBar';
 import MenuSlider from '../components/sidebar/MenuSlider';
 
 function SpainSaffron() {
   const { setShowNav,setSideBar,setMenuSlider }=useUserContext()
+ const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+      // Function to check if the viewport width is less than or equal to 600px
+      const checkViewportWidth = () => {
+          if (window.matchMedia('(max-width: 600px)').matches) {
+              setIsMobile(true); // Set state to true for mobile devices
+          } else {
+              setIsMobile(false); // Set state to false for larger screens
+          }
+      };
+
+      // Initial check
+      checkViewportWidth();
+
+      // Add an event listener to detect window resize
+      window.addEventListener('resize', checkViewportWidth);
+
+      // Cleanup the event listener on component unmount
+      return () => {
+          window.removeEventListener('resize', checkViewportWidth);
+      };
+  }, []);
 
   useEffect(() => {
     setMenuSlider(false)
@@ -58,7 +81,7 @@ function SpainSaffron() {
             </Parallax>
             <Parallax speed={10} className="custom-class" y={[-40, 40]} tagOuter="figure">
 
-        <div style={{display:'flex',justifyContent:"right",flexDirection:"row-reverse",alignItems:"end"}}  className='ks_div31' >
+        <div  style={{display:'flex',justifyContent:`${isMobile?"centre":"right"}`,flexDirection:`${isMobile?"column-reverse":"row-reverse"}`,alignItems:`${isMobile?"center":"end"}`}}  className='ks_div31' >
           <div>
           <h1>Beauty and Skincare Marvel</h1>
           <p>The benefits of Spanish saffron extend far beyond the culinary world. In the realm of cosmetics, Spanish saffron is highly prized for its high content of antioxidants, which help protect the skin from environmental damage and the signs of aging. When incorporated into skincare products, saffron can improve skin texture, reduce the appearance of fine lines and wrinkles, and impart a radiant glow. Its anti-inflammatory and antibacterial properties also make it effective in treating acne and other skin conditions, ensuring that your skin remains healthy and luminous.</p>
@@ -82,7 +105,7 @@ function SpainSaffron() {
         </Parallax>
             <Parallax speed={10} className="custom-class" y={[-40, 40]} tagOuter="figure">
 
-         <div  style={{display:'flex',justifyContent:"center",flexDirection:'row-reverse',alignItems:"end"}}   className='ks_div31' >
+         <div  style={{display:'flex',justifyContent:`${isMobile?"centre":"right"}`,flexDirection:`${isMobile?"column-reverse":"row-reverse"}`,alignItems:`${isMobile?"center":"end"}`}}   className='ks_div31' >
            <div>
            <h1>The Essence of Tradition and Quality</h1>
            <p>La Mancha’s saffron is more than just a spice; it is a symbol of tradition, quality, and Spanish craftsmanship. The region’s unique climate and soil conditions provide the perfect environment for cultivating saffron, resulting in a product that is unparalleled in flavor, aroma, and color. Each thread of Spanish saffron embodies the rich cultural heritage of La Mancha, making it a valuable addition to both culinary and cosmetic applications.</p>

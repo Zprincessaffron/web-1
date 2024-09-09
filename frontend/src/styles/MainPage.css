@@ -7,7 +7,7 @@
   src: url('../fonts/RivieraNightsTrial-Ultralight.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
-}
+} 
 
 
 .mainpage_main{
@@ -196,6 +196,32 @@
 
 
 }
+.review-bottom{
+  background-color: rgb(213, 228, 234);
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  padding: 2rem 0;
+  flex-direction: column;
+  align-items: center;
+  text-transform: capitalize;
+  gap: 0.5rem;
+  letter-spacing: 1.5px;
+}
+.review-bottom>button{
+
+  padding: 10px 25px;
+  border-radius: 25px;
+  background-color: white;
+  border: none;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  cursor: pointer;
+
+}
+.review-bottom>button:hover{
+  scale: 102%;
+}
 
 .mainpage_end1{
   float: left;
@@ -288,6 +314,7 @@
 .mainpagetrialdiv{
     height: 60vh;
     padding-top: 5%;
+    background-color: rgb(255, 231, 255);
    
 }
 
@@ -517,9 +544,11 @@ height: 100%;
 }
 .setus_div1{
   font-size: 1rem;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 .setus_div2 div h1{
-  font-size: 10px;
+  font-size: 0.8rem;
   text-transform: uppercase;
   margin-bottom:10px ;
   letter-spacing:1px;
@@ -537,7 +566,7 @@ height: 100%;
   flex-direction: column;
 }
 .setus_div2 div p{
-  font-size: 0.5rem;
+  font-size: 0.6rem;
 }
 .setus_div2{
   flex-direction: column;
@@ -546,7 +575,18 @@ height: 100%;
   align-items: center;
 }
 .setus_div2 div p{
-  width: 50vw;
+  width: 90%;
+  letter-spacing: .5px;
+  line-height: 15px;
+}
+.mainpage_div3>button{
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  letter-spacing: 2px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 0.5rem;
 }
 
 }

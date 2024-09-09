@@ -14,13 +14,14 @@
     position: relative;
     height: 100vh;
 }
-.wc_div11{
+.wc_div11{ 
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 .wc_div11>video{
-    height: 100%;
+    width: 100%;
+    height: auto;
 }
 .wc_div12{
     width: 100%;
@@ -198,4 +199,133 @@
     line-height: 30px;
     width: 80%;
     text-align: center;
+}
+
+@media only screen and (max-width: 480px) {
+    .wc_div12>h1{
+        font-size: 1.5rem;
+        letter-spacing: 0.5rem;
+    }
+    .wc_div12>p{
+        font-size: 0.6rem;
+        width: 80%;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        letter-spacing: 1.5px;
+        word-spacing: 2px;
+    }
+ 
+  
+.wc_div21>h1{
+    font-weight: bolder;
+    margin-bottom: 1vh;
+
+}
+.wc_div21>p{
+    color: rgb(0, 0, 0);
+    width: 95%;
+    letter-spacing: 1px;
+    word-spacing: 1.5px;
+    line-height: 15px;
+    font-size: 0.6rem;
+
+    
+}
+.wc_div22>img{
+    width: 90%;
+
+}
+
+.wc_div21>h1{
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+.wc_div2{
+    height: fit-content;
+    padding-top: 2vh;
+    margin-left: 0;
+
+}
+.wc_div3{
+    height: fit-content;
+    padding-top: 5vh;
+    color: black;
+    margin-left: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.wc_div4>h1{
+    font-size: 1rem;
+}
+.wc_div41{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wc_div41>div{
+    width: 90%;
+    text-align: center;
+}
+.wc_div41>div>h1{
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}.wc_div41>div>p{
+    font-size: 0.6rem;
+    line-height: 20px;
+}
+.wc_div41>div>img{
+    width: 50%;
+}
+.wc_div5{
+    height: 25vh;
+    margin-top: 5vh;
+        position: relative;
+
+}
+.wc_div52>h1{
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-top: 10px;
+
+}
+
+.wc_div52>p{
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    margin-top: 0;
+    font-weight: 100;
+    width: 90%;
+
+
+}
+.wc_div6{
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(190, 206, 179);
+
+}
+.wc_div6>h1{
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+
+}
+.wc_div6>p{
+    color: black;
+    letter-spacing: 1px;
+    word-spacing: 1.5px;
+    line-height: 15px;
+    width: 80%;
+    font-size: 0.6rem;
+    text-align: center;
+}
 }

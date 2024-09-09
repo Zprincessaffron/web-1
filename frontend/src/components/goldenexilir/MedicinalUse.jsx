@@ -53,7 +53,7 @@ function MedicinalUse() {
                 <h1  onClick={()=>handleClick("depression")}className={`culinary_div21-h1 ${dish=='depression'?"true":""}`}>DEPRESSION</h1>
                 <h1  onClick={()=>handleClick("health")}  className={`culinary_div21-h1 ${dish=='health'?"true":""}`}>HEALTH AND MEMORY</h1>
                 <h1 onClick={()=>handleClick("pain")}  className={`culinary_div21-h1 ${dish=='pain'?"true":""}`}>PAIN REFIEF</h1>
-                <h1 onClick={()=>handleClick("digestive")}  className={`culinary_div21-h1 ${dish=='digestive'?"true":""}`}>DIGESTIVE HEALTH</h1>
+                <h1 onClick={()=>handleClick("digestive")}  className={`culinary_div21-h1 ${dish=='digestive'?"true":""}`}>DIGESTIVE</h1>
 
             </div>
 

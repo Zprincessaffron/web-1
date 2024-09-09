@@ -6,7 +6,7 @@
     justify-content: center;
     color: #4a5568;
 }
-
+ 
 .dashboard-main {
     display: flex;
     height: 100vh;
@@ -21,7 +21,7 @@
     flex-direction: row;
     width: 22vw;
     
-
+ 
 }
 .dashboard-welcome-png{
     width: 40%;
@@ -268,6 +268,7 @@
 
 .order-table-container {
     overflow-y: auto;
+    overflow-x: scroll;
 }
 
 .order-table {
@@ -570,4 +571,144 @@
     border: 1px solid #d1d5db; /* border-gray-300 */
     background-color: #f3f4f6; /* bg-gray-100 */
     padding: 0.5rem 20px; /* p-2 */
+}
+@media only screen and (max-width: 480px) {
+
+    .dashboard-main2{
+        flex-direction: row;
+        display: flex;
+        width: 95vw;
+        height: fit-content;
+        background-color: #0d0b3d;
+    }
+    .dashboard-main {
+        display: flex;
+        flex-direction: column;
+    }
+    .dashboard-welcome{
+        width: 30%;
+        height: 10vh;
+        overflow: hidden;
+        
+    }
+    .dashboard-nav{
+        margin: 0;
+        width: 70%;
+        display: flex;
+        flex-direction: row;
+        gap: 2px;
+        height: 10vh;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+
+    }
+    .dashboard-menu {
+        display: flex;
+        flex-direction: row;
+        gap: 2px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    .dashboard-menu li{
+        height: fit-content;
+        margin: 0;
+        font-size: 50px;
+        color: #1d4ed8;
+        
+    }
+  
+    .dashboard-link{
+        display: flex;
+        flex-direction: column;
+        font-size: 0.5rem;
+
+    }
+    .dashboard-content{
+        margin: 0;
+        width: 90vw;
+
+    }
+    .content-box{
+        width: 100%;
+    }
+    .dashboard-welcome-hello>h1{
+        font-size: 0.4rem;
+    }
+    .dashboard-welcome-hello>h2{
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
+    /* //////////profile////////// */
+    
+/* //profile// */
+
+.profile-container,.order-container,.set-container {
+    margin: 1rem auto;
+    padding: 0;
+    width: 100%;
+
+}
+.oh-container{
+    margin: 0;
+}
+.profile-container label{
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    color: black;
+}
+.profile-title {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+}
+
+.profile-card,.order-card {
+    background-color: #ffffff; /* bg-white */
+    padding: 1rem; /* p-6 */
+}
+
+.profile-subtitle,.order-card-subtitle,.oh-title,.set-subtitle {
+    margin-bottom: 0; 
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.profile-info {
+    margin-top: 1rem; /* space-y-4 */
+}
+
+.profile-field {
+    margin-bottom: 0.5rem; /* mb-4 */
+}
+
+.profile-label {
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #000000; /* text-gray-700 */
+}
+
+.profile-value {
+    margin-top: 0.25rem; /* mt-1 */
+    min-width: 300px;
+    width: fit-content;
+    height: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    letter-spacing: 1px;
+    color: black;
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    background-color: #f3f4f6; /* bg-gray-100 */
+    padding: 0.5rem 20px; /* p-2 */
+}
+/* ////////orders///////////// */
+.order-table-header-cell{
+    font-size: 0.4rem;
+}
 }

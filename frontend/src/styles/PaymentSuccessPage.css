@@ -1,0 +1,111 @@
+/* PaymentSuccessPage.css */
+.ps_main{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to right, #b2f5ea, #a0f3f0);
+display: flex;
+justify-content: center;
+
+}
+.ps-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+    width: 80%;
+  }
+  
+  .ps-gradient-background {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .ps-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00796b;
+    margin-bottom: 20px;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+  .ps_text_thank{
+    margin-bottom: 1rem;
+    color: black;
+    letter-spacing: 1px;
+  }
+  .ps-image {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .ps-text-base {
+    font-size: 1.125rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .ps-receipt-section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .ps-receipt-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00796b;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  
+  .ps-receipt-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  .ps-hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+  }
+  .ps-recipt-order{
+    color: black;
+    text-align: left;
+  }
+  .ps-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #00796b;
+    padding: 10px 0;
+  }
+  
+  .ps-button {
+    background-color: #0b4e46;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 2rem;
+
+    transition: background-color 0.3s ease;
+  }
+  
+  .ps-button:hover {
+    background-color: #479a8c;
+  }
+  

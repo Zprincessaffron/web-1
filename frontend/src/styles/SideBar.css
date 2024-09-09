@@ -14,7 +14,7 @@
     background-color: rgba(0, 0, 0, 0.416);
     backdrop-filter: blur(30px);
     width: 35vw;
-    height: 100vh;
+    height: 100vh; 
     display: flex;
     justify-content: right;
     flex-direction: column;
@@ -70,4 +70,102 @@
 }
 .sidebar_arrow{
     margin-right: 5px;
+}
+
+
+@media only screen and (max-width: 480px) {
+    .sidebar_main{
+    font-family: 'Riviera Nights';
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.416);
+    backdrop-filter: blur(30px);
+    width: 50vw;
+    height: 100vh; 
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    align-items: end;
+    transition: all 0.3s ease-in-out;
+    float: left;
+
+
+
+}
+
+.sidebar_main.true{
+    width: 100vw;
+    left: 0;
+
+}
+
+
+.sidebar_div1{
+    height: 10%;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+
+}
+.sidebar_div2{
+    width: 100%;
+
+
+}
+.sidebar_div2>div{
+    color: white;
+    width: 90%;
+    font-size: 01rem;
+    letter-spacing: 0.3rem;
+    margin-top: 10px;
+    font-family: 'Riviera Nights';
+    z-index: 3;
+    padding-left: 0%;
+    cursor: pointer;
+    text-align: right;
+}
+#sidebar_kh{
+    font-weight: bolder;
+    
+}
+.sidebar_arrow{
+    margin-right: 5px;
+}
+.menu-img-item{
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+
+}
+.menu-img-item>div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.532);
+}
+.menu-img-item.culinary{
+    background-image: url(../images/culinaryslide.jpg);
+
+}
+.menu-img-item.medicine{
+    background-image: url(../images/medicinalslider.jpg);
+
+}
+.menu-img-item.beauty{
+    background-image: url(../images/beautyslider.jpg);
+
+}
+.menu-img-item.pregnancy{
+    background-image: url(../images/pregnancyslider.jpg);
+
+}
 }

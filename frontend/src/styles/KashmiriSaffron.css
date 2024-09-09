@@ -4,7 +4,7 @@
     background-color: #80ccce;
     overflow: hidden;
   
-  }
+  } 
   .ks_main h1{
     letter-spacing: 0.5rem;
   }
@@ -203,4 +203,74 @@
     width: 100%;
     height: 70vh;
     background-color: #80ccce;
+  }
+  @media only screen and (max-width: 480px) {
+.ks_div11>h1{
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+.ks_divsep2{
+  width: 100%;
+  height: 160vh;
+  background-color: #80ccce;
+}
+.ks_div11>h2{
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+.ks_div11>p{
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  width: 80%;
+  word-spacing: 1.5px;
+  line-height: 15px;
+}
+
+
+
+
+
+.ks_div31{
+  margin: 5px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+.ks_div31>div{
+  width: 90%;
+
+  
+}
+.ks_div31>img{
+  width: 40%;
+}
+.ks_div31>div>h1{
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+#ks_cultandhar{
+  width: 120%;
+  text-align: left;
+}
+.ks_div31>div>p{
+  letter-spacing: 1px;
+  line-height: 15px;
+  word-spacing: 1.5px;
+  font-size: 0.6rem;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+#ks_cultandhar{
+  width: 100%;
+  text-align: center;
+}
   }

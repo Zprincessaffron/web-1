@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../../styles/SideBar.css'
 import { IoCloseSharp } from "react-icons/io5";
 import { useUserContext } from '../../context/MainContext'; 
@@ -6,53 +6,59 @@ import { useSpring, animated } from 'react-spring';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import { FaL } from 'react-icons/fa6';
+import culinaryslide from '../../images/culinaryslide.jpg'
+import medicinalslider from '../../images/medicinalslider.jpg'
+import pregnancyslider from '../../images/pregnancyslider.jpg'
+import beautyslider from '../../images/beautyslider.jpg'
+import { userContext } from '../../context/UserContext';
 
 function SideBar() {
   const navigate = useNavigate()
-    const { singleProduct,setSingleProduct,showMenuSub,setShowMenuSub,mainItems,setMainItems,setGoldenElixir,menuSlider,setMenuSlider,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar }=useUserContext()
+  const { user } =useContext(userContext)
+    const { isMobile, setIsMobile,singleProduct,setSingleProduct,showMenuSub,setShowMenuSub,mainItems,setMainItems,setGoldenElixir,menuSlider,setMenuSlider,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar }=useUserContext()
 
 
     const itemAnimation1 = useSpring({
         opacity: menuItems ? 1 : 0,
         transform: menuItems ? 'translateX(0)' : 'translateX(-100%)',
-        delay: 900,
+        delay: 1000,
       });
       const itemAnimation2 = useSpring({
         opacity: menuItems ? 1 : 0,
         transform: menuItems ? 'translateX(0)' : 'translateX(-100%)',
-        delay: 800,
+        delay: 900,
       });
       const itemAnimation3 = useSpring({
         opacity: menuItems ? 1 : 0,
         transform: menuItems ? 'translateX(0)' : 'translateX(-100%)',
-        delay: 700,
+        delay: 800,
       });
       const itemAnimation4 = useSpring({
         opacity: menuItems ? 1 : 0,
         transform: menuItems ? 'translateX(0)' : 'translateX(-100%)',
-        delay: 600,
+        delay: 700,
       });
       const itemAnimation5 = useSpring({
         opacity: menuItems ? 1 : 0,
         transform: menuItems ? 'translateX(0)' : 'translateX(-100%)',
-        delay: 500,
+        delay: 600,
       });
       const itemAnimation6 = useSpring({
         opacity: menuItems ? 1 : 0,
         transform: menuItems ? 'translateX(0)' : 'translateX(-100%)',
-        delay: 400,
+        delay: 500,
       });
 
       
       const itemAnimation7 = useSpring({
         opacity: menuItems ? 1 : 0,
         transform: menuItems ? 'translateX(0)' : 'translateX(-100%)',
-        delay: 200,
+        delay: 400,
       });
       const itemAnimation8 = useSpring({
         opacity: menuSubItems ? 1 : 0,
         transform: menuSubItems ? 'translateX(0)' : 'translateX(-100%)',
-        delay: 500,
+        delay: 200,
       });
       const itemAnimation9 = useSpring({
         opacity: menuSubItems ? 1 : 0,
@@ -210,10 +216,21 @@ function SideBar() {
                     {menuSubItems == 'goldenelixir' && (
                     <>
                     <animated.div id="sidebar_kh" className="menu-item" onClick={handleBackGolden} style={itemAnimation1}><IoMdArrowRoundBack className='sidebar_arrow'/>GOLDEN ELIXIR</animated.div>
-        <animated.div onClick={()=> handleGoldenElixerChange('culinary')}  className="menu-item" style={itemAnimation2}>CULINARY</animated.div>
-        <animated.div onClick={()=> handleGoldenElixerChange('medicine')} className="menu-item" style={itemAnimation3}>MEDICINE</animated.div>
-        <animated.div onClick={()=> handleGoldenElixerChange('beauty')}  className="menu-item" style={itemAnimation4}>FACE CARE</animated.div>
-        <animated.div onClick={()=> handleGoldenElixerChange('pregnancy')}  className="menu-item" style={itemAnimation5}>PREGNANCY</animated.div>
+                    {isMobile?( <>
+                      <animated.div onClick={()=>{navigate('/culinary-use')}}  className="menu-img-item culinary" style={itemAnimation2} >
+                        <div>CULINARY USES</div>
+                      </animated.div>
+                      <animated.div onClick={()=>{navigate('/medicine-use')}}  className="menu-img-item medicine" style={itemAnimation3}><div>MEDICINE</div></animated.div>
+                      <animated.div onClick={()=>{navigate('/beauty-use')}}  className="menu-img-item beauty" style={itemAnimation4}><div>FACE CARE</div></animated.div>
+                      <animated.div onClick={()=>{navigate('/pregnancy-use')}}   className="menu-img-item pregnancy" style={itemAnimation5}><div>PREGNANCY</div></animated.div>
+                      </>):(
+                      <>
+                      <animated.div onClick={()=> handleGoldenElixerChange('culinary')}  className="menu-item" style={itemAnimation2}>CULINARY</animated.div>
+                      <animated.div onClick={()=> handleGoldenElixerChange('medicine')} className="menu-item" style={itemAnimation3}>MEDICINE</animated.div>
+                      <animated.div onClick={()=> handleGoldenElixerChange('beauty')}  className="menu-item" style={itemAnimation4}>FACE CARE</animated.div>
+                      <animated.div onClick={()=> handleGoldenElixerChange('pregnancy')}  className="menu-item" style={itemAnimation5}>PREGNANCY</animated.div>
+                      </>
+                    )}
 
                     </>)
                    }
@@ -223,7 +240,9 @@ function SideBar() {
               <animated.div onClick={handleWhyChooseUs} className="menu-item" style={itemAnimation3}>WHY CHOOSE US</animated.div>
               <animated.div  onClick={handleGoldenElixir} className="menu-item" style={itemAnimation4}>GOLDEN EXILIR</animated.div>
               <animated.div  onClick={()=>{navigate('/chatbot')}} className="menu-item" style={itemAnimation5}> RECOMMENDAR</animated.div>
-              <animated.div onClick={handleContactUs}  className="menu-item" style={itemAnimation6}>CONTACT US</animated.div>
+              {user?(              <animated.div  onClick={()=>{navigate('/dashboard/profile')}} className="menu-item" style={itemAnimation6}> PROFILE</animated.div>
+):(null)}
+              <animated.div onClick={handleContactUs}  className="menu-item" style={itemAnimation7}>CONTACT US</animated.div>
               <animated.div onClick={()=>{navigate('/login')}}  className="menu-item" style={itemAnimation7}>LOGIN</animated.div></>
              )
                    }

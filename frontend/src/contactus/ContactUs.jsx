@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import '../styles/ContactUs.css'
-import contactusback from '../images/contactusback.jpg'
+import contactusback from '../images/contactbackpink.jpg'
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { CgMail } from "react-icons/cg";
 import { IoMdCall } from "react-icons/io";
 import { MdLocationOn } from "react-icons/md";
-import Navbar from '../NavBar/NavBar';
+import Navbar from '../navbar/NavBar';
 import { useUserContext } from '../context/MainContext';
 import Footer from '../footer/Footer';
 
@@ -20,11 +20,8 @@ function ContactUs() {
   return (
     <div>
         <Navbar/>
-        <div className='contact_div1'>
-            <div className='contact_div11'>
-                <img src={contactusback} alt="" />
-
-            </div>
+        <div className='contact_div1' style={{backgroundImage:`url(${contactusback})`}}>
+   
             <div className='contact_div12'>
                 <h1>CONTACT DETAILS</h1>
                 <p>Our office hours are Monday to Saturday, 9 AM to 6 PM.</p>

@@ -1,13 +1,16 @@
 import express from 'express';
 import cors from 'cors';
 import { loginUser, registerUser, test, getProfile, getUserData, getAdmin, authenticate, authorize,verifyOTP,resendOTP } from '../controllers/authController.js';
-import { getAllUsers, updateProfile, userLogout } from '../controllers/userController.js';
+import { getAllUsers, updateProfile, userLogout,userUnique } from '../controllers/userController.js';
+import { addReview ,getAllReviews,getKashmirSaffronReviews,getSpainSaffronReviews } from '../controllers/reviewController.js'
 import { analyzeData } from '../controllers/recommenderController.js';
 import { getAllMarketers, getMarketer, registerMarketer } from '../controllers/marketerController.js';
 import { getAllWholesalers, getWholeSaler, registerWholesaler } from '../controllers/wholesalerController.js';
 import { createOrder, verifyPayment } from '../controllers/paymentController.js';
 import { OrderData ,userOrders, getOrderData, getUserOrders, updateOrderStatus } from '../controllers/orderController.js';
 import { getAllUserOrders, getAllWholesalerOrders } from '../controllers/adminController.js';
+import { getProducts, updateProduct } from '../controllers/productController.js';
+import { telecallerOrders } from '../controllers/telecallerController.js';
 
 const router = express.Router();
 
@@ -65,4 +68,17 @@ router.get('/admin/wholesaler-orders', authenticate, authorize(['admin']),getAll
 router.post("/create-order", createOrder);
 router.post("/verify-payment", verifyPayment);
 
+//reviews
+router.post('/add-review' ,addReview);
+router.get('/allreviews' ,getAllReviews)
+router.get('/kashmir-review' ,getKashmirSaffronReviews);
+router.get('/spain-review' ,getSpainSaffronReviews);
+router.get('/user/:uniqueId',userUnique)
+
+// product
+router.get('/products', getProducts);
+router.put('/products/:id', updateProduct);
+
+// telecaller orders
+router.post('/telecaller-orders', telecallerOrders);
 export default router;
