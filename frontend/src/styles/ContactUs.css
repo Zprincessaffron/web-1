@@ -17,7 +17,7 @@
     align-items: center;
     padding: 1px;
 
-
+ 
 }
 .contact_div11>img{
     width: 100%;
@@ -49,6 +49,18 @@
     letter-spacing: 1.5px;
     gap: 5px;
     font-weight: bold;
+    font-family: "Roboto", system-ui;
+    font-weight: 300;
+
+}
+.fontsaligh{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    font-size: calc(0.2rem + 1.5vw);
+    margin-top: calc(0.5rem + 1.5vw);
+    color: rgb(44, 44, 44);
+    cursor: pointer;
 }
 .contact_div121{
     display: flex;
@@ -118,6 +130,15 @@
     }
     .contact_div12>p{
         font-size: 1rem;
+    }
+    .fontsaligh{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        font-size: calc(0.7rem + 2vw);
+        margin-top: calc(0.5rem + 1.5vw);
+        color: rgb(44, 44, 44);
+        cursor: pointer;
     }
 
 }
