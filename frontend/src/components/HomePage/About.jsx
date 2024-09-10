@@ -17,7 +17,7 @@ import SideBar from '../sidebar/SideBar';
 import MenuSlider from '../sidebar/MenuSlider';
 import Footer from '../../footer/Footer';
 
- 
+  
 function About() {
     const [trans,setTrans]=useState(120)
     const { isMobile,setMenuSlider,setSideBar,setShowNav }=useUserContext()

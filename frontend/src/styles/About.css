@@ -253,6 +253,10 @@ color: black;
         text-align: center;
          
     }
+    .about_div62>p{
+        margin-top: 10px;
+    
+    }
 .about_div3{
     height: fit-content;
     flex-direction: column;
