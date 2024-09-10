@@ -202,7 +202,7 @@ function SideBar() {
                     <animated.div id="sidebar_kh" className="menu-item" onClick={handleBack} style={itemAnimation1}><IoMdArrowRoundBack className='sidebar_arrow'/>KNOWLEDGE HUB</animated.div>
                    <animated.div className="menu-item" onClick={()=>navigate('/insight')} style={itemAnimation2}>INSIGHT </animated.div>
         <animated.div className="menu-item" onClick={()=>navigate('/kashmiri-saffron')}  style={itemAnimation3}>KASHMIRI SAFFRON</animated.div>
-        <animated.div className="menu-item" style={itemAnimation9}>SPAIN SAFFRON</animated.div>
+        <animated.div className="menu-item"  onClick={()=>navigate('/spain-saffron')}  style={itemAnimation9}>SPAIN SAFFRON</animated.div>
                     </>)
                    }
                     {menuSubItems == 'products' && (
@@ -242,7 +242,6 @@ function SideBar() {
               <animated.div  onClick={()=>{navigate('/chatbot')}} className="menu-item" style={itemAnimation5}> RECOMMENDAR</animated.div>
               {user?(              <animated.div  onClick={()=>{navigate('/dashboard/profile')}} className="menu-item" style={itemAnimation6}> PROFILE</animated.div>
 ):(null)}
-              <animated.div onClick={handleContactUs}  className="menu-item" style={itemAnimation7}>CONTACT US</animated.div>
               <animated.div onClick={()=>{navigate('/login')}}  className="menu-item" style={itemAnimation7}>LOGIN</animated.div></>
              )
                    }

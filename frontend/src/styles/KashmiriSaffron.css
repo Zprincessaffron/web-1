@@ -9,14 +9,16 @@
     font-size: calc(0.256rem + 2vw);
     letter-spacing: 0.3rem;
     text-transform: uppercase;
-    width: 120%;
+   
     margin-bottom: 1rem;
   }
   .ks_main p{
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
     font-size: 0.9rem;
-    text-align: center center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-weight: 100;
   }
   .ks_main1{
     width: 100vw;
@@ -69,7 +71,6 @@
   }
 
   .ks_div1>p{
-    color: rgb(0, 0, 0);
     font-weight: bold;
     text-align: center;
     left: 1.5px;
@@ -86,7 +87,6 @@
   }
 
   .ks_div2>p{
-    color: black;
     left: 1.5px;
     word-spacing: 2px;
     text-transform: capitalize;
@@ -118,10 +118,6 @@
     text-align: left;
   }
   .ks_div31>div>p{
-    letter-spacing: 1.5px;
-    line-height: 25px;
-    word-spacing: 2px;
-    color: rgb(0, 0, 0);
     text-align: center;
   }
   .ks_thegolden{
@@ -151,7 +147,7 @@
 
   }
   .ks_div11>p{
-    color: black;
+    color: rgb(0, 0, 0);
     width: 60%;
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
