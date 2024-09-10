@@ -11,26 +11,38 @@ import { useUserContext } from '../../context/MainContext';
 
 function CulinaryUse() { 
     const { setShowNav,setSideBar,setMenuSlider }=useUserContext()
-
     const [dish,setDish]=useState('biryani')
+
     function handleDish(val){
         setDish(val)
     }
 
+
     useEffect(() => {
         setMenuSlider(false)
         setSideBar(false)
+        setShowNav(true)
+       
       }, [])
+
+   
+      
+
+
   return (
-    <div className='culinarymain'>
-        <Navbar/>
+    <>
+      <div>
+  <Navbar/>
         <SideBar/>
         <MenuSlider/>
+    <div className='culinarymain'>
+      
         <div className='culinary_div1' style={{backgroundImage:`url(${culinaryback})`}}> 
             <div className='culinary_div11'>
                 <h1>CULINARY USES</h1>
             </div>
         </div>
+        <div>
         <div className={`culinary_div2 ${dish}`}>
         <div className='culinary_div21'>
                 <h1 onClick={()=>handleDish('biryani')} className={`culinary_div21-h1 ${dish=='biryani'?"true":""}`}>BIRYANI</h1>
@@ -41,6 +53,8 @@ function CulinaryUse() {
 
             </div>
         </div>
+        </div>
+       
         {/* ////////////<- splitting -> /////////////// */}
        {dish =="biryani" &&(
         <>
@@ -226,8 +240,14 @@ function CulinaryUse() {
             </div>
         </>
        )}
-       <Footer/>
+
+       
     </div>
+  
+    </div>
+    <Footer/>
+
+           </>
   )
 }
 

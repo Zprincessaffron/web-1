@@ -5,6 +5,7 @@
 
 .beauty_div1 h1{
     letter-spacing: 0.5rem;
+    text-align: center;
 }
 
 .beauty_main{
@@ -19,6 +20,9 @@
 .beauty_div1 p{
     color: black;
     line-height: 25px;
+    line-height: 1.9230769231;
+    letter-spacing: 0.0484615385em;
+    font-size: 0.9rem;
 
 }
 .beauty_div1>h1{
@@ -131,31 +135,31 @@
 
 /* ////////////////////brightning///////////////////// */
 .radio_btton_beauty.brightning{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 .beauty_div1.brightning{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 /* ////////////////////antiaging///////////////////// */
 .radio_btton_beauty.antiaging{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 .beauty_div1.antiaging{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 /* ////////////////////skintone///////////////////// */
 .radio_btton_beauty.skintone{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 .beauty_div1.skintone{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 /* ////////////////////acne///////////////////// */
 .radio_btton_beauty.acne{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 .beauty_div1.acne{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 @media only screen and (max-width: 480px) {
     

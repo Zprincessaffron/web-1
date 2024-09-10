@@ -15,7 +15,7 @@ function MedicinalUse() {
     function handleClick(val){
         setDish(val)
      
-        setTimeout(() => {
+        setTimeout(() => { 
             setAnim(val)
 
             

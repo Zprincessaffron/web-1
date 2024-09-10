@@ -7,7 +7,7 @@
 .mu_div1 h1{
     letter-spacing: 0.5rem; 
 }
-
+ 
 .mu_main{
     height: 100vh;
     display: flex;
@@ -31,6 +31,9 @@
 .mu_div1>p{
     width: 60%;
     text-align: center;
+    line-height: 1.9230769231;
+    letter-spacing: 0.0484615385em;
+    font-size: 0.9rem;
     
 }
 .mu_div1>div>h1{
@@ -58,11 +61,12 @@
     margin-bottom: 3vh;
 }
 .mu_div1>div>p{
-    line-height: 25px;
-    letter-spacing: 1.5px;
-    word-spacing: 2px;
+    line-height: 1.9230769231;
+    letter-spacing: 0.0484615385em;
+    font-size: 0.9rem;
     width: 60%;
     text-align: center;
+    color: rgb(0, 0, 0);
 }
 .mu_main{
     background-position: center;
@@ -150,30 +154,30 @@
 }
 /* //////////depression///////////// */
 .mu_div1.depression{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 .radio_btton_mu.depression{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 
 /* //////////health///////////// */
 .mu_div1.health{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 .radio_btton_mu.health{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 
 /* //////////pain///////////// */
 .mu_div1.pain{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 .radio_btton_mu.pain{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 /* //////////digestive///////////// */
 .mu_div1.digestive{
-    background-color: #f7f8ff;
+    background-color: #b4c7cb;
 }
 .radio_btton_mu.digestive{
     background-color: #f7f8ff;
