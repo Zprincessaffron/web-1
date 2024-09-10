@@ -6,11 +6,11 @@
   
   } 
   .ks_main h1{
-    font-size: calc(0.256rem + 2vw);
-    letter-spacing: 0.3rem;
+    font-size: calc(0.056rem + 1.5vw);
+    letter-spacing: 0.2rem;
     text-transform: uppercase;
-   
     margin-bottom: 1rem;
+    text-align: center;
   }
   .ks_main p{
     line-height: 1.9230769231;
@@ -115,7 +115,7 @@
 
   #ks_cultandhar{
     width: 120%;
-    text-align: left;
+    text-align: center;
   }
   .ks_div31>div>p{
     text-align: center;
