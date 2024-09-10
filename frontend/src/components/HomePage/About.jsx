@@ -9,7 +9,7 @@ import pregnancywmen from '../../images/pregnancywmen.jpg';
 import abtend1 from '../../images/abtend1.jpg';
  
 import culinarymedi from '../../images/culinarymedi.jpg';
-
+ 
 import '../../styles/About.css'
 import Navbar from '../../navbar/NavBar';
 import { useUserContext } from '../../context/MainContext';
