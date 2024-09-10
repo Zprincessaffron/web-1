@@ -5,7 +5,7 @@ import abt_back from '../../images/abt_back.png'
 import basundi from '../../images/basundi.png';
 import saffronmask from '../../images/saffronmask.jpg';
 import pregnancywmen from '../../images/pregnancywmen.jpg';
-
+import { useLocation } from 'react-router-dom';
 import abtend1 from '../../images/abtend1.jpg';
  
 import culinarymedi from '../../images/culinarymedi.jpg';
@@ -16,16 +16,20 @@ import { useUserContext } from '../../context/MainContext';
 import SideBar from '../sidebar/SideBar';
 import MenuSlider from '../sidebar/MenuSlider';
 import Footer from '../../footer/Footer';
+import ScrollToTop from '../ScrollToTop';
 
   
 function About() {
+  const { pathname } = useLocation();
+
     const [trans,setTrans]=useState(120)
     const { isMobile,setMenuSlider,setSideBar,setShowNav }=useUserContext()
     useEffect(() => {
         setMenuSlider(false)
         setSideBar(false)
       }, [])
-    
+
+
 
       useEffect(() => {
         const handleScroll = () => {
@@ -66,6 +70,7 @@ function About() {
 
     return (
         <div className='aboutmain'>
+          <ScrollToTop/>
             <Navbar/>
             <SideBar/>
             <MenuSlider/>

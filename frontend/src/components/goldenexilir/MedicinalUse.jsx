@@ -6,6 +6,7 @@ import Footer from '../../footer/Footer'
 import { useUserContext } from '../../context/MainContext'
 import SideBar from '../sidebar/SideBar'
 import MenuSlider from '../sidebar/MenuSlider'
+import ScrollToTop from '../ScrollToTop'
 
 function MedicinalUse() {
     const [dish,setDish] =useState("depression")
@@ -44,6 +45,7 @@ function MedicinalUse() {
       }, []);
   return (
     <div>
+        <ScrollToTop/>
         <Navbar/>
         <SideBar/>
         <MenuSlider/>

@@ -8,6 +8,7 @@ import { userContext } from '../../context/UserContext'
 import { CartContext } from '../../context/CartContext'
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineDelete } from "react-icons/ai";
+import ScrollToTop from '../ScrollToTop'
 
 function Cart() {
     const { setShowNav }=useUserContext()
@@ -46,6 +47,7 @@ function Cart() {
   };
   return (
     <div>
+      <ScrollToTop/>
         <Navbar/>
         <div className='cart_div1'>            
             <h1>BACK TO HOME</h1>                     

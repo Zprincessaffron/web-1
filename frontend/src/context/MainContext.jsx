@@ -5,7 +5,6 @@ const MainContext = createContext();
 export const useUserContext = ()=> useContext(MainContext)
 
 export const UserProvider = ({children})=>{
-  
     const [showNav,setShowNav]=useState(false)
     const [showLogin,setShowLogin]=useState(false)
     const [navOtp,setNavOtp]=useState(false)
@@ -30,7 +29,6 @@ export const UserProvider = ({children})=>{
                 setIsMobile(false); // Set state to false for larger screens
             }
         };
-  
         // Initial check
         checkViewportWidth();
   

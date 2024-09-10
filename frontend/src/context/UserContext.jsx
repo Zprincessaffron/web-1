@@ -1,11 +1,12 @@
 import { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
-
+import BounceLoader from "react-spinners/ClipLoader";
 export const userContext = createContext({});
 
 export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true); // Add loading state
+
 
   useEffect(() => {
     // Fetch user profile data on mount
@@ -28,7 +29,10 @@ export const UserContextProvider = ({ children }) => {
   }, []); // Empty dependency array to only run on mount
 
   if (loading) {
-    return <div>Loading...</div>; // Handle loading state
+    return <div style={{width:"100vw",height:"100vh",display:"flex",justifyContent:"center",flexDirection:"row",alignItems:"center",backgroundColor:"rgb(255, 232, 232)",gap:"1rem",fontSize:"2rem"}}>
+      Loading...<BounceLoader />
+
+    </div>; // Handle loading state
   }
 
   return (

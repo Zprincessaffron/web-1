@@ -8,6 +8,7 @@ import { culinaryUsesData } from './CulinaryData';
 import SideBar from '../sidebar/SideBar';
 import MenuSlider from '../sidebar/MenuSlider';
 import { useUserContext } from '../../context/MainContext';
+import ScrollToTop from '../ScrollToTop';
 
 function CulinaryUse() { 
     const { setShowNav,setSideBar,setMenuSlider }=useUserContext()
@@ -32,6 +33,7 @@ function CulinaryUse() {
   return (
     <>
       <div>
+        <ScrollToTop/>
   <Navbar/>
         <SideBar/>
         <MenuSlider/>

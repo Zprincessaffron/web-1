@@ -16,6 +16,7 @@ import insight1 from '../images/insight1.jpg'
 import insight2 from '../images/insight2.jpg'
 import SideBar from '../components/sidebar/SideBar'
 import MenuSlider from '../components/sidebar/MenuSlider'
+import ScrollToTop from '../components/ScrollToTop'
 
 
  
@@ -157,6 +158,7 @@ function Insight() {
     
   return (
     <>
+    <ScrollToTop/>
     <Navbar/>
         <SideBar/>
         <MenuSlider/>

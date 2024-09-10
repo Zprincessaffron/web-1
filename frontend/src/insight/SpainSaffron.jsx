@@ -18,6 +18,7 @@ import KesariRasmalai from '../images/KesariRasmalai.jpg'
 import spainharvesting from '../images/saffronfield2.jpg'
 import SideBar from '../components/sidebar/SideBar';
 import MenuSlider from '../components/sidebar/MenuSlider';
+import ScrollToTop from '../components/ScrollToTop';
 
 function SpainSaffron() {
   const { setShowNav,setSideBar,setMenuSlider }=useUserContext()
@@ -54,6 +55,7 @@ function SpainSaffron() {
       <Navbar/>
       <SideBar/>
       <MenuSlider/>
+      <ScrollToTop/>
      
      <div className='ks_div1' > 
        <div className='ks_div11'>

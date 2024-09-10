@@ -15,6 +15,7 @@ import Navbar from '../navbar/NavBar';
 import Footer from '../footer/Footer';
 import SideBar from '../components/sidebar/SideBar';
 import MenuSlider from '../components/sidebar/MenuSlider';
+import ScrollToTop from '../components/ScrollToTop';
 
 function KashmiriSaffron() {
   const { setShowNav,setSideBar,setMenuSlider }=useUserContext()
@@ -51,10 +52,12 @@ function KashmiriSaffron() {
   }, [])
   return (
     <>
-    <div className='ks_main'>
-      <Navbar/>
+     <Navbar/>
       <SideBar/>
       <MenuSlider/>
+      <ScrollToTop/>
+    <div className='ks_main'>
+     
      
      <div className='ks_div1' > 
        <div className='ks_div11'>

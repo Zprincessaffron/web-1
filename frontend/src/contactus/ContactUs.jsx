@@ -14,6 +14,9 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
+import ScrollToTop from '../components/ScrollToTop';
+import MenuSlider from '../components/sidebar/MenuSlider';
+import SideBar from '../components/sidebar/SideBar';
 function ContactUs() {
     const { setShowNav }=useUserContext()
     useEffect(() => {
@@ -24,6 +27,9 @@ function ContactUs() {
       }, []);
   return (
     <div> 
+        <ScrollToTop/>
+        <MenuSlider/>
+        <SideBar/>
         <Navbar/>
         <div className='contact_div1' style={{backgroundImage:`url(${contactusback})`}}>
    

@@ -62,8 +62,21 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 import Cart from './components/cart/Cart'
 import CustomerReviewKashmir from "./components/review/CustomerReviewKashmir";
 import CustomerReviewSpain from "./components/review/CustomerReviewSpain";
+import { useEffect } from "react";
+import { useLocation } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    scroller.scrollTo('top', {
+      duration: 200,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+    });
+  }, [pathname]);
+  
   return (
     <UserProvider>
     <UserContextProvider>
