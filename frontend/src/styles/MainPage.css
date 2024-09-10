@@ -576,6 +576,7 @@ height: 100%;
 .setus_div2 div p{
   font-size: 0.6rem;
   color: black;
+  font-weight: bold;
 }
 .setus_div2{
   flex-direction: column;
