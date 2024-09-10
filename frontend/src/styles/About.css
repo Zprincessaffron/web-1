@@ -1,14 +1,14 @@
 .aboutmain{
     width: 100vw;
+    color: rgb(255, 255, 255);
 }
 .aboutmain p{
-    font-size: 1rem;
-    line-height: 30px;
-    letter-spacing: 1.5px;
-    word-spacing: 2px;
+    line-height: 1.9230769231;
+    letter-spacing: 0.0484615385em;
+    font-size: 0.9rem;
      
 }
-.about_div1{
+.about_div1{ 
     width: 100%;
     height: 100vh;
     position: relative;
@@ -52,34 +52,36 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #243651a3;
+    background-color: #c2dbe7;
 }
 .about_div2>h1{
-    font-size: 1.5rem;
+    font-size: calc(0.256rem + 2vw);
     letter-spacing: 0.3rem;
-    color: white;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
 }
 .about_div2>div{
     width: 10%;
     height: 1px;
     box-sizing: 1px;
-    background-color: white;
+    background-color: rgb(10, 63, 10);
 }
 .about_div2>p{
-    font-size: 1rem;
-    text-align: center;
+    font-size: 0.9rem;
+    text-align: center !important;
     width: 50%;
-    line-height: 30px;
-    letter-spacing: 1.5px;
+    line-height: 1.9230769231;
+    letter-spacing: 0.0484615385em;
     word-spacing: 2px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 .about_div3{
-background-color: #5D81B5;
 display: flex;
 flex-direction: row;
 height: 50vh;
 width: 100%;
+background-color: #c2dbe7;
+color: black;
 
 }
 .about_div3>div{
@@ -88,28 +90,37 @@ width: 100%;
 }
 .about_div31{
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 .about_div31>img{
-    height: 100%;
+    width: 50%;
     overflow: hidden;
 
 }
 .about_div32{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
+    flex-direction: column;
 
+}
+.about_div32>h1{
+    text-transform: uppercase;
+    font-size: calc(0.256rem + 2vw);
+    letter-spacing: 0.3rem;
+    margin-bottom: 2rem;
 }
 .about_div32>p{
     width: 70%;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 .about_div4{
     width: 100%;
     height: 50vh;
     position: relative;
-    background-color: rgba(112, 78, 122, 0.655);
 }
 .about_div41{
     width: 100%;
@@ -130,18 +141,19 @@ width: 100%;
     color: rgb(0, 0, 0);
     position: absolute;
     gap: 20px;
+    background-color: #c2dbe7;
 }
 .about_div42>h1{
-    font-size: 1.5rem;
-    letter-spacing: 0.3rem;
-    color: white;
+    color: rgb(0, 0, 0);
     margin-top: 10vh;
+    font-size: calc(0.256rem + 2vw);
+    letter-spacing: 0.3rem;
 
 }
 .about_div42>P{
     width: 50%;
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 .about_div41>img{
     width: 30%;
@@ -149,8 +161,8 @@ width: 100%;
 }
 .about_div42>div{
     height: 1px ;
-    background-color: rgba(255, 255, 255, 0.737);
     width: 70px;
+    background-color: rgb(9, 50, 9);
 }
 .about_div5{
     width: 100%;
@@ -161,7 +173,6 @@ width: 100%;
     padding-top: 10vh;
     padding-bottom: 10vh;
     flex-direction: column;
-    background-color: #c6dbe0;
 
 }
 .about_div51{
@@ -234,42 +245,42 @@ width: 100%;
         margin-top: 70vh;
 
     }
+.about_div3{
+    height: fit-content;
+    flex-direction: column;
     
+
+}
 .about_div2{
     width: 100%;
-    padding-top: 5vh;
+    padding-top: 10px;
     padding-bottom: 10vh;
     gap: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #243651a3;
 }
 .about_div2>h1{
     font-size: 1rem;
     letter-spacing: 0.1rem;
-    color: white;
+    color: rgb(0, 0, 0);
 }
-.about_div2>div{
-    width: 10%;
-    height: 1px;
-    box-sizing: 1px;
-    background-color: white;
-}
+
 .about_div2>p{
     font-size: 0.6rem;
     width: 90%;
     line-height: 20px;
     letter-spacing: 1px;
     word-spacing: 1.5px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 .about_div32>p{
     width: 90%;
     font-size: 0.6rem;
     line-height: 20px;
-    color: rgb(255, 255, 255);
+    
+    color: rgb(0, 0, 0);
 }
 .about_div42>h1{
     font-size: 1rem;
@@ -278,6 +289,19 @@ width: 100%;
     font-size: 0.6rem;
     width: 90%;
     line-height: 20px;
+}
+.about_div3>div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about_div3>div>h1{
+    margin-top: 2rem;
+}
+.about_div3>div>p{
+    text-align: center;
 }
 .about_div62>p{
     margin-top: 10px;
