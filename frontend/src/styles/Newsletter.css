@@ -39,10 +39,10 @@
   
 }
 .sub_txt{
-    margin: 5vh;
-    letter-spacing: 0.4rem;
-    font-size: calc(0.7rem + 0.5vw);
+    font-size: calc(0.256rem + 2vw);
+    letter-spacing: 0.3rem;
     font-weight: bold;
+    margin-bottom: 2rem;
 }
 .nwsletter_main h1{
     letter-spacing: 0.5rem;

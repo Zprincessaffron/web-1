@@ -8,7 +8,7 @@
   font-weight: normal;
   font-style: normal;
 } 
-
+ 
 
 .mainpage_main{
   width: 100vw;
@@ -488,8 +488,10 @@ height: 100%;
   text-align: center;
   justify-content: center;
   padding: 20px;
-  font-size: 3rem;
-  letter-spacing: .5rem;
+  font-size: calc(0.256rem + 2vw);
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 .setus_div2{
   height: 50%;
@@ -505,18 +507,21 @@ height: 100%;
   width: 30%;
 }
 .setus_div2 div h1{
-  font-size: 1.5rem;
+  font-size: calc(0.0066rem + 1.5vw);
+  letter-spacing: 0.3rem;
   text-transform: uppercase;
-  margin-bottom:10px ;
-  letter-spacing: .4rem;
 }
 .setus_div2 div p{
   color: gray;
+  line-height: 1.9230769231;
+  letter-spacing: 0.0484615385em;
+  font-size: 0.9rem; 
 }
 .parallax_div1>p{
-  letter-spacing: .3rem;
-  text-transform: uppercase;
-  font-size: 0.8rem;
+  line-height: 1.9230769231;
+  letter-spacing: 0.0484615385em;
+  font-size: 3rem; 
+   text-transform: uppercase;
   color: white;
   font-family: 'Riviera Nights';
 }
@@ -570,6 +575,7 @@ height: 100%;
 }
 .setus_div2 div p{
   font-size: 0.6rem;
+  color: black;
 }
 .setus_div2{
   flex-direction: column;

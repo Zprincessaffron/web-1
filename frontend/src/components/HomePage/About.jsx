@@ -12,11 +12,38 @@ import culinarymedi from '../../images/culinarymedi.jpg';
 
 import '../../styles/About.css'
 import Navbar from '../../navbar/NavBar';
-
+import { useUserContext } from '../../context/MainContext';
+import SideBar from '../sidebar/SideBar';
+import MenuSlider from '../sidebar/MenuSlider';
 
  
 function About() {
     const [trans,setTrans]=useState(120)
+    const { isMobile,setMenuSlider,setSideBar,setShowNav }=useUserContext()
+    useEffect(() => {
+        setMenuSlider(false)
+        setSideBar(false)
+      }, [])
+    
+
+      useEffect(() => {
+        const handleScroll = () => {
+          if (window.scrollY > 300) {
+            setShowNav(true);
+          } else {
+            setShowNav(false);
+          }
+         
+    
+    
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -39,13 +66,27 @@ function About() {
     return (
         <div className='aboutmain'>
             <Navbar/>
+            <SideBar/>
+            <MenuSlider/>
             <div className='about_div1'>
-                <div className='about_div11'>
+                {isMobile?(
+                <div className='about_div1_mobile'>
+<div>
+<h1>Z PRINCES SAFFRON</h1>
+
+</div>
+                </div>
+                
+            ):(
+                    <>
+                    <div className='about_div11'>
                     <h1 style={{transform:`translateY(${trans}px)`}}>Z PRINCES SAFFRON</h1>
                 </div>
                 <div className='about_div12'>
                     <img src={bff} alt="" />
                 </div>
+                    </>
+                )}
             </div>
             <div className='about_div2'>
                 <h1>WHO WE ARE</h1>
