@@ -34,7 +34,25 @@ function Insight() {
 
     const divRef = useRef(null);
     const divRef1 = useRef(null);
-
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 300) {
+          setShowNav(true);
+        } else {
+          setShowNav(false);
+        }
+    
+  
+   
+  
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
     useEffect(() => {
       const handleScroll = () => {
         if (isAtTop1) {
