@@ -6,7 +6,7 @@ import Footer from '../footer/Footer'
 import saffblack1 from '../images/saff black1.jpg'
 import saffronface from '../images/spack.jpg'
 import saffronrice from '../images/culinarymilk.jpeg'
-import saffrontea from '../images/img2.jpg'
+import saffrontea from '../images/img2.jpg' 
 import insightback from '../images/insightback.mp4'
 
 import insight_back from '../images/insight_back.png'
@@ -138,10 +138,13 @@ function Insight() {
     }, [])
     
   return (
-    <div className='insight_main'>
-        <Navbar/>
+    <>
+    <Navbar/>
         <SideBar/>
         <MenuSlider/>
+        
+    
+    <div className='insight_main'>
         
         <div className='insight_div1'>
           <div className='insight_div11'>
@@ -237,7 +240,7 @@ function Insight() {
             </div>
             <div  className='insight_div512'>
               <h1>Holistic Well-Being</h1>
-              <p>Saffron’s magic doesn’t stop at beauty. This golden spice is celebrated for its remarkable health benefits, promoting overall well-being. Historically used in traditional medicine, saffron is known to enhance mood, reduce stress, and support digestion. Recent studies suggest that saffron may help alleviate symptoms of depression and anxiety, offering a natural way to improve mental health. Additionally, its anti-inflammatory properties can aid in digestion and boost the immune system, making saffron a holistic elixir for both mind and body.</p>
+              <p>Saffron’s magic doesn’t stop at beauty. Golden spice is celebrated for its remarkable health benefits, promoting overall well-being. Historically used in traditional medicine, saffron is known to enhance mood, reduce stress, and support digestion. Recent studies  that saffron may help alleviate symptoms of depression and anxiety, offering a natural way to improve mental health. Additionally, its anti-inflammatory properties can aid in digestion and boost the immune system, making saffron a holistic elixir for both mind and body.</p>
 
             </div>
 
@@ -274,9 +277,10 @@ Our premium saffron is the key to unlocking this ancient magic. Each thread is a
 
      
 
-        <Footer/>
-
     </div>
+ 
+
+    <Footer/></>
   )
 }
 
