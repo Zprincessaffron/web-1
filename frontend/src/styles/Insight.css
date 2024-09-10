@@ -258,6 +258,7 @@
     letter-spacing: 0.3rem;
     color: rgb(0, 0, 0);
     text-transform: uppercase;
+    text-align: center;
 }
 .insight_div2>p{
     line-height: 1.9230769231;
