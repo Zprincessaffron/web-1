@@ -22,10 +22,11 @@ dotenv.config();
 // }));
 // Allow requests from your Vercel frontend
 app.use(cors({
-  origin: 'https://saffronfrontend-lq61-2m631zo39-prems-projects-8f178100.vercel.app', // Your Vercel domain
+  origin: 'http://localhost:5173', // Your Vercel domain
   methods: 'GET,POST,PUT,DELETE',
   credentials: true
 }));
+// https://saffronfrontend-lq61-2m631zo39-prems-projects-8f178100.vercel.app
 // middleware
 app.use(express.json())
 app.use(cookieParser())

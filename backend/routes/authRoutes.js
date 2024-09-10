@@ -19,7 +19,7 @@ const router = express.Router();
 router.use(
   cors({
     credentials: true,
-    origin: 'https://saffronfrontend-lq61-2m631zo39-prems-projects-8f178100.vercel.app'
+    origin: 'http://localhost:5173'
   })
 )
 
