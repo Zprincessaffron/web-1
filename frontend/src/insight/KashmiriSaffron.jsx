@@ -3,7 +3,7 @@ import { Parallax } from 'react-scroll-parallax';
 import { useUserContext } from '../context/MainContext'
 
 import '../styles/KashmiriSaffron.css'
-import kashmirback4 from '../images/kashmir_back4.jpg'
+import kashmirback4 from '../images/kashmir_back4.jpg' 
 import cult from '../images/cult.jpg'
 import saffronculinary from '../images/saffronculinary.jpg'
 import saffronhim from '../images/saffranhim.jpg'
@@ -46,8 +46,11 @@ function KashmiriSaffron() {
   useEffect(() => {
     setMenuSlider(false)
     setSideBar(false)
+    setShowNav(true);
+
   }, [])
   return (
+    <>
     <div className='ks_main'>
       <Navbar/>
       <SideBar/>
@@ -136,11 +139,13 @@ Embrace the magic of Kashmiri saffron and let its rich heritage and exceptional 
      
       
      
-     <Footer/>
+   
 
 
       
     </div>
+      <Footer/>
+     </>
   )
 }
 
