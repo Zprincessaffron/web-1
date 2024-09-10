@@ -15,6 +15,7 @@ import Navbar from '../../navbar/NavBar';
 import { useUserContext } from '../../context/MainContext';
 import SideBar from '../sidebar/SideBar';
 import MenuSlider from '../sidebar/MenuSlider';
+import Footer from '../../footer/Footer';
 
  
 function About() {
@@ -72,7 +73,7 @@ function About() {
                 {isMobile?(
                 <div className='about_div1_mobile'>
 <div>
-<h1>Z PRINCES SAFFRON</h1>
+<h1>Z PRINCESS SAFFRON</h1>
 
 </div>
                 </div>
@@ -80,7 +81,7 @@ function About() {
             ):(
                     <>
                     <div className='about_div11'>
-                    <h1 style={{transform:`translateY(${trans}px)`}}>Z PRINCES SAFFRON</h1>
+                    <h1 style={{transform:`translateY(${trans}px)`}}>Z PRINCESS SAFFRON</h1>
                 </div>
                 <div className='about_div12'>
                     <img src={bff} alt="" />
@@ -115,48 +116,6 @@ function About() {
                     <p> is to provide our customers with unparalleled service and a product that stands out in terms of quality and authenticity. We believe that saffron is more than just a spice – it’s a journey through tradition, culture, and flavor. Trust Z PRINCESS SAFFRON to deliver an exceptional saffron experience, one that enhances your cooking, beauty, and health routines.</p>
 
                 </div>
-
-            {/* </div>
-            <div className='about_div5'>
-                <div className='about_div51'>
-                    <div className='about_div511'>
-                        <img src={basundi} alt="" />
-                    </div>
-                    <div className='about_div512'>
-                        <h1>FOR Culinary Uses</h1>
-                        <p>Whether you are a professional chef aiming to elevate your dishes or a home cook looking to add a touch of luxury to your culinary creations, our saffron is perfect for adding depth and richness to a variety of dishes.</p>
-                    </div>
-                </div>
-
-                <div className='about_div51'>
-                    <div className='about_div511'>
-                        <img src={saffronmask} alt="" />
-                    </div>
-                    <div className='about_div512'>
-                        <h1>For beauty and skincare </h1>
-                        <p>our saffron offers natural anti-inflammatory and antioxidant properties, perfect for brightening the skin, reducing pigmentation, and enhancing your overall complexion with a radiant glow.</p>
-                  </div>
-                </div>
-
-                <div className='about_div51'>
-                    <div className='about_div511'>
-                        <img src={culinarymedi} alt="" />
-                    </div>
-                    <div className='about_div512'>
-                        <h1>HEALTH - BENEFITS</h1>
-                        <p>Health-conscious individuals can benefit from the numerous health properties of saffron, including improved mood, digestion, and overall well-being. Our saffron is ideal for incorporating a natural, health-boosting ingredient into your daily routine</p>
-                    </div>
-                </div>
-
-                <div className='about_div51'>
-                    <div className='about_div511'>
-                        <img src={pregnancywmen} alt="" />
-                    </div>
-                    <div className='about_div512'>
-                        <h1>For pregnant women</h1>
-                        <p>saffron has traditionally been used to support well-being, offering benefits such as improved digestion and mood enhancement. However, it should be used in moderation, and we always recommend consulting with a healthcare professional before use.</p>
-                    </div>
-                </div> */}
             </div>
             <div className='about_div6'>
                 <div className='about_div61'>
@@ -169,7 +128,9 @@ function About() {
 
 
             </div>
+            <Footer/>
         </div>
+
     )
 }
 
