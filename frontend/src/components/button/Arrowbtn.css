@@ -1,0 +1,50 @@
+.arrow_div>button {
+    padding: 1rem 1.5rem;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: none;
+    overflow: hidden;
+    background-color: white;
+
+
+  }
+  .arrow_txt{
+    z-index: -1;
+    padding-left: 5px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    translate: -20px;
+    overflow: hidden;
+    background-color: white;
+
+
+  
+  }
+  .arrow_txt.true{
+    z-index: 1;
+    opacity: 100%;
+    translate: 0;
+    background-color: white;
+
+  }
+  .arrow_div> button:hover {
+    scale: 105%;
+    opacity: 90%;
+    border: none;
+    background-color: white;
+  }
+  .arrow_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+
+  }

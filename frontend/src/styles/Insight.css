@@ -217,7 +217,7 @@
     background-color: rgba(0, 0, 0, 0.437);
 }
 .insight_div11>video{
-    width: 100vw;
+    width: auto;
     background-position: center;
     background-size: cover;
 }
@@ -468,7 +468,6 @@
 
 .insight_div5main{
     width: 100%;
-    background-color: rgb(225, 255, 254);
 }
 .insight_div5{
     padding-bottom: 0;
@@ -488,7 +487,6 @@
 
 }
 .insight_div52{
-    background-color: rgba(12, 19, 15, 0.237);
     width: 80%;
     height: 1px;
     
@@ -541,7 +539,6 @@
 
 .insight_div6{
     height: 40vh;
-    background-color: rgb(41, 11, 59);
     position: relative;
     overflow: hidden;
 

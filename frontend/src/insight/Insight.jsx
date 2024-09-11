@@ -189,7 +189,7 @@ function Insight() {
             <div className='insight_div321'>
 
             </div>
-
+ 
           </div>
 
         </div>

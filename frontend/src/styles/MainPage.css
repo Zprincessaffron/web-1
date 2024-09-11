@@ -9,7 +9,52 @@
   font-style: normal;
 } 
  
+.rounded{
+  width: 30px;
+  height: 30px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: none;
 
+}
+.rrmc-cursor-icon.play{
+  background: url(../assets/curserpoint.png) ;
+}
+.rrmc-cursor-icon {
+
+  cursor: none;
+
+}
+/* PlayButton.css */
+.containerv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  width: fit-content;
+  background: none;
+  cursor: none;
+  position: absolute;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgba(98, 131, 167, 0.5); /* Light blue border with transparency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid rgba(98, 131, 167, 0.8); /* Triangle color similar to the play symbol */
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  margin-left: 4px; /* Offset to position the triangle inside the circle */
+}
 .mainpage_main{
   width: 100vw;
   font-family: 'Riviera Nights';
@@ -20,6 +65,7 @@
 
 
 }
+
 .mainpage_container{
   width: 100vw;
 }
@@ -31,10 +77,13 @@
     overflow: hidden;
     background-position: center;
     background-size: cover;
-    cursor: url('../images/curserpoint.png'), auto;
+    cursor: none;
+    
 
   }
-  
+  .flying{
+    cursor: url('../assets/curserpoint.png'), auto;
+  }
   .video-container>video {
     position: absolute;
     top: 50%;

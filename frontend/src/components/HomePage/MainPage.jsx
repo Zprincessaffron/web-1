@@ -16,24 +16,51 @@ import { useNavigate } from 'react-router-dom'
 import MenuSlider from '../sidebar/MenuSlider'
 import ProfileHover from '../../navbar/ProfileHover'
 import Review from '../review/Review'
+import Arrowbtn from '../button/Arrowbtn'
 
 gsap.registerPlugin(ScrollTrigger);
 function MainPageTrial() {
   const navigate = useNavigate()
-  const { profileHover, setProfileHover, menuSlider, setMenuSlider, sideBar, setSideBar, setShowNav, showLogin } = useUserContext()
+  const { isMouse,setIsMouse,isMobile,profileHover, setProfileHover, menuSlider, setMenuSlider, sideBar, setSideBar, setShowNav, showLogin } = useUserContext()
   const [showEnd, setShowEnd] = useState(true)
   const [scrollPosition, setScrollPosition] = useState(0);
   const [height, setHeight] = useState(false)
   const [translateX, setTranslateX] = useState(0);
   const [zPrinces, setZPrincess] = useState(true)
-
-
+  const [videoPlay,setVideoPlay] = useState(true)
   ///////////////////////////
   useEffect(() => {
     setMenuSlider(false)
     setSideBar(false)
   }, [])
 
+  const cursorRoundedRef = useRef(null);
+  const cursorPointedRef = useRef(null);
+
+  useEffect(() => {
+    // Function to move the cursor
+    const moveCursor = (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      // Update the transform of both cursor elements
+      if (cursorRoundedRef.current) {
+        cursorRoundedRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+      }
+
+      if (cursorPointedRef.current) {
+        cursorPointedRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+      }
+    };
+
+    // Add event listener on component mount
+    window.addEventListener('mousemove', moveCursor);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('mousemove', moveCursor);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,6 +126,27 @@ function MainPageTrial() {
   function handleDiscoverNow() {
     navigate('/about-us')
   }
+  const videoRef = useRef(null);
+
+  const playVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.pause();
+        
+      setVideoPlay(false)
+      }
+
+  };
+  const pauseVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      console.log('clicked')
+      
+    setVideoPlay(true)
+    }
+
+};
+console.log('video',videoPlay)
+  
   return (
     <div className='mainpage_main'>
       <Navbar />
@@ -107,11 +155,21 @@ function MainPageTrial() {
       {profileHover ? (
         <ProfileHover />) : (null)}
       {showLogin ? (<LoginHover />) : ' '}
-      <div className={`mainpagecon ${height ? "true" : ''}`}>
+      <div   className={`mainpagecon ${height ? "true" : ''}`}>
         <div style={{ transform: `translateY(${scrollPosition * 0.2}px)` }} className='mainpage_con1'>
-          <div className='mainpage_container'>
+          <div  onClick={videoPlay?(playVideo):(pauseVideo)}  onMouseEnter={()=>{setIsMouse(true)}} onMouseLeave={()=>{setIsMouse(false)}} className='mainpage_container'>
             <div className="video-container">
-              <video autoPlay loop muted>
+            {isMobile?(null):(<>
+            {isMouse?(
+              <div ref={cursorRoundedRef}  className='containerv'>
+      <div className='circle'>
+        <div className='triangle'></div>
+      </div>
+    </div>
+
+            ):(null)}
+            </>)}
+              <video ref={videoRef} loop muted autoPlay>
                 <source src={backvideo} type="video/mp4" />
               </video>
               <div className='mainpage_div'>
@@ -126,7 +184,7 @@ function MainPageTrial() {
                   World's Finest Saffron
                 </div>
                 <div className='mainpage_div3'>
-                  <button onClick={handleDiscoverNow} >DISCOVER NOW </button>
+                  <Arrowbtn linkFromMain='/about-us' onMouseEnter={()=>{setIsMouse(false)}} onMouseLeave={()=>{setIsMouse(true)}} name="DISCOVER NOW"/>
                 </div>
                 <div className='mainpage_end'>
                 </div>
@@ -138,6 +196,7 @@ function MainPageTrial() {
           <OurProducts />
         </div>
       </div>
+
       <div className='mainpagetrialdiv'>
         <div className='setus_div1'>
           WHAT SET US APART
