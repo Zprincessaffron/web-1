@@ -74,23 +74,19 @@ function SideBar() {
       
       const itemAnimation11 = useSpring({
         opacity: menuSubItems ? 1 : 0,
-        transform: menuSubItems ? 'translateX(0)' : 'translateX(-100%)',
-        delay: 300,
+        delay: 600,
       });
       const itemAnimation12 = useSpring({
         opacity: menuSubItems ? 1 : 0,
-        transform: menuSubItems ? 'translateX(0)' : 'translateX(-100%)',
         delay: 200,
       });
       const itemAnimation13 = useSpring({
         opacity: menuSubItems ? 1 : 0,
-        transform: menuSubItems ? 'translateX(0)' : 'translateX(-100%)',
         delay: 100,
       });
       const itemAnimation14 = useSpring({
         opacity: menuSubItems ? 1 : 0,
-        transform: menuSubItems ? 'translateX(0)' : 'translateX(-100%)',
-        delay: 500,
+        delay: 400,
       });
       
       
@@ -135,7 +131,7 @@ function SideBar() {
   setMenuSubItems('knowledgehub')
 
   setTimeout(() => {
-    
+
   setMenuItems(true)
   }, 600);
 
@@ -176,9 +172,10 @@ function SideBar() {
   setMenuSubItems('goldenelixir')
 
   setTimeout(() => {
-    
+
   setMenuItems(true)
   }, 600);
+
   
  }
  function handleGoldenElixerChange(val){
@@ -202,7 +199,7 @@ function SideBar() {
                     <animated.div id="sidebar_kh" className="menu-item" onClick={handleBack} style={itemAnimation1}><IoMdArrowRoundBack className='sidebar_arrow'/>KNOWLEDGE HUB</animated.div>
                    <animated.div className="menu-item" onClick={()=>navigate('/insight')} style={itemAnimation2}>INSIGHT </animated.div>
         <animated.div className="menu-item" onClick={()=>navigate('/kashmiri-saffron')}  style={itemAnimation3}>KASHMIRI SAFFRON</animated.div>
-        <animated.div className="menu-item"  onClick={()=>navigate('/spain-saffron')}  style={itemAnimation9}>SPAIN SAFFRON</animated.div>
+        <animated.div className="menu-item"  onClick={()=>navigate('/spain-saffron')}  style={itemAnimation4}>SPAIN SAFFRON</animated.div>
                     </>)
                    }
                     {menuSubItems == 'products' && (

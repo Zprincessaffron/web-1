@@ -15,7 +15,7 @@ function CulinaryUse() {
     const [dish,setDish]=useState('biryani')
 
     function handleDish(val){
-        setDish(val)
+        setDish(val) 
     }
 
 

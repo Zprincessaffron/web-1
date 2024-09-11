@@ -6,7 +6,10 @@
 }
 
 
-
+.numbersfont{
+  font-family: "Roboto", system-ui;
+  font-weight: 300;
+}
 
 /* Product card styles */
 .product-card {

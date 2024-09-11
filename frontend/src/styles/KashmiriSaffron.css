@@ -18,7 +18,7 @@
     font-size: 0.9rem;
     text-align: center;
     color: rgb(0, 0, 0);
-    font-weight: 100;
+    font-weight: bold;
   }
   .ks_main1{
     width: 100vw;
@@ -45,7 +45,7 @@
   .ks_div1{
     background-size: cover;
     background-position: center;
-    background-color: white;
+    background: radial-gradient(circle, rgb(255, 255, 255), rgb(109, 185, 190));
   
   
   }
@@ -114,8 +114,7 @@
   }
 
   #ks_cultandhar{
-    width: 120%;
-    text-align: center;
+    width: 100%;
   }
   .ks_div31>div>p{
     text-align: center;

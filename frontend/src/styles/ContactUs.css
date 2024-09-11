@@ -18,7 +18,7 @@
     padding: 1px;
 
  
-}
+} 
 .contact_div11>img{
     width: 100%;
 }
@@ -82,11 +82,16 @@
     width: 400px;
     height: 40px;
     border-radius: 5px;
+    font-family: 'riviera';
+
 
     border: 1px solid gray;
     font-size: 1rem;
     padding-left: 10px;
     background-color: rgba(223, 223, 223, 0.29);
+}
+.contact_div121_1>input:active{
+    color: black;
 }
 .contact_div121_1>textarea{
     width: 400px;
@@ -96,6 +101,8 @@
     font-size: 1rem;
     padding-left: 10px;
     padding-top: 5px;
+    font-family: 'riviera';
+
     background-color: rgba(223, 223, 223, 0.29);
 
 }
@@ -112,6 +119,8 @@
 .contact_needhlp{
     font-weight: bold;
     text-transform: capitalize;
+    font-family: 'riviera';
+
 }
 @media only screen and (max-width: 480px) {
     .contact_div121_1>input{

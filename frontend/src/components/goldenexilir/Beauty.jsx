@@ -78,17 +78,17 @@ function Beauty() {
                    <div>
                        <h1>Clinical Studies</h1>
                        <p><span className='medicinal_highlighter'>Studies:</span> Some clinical studies and trials suggest that saffron extracts can improve skin brightness and reduce hyperpigmentation. For example, a study published in the "Journal of Cosmetic Dermatology" found that a saffron-based topical formulation improved skin radiance and evenness in participants.</p>
-                       <p><span className='medicinal_highlighter'>Consumer Reports:</span> Many users report positive effects, such as a brighter complexion and improved skin tone, after using saffron-infused skincare products.</p>
+                       <p><span className='medicinal_highlighter'>Consumer Reports:</span> Many users report positive effects, such as a brighter complexion and improved<br/> skin tone, after using saffron-infused skincare products.</p>
                    </div>
                    <div>
                        <h1>Mechanism of Action</h1>
                        <p><span className='medicinal_highlighter'>Reduction of Melanin Production: </span>Saffron's active compounds can inhibit the enzyme tyrosinase, which plays a key role in melanin synthesis. By reducing tyrosinase activity, saffron can help lighten dark spots and even out skin tone.</p>
-                       <p><span className='medicinal_highlighter'>Improved Circulation:</span> Saffron may enhance blood circulation in the skin, which can contribute to a healthier, more radiant appearance by delivering more nutrients and oxygen to skin cells.</p>
+                       <p><span className='medicinal_highlighter'>Improved Circulation:</span> Saffron may enhance blood circulation in the skin, which can contribute to a <br/>healthier, more radiant appearance by delivering more nutrients and oxygen to skin cells.</p>
                    </div>
                    <div>
                        <h1>Formulation and Application</h1>
                        <p><span className='medicinal_highlighter'>Topical Products:</span> Saffron is commonly included in creams, serums, and masks. These products can provide direct benefits when applied to the skin.</p>
-                       <p><span className='medicinal_highlighter'>DIY Masks:</span> You can create homemade masks using saffron threads steeped in milk or yogurt, which can be applied to the face for a brightening effect.</p>
+                       <p><span className='medicinal_highlighter'>DIY Masks:</span> You can create homemade masks using saffron threads steeped in milk or yogurt, which <br/>can be applied to the face for a brightening effect.</p>
                    </div>
                    <div>
                        <h1>Considerations</h1>
@@ -106,11 +106,11 @@ function Beauty() {
             <p>The antioxidants in saffron combat oxidative stress and prevent premature aging. Saffron helps to stimulate collagen production, which improves skin elasticity and reduces the appearance of fine lines and wrinkles.</p>
        <div>
                 <h1>Antioxidant Properties</h1>
-                <p>Saffron contains powerful antioxidants like crocin, crocetin, and safranal. These antioxidants help neutralize free radicals—unstable molecules that can damage skin cells and accelerate aging. By reducing oxidative stress, saffron helps to prevent premature aging and the formation of wrinkles.</p>
+                <p>Saffron contains powerful antioxidants like crocin, crocetin, and safranal. These antioxidants help neutralize free radicals-unstable molecules that can damage skin cells and accelerate aging. By reducing oxidative stress, <br/>saffron helps to prevent premature aging and the formation of wrinkles.</p>
             </div>
             <div>
                 <h1>Anti-Inflammatory Effects</h1>
-                <p>The anti-inflammatory compounds in saffron can help reduce inflammation and redness in the skin. Chronic inflammation is a factor that can lead to skin aging, so minimizing it helps maintain skin health and elasticity.</p>
+                <p>The anti-inflammatory compounds in saffron can help reduce inflammation and redness in the skin. Chronic inflammation is a factor that can lead to skin aging, so minimizing it helps maintain<br/> skin health and elasticity.</p>
                 </div>
             <div>
                 <h1>Skin Hydration</h1>

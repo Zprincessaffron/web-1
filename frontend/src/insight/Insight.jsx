@@ -177,7 +177,7 @@ function Insight() {
 
         </div>
         <div className='insight_div2'   ref={divRef}>
-          <h1>Unveil the Secrets of the Crocus Sativus</h1>
+          <h1> the Secrets of the Crocus Sativus</h1>
           <div></div>
           <p>Step into a world where history and luxury meet with our premium saffron collection. Cultivated with deep respect for its legendary qualities, each saffron thread tells a story of ancient royalty and offers the promise of vibrant culinary delights, radiant skin, and a touch of well-being magic.</p>
         </div>
@@ -200,18 +200,7 @@ function Insight() {
           <div></div>
           <p>Do you crave a taste of history and a touch of legend? Saffron, known as the "king of spices," is no longer reserved for royalty alone. Each delicate saffron thread, hand-picked at the peak of its potency, promises to elevate your experiences.</p>
         </div>
-        <div className='insight_div3' >
-          <div className={`insight_div31 ${isAtTop?'true':""}`}>
-            <img src={saffronc} alt="" />
-          </div>
-          <div className={`insight_div32 ${isAtTop?'true':""}`} style={{boxShadow:`inset 0 0 0 ${width1}px white`}}>
-            <div className='insight_div321'>
-
-            </div>
-
-          </div>
-
-        </div>
+      
         <div className='insight_div5main'>
         <div className='insight_div5'>
           <div className='insight_div51'>
@@ -276,7 +265,7 @@ function Insight() {
           <div className='insight_div61'>
             <h1>Quality and Tradition</h1>
             <p>
-Our premium saffron is the key to unlocking this ancient magic. Each thread is a result of meticulous hand-picking and drying processes, ensuring the highest quality and potency. Grown in the fertile fields under optimal conditions, our saffron maintains its robust flavor, vibrant color, and aromatic essence. Whether you are a gourmet chef, a skincare enthusiast, or someone seeking natural wellness solutions, our saffron offers a touch of luxury that transcends the ordinary.
+Our premium saffron is the key to unlocking this ancient magic. Each thread is a result of meticulous hand-picking and drying processes, ensuring the highest quality and potency. Grown in the fertile fields under optimal conditions, our saffron maintains its robust flavor,<br/> vibrant color, and aromatic essence. Whether you are a gourmet chef, a skincare enthusiast, or someone seeking natural<br/> wellness solutions, our saffron offers a touch of luxury that transcends the ordinary.
 </p>
 
           </div>
@@ -288,7 +277,7 @@ Our premium saffron is the key to unlocking this ancient magic. Each thread is a
           <div className='insight_div61'>
             <h1>Experience the Magic</h1>
             <p>
-            Discover the golden threads that have woven their way through history and let saffron’s magic elevate your life in ways you've never imagined. Welcome to a world where every dish dazzles, every beauty routine sparkles, and every moment is infused with a touch of golden luxury. With our premium saffron, experience the richness of history, the purity of nature, and the luxury of the finest spice in the world.</p>
+            Discover the golden threads that have woven their way through history and let saffron’s magic elevate your life in ways you've never imagined. Welcome to a world where every dish dazzles, every beauty routine sparkles, and every moment is infused with a <br/> touch of golden luxury. With our premium saffron, experience the richness of history, the purity of nature, <br/>and the luxury of the finest spice in the world.</p>
 
           </div>
 

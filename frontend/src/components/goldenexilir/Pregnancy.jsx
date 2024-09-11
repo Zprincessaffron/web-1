@@ -41,28 +41,30 @@ function Pregnancy() {
         <SideBar/>
         <MenuSlider/>
         <div className='pu_div1' style={{backgroundImage:`url(${pregnancyback})`}}>
-            <h1>PREGNANT WOMAN</h1>
-            <p>Saffron is known to help improve digestion, enhance mood, and promote relaxation, making it a beneficial spice for pregnant women when used in moderation.</p>
+           <div>
+           <h2>PREGNANT WOMAN</h2>
+           <p>Saffron is known to help improve digestion, enhance mood, and promote relaxation, making it a beneficial spice for pregnant women when used in moderation.</p>
+           </div>
         </div>
         <div className='pu_div2'>
             <h1>POTENTIAL BENEFITS</h1>
             <div>
                 <h1>Mood Regulation</h1>
-                <p><span className='culinary_subheadings'>Saffron’s Potential: </span>Compounds like crocin and safranal in saffron may influence brain chemicals such as serotonin and dopamine, which play key roles in regulating mood. These compounds can promote emotional stability and a sense of well-being.</p>
-                <p><span className='culinary_subheadings'>The Challenge:</span> Pregnancy hormones like estrogen and progesterone fluctuate wildly, often leading to mood swings, anxiety, and even depression. These hormonal changes can affect neurotransmitter levels in the brain, impacting mood regulation.</p>
+                <p><span className='culinary_subheadings'>Saffron’s Potential: </span>Compounds like crocin and safranal in saffron may influence brain chemicals such as serotonin and dopamine, which play key roles in regulating mood. These compounds can promote emotional stability and a sense <br/>of well-being.</p>
+                <p><span className='culinary_subheadings'>The Challenge:</span> Pregnancy hormones like estrogen and progesterone fluctuate wildly, often leading to mood swings,<br/> anxiety, and even depression. These hormonal changes can affect neurotransmitter levels in the brain, impacting <br/>mood regulation.</p>
             </div>
 
             <div>
                 <h1>Digestive Support</h1>
                 <p><span className='culinary_subheadings'>Common Concerns:</span> Pregnancy can cause nausea (morning sickness), indigestion, constipation, and bloating due to hormonal changes and pressure from the growing uterus. These digestive issues can be uncomfortable and affect overall well-being.</p>
-                <p><span className='culinary_subheadings'>Saffron’s Role: </span>Saffron is thought to stimulate the production of digestive enzymes, which help break down food, and bile, which aids in fat digestion. This stimulation can potentially ease nausea and improve digestion, reducing symptoms like bloating and constipation.</p>
+                <p><span className='culinary_subheadings'>Saffron’s Role: </span>Saffron is thought to stimulate the production of digestive enzymes, which help break down food, and bile, which aids in fat digestion. This stimulation can potentially ease nausea and improve digestion, reducing symptoms like <br/>bloating and constipation.</p>
             </div>
 
             
             <div>
                 <h1>Iron Boost</h1>
                 <p><span className='culinary_subheadings'>Why Iron Matters: </span>Iron is crucial for producing hemoglobin, the protein in red blood cells that carries oxygen throughout the body. Pregnant women need extra iron to support increased blood volume and supply oxygen to the growing baby.</p>
-                <p><span className='culinary_subheadings'></span>While saffron is not a primary source of iron, it does contain a small amount that can contribute to overall dietary intake. When combined with iron-rich foods like lean meats, legumes, and leafy greens, saffron can help enhance iron absorption and support maternal and fetal health.</p>
+                <p><span className='culinary_subheadings'></span>While saffron is not a primary source of iron, it does contain a small amount that can contribute to overall dietary<br/> intake. When combined with iron-rich foods like lean meats, legumes, and leafy greens,<br/> saffron can help enhance iron absorption and support<br/> maternal and fetal health.</p>
             </div>
 
             
@@ -77,7 +79,7 @@ function Pregnancy() {
             <div>
                 <h1>First Trimester Caution</h1>
                 <p>The first trimester is a crucial period of fetal development, with rapid growth and organ formation.</p>
-                <p>During this time, it is recommended to avoid saffron entirely or use it only under very close medical supervision, if at all, to minimize any potential risks.</p>
+                <p>During this time, it is recommended to avoid saffron entirely or use it only under very close<br/> medical supervision, if at all, to minimize any potential risks.</p>
             </div>
             <div>
                 <h1>Quality is Paramount</h1>

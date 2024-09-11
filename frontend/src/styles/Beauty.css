@@ -6,6 +6,8 @@
 .beauty_div1 h1{
     letter-spacing: 0.5rem;
     text-align: center;
+    font-weight: bold;
+
 }
 
 .beauty_main{
@@ -16,13 +18,17 @@
    background-repeat: no-repeat;
    
 }
-
+.culinary_div11>h1{
+    font-weight: 500;
+    letter-spacing: 0.3rem;
+}
 .beauty_div1 p{
-    color: black;
+    color: rgb(0, 0, 0);
     line-height: 25px;
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
     font-size: 0.9rem;
+    font-weight: bold;
 
 }
 .beauty_div1>h1{
@@ -65,7 +71,7 @@
     align-items: center;
 }
 .radio_btton_beauty>div{
-    background-color: rgba(229, 236, 241, 0.659);
+    background-color: rgb(38, 70, 83);
     width: 60vw;
     display: flex;
     justify-content: space-around;
@@ -135,31 +141,31 @@
 
 /* ////////////////////brightning///////////////////// */
 .radio_btton_beauty.brightning{
-    background-color: #b4c7cb;
+    background-color: rgb(231, 248, 250);
 }
 .beauty_div1.brightning{
-    background-color: #b4c7cb;
+    background-color: rgb(231, 248, 250);
 }
 /* ////////////////////antiaging///////////////////// */
 .radio_btton_beauty.antiaging{
-    background-color: #b4c7cb;
+    background-color: rgb(231, 248, 250);
 }
 .beauty_div1.antiaging{
-    background-color: #b4c7cb;
+    background-color: rgb(231, 248, 250);
 }
 /* ////////////////////skintone///////////////////// */
 .radio_btton_beauty.skintone{
-    background-color: #b4c7cb;
+    background-color: rgb(231, 248, 250);
 }
 .beauty_div1.skintone{
-    background-color: #b4c7cb;
+    background-color: rgb(231, 248, 250);
 }
 /* ////////////////////acne///////////////////// */
 .radio_btton_beauty.acne{
-    background-color: #b4c7cb;
+    background-color: rgb(231, 248, 250);
 }
 .beauty_div1.acne{
-    background-color: #b4c7cb;
+    background-color: rgb(231, 248, 250);
 }
 @media only screen and (max-width: 480px) {
     

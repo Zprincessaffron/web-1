@@ -112,6 +112,12 @@ function ChooseUs() {
         </div>
 
       </div>
+      <div className='wc_div6'>
+        <h1>Satisfaction Guarantee</h1>
+        <p>
+We back our saffron with a satisfaction guarantee, ensuring that you receive only the best. Our transparent practices mean you can trust in the quality and authenticity of every product.
+</p>
+      </div>
       <div className='wc_div5'>
         <div  className='wc_div51'>
           <img src={crocusback} alt="" />
@@ -127,12 +133,7 @@ Choose Z Princess Saffron to enhance your culinary creations, beauty routines, a
 
         </div>
       </div>
-      <div className='wc_div6'>
-        <h1>Satisfaction Guarantee</h1>
-        <p>
-We back our saffron with a satisfaction guarantee, ensuring that you receive only the best. Our transparent practices mean you can trust in the quality and authenticity of every product.
-</p>
-      </div>
+      
       <Footer/>
     </div>
   )

@@ -21,7 +21,7 @@ function ContactUs() {
     const { setShowNav }=useUserContext()
     useEffect(() => {
        
-        setShowNav(true);
+        setShowNav(true); 
 
        
       }, []);
@@ -48,7 +48,7 @@ function ContactUs() {
 
                 </div>
                 <div className='contact_div121'>
-                    <div className='contact_needhlp'>Need Help? We're Here</div>
+                    <div className='contact_needhlp'>Need Help <span className='numbersfont'>?</span> We're Here</div>
                     <div className='contact_div121_1'>
                     <input type="text" placeholder='Name'  />
                     <input type="text" placeholder='Email'  />

@@ -16,7 +16,7 @@
     font-optical-sizing: auto;
     font-style: normal;
     overflow-x: hidden;
-    background-color: rgb(255, 231, 255);
+    background-color: rgb(246, 222, 252)
 
 
 }
@@ -31,6 +31,8 @@
     overflow: hidden;
     background-position: center;
     background-size: cover;
+    cursor: url('../images/curserpoint.png'), auto;
+
   }
   
   .video-container>video {
@@ -49,7 +51,6 @@
   width: 100vw;
   height: 200vh;
   position: relative;
-  transition: all 2s ease-in-out;
 }
 .mainpagecon.true{
   height: 170vh;
@@ -303,6 +304,7 @@
   width: 100vw;
   background-position: center;
   background-size: cover;
+
 }
 .d_uses{
   text-align: center;
@@ -317,7 +319,7 @@
 .mainpagetrialdiv{
     height: 60vh;
     padding-top: 5%;
-    background-color: rgb(255, 231, 255);
+    background:none;
    
 }
 
@@ -512,10 +514,11 @@ height: 100%;
   text-transform: uppercase;
 }
 .setus_div2 div p{
-  color: gray;
+  color: rgb(0, 0, 0);
   line-height: 1.9230769231;
   letter-spacing: 0.0484615385em;
   font-size: 0.9rem; 
+  font-weight: bold;
 }
 .parallax_div1>p{
   line-height: 1.9230769231;

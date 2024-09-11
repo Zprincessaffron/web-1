@@ -16,7 +16,6 @@ import { useNavigate } from 'react-router-dom'
 import MenuSlider from '../sidebar/MenuSlider'
 import ProfileHover from '../../navbar/ProfileHover'
 import Review from '../review/Review'
-import ScrollToTop from '../ScrollToTop'
 
 gsap.registerPlugin(ScrollTrigger);
 function MainPageTrial() {
@@ -102,10 +101,9 @@ function MainPageTrial() {
   }
   return (
     <div className='mainpage_main'>
-      <ScrollToTop/>
       <Navbar />
       <SideBar />
-      <MenuSlider />
+      <MenuSlider /> 
       {profileHover ? (
         <ProfileHover />) : (null)}
       {showLogin ? (<LoginHover />) : ' '}

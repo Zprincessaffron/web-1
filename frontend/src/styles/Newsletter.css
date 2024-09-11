@@ -5,8 +5,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(255, 231, 255);
-
 }
 .newsletter_container{
     display: flex;
@@ -48,7 +46,6 @@
     letter-spacing: 0.5rem;
 }
 .nwsletter_main{
-    background-color: rgb(255, 231, 255);
 
     width: 100vw;
     height: 40vh;
@@ -60,7 +57,6 @@
     background-repeat: no-repeat;
 }
 .nwsletter_container{
-    background-color: rgb(255, 231, 255);
 
     display: flex;
     flex-direction: column;
