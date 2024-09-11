@@ -29,8 +29,8 @@ export const UserContextProvider = ({ children }) => {
   }, []); // Empty dependency array to only run on mount
 
   if (loading) {
-    return <div style={{width:"100vw",height:"100vh",display:"flex",justifyContent:"center",flexDirection:"row",alignItems:"center",backgroundColor:"rgb(255, 232, 232)",gap:"1rem",fontSize:"2rem"}}>
-      Loading...<BounceLoader />
+    return <div style={{width:"100vw",height:"100vh",display:"flex",justifyContent:"center",flexDirection:"row",alignItems:"center",backgroundColor:"rgb(244, 237, 255)",gap:"1rem",fontSize:"2rem"}}>
+      <BounceLoader />
 
     </div>; // Handle loading state
   }
