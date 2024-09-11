@@ -1,13 +1,15 @@
 .arrow_div>button {
     padding: 1rem 1.5rem;
-    font-size: 13px;
+    padding-left: 2rem;
+    font-size: calc(0.045rem + 1vw);
     letter-spacing: 0.5px;
-    border-radius: 25px;
+    border-radius: 2rem;
     border: none;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     transition: all 0.3s ease;
     border: none;
     overflow: hidden;
@@ -46,5 +48,10 @@
     align-items: center;
     padding: 10px;
     overflow: hidden;
-
+  }
+  @media only screen and (max-width: 480px) {
+    .arrow_div>button {
+      padding: 0.7rem 0;
+      padding-left: 0.7rem;
+      font-size: 10px;}
   }
