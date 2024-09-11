@@ -16,7 +16,7 @@
     align-items: center;
 }
 .mu_main>div>h1{
-    font-size: 4.5rem;
+    font-size: calc(2rem + 2vw);
     font-weight: 100;
     letter-spacing: 1px;
     color: white;
@@ -33,7 +33,6 @@
     font-size: 3rem;
 }
 .mu_div1 p{
-    font-size: 1rem;
     color: black;
     line-height: 25px;
 
@@ -42,6 +41,7 @@
  text-align: center;
  text-transform: uppercase;
  margin-bottom: 3vh;
+ font-size: 1.5rem;
  
 }
 .mu_div1>p{
@@ -49,7 +49,7 @@
     text-align: center;
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     
 }
 .mu_div1>div>h1{
@@ -79,7 +79,7 @@
 .mu_div1>div>p{
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     width: 60%;
     text-align: center;
     color: rgb(0, 0, 0);
@@ -98,7 +98,7 @@
     align-items: center;
 }
 .radio_btton_mu>div{
-    background-color: rgb(38, 70, 83);
+    background-color: rgb(82, 102, 110);
     width: 60vw;
     display: flex;
     justify-content: space-around;
@@ -159,7 +159,8 @@
 
 }
 .radio_btn_mu.true{
-    background-color: rgba(122, 209, 224, 0.651);
+    /* background-color: rgba(122, 209, 224, 0.651); */
+    background-color: rgb(226, 243, 249);
     color: rgb(0, 0, 0);
     font-weight: bold;
 

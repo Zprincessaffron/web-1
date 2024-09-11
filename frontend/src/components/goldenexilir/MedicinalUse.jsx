@@ -71,7 +71,7 @@ function MedicinalUse() {
               <p>Saffron, a spice derived from the flower of Crocus sativus, has been studied for its potential effects on mood and mental health, including depression and anxiety. Here’s a summary of how saffron may influence these conditions</p>
               <div>
                   <h1>Mood Regulation</h1>
-                  <p>Saffron contains several active compounds, such as crocin and safranal, which have been shown to have potential antidepressant and anxiolytic (anxiety-reducing) effects. These compounds may influence neurotransmitter systems in the brain, particularly serotonin and dopamine, which play key roles in regulating mood.</p>
+                  <p>Saffron contains several active compounds, such as crocin and safranal, which have been shown to have potential antidepressant and anxiolytic (anxiety-reducing) effects. These compounds may influence neurotransmitter systems in the brain, particularly serotonin and dopamine, <br/>which play key roles in regulating mood.</p>
               </div>
               <div>
                   <h1>Clinical Studies</h1>

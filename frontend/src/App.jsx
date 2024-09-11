@@ -56,7 +56,7 @@ import SingleProduct from "./components/product/SingleProduct";
 import NavProduct from "./components/product/NavProduct";
 import SpainSaffron from "./insight/SpainSaffron";
 import CardProduct from "./components/product/CardProduct";
-import LoginPage from "./components/login/LoginPage";
+import LoginPagee from "./components/login/LoginPagee";
 import LoginForm from "./components/login/LoginForm";
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import Cart from './components/cart/Cart'
@@ -128,7 +128,7 @@ transition={Bounce}
 
 
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<LoginPagee />} />
           <Route path="/403" element={<ForbiddenPage />} />
           <Route
             path="/product/:id"

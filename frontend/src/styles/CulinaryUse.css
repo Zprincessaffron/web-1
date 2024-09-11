@@ -7,12 +7,12 @@
 }
 .culinarymain{ 
     width: 100vw;
-    background-color: rgb(246, 222, 252)
+    background-color: #9047ff;
 }
 .culinarymain p{
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     word-spacing: 1.5px;
     color: black;
     width: 50%;
@@ -37,6 +37,7 @@
     height: fit-content;
     display: flex;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.723);
 }
 .culinary_div21{
     height: 60px;
@@ -63,6 +64,7 @@
 }
 .culinary_div3{
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.723);
 }
 .culinary_div31>h1{
     font-size: 3rem;
@@ -79,8 +81,8 @@
 }
 .culinary_div32>h2{
     text-transform: uppercase;
-    font-size: calc(0.256rem + 2vw);
-    letter-spacing: 0.3rem;
+    font-size: calc(0.256rem + 1.4vw);
+    letter-spacing: 0.2rem;
     margin-top: 5vh;
     margin-bottom: 3vh;
     
@@ -93,6 +95,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.723);
+
 
 }
 .culinary_div4>h1{
@@ -117,6 +121,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.723);
+
+    
     
 }
 .culinary_div5>h1{

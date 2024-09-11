@@ -57,7 +57,7 @@ function CulinaryUse() {
         </div>
         </div>
        
-        {/* ////////////<- splitting -> /////////////// */}
+        {/* ////////////<- s plitting -> /////////////// */}
        {dish =="biryani" &&(
         <>
          <div className='culinary_div3'>
