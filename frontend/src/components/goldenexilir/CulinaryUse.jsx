@@ -62,7 +62,7 @@ function CulinaryUse() {
         <>
          <div className='culinary_div3'>
             <div className='culinary_div31'>
-                <h1>{culinaryUsesData[0].title}</h1>
+                <h1>{culinaryUsesData[0].title}t</h1>
                 <p>Saffron enhances Biryani with its rich flavor and vibrant color.</p>
             </div>
             <div className='culinary_div32'>
