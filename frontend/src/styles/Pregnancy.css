@@ -27,12 +27,11 @@
 }
 .pu_div1>div>p{
     font-family: 100;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     width: 50%;
     text-align: center;
     letter-spacing: 1px;
     word-spacing: 2px;
-
     color: white;
 }
 
@@ -74,7 +73,7 @@
 }
 .pu_div2>h1{
     text-align: center;
-    font-size: calc(0.256rem + 2vw);
+    font-size: calc(0.856rem + 1vw);
     letter-spacing: 0.3rem;    text-transform: uppercase;
 }
 .pu_div2>div{
@@ -86,7 +85,7 @@
 }
 .pu_div2>div>h1{
     text-transform: uppercase;
-    font-size: calc(0.256rem + 1.5vw);
+    font-size: calc(0.256rem + 1vw);
     letter-spacing: 0.3rem;
  text-align: center;
     margin-bottom: 3vh;
@@ -95,7 +94,7 @@
     width: 60%;
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     word-spacing: 1.5px;
     text-align: center;
    
@@ -164,7 +163,6 @@ padding: 10vh 0;
     margin-bottom: 10px;
 }
 .culinary_subheadings{
-    font-size: 1.1rem;
     font-weight: bold;
 }
 .pu_div4 h2{
@@ -179,7 +177,17 @@ padding: 10vh 0;
     letter-spacing: 2px;
     font-size: 1rem;
 }
+.pu_div1>div>h2{
+    font-size: 1.7rem;
+    letter-spacing: 2px;
 
+}
+.pu_div1>div>p{
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    width: 80%;
+
+}
 .pu_div2 p,.pu_div4 p{
     letter-spacing: 1px;
     word-spacing: 1.5px;
@@ -214,7 +222,6 @@ padding: 10vh 0;
     text-align: center;
 }
 .culinary_subheadings{
-    font-size: 0.6rem;
 }
 
 .pu_div4>h1{

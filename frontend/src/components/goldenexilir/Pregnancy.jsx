@@ -68,7 +68,7 @@ function Pregnancy() {
             </div>
 
             
-            <div>
+            <div> 
                 <h1>Sleep Enhancement</h1>
                 <p><span className='culinary_subheadings'>Sleep Disruptions: </span>Common during pregnancy due to hormonal changes, physical discomfort, and anxiety. Good sleep is essential for maternal health and fetal development.</p>
                 <p><span className='culinary_subheadings'>Saffron’s Soothing Effect:</span> Saffron’s mild sedative properties, possibly due to its influence on neurotransmitters, may promote relaxation and improve sleep quality, helping pregnant women get the rest they need.</p>

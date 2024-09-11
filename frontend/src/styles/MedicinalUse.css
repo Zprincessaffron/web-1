@@ -174,6 +174,7 @@
 
 .medicinal_highlighter{
     font-weight: bold;
+   
 }
 /* //////////depression///////////// */
 .mu_div1.depression{
@@ -209,6 +210,10 @@
 @media only screen and (max-width: 480px) {
     .mu_main>h1{
         font-size: calc(1rem + 2vw);
+        letter-spacing: 2px;
+    }
+    .mu_main>div>h1{
+        font-size: 1.7rem;
         letter-spacing: 2px;
     }
 
