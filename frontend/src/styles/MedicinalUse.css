@@ -110,7 +110,7 @@
 
 }
 .culinary_div21-h1.true{
-    background-color: rgb(187, 198, 205);
+    background-color: rgb(255, 255, 255);
     color: rgb(3, 3, 3);
     font-weight: bold;
 }
@@ -232,6 +232,7 @@
     color: black;
     line-height: 15px;
     width: 90%;
+    font-weight: 100;
 
 }
 .mu_div1 h1{
