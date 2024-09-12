@@ -1,0 +1,67 @@
+.check_availability_main{
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+    background-color: rgb(255, 255, 255);
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
+}
+.check_availability_main.true{
+    width: 50vw;
+}
+.ckeck_avail_1{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-top: 10vh;
+}
+.ckeck_avail_1>p{
+   margin-right: 20px;
+   cursor: pointer;
+   font-size: medium;
+   color: black;
+}
+.ckeck_avail_2{
+    padding: 6rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.ckeck_avail_21{
+    height: 200px;
+    width: 150px;
+    background-color: antiquewhite;
+}
+.ckeck_avail_22{
+    color: black;
+
+}
+.ckeck_avail_22>h1,.ckeck_avail_22>h2,.ckeck_avail_22>h3{
+ font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+.ckeck_avail_22>h1{
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+.ckeck_avail_22>h2{
+    font-weight: 400;
+    font-size: 1rem;
+    text-transform: capitalize;
+    margin-top: 0.5rem;
+
+    
+}.ckeck_avail_22>h3{
+    font-weight: 400;
+    font-size: 1rem;
+    text-transform: capitalize;
+    margin-top: 0.5rem;
+}

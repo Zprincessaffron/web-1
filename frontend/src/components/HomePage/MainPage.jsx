@@ -17,6 +17,7 @@ import MenuSlider from '../sidebar/MenuSlider'
 import ProfileHover from '../../navbar/ProfileHover'
 import Review from '../review/Review'
 import Arrowbtn from '../button/Arrowbtn'
+import FinalProduct from '../product/FinalProduct'
 
 gsap.registerPlugin(ScrollTrigger);
 function MainPageTrial() {
@@ -28,6 +29,8 @@ function MainPageTrial() {
   const [translateX, setTranslateX] = useState(0);
   const [zPrinces, setZPrincess] = useState(true)
   const [videoPlay,setVideoPlay] = useState(true)
+  const [showFinalProduct,setFinalProduct]=useState(false)
+   
   ///////////////////////////
   useEffect(() => {
     setMenuSlider(false)
@@ -61,7 +64,6 @@ function MainPageTrial() {
       window.removeEventListener('mousemove', moveCursor);
     };
   }, []);
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -192,8 +194,14 @@ console.log('video',videoPlay)
             </div>
           </div>
         </div>
-        <div className='mainpage_con2' style={{ transform: `translateY(${scrollPosition * -0.2}px)` }}>
-          <OurProducts />
+        <div onMouseLeave={()=>{setFinalProduct(false)}} className='mainpage_con2' style={{ transform: `translateY(${scrollPosition * -0.2}px)` }}>
+          <OurProducts  showFinalProduct={showFinalProduct}  setFinalProduct={setFinalProduct}/>
+       {showFinalProduct?(   <div className={`mainpage_con212 ${showFinalProduct?"true":""}`}>
+            
+            <FinalProduct/>
+                </div>):(
+        null
+       )}
         </div>
       </div>
 

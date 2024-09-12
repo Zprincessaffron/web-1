@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+.product-details{
+  width: 100vw;
+  position: relative;
+  height: 400vh;
+  background-color: rgb(255, 255, 255);
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.pd-right{
+  top: 0;
+  right: 0;
+  position: fixed;
+  height: 100vh;
+  width: 48vw;
+  background-color: rgb(255, 255, 255);
+  font-family: "Louis Vuitton Web", "Louis Vuitton Web Fallback", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+
+}
+.pd-right.true{
+  top: 300vh;
+  right: 0;
+  position: absolute;
+  width: 50vw;
+
+
+
+}
+.pd-left{
+  height: 100%;
+  width: 50vw;
+  background-color: rgb(178, 62, 62);
+
+}
+.pd-left-1{
+  background-color: rgb(233, 233, 224);
+  width: 50vw;
+  height: 100vh;
+}
+.pd-left-2{
+  background-color: rgb(190, 237, 224);
+  width: 50vw;
+  height: 100vh;
+}
+.pd-left-3{
+  background-color: rgb(206, 206, 121);
+  width: 50vw;
+  height: 100vh;
+}
+.pd-left-4{
+  background-color: rgb(197, 176, 211);
+  width: 50vw;
+  height: 100vh;
+}
+.pd-review-box{
+  background-color: aliceblue;
+  height: 50vh;
+  width: 100%;
+}
+.pd-rightdetails{
+  padding: 20% 30% 0 20%;
+}
+.pd-rightdetails>h1{
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+}
+.pd-rightdetails>p{
+  color: black;
+  font-size: large;
+  margin-top: 0.5rem;
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 350;
+  font-size: 1rem;
+}
+.font-tax{
+  font-size: x-small;
+  letter-spacing: 1px;
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+
+}
+.pd-star-rating{
+  margin-top: 1rem;
+
+}
+.change-grams{
+  padding: 1rem 0;
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.351);
+  display: flex;
+  justify-content: space-between;
+}
+.change-grams>h2,.change-grams>div>h2,.change-grams>div>h3{
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+
+}
+.change-grams>div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+}
+.change-grams>div>h3{
+  margin-top: 3px;
+
+}
+.pd-button{
+  display: flex;
+flex-direction: row;
+padding: 2rem;
+gap: 2rem;
+}
+.pd-button>button{
+  width: fit-content;
+  padding: 10px 20px;
+ border: none;
+ border-radius: 25px;
+ color: white;
+ background-color: black;
+ letter-spacing: 1px;
+   font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.pd-right_belowitems{
+  padding: 2rem 0;
+
+}
+.pd-right_belowitems>h3{
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  padding: 0px 2px;
+
+}
+.pd-right_belowitems>h3:hover{
+  scale: 101%;
+}
+.item_added{
+  opacity: 0.3 !important;
+}

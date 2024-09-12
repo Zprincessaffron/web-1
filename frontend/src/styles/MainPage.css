@@ -62,8 +62,6 @@
     font-style: normal;
     overflow-x: hidden;
     background-color: rgb(244, 237, 255)
-
-
 }
 
 .mainpage_container{
@@ -102,12 +100,12 @@
   position: relative;
 }
 .mainpagecon.true{
-  height: 170vh;
+  height: 180vh;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 .mainpage_con1{
-  height: 100vh;
+  height: 100vh; 
   position: absolute;
 }
 .viewall_pro{
@@ -129,6 +127,19 @@
   width: 100vw;
   position: absolute;
   top: 100vh;
+}
+
+.mainpage_con212{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  opacity: 0;
+}
+.mainpage_con212.true{
+  opacity: 1;
 }
 
 /* //////////////////////////////////////// */
@@ -628,7 +639,7 @@ height: 100%;
 .setus_div2 div p{
   font-size: 0.6rem;
   color: black;
-  font-weight: bold;
+  font-weight: 100;
 }
 .setus_div2{
   flex-direction: column;
@@ -650,7 +661,7 @@ height: 100%;
   color: rgb(0, 0, 0);
   font-size: 0.5rem;
 }
-
+ 
 }
 @media only screen and (max-width: 480px) {
 

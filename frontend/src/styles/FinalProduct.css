@@ -1,0 +1,75 @@
+.product_cards {
+    display: flex;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+  }
+  
+  .product_card {
+    width: 20%;
+    height: 70%;
+    overflow: hidden;
+    position: relative;
+
+  }
+  
+
+  .product_card>img{
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+
+  }
+  .fp_hovercontent{
+    width: 100%;
+    background-color: rgb(248, 249, 253);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    cursor: pointer;
+
+  }
+  .fp_hovercontent:hover{
+    opacity: 1;
+  }
+  .fp_hovercontent>img{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+  }
+  .fp_hovercontent>h3{
+    margin-top: 0.5rem;
+    margin-left: 0.3rem;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .fp_hovercontent>p{
+    margin-left: 0.3rem;
+    color: black;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 300;
+  }
+  .fp_hovercontent>button{
+    border: none;
+    background: none;
+    text-decoration: underline;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
+    margin-left: 0.3rem;
+    padding: 10px 0;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px; 
+  }

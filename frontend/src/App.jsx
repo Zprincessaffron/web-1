@@ -65,6 +65,7 @@ import CustomerReviewSpain from "./components/review/CustomerReviewSpain";
 import { useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 import { scroller } from 'react-scroll';
+import ProductDetails from "./components/product/ProductDetails";
 
 function App() {
   const { pathname } = useLocation();
@@ -115,7 +116,7 @@ transition={Bounce}
         <Route path="/cart" element={<Cart/>} />
         <Route path="/customer-review-kashmirsaffron" element={<CustomerReviewKashmir/>} />
         <Route path="/customer-review-spainsaffron" element={<CustomerReviewSpain/>} />
-
+        <Route path="/product/:id" element={<ProductDetails />} />
 
 
 

@@ -1,0 +1,46 @@
+.productd_main{
+    position: fixed;
+    z-index: 2;
+    width: 0;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+.productd_main.true{
+    width: 50vw;
+
+}
+.pd_div1>h1{
+    padding-top: 2rem;
+    padding-left: 4rem;
+    font-weight: 400;
+    font-size: 2rem;
+}
+.productd_main h1,.productd_main h2,.productd_main h3,.productd_main p{
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+.pd_div2{
+    padding-left: 4rem;
+    width: 80%;
+
+}
+.pd_div2>h3{
+    font-weight: 400;
+    text-align: left;
+    margin-top: 0.3rem;
+
+
+}
+.pd_div2>h4{
+    font-weight: 400;
+    text-align: left;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}

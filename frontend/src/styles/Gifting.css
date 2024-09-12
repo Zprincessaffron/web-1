@@ -1,0 +1,39 @@
+.gifting_main{
+    position: fixed;
+    z-index: 2;
+    width: 0;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+.gifting_main.true{
+    width: 50vw;
+
+}
+.gifting_main h1,.gifting_main p,.gifting_main h2,.gifting_main h3{
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: black;
+
+}
+.pd_div2>p{
+    font-weight: 300;
+    font-size: calc(0.03rem + 0.8vw);
+    margin-top: 2rem;
+    text-transform: capitalize;
+}
+.pd_div2>div>h2{
+    margin-top: 1rem;
+    font-weight: 300;
+    font-size: 1rem;
+    gap: 1rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.pd_div2>div{
+    margin-top: calc(2rem + 2vw);
+}

@@ -1,0 +1,43 @@
+.selectgram_main{
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    transition: width 0.3s ease-in-out;
+    background-color: white;
+}
+.selectgram_main.true{
+    width: 50vw;
+}
+.selectgram_main h1,.selectgram_main h2,.selectgram_main h3,.selectgram_main p{
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+.grams_div2{
+    margin-left: 4rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    gap: 2rem;
+}
+.grams_div2>div{
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.grams_div21{
+    height: 200px;
+    width: 150px;
+    background-color: antiquewhite;
+
+}
+.grams_div2>div>h3{
+    text-align: center;
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
