@@ -7,14 +7,14 @@
 }
 .culinarymain{ 
     width: 100vw;
-    background-color: rgb(244, 237, 255)
+    background-color: rgb(250, 227, 255)
 }
 .culinarymain p{
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
     font-size: 0.8rem;
     word-spacing: 1.5px;
-    color: rgb(0, 0, 0);
+  color: rgba(84, 84, 84, 0.838);
     width: 50%;
     text-align: center;
     text-transform: capitalize;
@@ -111,7 +111,8 @@
     
 }
 .culinary_div4>h2,.culinary_div5>h2{
-    margin: 3vh 0;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     font-size: 1.3rem;
@@ -119,7 +120,7 @@
 }
 
 .culinary_div5{
-    padding: 10vh 0;
+    padding-bottom: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,13 +129,15 @@
     
     
 }
+.culinary_div5>h2{
+margin-bottom: 2rem;
+}
 .culinary_div5>h1{
-    margin: 3vh 0;
+
     text-transform: uppercase;
     font-size: 2rem;
     letter-spacing: 0.3rem;
-    margin-top: 5vh;
-    margin-bottom: 3vh;
+   
     color: rgb(0, 0, 0);
 
 }
@@ -241,15 +244,20 @@
 .culinary_div31>h1{
     font-size: 1rem;
     letter-spacing: 2px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    margin-top: 20px;
 }
 .culinary_div31>p{
     font-size: 0.6rem;
     letter-spacing: 1px;
     word-spacing: 1.5px;
     width: 80%;
-}
+    color: rgba(84, 84, 84, 0.838);
 
+}
+.about_div62>p{
+    color: white;
+}
 .culinary_div32{
     padding: 10px 0;
 }
@@ -257,7 +265,7 @@
     font-size: 0.8rem;
     letter-spacing: 1.5px;
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     
 
 }
@@ -283,13 +291,15 @@
     font-size: 1rem;
     letter-spacing: 1.5px;
     margin-top: 3px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     
 }
 .culinary_div4>h2,.culinary_div5>h2{
     margin: 5px 0;
     letter-spacing: 1px;
     font-size: 0.8rem;
+    margin-bottom: 15px;
+    margin-top: 20px;
 }
 .culinary_div4>p,.culinary_div5>p{
     letter-spacing: 1px;
@@ -306,7 +316,8 @@
     font-size: 1rem;
     letter-spacing: 2px;
     margin-top: 5px;
-    margin-bottom: 0;
+    margin-bottom: 15px;
+
 
 }
 

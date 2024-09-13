@@ -12,7 +12,7 @@
 
 }
 
-.beauty_main{
+.beauty_main{ 
    width: 100vw; 
    height: 100vh;
    background-position: center center;
@@ -185,6 +185,7 @@
 .radio_btton_beauty>div>h1{
     font-size: calc(0.25rem + 1vw);
 
+
 }
 
 .beauty_div1 p{
@@ -199,26 +200,34 @@
  margin-bottom: 5px;
  font-size: 1rem;
  letter-spacing: 2px;
+ margin-bottom: 15px;
+
 }
 .beauty_div1>p{
     margin-bottom: 5px;
-    width: 95%;
+    width: 90%;
     font-size: 0.6rem;
     text-align: center;
+    color: rgba(84, 84, 84, 0.838);
+
 }
 .beauty_div1>div>h1{
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 2px;
+
 }
 .beauty_div1>div>p{
     letter-spacing: 1px;
     word-spacing: 1.5px;
-    width: 95%;
+    width: 90%;
     margin-bottom: 5px;
     text-align: center;
+    color: rgba(84, 84, 84, 0.838);
+
 }
 .beauty_div1>div>h1{
-    margin: 15px 0;
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 }

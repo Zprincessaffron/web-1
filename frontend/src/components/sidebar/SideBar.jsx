@@ -196,17 +196,17 @@ function SideBar() {
                 <>
                    {menuSubItems == 'knowledgehub' && (
                     <>
-                    <animated.div id="sidebar_kh" className="menu-item" onClick={handleBack} style={itemAnimation1}><IoMdArrowRoundBack className='sidebar_arrow'/>KNOWLEDGE HUB</animated.div>
-                   <animated.div className="menu-item" onClick={()=>navigate('/insight')} style={itemAnimation2}>INSIGHT </animated.div>
-        <animated.div className="menu-item" onClick={()=>navigate('/kashmiri-saffron')}  style={itemAnimation3}>KASHMIRI SAFFRON</animated.div>
-        <animated.div className="menu-item"  onClick={()=>navigate('/spain-saffron')}  style={itemAnimation4}>SPAIN SAFFRON</animated.div>
+                    <animated.div id="sidebar_kh" className="menu-item" onClick={handleBack} style={itemAnimation4}><IoMdArrowRoundBack className='sidebar_arrow'/>KNOWLEDGE HUB</animated.div>
+                   <animated.div className="menu-item" onClick={()=>navigate('/insight')} style={itemAnimation3}>INSIGHT </animated.div>
+        <animated.div className="menu-item" onClick={()=>navigate('/kashmiri-saffron')}  style={itemAnimation2}>KASHMIRI SAFFRON</animated.div>
+        <animated.div className="menu-item"  onClick={()=>navigate('/spain-saffron')}  style={itemAnimation1}>SPAIN SAFFRON</animated.div>
                     </>)
                    }
                     {menuSubItems == 'products' && (
                     <>
-                    <animated.div id="sidebar_kh" className="menu-item" onClick={handleBack} style={itemAnimation1}><IoMdArrowRoundBack className='sidebar_arrow'/>PRODUCTS</animated.div>
+                    <animated.div id="sidebar_kh" className="menu-item" onClick={handleBack} style={itemAnimation3}><IoMdArrowRoundBack className='sidebar_arrow'/>PRODUCTS</animated.div>
         <animated.div onClick={handleKasmir} className="menu-item" style={itemAnimation2}>KASHMIRI SAFFRON</animated.div>
-        <animated.div  onClick={handleSpain}  className="menu-item" style={itemAnimation3}>SPAIN SAFFRON</animated.div>
+        <animated.div  onClick={handleSpain}  className="menu-item" style={itemAnimation1}>SPAIN SAFFRON</animated.div>
                     </>)
                    }
                     

@@ -64,6 +64,11 @@
     padding-left: 30%;
     cursor: pointer;
 }
+.sidebar_div2>div:hover{
+    font-weight: bold;
+    scale: 102%;
+}
+
 #sidebar_kh{
     font-weight: bolder;
     

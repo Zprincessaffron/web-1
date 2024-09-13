@@ -43,7 +43,7 @@
     letter-spacing: 0.5rem;
 }
 .pu_main{
-    background-color: rgb(244, 237, 255)
+    background-color: rgb(250, 227, 255)
 }
 .pu_div2 p,.pu_div4 p{
     color: black;
@@ -186,12 +186,16 @@ padding: 10vh 0;
     font-size: 0.6rem;
     letter-spacing: 1px;
     width: 80%;
+    color: rgba(84, 84, 84, 0.838);
+
 
 }
 .pu_div2 p,.pu_div4 p{
     letter-spacing: 1px;
     word-spacing: 1.5px;
     line-height: 15px;
+    color: rgba(84, 84, 84, 0.838);
+
 }
 .pu_div2 h1,.pu_div4 h1{
     margin-bottom: 2px;
@@ -206,12 +210,15 @@ padding: 10vh 0;
     letter-spacing: 1px;
     word-spacing: 1.5px;
     font-size: 0.8rem;
+    color: rgba(84, 84, 84, 0.838);
+
 }
 
 .pu_div2>div>h1{
     font-size: 0.8rem;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
+
 .pu_div2>div>p{
     width: 90%;
     letter-spacing: 1px;
@@ -220,6 +227,8 @@ padding: 10vh 0;
     font-size: 0.6rem;
     line-height: 15px;
     text-align: center;
+    color: rgba(84, 84, 84, 0.838);
+
 }
 .culinary_subheadings{
 }
@@ -256,6 +265,8 @@ padding: 10vh 0;
     width: 90%;
     text-align: center;
     font-size: 0.6rem;
+    color: rgba(84, 84, 84, 0.838);
+
    
 }
 .pu_div4>div>div>img{
@@ -267,6 +278,7 @@ padding: 10vh 0;
     font-size: 0.8rem;
     letter-spacing: 1.5px;
     margin: 0;
+    margin-bottom: 15px;
    
 }
 .pu_div5{
@@ -281,6 +293,8 @@ padding: 10vh 0;
     width: 90%;
     margin: 5px 0;
     letter-spacing: 1px;
+    color: rgba(84, 84, 84, 0.838);
+
 }
 
 

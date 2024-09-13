@@ -255,6 +255,8 @@ color: black;
         width: 95%;
         text-align: center;
         font-weight: bold;
+        color: gray;
+        text-transform: capitalize;
          
     }
     .about_div62>p{

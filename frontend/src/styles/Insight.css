@@ -13,7 +13,7 @@
 .insight_div12{
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0; 
     display: flex;
 
     align-items: center;
@@ -203,7 +203,7 @@
     width: 100%;
     height: 100vh;
     position: relative;
-    background-color: black;
+    background-color: rgb(41, 11, 59);
     
 }
 .insight_div11,.insight_div12{
@@ -373,6 +373,7 @@
     font-size: calc(0.256rem + 2vw);
     letter-spacing: 0.3rem;
     margin-top: 10px;
+    margin-bottom: 25px;
 
 }.insight_div512>p{
     line-height: 1.9230769231;
@@ -455,6 +456,7 @@
     letter-spacing: 1px;
     width: 90%;
     line-height: 20px;
+    color: rgba(84, 84, 84, 0.838);
 
 }
 .insight_div2{
@@ -532,7 +534,7 @@
     text-transform: capitalize;
     line-height: 15px;
     margin-top: 10px;
-    color: rgb(0, 0, 0);
+    color: rgba(84, 84, 84, 0.838);
     
 
 }

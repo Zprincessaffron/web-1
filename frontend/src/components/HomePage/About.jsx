@@ -90,7 +90,7 @@ function About() {
                 </div>
                 <div className='about_div12'>
                     <img src={bff} alt="" />
-                </div>
+                  </div>
                     </>
                 )}
             </div>
@@ -102,24 +102,19 @@ function About() {
             <div className='about_div3'>
                 <div className='about_div31'>
                 <img src={crocuses} alt="" />
-
                 </div>
                 <div className='about_div32'>
                     <h1>Our Commitment</h1>
                     <p>we are passionate about offering an authentic saffron experience. Our commitment to quality ensures that every thread of saffron you purchase from us is pure, unadulterated, and of the highest standard.</p>
                 </div>
-
             </div>
             <div className='about_div4'>
                 <div className='about_div41'>
-                    
-
                 </div>
                 <div className='about_div42'>
                     <h1>OUR MISSION</h1>
                     <div></div>
                     <p> is to provide our customers with unparalleled service and a product that stands out in terms of quality and authenticity. We believe that saffron is more than just a spice – it’s a journey through tradition, culture, and flavor. Trust Z PRINCESS SAFFRON to deliver an exceptional saffron experience, one that enhances your cooking, beauty, and health routines.</p>
-
                 </div>
             </div>
             <div className='about_div6'>

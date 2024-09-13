@@ -13,7 +13,7 @@ import ScrollToTop from '../ScrollToTop';
 function CulinaryUse() { 
     const { setShowNav,setSideBar,setMenuSlider }=useUserContext()
     const [dish,setDish]=useState('biryani')
-
+ 
     function handleDish(val){
         setDish(val) 
     }
