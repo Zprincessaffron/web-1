@@ -16,6 +16,8 @@
         font-family: 'Riviera Nights';  }
         p{
             font-family: 'Riviera Nights';  
+            
+    text-transform: capitalize;
         }
         h5{
             font-family: 'Riviera Nights';  
