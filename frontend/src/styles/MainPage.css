@@ -61,7 +61,7 @@
     font-optical-sizing: auto;
     font-style: normal;
     overflow-x: hidden;
-    background-color: rgb(253, 243, 255)
+    background-color: rgb(250, 227, 255)
 }
 
 .mainpage_container{
@@ -235,7 +235,7 @@
     color: white;
   }
   .quate1{
-    background-color: rgb(246, 214, 255);
+    background-color: rgb(234, 203, 242);
     text-align: center;
     height: 20vh;
     display: flex;
@@ -638,7 +638,7 @@ height: 100%;
 }
 .setus_div2 div p{
   font-size: 0.65rem;
-  color: rgb(72, 72, 72);
+  color: rgba(84, 84, 84, 0.838);
   font-weight: bold;
 }
 .setus_div2{
