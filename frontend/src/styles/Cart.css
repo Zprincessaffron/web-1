@@ -164,13 +164,15 @@
   
   .cart-checkout-button {
     width: fit-content;
-    background-color: #10b981; /* Tailwind's bg-green-600 */
+    background-color: #181818; /* Tailwind's bg-green-600 */
     color: #ffffff; /* Tailwind's text-white */
-    padding: 0.5rem 2rem; /* Tailwind's py-2 px-4 */
+    padding: 0.7rem 2rem; /* Tailwind's py-2 px-4 */
     border-radius: 2rem; /* Tailwind's rounded-lg */
     border: none;
     cursor: pointer;
     margin: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 
   }
   .mt-4{
@@ -188,6 +190,8 @@
     padding: 0.5rem 1rem;
     margin-top: 15vh;
     border-bottom: 1px solid gray;
+    justify-content: center;
+    display: flex;
 
 
   }
@@ -195,11 +199,21 @@
 
     font-size: 1rem;
     letter-spacing: 1px;
+    width: 80%;
+  }
+  .cart_divcontainermain{
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
   }
   .cart_divcontainer{
     padding: 2rem;
     display: flex;
     flex-direction: row;
+    display: flex;
+    width: 80%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.316);
   
   }
   .cart-div1{
@@ -211,7 +225,7 @@
 
   }
   .cart-div2{
-    padding:1rem 1rem ;
+    padding:1rem 2rem ;
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -280,7 +294,7 @@
   }
   .cart-div32>h1{
     font-family: "Roboto", sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: 1px;
 
 

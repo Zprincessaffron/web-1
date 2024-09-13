@@ -82,6 +82,7 @@ function Cart() {
                 cartItems.map((item) => (
     
                   <>
+                  <div className='cart_divcontainermain'>
                   <div className='cart_divcontainer'>
                     <div className='cart-div1'>
                       <img src={item.image} alt="" />
@@ -91,14 +92,14 @@ function Cart() {
                       <h1>{item.name}</h1>
                       <h2>{item.weight} Gram </h2>
                       </div>
-                      <button>REMOVE</button>
+                      <button  onClick={() => handleRemoveItem(item)} >REMOVE</button>
                     </div>
                     <div className='cart-div3'>
                     <div className='cart-div31'>
-                      <button>-</button>
+                      <button onClick={() => handleQuantityChange(item, -1)}>-</button>
                       <h1> {item.quantity}</h1>
                      
-                      <button>+</button>
+                      <button onClick={() => handleQuantityChange(item, 1)} >+</button>
 
 
                     </div>   
@@ -110,6 +111,7 @@ function Cart() {
 
                     </div>
 
+                  </div>
                   </div>
                   </>
                   ))
