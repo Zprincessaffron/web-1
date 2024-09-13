@@ -86,8 +86,29 @@ function Cart() {
                     <div className='cart-div1'>
                       <img src={item.image} alt="" />
                     </div>
-                    <div className='cart-div2'></div>
-                    <div className='cart-div3'></div>
+                    <div className='cart-div2'>
+                      <div>
+                      <h1>{item.name}</h1>
+                      <h2>{item.weight} Gram </h2>
+                      </div>
+                      <button>REMOVE</button>
+                    </div>
+                    <div className='cart-div3'>
+                    <div className='cart-div31'>
+                      <button>-</button>
+                      <h1> {item.quantity}</h1>
+                     
+                      <button>+</button>
+
+
+                    </div>   
+                    <div className='cart-div32'>
+                      <h1>₹{item.price}</h1>
+
+                    </div>
+
+
+                    </div>
 
                   </div>
                   </>

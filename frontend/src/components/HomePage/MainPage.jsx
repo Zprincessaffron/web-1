@@ -7,7 +7,7 @@ import { useUserContext } from '../../context/MainContext'
 import LoginHover from '../../navbar/LoginHover'
 import { GrNext } from "react-icons/gr";
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
+import gsap from 'gsap'; 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import NewsLetter from './NewsLetter'
 import OurProducts from './OurProducts'

@@ -622,7 +622,7 @@ height: 100%;
   font-size: 0.8rem;
   text-transform: uppercase;
   margin-bottom:10px ;
-  letter-spacing:1px;
+  letter-spacing:1.5px;
 }
 .setus_div2{
   gap: 30px;
@@ -637,9 +637,10 @@ height: 100%;
   flex-direction: column;
 }
 .setus_div2 div p{
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   color: rgb(72, 72, 72);
   font-weight: bold;
+  text-align: left;
 }
 .setus_div2{
   flex-direction: column;
@@ -649,8 +650,8 @@ height: 100%;
 }
 .setus_div2 div p{
   width: 90%;
-  letter-spacing: .5px;
-  line-height: 15px;
+  letter-spacing: 0.8px;
+  line-height: 18px;
 }
 .mainpage_div3>button{
   padding: 10px 15px;

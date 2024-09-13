@@ -204,6 +204,85 @@
   }
   .cart-div1{
     overflow: hidden;
-    width: 100px;
     
+  }
+  .cart-div1>img{
+    width: 150px;
+
+  }
+  .cart-div2{
+    padding:1rem 1rem ;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+  }
+  .cart-div2>div>h1{
+    font-size: calc(0.3rem + 1vw);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .cart-div2>div>h2{
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  margin-top: 1rem;
+  }
+  .cart-div2>button{
+    background: none;
+    border: none;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    padding: 1rem 0;
+    font-weight: 600;
+    margin-top: 0rem;
+    text-decoration-thickness: 1.5px;
+
+  }
+  .cart-div2>button:hover{
+    color: rgb(58, 58, 58);
+
+  }
+  .cart-div3{
+    display: flex;
+    flex-direction: row;
+    width: 40vw;
+    margin-left: 10%;
+    height: fit-content;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  .cart-div31{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: fit-content;
+    align-items: center;
+  }
+  .cart-div31>button{
+    height: 30px;
+    width: 30px;
+    background-color: black;
+    color: white;
+    border: none;
+
+  }
+  .cart-div31>button:active{
+    scale: 95%;
+  }
+  .cart-div31>h1{
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+
+  }
+  .cart-div32>h1{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+
+
+
   }
