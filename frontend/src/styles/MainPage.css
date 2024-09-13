@@ -6,7 +6,7 @@
   font-family: 'Riviera Nights';
   src: url('../fonts/RivieraNightsTrial-Ultralight.otf') format('truetype');
   font-weight: normal;
-  font-style: normal;
+  font-style: normal; 
 } 
  
 .rounded{
@@ -625,7 +625,7 @@ height: 100%;
   letter-spacing:1px;
 }
 .setus_div2{
-  gap: 10px;
+  gap: 30px;
 
 }
 .setus_div2>div{

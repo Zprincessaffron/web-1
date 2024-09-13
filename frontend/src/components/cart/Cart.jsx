@@ -49,9 +49,9 @@ function Cart() {
     <div>
       <ScrollToTop/>
         <Navbar/>
-        <div className='cart_div1'>            
+        {/* <div className='cart_div1'>            
             <h1>BACK TO HOME</h1>                     
-        </div>                                      
+        </div>                                       */}
         {!user && (
             <div className='cart_div2'>
             <img src={emptycart} alt="" />
@@ -73,42 +73,20 @@ function Cart() {
         )}
         {cartItems.length>0 &&(
            <>
+           <div className='cart_main'>
+
+                 <h1>YOUR SELECTIONS</h1>
+
+           </div>
             {
                 cartItems.map((item) => (
-                    <div key={`${item.id}-${item.weight}`} className="cart-item">
-                      <img
-                        src={item.img}
-                        alt={item.name}
-                        className="cart-item-image"
-                      />
-                      <div className="cart-item-details">
-                        <h3 className="cart-item-name">{item.name}</h3>
-                        <p className="cart-item-info">Weight: {item.weight}g</p>
-                        <p className="cart-item-info">₹{item.price}</p>
-                        <div className="cart-quantity-controls">
-                          <button
-                            className="cart-quantity-button"
-                            onClick={() => handleQuantityChange(item, -1)}
-                          >
-                            -
-                          </button>
-                          <span className="mx-2">{item.quantity}</span>
-                          <button
-                            className="cart-quantity-button"
-                            onClick={() => handleQuantityChange(item, 1)}
-                          >
-                            +
-                          </button>
-                        </div>
-                      </div>
-                      <button
-                        className="cart-remove-button"
-                        onClick={() => handleRemoveItem(item)}
-                      >
-                        <AiOutlineDelete />
+    
+                  <div className='cart_div'>
+                    <div></div>
+                    <div></div>
+                    <div></div>
 
-                      </button>
-                    </div>
+                  </div>
                   ))
             }
            </>
@@ -131,3 +109,37 @@ function Cart() {
 
 export default Cart
 
+// <div key={`${item.id}-${item.weight}`} className="cart-item">
+//                       <img
+//                         src={item.image}
+//                         alt={item.name}
+//                         className="cart-item-image"
+//                       />
+//                       <div className="cart-item-details">
+//                         <h3 className="cart-item-name">{item.name}</h3>
+//                         <p className="cart-item-info">Weight: {item.weight}g</p>
+//                         <p className="cart-item-info">₹{item.price}</p>
+//                         <div className="cart-quantity-controls">
+//                           <button
+//                             className="cart-quantity-button"
+//                             onClick={() => handleQuantityChange(item, -1)}
+//                           >
+//                             -
+//                           </button>
+//                           <span className="mx-2">{item.quantity}</span>
+//                           <button
+//                             className="cart-quantity-button"
+//                             onClick={() => handleQuantityChange(item, 1)}
+//                           >
+//                             +
+//                           </button>
+//                         </div>
+//                       </div>
+//                       <button
+//                         className="cart-remove-button"
+//                         onClick={() => handleRemoveItem(item)}
+//                       >
+//                         <AiOutlineDelete />
+
+//                       </button>
+//                     </div>

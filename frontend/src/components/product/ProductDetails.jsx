@@ -76,7 +76,8 @@ const handleAddToCart = () => {
           name: product.name,
           price: product.price,
           weight: product.weight,
-          quantity: 1, // Use the updated quantity
+          quantity: 1, // Use the updated quantity,
+          image:product.image
       };
       addToCart(productToAdd);
 

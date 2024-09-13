@@ -32,7 +32,8 @@ const FinalProduct = () => {
             weight: data[0].variants[0].weight,
             fullProduct: data[0],
             stock:data[0].variants[0].stock,
-            image:product1
+            image:product1,
+            flipimage:product4
           },
           {
             _id: data[0]._id + "-1",  // Unique ID for variant 2 of product 1
@@ -41,8 +42,8 @@ const FinalProduct = () => {
             weight: data[0].variants[1].weight,
             fullProduct: data[0],
             stock:data[0].variants[1].stock,
-            image:product2
-
+            image:product2,
+            flipimage:product1
           },
           {
             _id: data[1]._id + "-0",  // Unique ID for variant 1 of product 2
@@ -51,8 +52,8 @@ const FinalProduct = () => {
             weight: data[1].variants[0].weight,
             fullProduct: data[1],
             stock:data[1].variants[0].stock,
-            image:product3
-
+            image:product3,
+            flipimage:product2
           },
           {
             _id: data[1]._id + "-1",  // Unique ID for variant 2 of product 2
@@ -61,21 +62,17 @@ const FinalProduct = () => {
             weight: data[1].variants[1].weight,
             fullProduct: data[1],
             stock:data[1].variants[1].stock,
-            image:product4
-
+            image:product4,
+            flipimage:product3
           },
         ];
         setProducts(splitProducts);
-
       });
   }, []);
-
   const handleProductClick = (product) => {
     // Navigate to product details page with the full product data
     navigate(`/product/${product._id}`, { state: { product } });
   };
-
-
 ////BUY NOW////
 const handleBuyNow = (product) => {
   const productToAdd = {
@@ -88,15 +85,13 @@ const handleBuyNow = (product) => {
 addToCart(productToAdd);
 navigate('/checkout');
 };
-
-
   return (
     <div className="product_cards" >
       {products.map((product) => (
         <div key={product._id} className="product_card">
 <img  onClick={() => handleProductClick(product)} src={product.image} />     
   <div  className='fp_hovercontent'>
-  <img  onClick={() => handleProductClick(product)} src={product.image} alt="" />
+  <img  onClick={() => handleProductClick(product)} src={product.flipimage} alt="" />
   <h3  onClick={() => handleProductClick(product)}>{product.name}</h3>
 <p  onClick={() => handleProductClick(product)}>Price: ₹{product.price}</p>
 <p  onClick={() => handleProductClick(product)}>Weight: {product.weight}g</p>
@@ -104,10 +99,7 @@ navigate('/checkout');
    </div>
    </div>
       ))}
-
     </div>
-
-
   );
 };
 

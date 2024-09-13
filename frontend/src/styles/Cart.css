@@ -182,4 +182,19 @@
   .cart-checkout-button:hover {
     background-color: #059669; /* Tailwind's hover:bg-green-700 */
   }
+  /* //////cart/////// */
+  .cart_main{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin-top: 15vh;
+    border-bottom: 1px solid gray;
+
+  }
+  .cart_main>h1{
+
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  .cart_div{
   
+  }
