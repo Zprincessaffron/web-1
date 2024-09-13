@@ -162,7 +162,7 @@
     z-index: 2;
     width: 100%;
     
-    height: 100%;
+    height: 100%; 
    
   }
   .mainpage_div1{
@@ -572,12 +572,14 @@ height: 100%;
   font-size: calc(0.0066rem + 1.5vw);
   letter-spacing: 0.3rem;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
+
 .setus_div2 div p{
   color: rgb(0, 0, 0);
   line-height: 1.9230769231;
-  letter-spacing: 0.0484615385em;
-  font-size: 0.9rem; 
+  letter-spacing: 0.0684615385em;
+  font-size: 0.8rem; 
   font-weight: bold;
 }
 .parallax_div1>p{

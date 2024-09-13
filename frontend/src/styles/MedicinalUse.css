@@ -5,6 +5,7 @@
     color: white;
 }
 .para_bold{
+    
 }
 .mu_div1 h1{
     letter-spacing: 0.5rem; 
@@ -85,7 +86,8 @@
     font-size: 0.8rem;
     width: 60%;
     text-align: center;
-    color: rgb(0, 0, 0);
+    font-weight: bold;
+    color: rgb(72, 72, 72);
 }
 .mu_main{
     background-position: center;
