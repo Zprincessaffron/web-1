@@ -97,7 +97,7 @@ function About() {
             <div className='about_div2'>
                 <h1>WHO WE ARE</h1>
                 <div></div>
-                <p>Z PRINCESS SAFFRON is a distinguished saffron seller located in Chennai, India, dedicated to bringing you the world’s finest saffron. Our saffron is meticulously harvested from the most prestigious regions known for their superior quality – Kashmir, Spain, and Iran. Each strand of our saffron carries the essence of<br/> these regions, known for their unique climate and traditional harvesting</p>
+                <p>Z PRINCESS SAFFRON is a distinguished saffron seller located in Chennai, India, dedicated to bringing you the world’s finest saffron. Our saffron is meticulously harvested from the most prestigious regions known for their superior quality – Kashmir, Spain, and Iran. Each strand of our saffron carries the essence of these regions, known for their unique climate and traditional harvesting</p>
             </div>
             <div className='about_div3'>
                 <div className='about_div31'>
