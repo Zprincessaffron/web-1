@@ -189,12 +189,21 @@
     margin-top: 15vh;
     border-bottom: 1px solid gray;
 
+
   }
   .cart_main>h1{
 
     font-size: 1rem;
     letter-spacing: 1px;
   }
-  .cart_div{
+  .cart_divcontainer{
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
   
+  }
+  .cart-div1{
+    overflow: hidden;
+    width: 100px;
+    
   }

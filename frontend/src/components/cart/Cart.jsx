@@ -81,12 +81,16 @@ function Cart() {
             {
                 cartItems.map((item) => (
     
-                  <div className='cart_div'>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                  <>
+                  <div className='cart_divcontainer'>
+                    <div className='cart-div1'>
+                      <img src={item.image} alt="" />
+                    </div>
+                    <div className='cart-div2'></div>
+                    <div className='cart-div3'></div>
 
                   </div>
+                  </>
                   ))
             }
            </>
