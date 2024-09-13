@@ -1,4 +1,5 @@
-.mu_main>h1{  font-size: 4.5rem;
+.mu_main>h1{ 
+     font-size: 4.5rem;
     letter-spacing: 1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.264); 
     color: white;
@@ -40,7 +41,7 @@
 .mu_div1>h1{
  text-align: center;
  text-transform: uppercase;
- margin-bottom: 3vh;
+ margin-bottom: 1.5rem;
  font-size: 1.5rem;
  
 }
@@ -55,7 +56,6 @@
 .mu_div1>div>h1{
     text-transform: uppercase;
     font-size: 1.2rem;
-    margin: 4vh;
    
 }
 .mu_div1{
@@ -65,7 +65,7 @@
     flex-direction: column;
 }
 .mu_div1>div{
-    margin: 5vh 0;
+    margin-top: 3rem;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -98,7 +98,7 @@
     align-items: center;
 }
 .radio_btton_mu>div{
-    background-color: rgb(82, 102, 110);
+    background-color: rgb(255, 255, 255);
     width: 60vw;
     display: flex;
     justify-content: space-around;
@@ -110,12 +110,11 @@
 
 }
 .culinary_div21-h1.true{
-    background-color: rgb(255, 255, 255);
     color: rgb(3, 3, 3);
     font-weight: bold;
+    border: 1px solid gray
 }
 .culinary_div21-h1{
-    color: white;
 }
 .radio_mu_div2{
     position: absolute;
@@ -167,6 +166,7 @@
 }
 .mu_div1{
     transition: all 0.5s ease-in-out;
+    padding-bottom: 5rem;
 
 
 }
@@ -174,11 +174,13 @@
 
 .medicinal_highlighter{
     font-weight: bold;
+    text-transform: capitalize;
    
 }
 /* //////////depression///////////// */
 .mu_div1.depression{
     background-color: rgb(231, 248, 250);
+
 }
 .radio_btton_mu.depression{
     background-color: rgb(231, 248, 250);
@@ -233,8 +235,6 @@
     line-height: 15px;
     width: 90%;
     font-weight: bold;
-
-
 }
 .mu_div1 h1{
     font-size: 1rem;

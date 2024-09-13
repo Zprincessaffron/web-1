@@ -48,8 +48,8 @@ function CulinaryUse() {
         <div className={`culinary_div2 ${dish}`}>
         <div className='culinary_div21'>
                 <h1 onClick={()=>handleDish('biryani')} className={`culinary_div21-h1 ${dish=='biryani'?"true":""}`}>BIRYANI</h1>
-                <h1 onClick={()=>handleDish('pilafs')}  className={`culinary_div21-h1 ${dish=='pilafs'?"true":""}`}>PILAFS</h1>
-                <h1 onClick={()=>handleDish('stew')}  className={`culinary_div21-h1 ${dish=='stew'?"true":""}`}>STEW</h1>
+                <h1 onClick={()=>handleDish('pilafs')}  className={`culinary_div21-h1 ${dish=='pilafs'?"true":""}`}>PILAF</h1>
+                <h1 onClick={()=>handleDish('stew')}  className={`culinary_div21-h1 ${dish=='stew'?"true":""}`}>STEWS</h1>
                 <h1 onClick={()=>handleDish('icecream')}  className={`culinary_div21-h1 ${dish=='icecream'?"true":""}`}>ICECREAM</h1>
                 <h1 onClick={()=>handleDish('gulab')}  className={`culinary_div21-h1 ${dish=='gulab'?"true":""}`}>GULAB JAMUN</h1>
 
@@ -66,34 +66,28 @@ function CulinaryUse() {
                 <p>Saffron enhances Biryani with its rich flavor and vibrant color.</p>
             </div>
             <div className='culinary_div32'>
-                <h2>flavor</h2>
-                <p>{culinaryUsesData[0].flavor}</p>
-                <h2>AROMA</h2>
-                <p>{culinaryUsesData[0].aroma}</p>
+              
+                <p> <span className='medicinal_highlighter'>flavor: </span>{culinaryUsesData[0].flavor}</p>
+                <p> <span className='medicinal_highlighter'>Aroma: </span>{culinaryUsesData[0].aroma}</p>
 
-                <h2>color</h2>
-                <p>{culinaryUsesData[0].color}</p>
+                <p> <span className='medicinal_highlighter'>color: </span>{culinaryUsesData[0].color}</p>
             </div>
 
         </div>
         <div className='culinary_div4'>
             <h1>HOW TO USE SAFFRON IN BIRYANI</h1>
-            <h2>INFUSION</h2>
-            <p>{culinaryUsesData[0].Infusion}</p>
-            <h2>LAYERING</h2>
-            <p>{culinaryUsesData[0].layering}</p>
-            <h2>QUANTITY</h2>
-            <p>{culinaryUsesData[0].quantity}</p>
+            <p> <span className='medicinal_highlighter'>Infusion: </span>{culinaryUsesData[0].Infusion}</p>
+            <p> <span className='medicinal_highlighter'>Layering: </span>{culinaryUsesData[0].layering}</p>
+            <p> <span className='medicinal_highlighter'>Quantity: </span>{culinaryUsesData[0].quantity}</p>
             </div>
         <div className='culinary_div5'>
             <h1>TIPS</h1>
-            <h2>QUALITY</h2>
-            <p>{culinaryUsesData[0].quality}</p>
+            <p><span className='medicinal_highlighter'>Quality: </span>{culinaryUsesData[0].quality}</p>
             <h2>Avoid Overuse</h2>
-            <p>{culinaryUsesData[0].avoidovercuse}</p>
+            <p className='avoid_overcuse'>{culinaryUsesData[0].avoidovercuse}</p>
             </div>
         </>
-       )}
+       )} 
 
 {dish =="pilafs" &&(
         <>
@@ -103,29 +97,23 @@ function CulinaryUse() {
                 <p>Saffron plays a significant role in pilafs, adding both flavor and visual appeal.</p>
             </div>
             <div className='culinary_div32'>
-                <h2>flavor</h2>
-                <p>{culinaryUsesData[1].flavor}</p>
-                <h2>AROMA</h2>
-                <p>{culinaryUsesData[1].aroma}</p>
+            <p> <span className='medicinal_highlighter'>flavor: </span>{culinaryUsesData[1].flavor}</p>
+                <p> <span className='medicinal_highlighter'>Aroma: </span>{culinaryUsesData[1].aroma}</p>
 
-                <h2>color</h2>
-                <p>{culinaryUsesData[1].color}</p>
+                <p> <span className='medicinal_highlighter'>color: </span>{culinaryUsesData[1].color}</p>
             </div>
 
         </div>
         <div className={`culinary_div4 ${dish}`}>
         <h1>HOW TO USE SAFFRON IN Pilaf</h1>
-            <h2>INFUSION</h2>
-            <p>{culinaryUsesData[1].Infusion}</p>
-            <h2>Incorporation</h2>
-            <p>{culinaryUsesData[1].Incorporation}</p>
-            <h2>QUANTITY</h2>
-            <p>{culinaryUsesData[1].quantity}</p>
+        <p> <span className='medicinal_highlighter'>Infusion: </span>{culinaryUsesData[1].Infusion}</p>
+            <p> <span className='medicinal_highlighter'>Incorporation: </span>{culinaryUsesData[1].Incorporation}</p>
+            <p> <span className='medicinal_highlighter'>Quantity: </span>{culinaryUsesData[1].quantity}</p>
             </div>
             <div className={`culinary_div5 ${dish}`}>
             <h1>TIPS</h1>
-            <h2>QUALITY</h2>
-            <p>{culinaryUsesData[1].quality}</p>
+            <p><span className='medicinal_highlighter'>Quality: </span>{culinaryUsesData[1].quality}</p>
+
             <h2>Avoid Overuse</h2>
             <p>{culinaryUsesData[1].avoidovercuse}</p>
             </div>
@@ -140,29 +128,24 @@ function CulinaryUse() {
                 <p>Saffron can add a unique depth to stews, enhancing both flavor and color.</p>
             </div>
             <div className='culinary_div32'>
-                <h2>flavor</h2>
-                <p>{culinaryUsesData[2].flavor}</p>
-                <h2>AROMA</h2>
-                <p>{culinaryUsesData[2].aroma}</p>
+            <p> <span className='medicinal_highlighter'>Flavor: </span>{culinaryUsesData[2].flavor}</p>
+                <p> <span className='medicinal_highlighter'>Aroma: </span>{culinaryUsesData[2].aroma}</p>
 
-                <h2>color</h2>
-                <p>{culinaryUsesData[2].color}</p>
+                <p> <span className='medicinal_highlighter'>Color: </span>{culinaryUsesData[2].color}</p>
+               
             </div>
 
         </div>
         <div className={`culinary_div4 ${dish}`}>
         <h1>HOW TO USE SAFFRON IN stew</h1>
-            <h2>INFUSION</h2>
-            <p>{culinaryUsesData[2].Infusion}</p>
-            <h2>Incorporation</h2>
-            <p>{culinaryUsesData[2].Incorporation}</p>
-            <h2>QUANTITY</h2>
-            <p>{culinaryUsesData[2].quantity}</p>
+        <p> <span className='medicinal_highlighter'>Infusion: </span>{culinaryUsesData[2].Infusion}</p>
+            <p> <span className='medicinal_highlighter'>Incorporation: </span>{culinaryUsesData[2].Incorporation}</p>
+            <p> <span className='medicinal_highlighter'>Quantity: </span>{culinaryUsesData[2].quantity}</p>
             </div>
             <div className={`culinary_div5 ${dish}`}>
             <h1>TIPS</h1>
-            <h2>QUALITY</h2>
-            <p>{culinaryUsesData[2].quality}</p>
+            <p><span className='medicinal_highlighter'>Quality: </span>{culinaryUsesData[2].quality}</p>
+
             <h2>Avoid Overuse</h2>
             <p>{culinaryUsesData[2].avoidovercuse}</p>
             </div>
@@ -177,31 +160,23 @@ function CulinaryUse() {
                 <p>Saffron-infused ice cream is a luxurious treat that benefits from saffron in several ways.</p>
             </div>
             <div className='culinary_div32'>
-                <h2>flavor</h2>
-                <p>{culinaryUsesData[3].flavor}</p>
-                <h2>AROMA</h2>
-                <p>{culinaryUsesData[3].aroma}</p>
+            <p> <span className='medicinal_highlighter'>flavor: </span>{culinaryUsesData[3].flavor}</p>
+                <p> <span className='medicinal_highlighter'>Aroma: </span>{culinaryUsesData[3].aroma}</p>
 
-                <h2>color</h2>
-                <p>{culinaryUsesData[3].color}</p>
+                <p> <span className='medicinal_highlighter'>color: </span>{culinaryUsesData[3].color}</p>
             </div>
 
         </div>
         <div className={`culinary_div4 ${dish}`}>
         <h1>HOW TO USE SAFFRON IN ICecream</h1>
-            <h2>Incorporation</h2>
-            <p>{culinaryUsesData[3].Incorporation}</p>
-            <h2>LAYERING</h2>
-            <p>{culinaryUsesData[3].layering}</p>
-            <h2>QUANTITY</h2>
-            <p>{culinaryUsesData[3].quantity}</p>
+        <p> <span className='medicinal_highlighter'>Incorporation: </span>{culinaryUsesData[3].Incorporation}</p>
+            <p> <span className='medicinal_highlighter'>Layering: </span>{culinaryUsesData[3].layering}</p>
+            <p> <span className='medicinal_highlighter'>Quantity: </span>{culinaryUsesData[3].quantity}</p>
             </div>
             <div className={`culinary_div5 ${dish}`}>
             <h1>TIPS</h1>
-            <h2>QUALITY</h2>
-            <p>{culinaryUsesData[3].quality}</p>
-            <h2>balance</h2>
-            <p>{culinaryUsesData[3].balance}</p>
+            <p><span className='medicinal_highlighter'>Quality: </span>{culinaryUsesData[3].quality}</p>
+            <p><span className='medicinal_highlighter'>balance: </span>{culinaryUsesData[3].balance}</p>
             </div>
         </>
        )}
@@ -214,29 +189,23 @@ function CulinaryUse() {
                 <p>Saffron plays a special role in gulab jamun, a popular Indian sweet made from milk solids and sugar. </p>
             </div>
             <div className='culinary_div32'>
-                <h2>flavor</h2>
-                <p>{culinaryUsesData[4].flavor}</p>
-                <h2>AROMA</h2>
-                <p>{culinaryUsesData[4].aroma}</p>
+            <p> <span className='medicinal_highlighter'>flavor: </span>{culinaryUsesData[4].flavor}</p>
+                <p> <span className='medicinal_highlighter'>Aroma: </span>{culinaryUsesData[4].aroma}</p>
 
-                <h2>color</h2>
-                <p>{culinaryUsesData[4].color}</p>
+                <p> <span className='medicinal_highlighter'>color: </span>{culinaryUsesData[4].color}</p>
             </div>
 
         </div>
         <div className={`culinary_div4 ${dish}`}>
         <h1>HOW TO USE SAFFRON IN gulab jamun</h1>
-            <h2>INFUSION</h2>
-            <p>{culinaryUsesData[4].Infusion}</p>
-            <h2>Incorporation</h2>
-            <p>{culinaryUsesData[4].Incorporation}</p>
-            <h2>QUANTITY</h2>
-            <p>{culinaryUsesData[4].quantity}</p>
+        <p> <span className='medicinal_highlighter'>Infusion: </span>{culinaryUsesData[4].Infusion}</p>
+            <p> <span className='medicinal_highlighter'>Incorporation: </span>{culinaryUsesData[4].Incorporation}</p>
+            <p> <span className='medicinal_highlighter'>Quantity: </span>{culinaryUsesData[4].quantity}</p>
             </div>
             <div className={`culinary_div5 ${dish}`}>
             <h1>TIPS</h1>
-            <h2>QUALITY</h2>
-            <p>{culinaryUsesData[4].quality}</p>
+            <p><span className='medicinal_highlighter'>Quality: </span>{culinaryUsesData[4].quality}</p>
+
             <h2>Avoid Overuse</h2>
             <p>{culinaryUsesData[4].avoidovercuse}</p>
             </div>

@@ -114,7 +114,7 @@ const handleBuyNow = () => {
       {/* <p>{product.fullProduct.description}</p> */}
       <p>₹{product.price}</p>
       <h5 className='font-tax'>(M.R.P incl. of all taxes)</h5>
-      <p>{product.weight} Gramssssssssssssssss</p>
+      <p>{product.weight} Grams</p>
       {/* <h4>Product Features:</h4>
       <p>Origin: {product.fullProduct.productFeatures.origin}</p>
       <p>Categories: {product.fullProduct.category.join(', ')}</p> */}

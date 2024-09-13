@@ -43,7 +43,7 @@
     letter-spacing: 0.5rem;
 }
 .pu_main{
-    background-color: rgb(250, 227, 255)
+    background-color: rgb(254, 236, 255)
 }
 .pu_div2 p,.pu_div4 p{
     color: black;
@@ -55,7 +55,7 @@
 .pu_div2 h1,.pu_div4 h1{
     color: black;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 1.5rem;
 }
 .pu_div1>h1{
     font-size: 3.5rem;
@@ -67,9 +67,8 @@
     letter-spacing: 1.5px;
     word-spacing: 2px;
 }
-.pu_div2{
-    margin-bottom: 10vh;
-    margin-top: 10vh;
+.potential{
+    margin-top: 3rem;
 }
 .pu_div2>h1{
     text-align: center;
@@ -88,7 +87,7 @@
     font-size: calc(0.256rem + 1vw);
     letter-spacing: 0.3rem;
  text-align: center;
-    margin-bottom: 3vh;
+ margin-bottom: 1.5rem;
 }
 .pu_div2>div>p{
     width: 60%;
@@ -105,13 +104,11 @@
     text-transform: uppercase;
 }
 .pu_div4{
-    margin-top: 10vh;
 }
 .pu_div4>div{
     display: flex;
     justify-content: center;
     align-items: start;
-    gap: 5vw;
 
 
 }
@@ -123,8 +120,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-top: 1.5rem;
+    margin-bottom: 5rem;
 
 
 }
@@ -168,7 +165,7 @@ padding: 10vh 0;
 .pu_div4 h2{
     font-size: 1.3rem;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     letter-spacing: 0.3rem;
 }
 @media only screen and (max-width: 480px) {
@@ -216,7 +213,6 @@ padding: 10vh 0;
 
 .pu_div2>div>h1{
     font-size: 0.8rem;
-    margin-bottom: 15px;
 }
 
 .pu_div2>div>p{
@@ -246,7 +242,7 @@ padding: 10vh 0;
     align-items: start;
     flex-direction: column;
 
-    gap: 10px;
+
 
 
 }
@@ -255,8 +251,8 @@ padding: 10vh 0;
     width: 100%;
     text-align: center;
     flex-direction: column;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
 
 }
@@ -296,6 +292,9 @@ padding: 10vh 0;
     color: rgba(84, 84, 84, 0.838);
 
 }
+.pu_div2>div>p{
+    margin-bottom: 5px;
 
+}
 
 }

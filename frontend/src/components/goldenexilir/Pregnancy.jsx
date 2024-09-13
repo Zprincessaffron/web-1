@@ -10,7 +10,7 @@ import SideBar from '../sidebar/SideBar'
 import MenuSlider from '../sidebar/MenuSlider'
 import ScrollToTop from '../ScrollToTop'
 
-
+ 
 function Pregnancy() {
     const {  setShowNav,setSideBar,setMenuSlider }=useUserContext()
 
@@ -47,7 +47,7 @@ function Pregnancy() {
            </div>
         </div>
         <div className='pu_div2'>
-            <h1>POTENTIAL BENEFITS</h1>
+            <h1 className='potential'>POTENTIAL BENEFITS</h1>
             <div>
                 <h1>Mood Regulation</h1>
                 <p><span className='culinary_subheadings'>Saffron’s Potential: </span>Compounds like crocin and safranal in saffron may influence brain chemicals such as serotonin and dopamine, which play key roles in regulating mood. These compounds can promote emotional stability and a sense <br/>of well-being.</p>

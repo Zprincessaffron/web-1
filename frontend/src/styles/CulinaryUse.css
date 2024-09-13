@@ -7,18 +7,26 @@
 }
 .culinarymain{ 
     width: 100vw;
-    background-color: rgb(250, 227, 255)
+    background-color: rgb(254, 236, 255)
 }
+.medicinal_highlighter{
+    font-weight: bold;
+    color: black;
+    text-transform: capitalize;
+   
+}
+
 .culinarymain p{
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
     font-size: 0.8rem;
     word-spacing: 1.5px;
-  color: rgba(84, 84, 84, 0.838);
+  color: rgb(34, 34, 34);
     width: 50%;
     text-align: center;
     text-transform: capitalize;
     font-weight: bold;
+    margin-bottom: 1rem;
 }
 .culinary_div11{
     background-color: rgba(0, 0, 0, 0.321);
@@ -42,7 +50,7 @@
 .culinary_div21{
     height: 60px;
     width: 70vw;
-    background-color: rgba(191, 155, 198, 0.638) ;
+    background-color: rgb(255, 255, 255) ;
     border-radius: 30px;
     display: flex;
     flex-direction: row;
@@ -60,7 +68,8 @@
     
     cursor: pointer;
 } 
-
+.avoid_overcuse{
+}
 .culinary_div3{
 }
 .culinary_div3{
@@ -78,11 +87,11 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 10vh 0;
+    padding: 0;
 }
 .culinary_div32>h2{
     text-transform: uppercase;
-    font-size: calc(0.256rem + 1.4vw);
+    font-size: 1.5rem;
     letter-spacing: 0.2rem;
     margin-top: 5vh;
     margin-bottom: 3vh;
@@ -101,21 +110,25 @@
 
 }
 .culinary_div4>h1{
-    margin: 3vh 0;
     text-transform: uppercase;
-    font-size: calc(0.256rem + 2vw);
+    font-size:  1.5rem;
     letter-spacing: 0.3rem;
-    margin-top: 5vh;
+   
     margin-bottom: 3vh;
     color: rgb(0, 0, 0);
     
 }
+.culinary_div31>p{
+    margin-bottom: 20px;
+    color: black;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
 .culinary_div4>h2,.culinary_div5>h2{
-    margin-bottom: 1rem;
     margin-top: 3rem;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: rgb(0, 0, 0);
 }
 
@@ -130,12 +143,12 @@
     
 }
 .culinary_div5>h2{
-margin-bottom: 2rem;
+margin-bottom: 0.5rem;
 }
 .culinary_div5>h1{
 
     text-transform: uppercase;
-    font-size: 2rem;
+    font-size: 1.5rem;
     letter-spacing: 0.3rem;
    
     color: rgb(0, 0, 0);

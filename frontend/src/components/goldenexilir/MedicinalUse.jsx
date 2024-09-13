@@ -12,7 +12,7 @@ function MedicinalUse() {
     const [dish,setDish] =useState("depression")
     const [anim,setAnim] =useState("depression")
     const {  setShowNav,setSideBar,setMenuSlider }=useUserContext()
-
+ 
     function handleClick(val){
         setDish(val)
      
