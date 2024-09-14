@@ -7,7 +7,7 @@ import purity from '../images/puritynew.jpeg'
 
 // import source from '../images/saffronfulfield.jpg'
 import source from '../images/resourcesnew.jpeg'
-
+ 
 import cur from '../images/saffronjasmin.webp'
 // import skincare from '../images/selffacecare.jpg'
 import skincare from '../images/facecarenew.jpeg'

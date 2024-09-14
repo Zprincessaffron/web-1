@@ -39,7 +39,7 @@
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1.5px;
-    font-size: 0.8rem;
+    font-size: calc(0.006rem + 0.8vw);
     cursor: pointer;
 }
 
@@ -57,7 +57,7 @@
     align-items: center;
     flex-direction: row;
     color: gray;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     padding-left: 0rem;
     gap: 1rem;
     overflow: hidden;

@@ -104,235 +104,236 @@ const CheckoutPage = () => {
 
   return (
     <>
-    <div className="cp_maincon">
-      <Navbar/>
-      <SideBar/>
-      <MenuSlider/>
-      <div className="checkout-container">
-      <ProgressBar currentStep={progressStep} className="progress-bar" />
-
-      <h1 className="header">Checkout</h1>
-
-      <div className="checkp_main">
-        {/* Shipping Details */}
-        <motion.form
-          onSubmit={handleSubmit}
-          className="shipping-form"
-          initial={{ x: "-100vw", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="shipping-form-title">Shipping Details</h2>
-          <div className="space-y-6 tracking-wider font-semibold">
-            {/* Form Fields */}
-            <div className="form-group">
-              <label htmlFor="name" className="label">
-                Name
-              </label>
-              <input
-                id="name"
-                type="text"
-                name="name"
-                value={shippingDetails.name}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="address" className="label">
-                Address
-              </label>
-              <input
-                id="address"
-                type="text"
-                name="address"
-                value={shippingDetails.address}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="landmark" className="label">
-                Landmark
-              </label>
-              <input
-                id="landmark"
-                type="text"
-                name="landmark"
-                value={shippingDetails.landmark}
-                onChange={handleChange}
-                className="input"
-              />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="city" className="label">
-                  City
-                </label>
-                <input
-                  id="city"
-                  type="text"
-                  name="city"
-                  value={shippingDetails.city}
-                  onChange={handleChange}
-                  className="input"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="zip" className="label">
-                  ZIP Code
-                </label>
-                <input
-                  id="zip"
-                  type="text"
-                  name="zip"
-                  value={shippingDetails.zip}
-                  onChange={handleChange}
-                  className="input"
-                  required
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="state" className="label">
-                  State
-                </label>
-                <input
-                  id="state"
-                  type="text"
-                  name="state"
-                  value={shippingDetails.state}
-                  onChange={handleChange}
-                  className="input"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="country" className="label">
-                  Country
-                </label>
-                <input
-                  id="country"
-                  type="text"
-                  name="country"
-                  value={shippingDetails.country}
-                  onChange={handleChange}
-                  className="input"
-                  required
-                />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="mobile" className="label">
-                Mobile Number
-              </label>
-              <input
-                id="mobile"
-                type="tel"
-                name="mobile"
-                value={shippingDetails.mobile}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
-            <div className="checkout-btn">
-              <button type="submit" className="button-submit">
-                Save and Continue
-              </button>
-            </div>
-          </div>
-        </motion.form>
-
-        {/* Cart Items */}
-        <motion.div
-          className="cart-items"
-          initial={{ x: "100vw", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          {cartItems.length === 0 ? (
-            <p className="text-center text-gray-700">Your cart is empty.</p>
-          ) : (
-            <>
-              <h2 className="cart-items-title">Cart Items</h2>
-              <div className="flex-1">
-                <div className="space-y-6">
-                  {cartItems.map((item) => (
-                    <div key={item._id} className="cart-item">
-                      <img src={item.img} alt={item.name} />
-                      <div className="cart-item-info">
-                        <h3 className="cart-item-title">{item.name}</h3>
-                        <p className="cart-item-price">Price: ₹{item.price}</p>
-                        <div className="cart-item-controls">
-                          <button
-                            onClick={() =>
-                              handleDecrement(item.id, item.weight)
-                            }
-                            className="cart-item-button"
-                            disabled={item.quantity <= 1}
-                            aria-label="Decrement quantity"
-                          >
-                            -
-                          </button>
-                          <p className="cart-item-quantity"> {item.quantity}</p>
-                          <button
-                            onClick={() =>
-                              handleIncrement(item.id, item.weight)
-                            }
-                            className="cart-item-button"
-                            aria-label="Increment quantity"
-                          >
-                            +
-                          </button>
-                        </div>
-                        <p className="cart-item-total">
-                          Total: ₹{item.price * item.quantity}
-                        </p>
-                      </div>
-                      <button
-                        onClick={() => handleRemoveItem(item)}
-                        className="remove-item-button"
-                        aria-label="Remove item"
-                      >
-                        <FaTrash />
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              {/* Cart Summary */}
-              <div className="cart-summary-container">
-                <div className="cart-summary-row">
-                  <p className="cart-summary-text">Subtotal</p>
-                  <p className="cart-summary-value">₹{subtotal.toFixed(2)}</p>
-                </div>
-                <div className="cart-summary-row mt-2">
-                  <p className="cart-summary-text">Delivery Fee</p>
-                  <p className="cart-summary-value">
-                    ₹{deliveryFee.toFixed(2)}
-                  </p>
-                </div>
-                <div className="cart-summary-row mt-2">
-                  <p className="cart-summary-text">Total</p>
-                  <p className="cart-summary-value">₹{total.toFixed(2)}</p>
-                </div>
-              </div>
-            </>
-          )}
-        </motion.div>
-      </div>
-      {error && <p className="error-message">{error}</p>}
-    </div>
-    </div>
+   
     
-    <Footer/>
    </>
   );
 };
 
 export default CheckoutPage;
+
+
+// <div className="cp_maincon">
+// <Navbar/>
+// <SideBar/>
+// <MenuSlider/>
+// <div className="checkout-container">
+
+// <h1 className="header">Checkout</h1>
+
+// <div className="checkp_main">
+//   {/* Shipping Details */}
+//   <motion.form
+//     onSubmit={handleSubmit}
+//     className="shipping-form"
+//     initial={{ x: "-100vw", opacity: 0 }}
+//     animate={{ x: 0, opacity: 1 }}
+//     transition={{ duration: 0.5 }}
+//   >
+//     <h2 className="shipping-form-title">Shipping Details</h2>
+//     <div className="space-y-6 tracking-wider font-semibold">
+//       {/* Form Fields */}
+//       <div className="form-group">
+//         <label htmlFor="name" className="label">
+//           Name
+//         </label>
+//         <input
+//           id="name"
+//           type="text"
+//           name="name"
+//           value={shippingDetails.name}
+//           onChange={handleChange}
+//           className="input"
+//           required
+//         />
+//       </div>
+//       <div>
+//         <label htmlFor="address" className="label">
+//           Address
+//         </label>
+//         <input
+//           id="address"
+//           type="text"
+//           name="address"
+//           value={shippingDetails.address}
+//           onChange={handleChange}
+//           className="input"
+//           required
+//         />
+//       </div>
+//       <div>
+//         <label htmlFor="landmark" className="label">
+//           Landmark
+//         </label>
+//         <input
+//           id="landmark"
+//           type="text"
+//           name="landmark"
+//           value={shippingDetails.landmark}
+//           onChange={handleChange}
+//           className="input"
+//         />
+//       </div>
+//       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+//         <div>
+//           <label htmlFor="city" className="label">
+//             City
+//           </label>
+//           <input
+//             id="city"
+//             type="text"
+//             name="city"
+//             value={shippingDetails.city}
+//             onChange={handleChange}
+//             className="input"
+//             required
+//           />
+//         </div>
+//         <div>
+//           <label htmlFor="zip" className="label">
+//             ZIP Code
+//           </label>
+//           <input
+//             id="zip"
+//             type="text"
+//             name="zip"
+//             value={shippingDetails.zip}
+//             onChange={handleChange}
+//             className="input"
+//             required
+//           />
+//         </div>
+//       </div>
+//       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+//         <div>
+//           <label htmlFor="state" className="label">
+//             State
+//           </label>
+//           <input
+//             id="state"
+//             type="text"
+//             name="state"
+//             value={shippingDetails.state}
+//             onChange={handleChange}
+//             className="input"
+//             required
+//           />
+//         </div>
+//         <div>
+//           <label htmlFor="country" className="label">
+//             Country
+//           </label>
+//           <input
+//             id="country"
+//             type="text"
+//             name="country"
+//             value={shippingDetails.country}
+//             onChange={handleChange}
+//             className="input"
+//             required
+//           />
+//         </div>
+//       </div>
+//       <div>
+//         <label htmlFor="mobile" className="label">
+//           Mobile Number
+//         </label>
+//         <input
+//           id="mobile"
+//           type="tel"
+//           name="mobile"
+//           value={shippingDetails.mobile}
+//           onChange={handleChange}
+//           className="input"
+//           required
+//         />
+//       </div>
+//       <div className="checkout-btn">
+//         <button type="submit" className="button-submit">
+//           Save and Continue
+//         </button>
+//       </div>
+//     </div>
+//   </motion.form>
+
+//   {/* Cart Items */}
+//   <motion.div
+//     className="cart-items"
+//     initial={{ x: "100vw", opacity: 0 }}
+//     animate={{ x: 0, opacity: 1 }}
+//     transition={{ duration: 0.5 }}
+//   >
+//     {cartItems.length === 0 ? (
+//       <p className="text-center text-gray-700">Your cart is empty.</p>
+//     ) : (
+//       <>
+//         <h2 className="cart-items-title">Cart Items</h2>
+//         <div className="flex-1">
+//           <div className="space-y-6">
+//             {cartItems.map((item) => (
+//               <div key={item._id} className="cart-item">
+//                 <img src={item.img} alt={item.name} />
+//                 <div className="cart-item-info">
+//                   <h3 className="cart-item-title">{item.name}</h3>
+//                   <p className="cart-item-price">Price: ₹{item.price}</p>
+//                   <div className="cart-item-controls">
+//                     <button
+//                       onClick={() =>
+//                         handleDecrement(item.id, item.weight)
+//                       }
+//                       className="cart-item-button"
+//                       disabled={item.quantity <= 1}
+//                       aria-label="Decrement quantity"
+//                     >
+//                       -
+//                     </button>
+//                     <p className="cart-item-quantity"> {item.quantity}</p>
+//                     <button
+//                       onClick={() =>
+//                         handleIncrement(item.id, item.weight)
+//                       }
+//                       className="cart-item-button"
+//                       aria-label="Increment quantity"
+//                     >
+//                       +
+//                     </button>
+//                   </div>
+//                   <p className="cart-item-total">
+//                     Total: ₹{item.price * item.quantity}
+//                   </p>
+//                 </div>
+//                 <button
+//                   onClick={() => handleRemoveItem(item)}
+//                   className="remove-item-button"
+//                   aria-label="Remove item"
+//                 >
+//                   <FaTrash />
+//                 </button>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//         {/* Cart Summary */}
+//         <div className="cart-summary-container">
+//           <div className="cart-summary-row">
+//             <p className="cart-summary-text">Subtotal</p>
+//             <p className="cart-summary-value">₹{subtotal.toFixed(2)}</p>
+//           </div>
+//           <div className="cart-summary-row mt-2">
+//             <p className="cart-summary-text">Delivery Fee</p>
+//             <p className="cart-summary-value">
+//               ₹{deliveryFee.toFixed(2)}
+//             </p>
+//           </div>
+//           <div className="cart-summary-row mt-2">
+//             <p className="cart-summary-text">Total</p>
+//             <p className="cart-summary-value">₹{total.toFixed(2)}</p>
+//           </div>
+//         </div>
+//       </>
+//     )}
+//   </motion.div>
+// </div>
+// {error && <p className="error-message">{error}</p>}
+// </div>
+// </div>
