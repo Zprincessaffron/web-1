@@ -1,0 +1,148 @@
+.terms-container {
+  padding: 40px 0px;
+  background-color: #f7f7f7;
+  color: #000000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'riviera';
+}
+
+.terms-container h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 25px 0px;
+  color: white;
+  background: linear-gradient(90deg, #a000b8, #5724ff 50%, #003efa);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+/* Flex container for sections */
+.terms-section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.section {
+  margin-bottom: 20px;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 20px;
+  width: 65%;
+  overflow: hidden;
+}
+
+.section-header {
+  font-size: 1rem;
+  color: #5724ff;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.section-header:hover {
+  color: #a000b8;
+}
+
+.dropdown-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  rotate: 45deg;
+}
+
+.section-content {
+  padding-top: 20px;
+}
+
+/* Paragraph and list styles */
+.terms-container p,
+.terms-container li {
+  font-size: 0.8rem;
+  color: #2e2e2e;
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.terms-container ul {
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.terms-container strong {
+  color: #5724ff;
+  font-weight: 600;
+}
+
+.terms-container li {
+  margin-bottom: 10px;
+}
+
+.terms-container .list-disc {
+  list-style-type: disc;
+}
+
+.terms-container .list-disc li {
+  padding-left: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .terms-container {
+    padding: 20px;
+    padding-top: 80px;
+  }
+
+  .terms-container h1 {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    padding: 20px 0px;
+  }
+
+  .section {
+    width: 90%;  /* Ensure sections take up more space on mobile */
+    padding: 15px;
+  }
+
+  .section-header {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+  }
+
+  .terms-container p,
+  .terms-container li {
+    font-size: 0.9rem;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .terms-container h1 {
+    font-size: 1rem;
+    padding: 20px 0px;
+  }
+
+  .section-header {
+    font-size: 0.8rem;
+  }
+
+  .section {
+    width: 95%;  /* Full width on very small screens */
+  }
+
+  .terms-container p,
+  .terms-container li {
+    font-size: 0.8rem;
+  }
+}

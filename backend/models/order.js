@@ -13,11 +13,12 @@ const orderSchema = new Schema({
     mobile: String,
   },
   cartItems: [{
-    id: String,
+    id: mongoose.Schema.Types.ObjectId,
     name: String,
     price: Number,
     quantity: Number,
     img: String,
+    weight: Number
   }],
   total: {
     type: Number,

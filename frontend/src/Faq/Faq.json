@@ -1,0 +1,28 @@
+{
+  "faq": {
+    "paymentMethods": {
+      "title": "What payment methods do you accept ?",
+      "content": "We accept various payment methods including credit/debit cards, PayPal, UPI, and Cash on Delivery."
+    },
+    "trackOrder": {
+      "title": "How can I track my order ?",
+      "content": "After placing your order, you will receive a confirmation email. You can track your order through the courier service's tracking page."
+    },
+    "modifyOrCancelOrder": {
+      "title": "Can I cancel my order after placing it ?",
+      "content": "Orders can be canceled within a certain timeframe. Please contact our customer service as soon as possible for assistance."
+    },
+    "internationalShipping": {
+      "title": "Do you offer international shipping ?",
+      "content": "Yes, we offer international shipping to many countries. Shipping costs and delivery times vary based on the destination."
+    },
+    "returnAndRefundPolicy": {
+      "title": "What is your return and refund policy ?",
+      "content": "We accept returns and offer refunds within 30 days of receipt. Please refer to our Returns and Refunds Policy for more details."
+    },
+    "contactSupport": {
+      "title": "How can I contact customer support ?",
+      "content": "You can reach our customer support team via email at zprincessaffron@gmail.com, or through our contact form on the website."
+    }
+  }
+}

@@ -29,16 +29,16 @@ function Footer() {
 
                 <div>
 
-                <div>terms and condition</div>
+                <div onClick={()=>{navigate('/termsandcondition')}}>terms and condition</div>
 
-                <div>PRIVATE POLICY</div>
-                <div>FAQ</div>
+                <div onClick={()=>{navigate('/privacy-policy')}}>PRIVACY POLICY</div>
+                <div onClick={()=>{navigate('/faq')}}>FAQ</div>
 
                 </div>
 
                 <div>
                 <div onClick={()=>{setShowContent(!showContent)}} className='corporate-essentials'>CORPORATE essentials <FaAngleDown/> </div>
-             <div className={`liscence-con ${showContent?'true':""}`}>
+                <div className={`liscence-con ${showContent?'true':""}`}>
                     <div>
                         fssai license no:12423008002367
                     </div>
@@ -49,10 +49,10 @@ function Footer() {
                     </div>
                    </div>
                     
-
-
+                   <div onClick={()=>{navigate('/cancellation-and-refund')}}>REFUND POLICY</div>
+                   <div onClick={()=>{navigate('/shipping-and-delivery')}}>SHIPPING POLICY</div>
                 </div>
-
+                
             </div>
             <div className='footer-div32'>
                 <FaLinkedinIn/>

@@ -1,0 +1,51 @@
+{
+  "cancellationAndRefundPolicy": {
+    "orderCancellation": {
+      "title": "Order Cancellation",
+      "subsections": {
+        "cancellationPeriod": "Customers may cancel their order within 1 hour of placing it, provided that the order has not yet been shipped or processed.",
+        "cancellationProcess": "To cancel an order, please contact our Customer Support team via phone at +9172001 50577. You will receive a confirmation of your cancellation request.",
+        "refundUponCancellation": "If your order is canceled within the specified time frame and has not been processed, a full refund will be issued to the original payment method."
+      }
+    },
+    "returnsAndRefunds": {
+      "title": "Returns and Refunds",
+      "subsections": {
+        "returnEligibility": "We accept returns for a refund or exchange on damaged or defective products or if you received the wrong item. You must report the issue within 1 day of receiving the product.",
+        "returnProcess": "To initiate a return, please contact our Customer Support team via phone at +9172001 50577. You will be provided with return instructions.",
+        "refundProcess": "Upon receipt and inspection of the returned item, we will process your refund to the original payment method or provide a replacement, as per your request."
+      }
+    },
+    "nonReturnableItems": {
+      "title": "Non-Returnable Items",
+      "items": [
+        "Perishable goods",
+        "Personalized or custom-made items",
+        "Downloadable digital products",
+        "Gift cards"
+      ]
+    },
+    "refundTimeframes": {
+      "title": "Refund Timeframes",
+      "subsections": {
+        "cancellationRefunds": "Refunds for canceled orders are typically processed within 1 business day, though it may take longer to appear on your bank statement.",
+        "returnRefunds": "Refunds for returned items are typically processed within 1 business day of our receipt and inspection of the returned product."
+      }
+    },
+    "shippingCosts": {
+      "title": "Shipping Costs",
+      "subsections": {
+        "cancellationShipping": "If you cancel your order before it is shipped, you will receive a full refund, including shipping charges.",
+        "returnShipping": "Customers are responsible for return shipping costs unless the return is due to a product defect or an error on our part."
+      }
+    },
+    "contactInformation": {
+      "title": "Contact Information",
+      "message": "If you have any questions or need further assistance regarding cancellations or refunds, please contact our Customer Support team via phone at +9172001 50577."
+    },
+    "changesToPolicy": {
+      "title": "Changes to This Policy",
+      "message": "We reserve the right to make changes to this Cancellation and Refund policy."
+    }
+  }
+}

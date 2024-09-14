@@ -1,0 +1,139 @@
+/* FAQ.css */
+
+.faq-container {
+  padding: 40px 0px;
+  background-color: #f7f7f7;
+  color: #000000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'riviera';
+}
+
+.faq-container h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 25px 0px;
+  color: white;
+  background: linear-gradient(90deg, #a000b8, #5724ff 50%, #003efa);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+}
+
+/* Flex container for FAQ sections */
+.faq-section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.faq-section {
+  margin-bottom: 20px;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 20px;
+  width: 65%;
+  overflow: hidden;
+}
+
+.faq-section h2 {
+  font-size: 1rem;
+  color: #5724ff;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+.faq-section:hover h2 {
+  color: #a000b8;
+}
+
+.faq-container p,
+.faq-container li {
+  font-size: 0.8rem;
+  color: #2e2e2e;
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.faq-container ul {
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.faq-container strong {
+  color: #5724ff;
+  font-weight: 600;
+}
+
+.faq-container li {
+  margin-bottom: 10px;
+}
+
+.faq-container .list-disc {
+  list-style-type: disc;
+}
+
+.faq-container .list-disc li {
+  padding-left: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .faq-container {
+    padding: 20px;
+    padding-top: 80px;
+  }
+
+  .faq-container h1 {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    padding: 20px 0px;
+  }
+
+  .faq-section {
+    width: 90%;  /* Ensure sections take up more space on mobile */
+    padding: 15px;
+  }
+
+  .faq-section h2 {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+  }
+
+  .faq-container p,
+  .faq-container li {
+    font-size: 0.8rem;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .faq-container h1 {
+    font-size: 1rem;
+    padding: 20px 0px;
+  }
+
+  .faq-section h2 {
+    font-size: 0.8rem;
+  }
+
+  .faq-section {
+    width: 95%;  /* Full width on very small screens */
+  }
+
+  .faq-container p,
+  .faq-container li {
+    font-size: 0.8rem;
+  }
+}

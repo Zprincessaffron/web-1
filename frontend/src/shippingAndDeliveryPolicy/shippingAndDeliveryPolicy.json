@@ -1,0 +1,55 @@
+{
+  "shippingAndDeliveryPolicy": {
+    "shippingMethods": {
+      "title": "Shipping Methods",
+      "subsections": {
+        "standardShipping": "Standard Shipping: Typically takes 3 business days for delivery.",
+        "expressShipping": "Express Shipping: Provides faster delivery within 1 business days.",
+        "internationalShipping": "International Shipping: Available for orders outside of all Country."
+      }
+    },
+    "shippingCosts": {
+      "title": "Shipping Costs",
+      "subsections": {
+        "shippingCostDescription": "Shipping costs are calculated based on the shipping method selected, the weight and dimensions of the items, and the destination. You can view the shipping costs during the checkout process before finalizing your order."
+      }
+    },
+    "orderProcessingTime": {
+      "title": "Order Processing Time",
+      "subsections": {
+        "processingTime": "Processing Time: Orders are typically processed within 1 business days from the date of order placement.",
+        "deliveryTime": "Delivery Time: The delivery time begins once your order has been processed and shipped. You will receive a shipping confirmation with tracking information."
+      }
+    },
+    "internationalShipping": {
+      "title": "International Shipping",
+      "subsections": {
+        "customsAndDuties": "Customs and Duties: Customers are responsible for any customs fees, import duties, or taxes associated with international shipments. These fees are not included in the order total.",
+        "delays": "Delays: International shipments may be subject to customs clearance procedures, which can cause delays beyond the estimated delivery time."
+      }
+    },
+    "deliveryIssues": {
+      "title": "Delivery Issues",
+      "message": "If you encounter any issues with your delivery, please contact our Customer Support team at Phone: +9172001 50577 or Zprincesssaffron@gmail.com for assistance."
+    },
+    "shippingRestrictions": {
+      "title": "Shipping Restrictions",
+      "subsections": {
+        "poBoxes": "PO Boxes: We are unable to ship to PO boxes.",
+        "restrictedAreas": "Restricted Areas: We do not ship to certain regions or countries due to legal restrictions. Please check our shipping information for a list of excluded destinations."
+      }
+    },
+    "orderTracking": {
+      "title": "Order Tracking",
+      "message": "Once your order has been shipped, you will receive a tracking number and instructions on how to track your package. Please note that tracking information may take some time to become available after your order has been processed."
+    },
+    "changeOfShippingAddress": {
+      "title": "Change of Shipping Address",
+      "message": "If you need to change the shipping address for your order, please contact us as soon as possible. We will do our best to accommodate your request, but we cannot guarantee changes after the order has been shipped."
+    },
+    "lostOrStolenPackages": {
+      "title": "Lost or Stolen Packages",
+      "message": "In the event of a lost or stolen package, please contact our Customer Support team. We will work with you to resolve the issue, which may include filing a claim with the carrier."
+    }
+  }
+}

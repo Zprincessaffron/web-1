@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "react-speech": "^1.0.2",
-    "react-speech-kit": "^3.0.1"
+    "react-speech-kit": "^3.0.1",
+    "react-stars": "^2.2.5"
   }
 }

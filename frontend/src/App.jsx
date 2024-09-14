@@ -66,6 +66,11 @@ import { useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 import ProductDetails from "./components/product/ProductDetails";
+import TermsAndConditions from "./termsandcondition/TermsAndConditions.jsx";
+import PrivacyPolicy from "./privacypolicy/PrivacyPolicy.jsx"
+import CancellationAndRefundPolicy from "./cancellationAndRefundPolicy/CancellationAndRefundPolicy.jsx";
+import ShippingAndDeliveryPolicy from "./shippingAndDeliveryPolicy/ShippingAndDeliveryPolicy.jsx";
+import Faq from "./Faq/Faq.jsx";
 
 function App() {
   const { pathname } = useLocation();
@@ -110,6 +115,11 @@ transition={Bounce}
         <Route path="/beauty-use" element={<Beauty />}/>
         <Route path="/pregnancy-use" element={<Pregnancy />}/>
         <Route path="/contactus" element={<ContactUs />}/>
+        <Route path="/termsandcondition" element={<TermsAndConditions />}/>
+        <Route path="/privacy-policy" element={<PrivacyPolicy />}/>
+        <Route path="/cancellation-and-refund" element={<CancellationAndRefundPolicy />}/>
+        <Route path="/shipping-and-delivery" element={<ShippingAndDeliveryPolicy />}/>
+        <Route path="/faq" element={<Faq />}/>
         <Route path="/productpage" element={<ProductPage />}/>
         <Route path="/singleproduct" element={<SingleProduct />}/>
         <Route path="/card-product" element={<CardProduct />}/>

@@ -1,0 +1,36 @@
+{
+  "terms_and_conditions": {
+    "acceptance_of_terms": "By accessing and using this e-commerce website Z Princess Saffron, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, you should not use this Website.",
+    "definitions": {
+      "company": "Z Princess Saffron, the operator of this e-commerce Website.",
+      "user": "Anyone who accesses or uses this Website.",
+      "product": "Any item or service offered for sale on the Website.",
+      "order": "A purchase of Products from the Website."
+    },
+    "ordering_and_purchases": {
+      "description": "Users may browse the Website, view Product information, and place Orders.",
+      "terms": [
+        "All Orders are subject to availability and confirmation of the order price.",
+        "The Company reserves the right to refuse or cancel any Order for any reason."
+      ]
+    },
+    "payment": {
+      "methods": "Payments for Orders can be made through accepted payment methods listed on the Website.",
+      "currency": "Prices are in Rupees, and all applicable taxes and fees will be included in the final price.",
+      "billing": "Users must provide accurate billing and shipping information, and agree to pay for Orders placed."
+    },
+    "shipping_and_delivery": "Shipping and delivery options, timeframes, and costs are outlined in our Shipping Policy, which is incorporated into these Terms by reference.",
+    "returns_and_refunds": "Our Return Policy outlines the process and conditions for returns and refunds, and is incorporated into these Terms by reference.",
+    "intellectual_property": "The Website and its content are protected by copyright, trademark, and other intellectual property laws. Users may not reproduce, modify, distribute, or use any content without permission.",
+    "privacy_policy": "The use of personal information is governed by our Privacy Policy, which is incorporated into these Terms by reference.",
+    "limitation_of_liability": "The Company is not liable for any direct, indirect, incidental, consequential, or special damages arising out of or in any way related to the use of this Website or the purchase of Products.",
+    "termination": "The Company reserves the right to terminate or suspend access to the Website at its discretion.",
+    "governing_law": "These Terms and Conditions are governed by the laws of India IPC.",
+    "changes_to_terms": "The Company may update or revise these Terms and Conditions at any time without notice.",
+    "contact_information": {
+      "phone": "+9172001 50577",
+      "description": "For any inquiries or concerns, please contact us."
+    },
+    "acknowledgement": "By using this Website, you acknowledge that you have read, understood, and agree to these Terms and Conditions."
+  }
+}
