@@ -5,8 +5,10 @@
 .aboutmain p{
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-transform: capitalize;
+    font-weight: bold;
+    color: rgba(42,42,42);
      
 }
 .about_div1{ 
@@ -98,7 +100,7 @@ color: black;
 
 }
 .about_div31>img{
-    width: 50%;
+    width: 60%;
     overflow: hidden;
 
 }
