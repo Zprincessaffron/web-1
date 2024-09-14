@@ -222,10 +222,10 @@ function SideBar() {
                       <animated.div onClick={()=>{navigate('/pregnancy-use')}}   className="menu-img-item pregnancy" style={itemAnimation5}><div>PREGNANCY</div></animated.div>
                       </>):(
                       <>
+                     <animated.div onClick={()=> handleGoldenElixerChange('beauty')}  className="menu-item" style={itemAnimation4}>BEAUTY USES</animated.div>
                       <animated.div onClick={()=> handleGoldenElixerChange('culinary')}  className="menu-item" style={itemAnimation2}>CULINARY</animated.div>
-                      <animated.div onClick={()=> handleGoldenElixerChange('beauty')}  className="menu-item" style={itemAnimation4}>BEAUTY USES</animated.div>
-                      <animated.div onClick={()=> handleGoldenElixerChange('pregnancy')}  className="menu-item" style={itemAnimation5}>PREGNANCY</animated.div>
                       <animated.div onClick={()=> handleGoldenElixerChange('medicine')} className="menu-item" style={itemAnimation3}>MEDICINAL USES</animated.div>
+                      <animated.div onClick={()=> handleGoldenElixerChange('pregnancy')}  className="menu-item" style={itemAnimation5}>PREGNANCY</animated.div>
                       </>
                     )}
 

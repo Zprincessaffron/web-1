@@ -109,7 +109,7 @@ const PaymentPage = () => {
       <div className="ckeckout_div1">
         <div className="ckeckout_div2">
           <div className="ckeckout_div21">
-            
+             
 <div className="payment-flex">
         <motion.div
           className="payment-card"
@@ -132,7 +132,7 @@ const PaymentPage = () => {
             </select>
           </div>
 
-          <div className="payment-flex payment-justify-center mt-8">
+          <div className="payment_button">
             <button
               onClick={handlePayment}
               className="payment-button"

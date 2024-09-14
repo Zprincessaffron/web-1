@@ -11,10 +11,10 @@ import saffronserum from '../images/beautyback.jpg'
 import saffronchai from '../images/saffronchai.jpg'
 import Navbar from '../navbar/NavBar';
 import Footer from '../footer/Footer';
-import spainquality from '../images/crocuspurity.jpeg'
+import spainquality from '../images/spaintraditionalnew.jpeg'
 import spaintraditional from '../images/saffronspainculture.jpg'
-import beautyspain from '../images/saffronfacemix.jpeg'
-import KesariRasmalai from '../images/KesariRasmalai.jpg'
+import beautyspain from '../images/saffronfacecare.jpeg'
+import KesariRasmalai from '../images/spainfoods.jpeg'
 import spainharvesting from '../images/saffronfield2.jpg'
 import SideBar from '../components/sidebar/SideBar';
 import MenuSlider from '../components/sidebar/MenuSlider';
@@ -56,12 +56,12 @@ function SpainSaffron() {
     setSideBar(false)
   }, [])
   return (
-    <div className='ks_main'>
-      <Navbar/>
+    <>
+          <Navbar/>
       <SideBar/>
       <MenuSlider/>
       <ScrollToTop/>
-     
+    <div className='ks_main'>
      <div className='ks_div1' > 
        <div className='ks_div11'>
        <h1>SPAIN SAFFRON</h1>
@@ -72,10 +72,7 @@ function SpainSaffron() {
        </div>
          
       </div>
-      <div className='ks_divsep'>
-        <img src={kashmirback4} alt="" />
-        <div className='ks_divsep2'
-        ></div>
+      <div style={{backgroundColor:"rgb(231, 248, 250)"}} className='ks_divsep'>
         <div className='ks_divsep1'>
         <Parallax speed={10} className="custom-class" y={[-40, 40]} tagOuter="figure">
         <div className='ks_div31' >
@@ -147,6 +144,8 @@ function SpainSaffron() {
 
       
     </div>
+    </>
+
   )
 }
 

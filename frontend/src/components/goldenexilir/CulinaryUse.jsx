@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import '../../styles/CulinaryUse.css'
-import culinaryback from "../../images/culinaryback1.jpg"
+import culinaryback from "../../images/culinarymainnew.jpeg"
 import Navbar from '../../navbar/NavBar';
 import Footer from '../../footer/Footer'
 import { culinaryUsesData } from './CulinaryData';
@@ -9,7 +9,6 @@ import SideBar from '../sidebar/SideBar';
 import MenuSlider from '../sidebar/MenuSlider';
 import { useUserContext } from '../../context/MainContext';
 import ScrollToTop from '../ScrollToTop';
-
 function CulinaryUse() { 
     const { setShowNav,setSideBar,setMenuSlider }=useUserContext()
     const [dish,setDish]=useState('biryani')

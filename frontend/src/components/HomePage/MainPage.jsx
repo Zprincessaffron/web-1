@@ -187,6 +187,7 @@ console.log('video',videoPlay)
                 </div>
                 <div className='mainpage_div3'>
                   <Arrowbtn linkFromMain='/about-us' onMouseEnter={()=>{setIsMouse(false)}} onMouseLeave={()=>{setIsMouse(true)}} name="DISCOVER NOW"/>
+                  <Arrowbtn name="Web 2"/>
                 </div>
                 <div className='mainpage_end'>
                 </div>

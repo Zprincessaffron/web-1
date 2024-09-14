@@ -6,7 +6,7 @@ import Navbar from '../navbar/NavBar'
 import purity from '../images/puritynew.jpeg'
 
 // import source from '../images/saffronfulfield.jpg'
-import source from '../images/resourcesnew.jpeg'
+import source from '../images/ethical.jpeg'
  
 import cur from '../images/saffronjasmin.webp'
 // import skincare from '../images/selffacecare.jpg'
@@ -103,7 +103,7 @@ function ChooseUs() {
             <img src={skincare} alt="" />
 
               <h1>
-              Skincare and Beauty              </h1>
+              Radiant Glow</h1>
               <p>Rich in antioxidants, our saffron helps brighten and rejuvenate the skin, making it a popular choice for high-end skincare products</p>
 
             </div>
@@ -113,7 +113,7 @@ function ChooseUs() {
             <img src={tea} alt="" />
 
               <h1>
-              Wellness and Health           </h1>
+              Balanced Living          </h1>
               <p>Known for its mood-enhancing and health-boosting properties, saffron can support overall well-being and natural stress relief.
               </p>
             </div>

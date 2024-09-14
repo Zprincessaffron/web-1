@@ -176,11 +176,14 @@
   }
 
   .mainpage_div2{
-    font-size: x-large;
+    font-size: 1.3rem;
     
   }
   .mainpage_div3{
-    padding: 5vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
   .mainpage_div3>button{
     padding: 15px 35px;

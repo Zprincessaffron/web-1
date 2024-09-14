@@ -5,12 +5,12 @@ import { useUserContext } from '../context/MainContext'
 import '../styles/KashmiriSaffron.css'
 import kashmirback4 from '../images/kashmir_back4.jpg' 
 import cult from '../images/cult.jpg'
-import saffronculinary from '../images/saffronculinary.jpg'
+import saffronculinary from '../images/kashmirfoods.jpeg'
 import saffronhim from '../images/saffranhim.jpg'
 // import saffronserum from '../images/beautyback.jpg'
 import saffronserum from '../images/beautyback1.jpeg'
 
-import saffronchai from '../images/saffronchai.jpg'
+import saffronchai from '../images/kashmirteaa.jpeg'
 import Navbar from '../navbar/NavBar';
 import Footer from '../footer/Footer';
 import SideBar from '../components/sidebar/SideBar';
@@ -65,19 +65,14 @@ function KashmiriSaffron() {
        <h2 className='ks_thegolden'>The Golden Essence of the Himalayas</h2>
         <p className='ks_secondp'>Nestled in the heart of the enchanting Kashmir Valley, Kashmiri saffron is a treasure of unparalleled beauty and potency. Known for its deep crimson threads, this "Red Gold" is celebrated worldwide for its rich flavor, vibrant color, and remarkable medicinal properties. Each thread of Kashmiri saffron is a testament to the fertile soils and pristine climate of the Himalayan region, where it is meticulously hand-harvested to ensure the highest quality.</p>
        </div>
-         
       </div>
       <div className='ks_divsep'>
-        <img src={kashmirback4} alt="" />
-        <div className='ks_divsep2'
-        ></div>
         <div className='ks_divsep1'>
         <Parallax speed={10} className="custom-class" y={[-40, 40]} tagOuter="figure">
         <div className='ks_div31' >
           <div>
           <h1 id='ks_cultandhar'  style={{textAlign:`${isMobile?"center":"right"}`}}className='ks_cultandhar'>Cultivation and Harvesting</h1>
         <p style={{textAlign:`${isMobile?"center":"right"}`}}>The cultivation of Kashmiri saffron is an art passed down through generations. The saffron crocus blooms for a short period in the autumn, and each flower must be hand-picked at dawn to preserve its delicate stigmas. These stigmas are then carefully dried to produce the saffron threads that are prized for their potency and purity. The labor-intensive process and the limited geographical area where it can be grown contribute to its rarity and value.</p>
-        
           </div>
           <img src={cult} alt="" />
            </div>
@@ -110,7 +105,7 @@ function KashmiriSaffron() {
 
          <div  style={{display:'flex',justifyContent:`${isMobile?"centre":"right"}`,flexDirection:`${isMobile?"column-reverse":"row-reverse"}`,alignItems:`${isMobile?"center":"end"}`}}   className='ks_div31' >
            <div>
-           <h1>A Culinary Gem</h1>
+           <h1 style={{textAlign:`${isMobile?"center":"left"}`}}>A Culinary Gem</h1>
           <p style={{textAlign:`${isMobile?"center":"left"}`}}>Kashmiri saffron’s high crocin content not only enhances dishes with its unique aroma but also imbues them with a brilliant golden hue. When added to biryanis, pilafs, and stews, it elevates these dishes to a new level of culinary excellence, providing a depth of flavor that is both robust and delicate. Desserts, too, are transformed by its presence, from the creamy richness of saffron-infused ice creams to the delicate sweetness of traditional Indian sweets like kheer and gulab jamun. The versatility of Kashmiri saffron in the kitchen makes it a beloved ingredient among chefs and home cooks alike.</p>
 
            </div>

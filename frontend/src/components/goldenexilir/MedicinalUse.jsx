@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../../styles/MedicinalUse.css'
-import teapic2 from '../../images/saffrontea2.jpg'
+import teapic2 from '../../images/medicinalhome.jpg'
 import Navbar from '../../navbar/NavBar'
 import Footer from '../../footer/Footer'
 import { useUserContext } from '../../context/MainContext'
