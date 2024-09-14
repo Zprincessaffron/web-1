@@ -258,3 +258,256 @@ font-size: 0.9rem;
   cursor: pointer;
   font-weight: bold;
 }
+@media only screen and (max-width: 500px) {
+  .ckeckout_div1{
+    height: fit-content;
+
+  }
+  .ckeckout_div2{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+  }
+  .ckeckout_div21{
+    flex-direction: column-reverse;
+    margin: 1rem;
+    margin-top: 5rem;
+    justify-content: center;
+  
+  }
+  .ckeckout_div211{
+    width: 90%;
+    margin-top: 2rem;
+   
+  }
+  .ckeckout_div212{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 0 1rem;
+  
+  
+  }
+  .ckeckout_div211>div>h1{
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+
+
+  
+.ckeckout_div211>div>h2{
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+
+}
+.checkout_forms{
+  padding-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 100%;
+
+}
+.checkout_single_form{
+  display: flex;
+  flex-direction: column;
+  float: left;
+  gap: 2px;
+  width: 100%;
+}
+.checkout_single_form>label{
+  font-size: 0.7rem;
+  letter-spacing: 0.7px;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.checkout_single_form>input{
+  background-color: white;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 80%;
+
+}
+.checkout_single_form>textarea{
+  background-color: white;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 80%;
+}
+.checkout_row_form{
+  display: flex;
+  flex-direction: column;
+}
+.checkout_submit_button{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.checkout_submit_button>button{
+  padding: 10px 25px;
+  background-image: linear-gradient(45deg,rgb(0, 0, 0),rgb(0, 0, 0));
+  border: none;
+  border-radius: 25px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  letter-spacing: 1px;
+  
+}
+
+.ckeckout_div212>div{
+  padding: 2rem ;
+
+}
+
+.checkout_summary>h1{
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgb(70, 69, 69);
+  margin-bottom:0.5rem;
+  text-align: center;
+}
+.checkoutpage_div{
+  border-top: 1px solid rgba(128, 128, 128, 0.292);
+  padding-top: 0.5rem;
+}
+.checkout_cartitems{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+
+
+}
+.checkout_cartitems1{
+  padding-right: 10px;
+}
+.checkout_cartitems1>img{
+   width: 50px;
+   height: auto;
+   border-radius: 10px;
+}
+.checkout_cartitems2{
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+  padding-top: 0.2rem;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+  justify-content: left;
+  align-items: start;
+}
+.checkout_cartitems2>h2{
+  font-size: 0.8rem;
+}
+.checkout_cartitems2>h3,.checkout_cartitems2>h4{
+  font-size: 0.7rem;
+  font-family: "Roboto", system-ui;
+  font-weight: 300;
+  letter-spacing: 1px;
+
+}
+.checkout_cartitems3{
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  padding-bottom: 2rem;
+}
+.checkout_cartitems3>div{
+  gap: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-family: "Roboto", system-ui;
+  gap: 10px;
+  color: rgb(64, 64, 64);
+
+
+
+}
+.checkout_cartitems31>button{
+  border: none;
+  background: none;
+  font-size: 10px;
+  font-weight: 300;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(64, 64, 64);
+  font-family: "Roboto", system-ui;
+
+}
+.checkout_price{
+  width: 100%;
+  padding: 0.2rem 0;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(99, 97, 97, 0.263);
+  border-bottom: 1px solid rgba(99, 97, 97, 0.263);
+
+  
+}
+.checkout_price h3{
+  font-family: "Roboto", system-ui;
+  font-weight: 400;
+  font-size: 0.9rem;
+
+  
+}
+.checkout_price h2{
+  font-weight: 100;
+  font-size: 0.8rem;
+  
+}
+.checkout_price>div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 0;
+
+
+}
+.checkout_total{
+  width: 100%;
+}
+.checkout_total>div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+
+}
+.checkout_total h2{
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+.checkout_total h3{
+font-family: "Roboto", system-ui;
+font-weight: 400;
+font-size: 0.9rem;
+
+}
+.checkout_cartitems2>button{
+  border: none;
+  background: none;
+  float: left;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-size: 0.7rem;
+
+}
+.checkout_cartitems2>button:hover{
+  cursor: pointer;
+  font-weight: bold;
+}
+}

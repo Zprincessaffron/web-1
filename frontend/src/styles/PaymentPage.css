@@ -68,7 +68,6 @@
     padding: 20px;
     width: 40%;
     height: 50%;
-    margin: 0 auto;
   }
   
   .payment-card-title {
@@ -189,6 +188,18 @@
       }
       .payment-flex>div{
         width: 90%;
+      }
+      .payment-order-summary {
+        height: fit-content;
+
+      }
+      .payment-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        width: 70%;
+        height: fit-content;
       }
   
   }
