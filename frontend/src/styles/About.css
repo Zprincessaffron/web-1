@@ -7,7 +7,6 @@
     letter-spacing: 0.0484615385em;
     font-size: 0.8rem;
     text-transform: capitalize;
-    font-weight: bold;
     color: rgba(42,42,42);
      
 }
@@ -71,7 +70,7 @@
     background-color: rgb(10, 63, 10);
 }
 .about_div2>p{
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: center !important;
     width: 50%;
     line-height: 1.9230769231;
