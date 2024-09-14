@@ -16,13 +16,15 @@ const PaymentSuccessPage = () => {
 
   return (
     <>
-    <Navbar/>
+    <Navbar/> 
     <SideBar/>
     <MenuSlider/>
-   <div className="ps_main">
-     <div className="ps-container">
-      <div className="ps-gradient-background">
-        <ProgressBar currentStep={3} /> {/* Add the ProgressBar component here */}
+    <div className="checkout_main">
+      <div className="ckeckout_div1">
+        <div className="ckeckout_div2">
+          <div className="ckeckout_div21">
+            
+<div className="ps-gradient-background">
         <motion.div
           className="flex flex-col items-center"
           initial={{ opacity: 0, y: 50 }}
@@ -94,11 +96,12 @@ const PaymentSuccessPage = () => {
           </motion.div>
         </motion.div>
       </div>
-    </div>
-   </div>
+            </div>
+            </div>
+            </div>
+            </div>
    <Footer/>
    </>
   );
 };
-
 export default PaymentSuccessPage;

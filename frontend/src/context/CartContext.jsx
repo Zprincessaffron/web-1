@@ -46,10 +46,15 @@ const addToCart = (product) => {
   
 
   const updateQuantity = (productId, weight, amount) => {
+    console.log(productId)
+
     setCartItems((prevItems) =>
       prevItems.map((cartItem) =>
-        cartItem.id === productId && cartItem.weight === weight
+        
+        cartItem._id === productId 
+        
           ? {
+
               ...cartItem,
               quantity: Math.max(
                 cartItem.quantity + amount,

@@ -16,6 +16,7 @@
         font-family: 'Riviera Nights';  }
         p{
             font-family: 'Riviera Nights';  
+            overflow: hidden;
             
     text-transform: capitalize;
         }

@@ -11,6 +11,8 @@ import Navbar from "../../navbar/NavBar";
 import SideBar from "../sidebar/SideBar";
 import MenuSlider from "../sidebar/MenuSlider";
 import Footer from "../../footer/Footer";
+import { FaMinus } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6";
 
 const CheckoutPage = () => {
   const { cartItems, removeItem, updateQuantity } = useContext(CartContext);
@@ -104,6 +106,118 @@ const CheckoutPage = () => {
 
   return (
     <>
+    <div className="checkout_main">
+      <div className="ckeckout_div1">
+        <div className="ckeckout_div2">
+          <div className="ckeckout_div21">
+            <div className="ckeckout_div211">
+              <div><h1>Checkout</h1></div>
+                <div><h2>Shipping Info</h2></div>
+                <div className="checkout_forms">
+                  <div className="checkout_single_form">
+                    <label htmlFor="">Name:</label>
+                    <input id="name"type="text" name="name" value={shippingDetails.name} onChange={handleChange} className="input" required />
+                  </div>
+                  <div className="checkout_single_form">
+                    <label htmlFor="">Address:</label>
+                    <textarea id="address"type="text" name="address" value={shippingDetails.address} onChange={handleChange}  required rows={5} ></textarea>
+                  </div>
+                 <div className="checkout_row_form">
+                 <div className="checkout_single_form">
+                    <label htmlFor="">Landmark:</label>
+                    <input id="landmark"type="text"name="landmark"value={shippingDetails.landmark} onChange={handleChange}/>
+                  </div>
+                  <div className="checkout_single_form">
+                    <label htmlFor="">ZIPcode:</label>
+                    <input type="text" name="name" id="" />
+                  </div>
+                 </div>
+
+                 <div className="checkout_row_form">
+                 <div className="checkout_single_form">
+                    <label htmlFor="">City:</label>
+                    <input   id="city"type="text" name="city"value={shippingDetails.city}onChange={handleChange} required />
+                  </div>
+                  <div className="checkout_single_form">
+                    <label htmlFor="">Mobile:</label>
+                    <input   id="mobile"type="tel" name="mobile" value={shippingDetails.mobile} onChange={handleChange} required/>
+                  </div>
+                 </div>
+
+                 <div className="checkout_row_form">
+                 <div className="checkout_single_form">
+                    <label htmlFor="">State:</label>
+                    <input id="state" type="text" name="state"  value={shippingDetails.state} onChange={handleChange}  required/>
+                  </div>
+                  <div className="checkout_single_form">
+                    <label htmlFor="">Country:</label>
+                    <input  id="country" type="text" name="country" value={shippingDetails.country}  onChange={handleChange}required/>
+                  </div>
+                 </div>
+                 <div className="checkout_submit_button">
+                  <button onClick={handleSubmit}>SUBMIT</button>
+
+                 </div>
+
+
+                </div>
+            </div>
+            <div className="ckeckout_div212">
+              <div>
+              <div className="checkout_summary">
+                <h1>ORDER SUMMARY</h1>
+              </div>
+              <div className="checkoutpage_div">
+                {console.log(cartItems)}
+                {cartItems.map((item)=>(
+                  <div className="checkout_cartitems" id={item._id}>
+                    <div className="checkout_cartitems1">
+                      <img src={item.image} alt="" />
+                    </div>
+                    <div className="checkout_cartitems2">
+                      <h2>{item.name}</h2>
+                      <h3>{item.weight} Grams</h3>
+                      <h4>₹ {item.price * item.quantity}</h4>
+                      <button  onClick={() => handleRemoveItem(item)}>REMOVE</button>
+                    </div>
+                    <div className="checkout_cartitems3">
+                      <div className="checkout_cartitems31">
+                        <button   onClick={() => handleDecrement(item._id, item.weight)}><FaMinus/></button> {item.quantity}<button  onClick={() =>handleIncrement(item._id, item.weight)}><FaPlus/></button>
+                      </div>
+                      
+                    </div>
+                  
+                  </div>
+                ))}
+
+              </div>
+              <div className="checkout_price">
+                <div>
+                  <h2>Subtotal</h2> <h3>₹{subtotal.toFixed(2)}</h3>
+                </div>
+                <div>
+                  <h2>Shipping</h2> <h3>₹{deliveryFee.toFixed(2)}</h3>
+                </div>
+
+              </div>
+              <div className="checkout_total">
+                <div >
+                  <h2>ORDER TOTAL</h2> <h3>₹{total.toFixed(2)}</h3>
+
+                </div>
+
+              </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
    
     
    </>

@@ -46,7 +46,7 @@
     background-color: rgb(254, 236, 255)
 }
 .pu_div2 p,.pu_div4 p{
-    color: black;
+    color: rgb(44, 44, 44);
     letter-spacing: 1.5px;
     word-spacing: 2px;
     line-height: 25px;
