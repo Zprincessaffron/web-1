@@ -263,13 +263,14 @@
 .insight_div2>p{
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     word-spacing: 1.5px;
     text-align: center;
     color: rgb(42,42,42);
     text-transform: capitalize;
     width: 50%;
     margin-top: 20px;
+    font-weight: bold;
 }
 .insight_div2>div{
     width: 10%;
@@ -376,7 +377,7 @@
 }.insight_div512>p{
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     word-spacing: 2px;
     width: 80%;
     text-transform: capitalize;
