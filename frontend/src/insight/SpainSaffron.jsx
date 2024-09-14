@@ -11,8 +11,8 @@ import saffronserum from '../images/beautyback.jpg'
 import saffronchai from '../images/saffronchai.jpg'
 import Navbar from '../navbar/NavBar';
 import Footer from '../footer/Footer';
-import spainquality from '../images/spaintraditionalnew.jpeg'
-import spaintraditional from '../images/saffronspainculture.jpg'
+import spainquality from '../images/saffronspainculture.jpg'
+import spaintraditional from '../images/spaintraditionalnew.jpeg'
 import beautyspain from '../images/saffronfacecare.jpeg'
 import KesariRasmalai from '../images/spainfoods.jpeg'
 import spainharvesting from '../images/saffronfield2.jpg'

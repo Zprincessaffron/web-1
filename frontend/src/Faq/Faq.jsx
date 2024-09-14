@@ -5,7 +5,7 @@ import SideBar from '../components/sidebar/SideBar';
 import Navbar from '../navbar/NavBar';
 import Footer from '../footer/Footer';
 import './Faq.css';  // Import the FAQ.css file
-import faqData from './faq.json';
+import faqData from './Faq.json';
 import { useUserContext } from '../context/MainContext';
 
 const FAQ = () => {
