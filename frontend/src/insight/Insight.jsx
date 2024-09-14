@@ -8,19 +8,13 @@ import saffronface from '../images/spack.jpg'
 import saffronrice from '../images/culinarymilk.jpeg'
 import saffrontea from '../images/img2.jpg' 
 import insightback from '../images/insightback.mp4'
-
 import insight_back from '../images/insight_back.png'
-
 import saffronc from '../images/saffronc.jpg'
-import insight1 from '../images/insight1.jpg'
+import insight1 from '../images/insight1.jpg' 
 import insight2 from '../images/insight2.jpg'
 import SideBar from '../components/sidebar/SideBar'
 import MenuSlider from '../components/sidebar/MenuSlider'
 import ScrollToTop from '../components/ScrollToTop'
-
-
- 
-
 function Insight() {
     const { setShowNav,setSideBar,setMenuSlider }=useUserContext()
     const [showhealth,setshowHealth]=useState(false)
