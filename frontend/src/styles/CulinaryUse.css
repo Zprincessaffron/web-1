@@ -10,10 +10,14 @@
     background-color: rgb(254, 236, 255)
 }
 .medicinal_highlighter{
-    font-weight: bold;
-    color: black;
+    color: rgb(63, 63, 63);
     text-transform: capitalize;
-   
+    font-family: "Roboto", system-ui;
+    font-style: normal;
+    font-size: 0.9rem;
+    font-weight: 500;
+    
+
 }
 
 .culinarymain p{
@@ -21,7 +25,7 @@
     letter-spacing: 0.0484615385em;
     font-size: 0.8rem;
     word-spacing: 1.5px;
-  color: rgb(34, 34, 34);
+    color: rgb(44, 44, 44);
     width: 50%;
     text-align: center;
     text-transform: capitalize;
@@ -29,7 +33,7 @@
     margin-bottom: 1rem;
 }
 .culinary_div11{
-    background-color: rgba(0, 0, 0, 0.321);
+    background-color: rgba(0, 0, 0, 0);
     height:100%;width: 100%;
     display: flex; 
     justify-content: center;
@@ -119,10 +123,13 @@
     
 }
 .culinary_div31>p{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     color: black;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+
+
 }
 .culinary_div4>h2,.culinary_div5>h2{
     margin-top: 3rem;
@@ -161,7 +168,7 @@ margin-bottom: 0.5rem;
     flex-direction: column;
 }
 .culinary_div31>h1{
-    margin-bottom: 3vh;
+    margin-bottom: 15px;
     font-size: 2.3rem;
 }
 /* .culinary_div3.pilafs{

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../../styles/MedicinalUse.css'
-import teapic2 from '../../images/saffrontea2.jpg'
+import teapic2 from '../../images/medicinalhome.jpg'
 import Navbar from '../../navbar/NavBar'
 import Footer from '../../footer/Footer'
 import { useUserContext } from '../../context/MainContext'
@@ -13,7 +13,7 @@ function MedicinalUse() {
     const [anim,setAnim] =useState("depression")
     const {  setShowNav,setSideBar,setMenuSlider }=useUserContext()
  
-    function handleClick(val){
+    function handleClick(val){ 
         setDish(val)
      
         setTimeout(() => {  
@@ -68,7 +68,7 @@ function MedicinalUse() {
           {dish=="depression"&&(
               <div className={`mu_div1 ${dish}`}>
               <h1>Depression and Anxiety</h1>
-              <p>Saffron, a spice derived from the flower of Crocus sativus, has been studied for its potential effects on mood and mental health, including depression and anxiety. Here’s a summary of how saffron may influence these conditions</p>
+              <p className='para_bold'>Saffron, a spice derived from the flower of Crocus sativus, has been studied for its potential effects on mood and mental health, including depression and anxiety. Here’s a summary of how saffron may influence these conditions</p>
               <div>
                   <h1>Mood Regulation</h1>
                   <p>Saffron contains several active compounds, such as crocin and safranal, which have been shown to have potential antidepressant and anxiolytic (anxiety-reducing) effects. These compounds may influence neurotransmitter systems in the brain, particularly serotonin and dopamine, <br/>which play key roles in regulating mood.</p>

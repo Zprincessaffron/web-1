@@ -105,11 +105,12 @@ const PaymentPage = () => {
     <Navbar/>
     <SideBar/>
     <MenuSlider/>
-    <div className="paymentpage_main">
-      <div className="paymentpage-container">
-      <ProgressBar className="payment-progress-bar" currentStep={2} />
-      <h1 className="payment-page-title">Payment</h1>
-      <div className="payment-flex">
+    <div className="checkout_main">
+      <div className="ckeckout_div1">
+        <div className="ckeckout_div2">
+          <div className="ckeckout_div21">
+             
+<div className="payment-flex">
         <motion.div
           className="payment-card"
           initial={{ opacity: 0 }}
@@ -131,7 +132,7 @@ const PaymentPage = () => {
             </select>
           </div>
 
-          <div className="payment-flex payment-justify-center mt-8">
+          <div className="payment_button">
             <button
               onClick={handlePayment}
               className="payment-button"
@@ -158,13 +159,14 @@ const PaymentPage = () => {
                   className="payment-item"
                 >
                   <img
-                    src={item.img}
+                    src={item.image}
                     alt={item.name}
                     className="payment-item-img"
                   />
                   <div className="payment-item-details">
                     <h3 className="payment-item-name">{item.name}</h3>
                     <p className="payment-item-quantity">Quantity: {item.quantity}</p>
+                    <p className="payment-item-quantity"> {item.weight} Grams</p>
                     <p className="payment-item-price">Price: ₹{item.price * item.quantity}</p>
                   </div>
                 </div>
@@ -179,12 +181,15 @@ const PaymentPage = () => {
           </div>
         </motion.div>
       </div>
-    </div>
-    </div>
+            </div>
+            </div>
+            </div>
+            </div>
     <Footer/>
     
 </>
   );
 };
+
 
 export default PaymentPage;

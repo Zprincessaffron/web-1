@@ -46,7 +46,7 @@
     background-color: rgb(254, 236, 255)
 }
 .pu_div2 p,.pu_div4 p{
-    color: black;
+    color: rgb(44, 44, 44);
     letter-spacing: 1.5px;
     word-spacing: 2px;
     line-height: 25px;
@@ -146,6 +146,16 @@
     font-weight: bold;
     
 }
+.culinary_subheadings{
+    color: rgb(63, 63, 63);
+    text-transform: capitalize;
+    font-family: "Roboto", system-ui;
+    font-style: normal;
+    font-size: 0.9rem;
+    font-weight: 500;
+    
+}
+
 .pu_div5{
     display: flex;
     justify-content: center;
@@ -159,9 +169,7 @@ padding: 10vh 0;
     height: 300px;
     margin-bottom: 10px;
 }
-.culinary_subheadings{
-    font-weight: bold;
-}
+
 .pu_div4 h2{
     font-size: 1.3rem;
     text-transform: uppercase;
@@ -226,8 +234,7 @@ padding: 10vh 0;
     color: rgba(84, 84, 84, 0.838);
 
 }
-.culinary_subheadings{
-}
+
 
 .pu_div4>h1{
     text-align: center;

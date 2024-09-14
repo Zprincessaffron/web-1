@@ -5,6 +5,8 @@
     background: linear-gradient(to right, #b2f5ea, #a0f3f0);
 display: flex;
 justify-content: center;
+font-family: "Roboto", system-ui;
+
 
 }
 .ps-container {
@@ -55,14 +57,14 @@ justify-content: center;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 600px;
     margin: 0 auto;
   }
   
   .ps-receipt-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: #00796b;
+    color: #064d45;
+    text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
   }
@@ -71,6 +73,9 @@ justify-content: center;
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
+    font-family: "Roboto", system-ui;
+    font-weight: 300;
+    
   }
   
   .ps-hr {
@@ -81,6 +86,10 @@ justify-content: center;
   .ps-recipt-order{
     color: black;
     text-align: left;
+    font-family: "Roboto", system-ui;
+    font-weight: 300;
+    margin-top: 0.5rem;
+
   }
   .ps-total {
     display: flex;
@@ -89,6 +98,8 @@ justify-content: center;
     font-weight: bold;
     color: #00796b;
     padding: 10px 0;
+    font-family: "Roboto", system-ui;
+    font-weight: 300;
   }
   
   .ps-button {

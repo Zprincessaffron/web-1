@@ -261,25 +261,19 @@ function Insight() {
         </div>
         </div>
         <div className='insight_div6'>
-          <img src={insight1} alt="" />
-          <div className='insight_div61'>
             <h1>Quality and Tradition</h1>
             <p>
-Our premium saffron is the key to unlocking this ancient magic. Each thread is a result of meticulous hand-picking and drying processes, ensuring the highest quality and potency. Grown in the fertile fields under optimal conditions, our saffron maintains its robust flavor,<br/> vibrant color, and aromatic essence. Whether you are a gourmet chef, a skincare enthusiast, or someone seeking natural<br/> wellness solutions, our saffron offers a touch of luxury that transcends the ordinary.
+Our premium saffron is the key to unlocking this ancient magic. Each thread is a result of meticulous hand-picking and drying processes, ensuring the highest quality and potency. Grown in the fertile fields under optimal conditions, our saffron maintains its robust flavor, vibrant color, and aromatic essence. Whether you are a gourmet chef, a skincare enthusiast, or someone seeking natural wellness solutions, our saffron offers a touch of luxury that transcends the ordinary.
 </p>
 
-          </div>
 
         </div>
 
         <div className='insight_div6'>
-          <img className='insigntendimg' src={insight2} alt="" />
-          <div className='insight_div61'>
             <h1>Experience the Magic</h1>
             <p>
-            Discover the golden threads that have woven their way through history and let saffron’s magic elevate your life in ways you've never imagined. Welcome to a world where every dish dazzles, every beauty routine sparkles, and every moment is infused with a <br/> touch of golden luxury. With our premium saffron, experience the richness of history, the purity of nature, <br/>and the luxury of the finest spice in the world.</p>
+            Discover the golden threads that have woven their way through history and let saffron’s magic elevate your life in ways you've never imagined. Welcome to a world where every dish dazzles, every beauty routine sparkles, and every moment is infused with a touch of golden luxury. With our premium saffron, experience the richness of history, the purity of nature, and the luxury of the finest spice in the world.</p>
 
-          </div>
 
         </div>
 

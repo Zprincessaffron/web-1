@@ -43,7 +43,7 @@ function Cart() {
 
   const handleQuantityChange = (item, delta) => {
     // Update quantity with delta (-1 or 1)
-    updateQuantity(item.id, item.weight, delta);
+    updateQuantity(item._id, item.weight, delta);
   };
   return (
     <div>

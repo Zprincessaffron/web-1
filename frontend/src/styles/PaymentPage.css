@@ -18,7 +18,7 @@
     overflow: hidden;
 
  
-    
+     
   }
 
   
@@ -39,9 +39,11 @@
   
   /* Flex container for the card and summary */
   .payment-flex {
+    width: 100%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    gap: 4rem;
 
   }
   
@@ -58,16 +60,18 @@
   .gap-6 {
     gap: 1.5rem;
   }
+  .payment_button{
+    display: flex;
+    justify-content: center;
+  }
   
   /* Payment card styling */
   .payment-card {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 40%;
-    height: auto;
-    margin: 0 auto;
   }
   
   .payment-card-title {
@@ -118,9 +122,11 @@
   }
   
   .payment-summary-title {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
   
   /* Styling for cart items */
@@ -150,8 +156,10 @@
   
   .payment-item-quantity,
   .payment-item-price {
-    font-size: 0.875rem;
-    color: #555;
+    font-size: 0.775rem;
+    color: #000000;
+    font-family: "Roboto", system-ui;
+    font-weight: 300;
   }
   
   /* Total price section */
@@ -159,7 +167,12 @@
     font-size: 1.25rem;
     font-weight: bold;
     text-align: right;
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
+    font-family: "Roboto", system-ui;
+    font-weight: 400;
+
   }
   .payment-flex{
     display: flex;
@@ -179,6 +192,18 @@
       }
       .payment-flex>div{
         width: 90%;
+      }
+      .payment-order-summary {
+        height: fit-content;
+
+      }
+      .payment-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        width: 70%;
+        height: fit-content;
       }
   
   }

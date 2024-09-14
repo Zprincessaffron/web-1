@@ -9,7 +9,7 @@
     background-color: rgb(254, 236, 255)
 }
 
-.wc_div1{
+.wc_div1{ 
     width: 100vw;
     position: relative; 
     height: 100vh;
@@ -40,7 +40,7 @@
     letter-spacing: 0.5rem;
 }
 .wc_div12>p{
-    font-size: 1rem;
+    font-size: 0.8rem;
     width: 80%;
     color: rgb(255, 255, 255);
     text-align: center;
@@ -49,7 +49,7 @@
 }
 .wc_div2{
     height: 40vh;
-    padding-top: 5vh;
+    padding-top: 3rem;
     color: black;
     margin-left: 3vw;
     margin: 1px;
@@ -78,15 +78,16 @@
 .wc_div21>p{
     color: rgb(0, 0, 0);
     width: 80%;
-    letter-spacing: 1.5px;
-    word-spacing: 2px;
-    line-height: 30px;
+    line-height: 1.9230769231;
+    letter-spacing: 0.0484615385em;
+    font-size: 0.8rem;
+    word-spacing: 1.5px;
 
     
 }
 .wc_div3{
     height: 80vh;
-    padding-top: 5vh;
+    padding-top: 3rem;
     color: black;
     margin-left: 3vw;
     margin: 1px;
@@ -113,7 +114,7 @@
 .wc_div41>div{
     width: 25%;
     color: rgb(0, 0, 0);
-    margin-top: 5vh;
+    margin-top: 3rem;
 
 }
 .wc_div41>div>img{
@@ -121,21 +122,24 @@
 }
 .wc_div41>div>p{
     color: black;
-    letter-spacing: 1.5px;
-    word-spacing: 2px;
-    line-height: 30px;
+    line-height: 1.9230769231;
+    letter-spacing: 0.0484615385em;
+    font-size: 0.8rem;
+    word-spacing: 1.5px;
+
 
 }
 .wc_div41>div>h1{
-    font-size: 1.3rem;
+    font-size: calc(0.706rem + 0.5vw);
     margin-bottom: 2vh;
-    margin-top: 2vh;
+    margin-top: 2.5rem;
 
 
 }
 .wc_div5{
-    height: 50vh;
-    margin-top: 5vh;
+    height: 300px;
+    overflow: hidden;
+    margin-top: 3rem;
         position: relative;
 
 }
@@ -170,9 +174,10 @@
 .wc_div52>p{
     width: 80%;
     text-align: center !important;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     word-spacing: 2px;
     font-weight: 100;
+    font-size: 0.9rem;
     color: rgb(255, 255, 255);
     font-weight: bold;
     
@@ -180,7 +185,8 @@
 
 
 .wc_div6{
-    padding: 5vh 0;
+    padding: 3rem 0;
+    padding-top: 6rem;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -193,10 +199,12 @@
 }
 .wc_div6>p{
     color: black;
-    letter-spacing: 1.5px;
-    word-spacing: 2px;
-    line-height: 30px;
+    line-height: 1.9230769231;
+    letter-spacing: 0.0484615385em;
+    font-size: 0.9rem;
+    word-spacing: 1.5px;
     width: 80%;
+    font-weight: bold;
     text-align: center;
 }
 
