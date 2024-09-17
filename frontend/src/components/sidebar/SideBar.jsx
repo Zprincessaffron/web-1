@@ -11,9 +11,11 @@ import medicinalslider from '../../images/medicinalslider.jpg'
 import pregnancyslider from '../../images/pregnancyslider.jpg'
 import beautyslider from '../../images/beautyslider.jpg'
 import { userContext } from '../../context/UserContext';
+import { FaAngleRight } from "react-icons/fa6";
 
 function SideBar() {
-  const navigate = useNavigate()
+  const navigate = useNavigate() 
+  const [showStyle,setShowStyle]=useState()
   const { user } =useContext(userContext)
     const { isMobile, setIsMobile,singleProduct,setSingleProduct,showMenuSub,setShowMenuSub,mainItems,setMainItems,setGoldenElixir,menuSlider,setMenuSlider,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar }=useUserContext()
 
@@ -182,8 +184,10 @@ function SideBar() {
   
   setGoldenElixir(val)
  }
- console.log(menuItems)
- console.log(menuSubItems)
+ function handleMouseEnter(e){
+  setShowStyle(e)
+
+ }
 
   return (
     <div className={`sidebar_main ${sideBar?"true":"false"}`}>
@@ -205,7 +209,7 @@ function SideBar() {
                     {menuSubItems == 'products' && (
                     <>
                     <animated.div id="sidebar_kh" className="menu-item" onClick={handleBack} style={itemAnimation3}><IoMdArrowRoundBack className='sidebar_arrow'/>PRODUCTS</animated.div>
-        <animated.div onClick={handleKasmir} className="menu-item" style={itemAnimation2}>KASHMIRI SAFFRON</animated.div>
+        <animated.div onClick={handleKasmir} className="menu-item" style={itemAnimation2}> KASHMIRI SAFFRON</animated.div>
         <animated.div  onClick={handleSpain}  className="menu-item" style={itemAnimation1}>SPAIN SAFFRON</animated.div>
                     </>)
                    }
@@ -232,14 +236,14 @@ function SideBar() {
                     </>)
                    }
                     {menuSubItems == 'mainitem' && (
-              <><animated.div onClick={handleKnowledgw} className="menu-item" style={itemAnimation1}>KNOWLEDGE HUB</animated.div>
-              <animated.div  onClick={handleProduct} className="menu-item" style={itemAnimation2}>PRODUCTS</animated.div>
-              <animated.div onClick={handleWhyChooseUs} className="menu-item" style={itemAnimation3}>WHY CHOOSE US</animated.div>
-              <animated.div  onClick={handleGoldenElixir} className="menu-item" style={itemAnimation4}>GOLDEN EXILIR</animated.div>
-              <animated.div  onClick={()=>{navigate('/chatbot')}} className="menu-item" style={itemAnimation5}> RECOMMENDAR</animated.div>
-              {user?(              <animated.div  onClick={()=>{navigate('/dashboard/profile')}} className="menu-item" style={itemAnimation6}> PROFILE</animated.div>
+              <><animated.div onClick={handleKnowledgw} className="menu-item" style={itemAnimation1}  onMouseEnter={()=>handleMouseEnter('knowlegdehub')} > <FaAngleRight   className={`menu_main_right ${showStyle=="knowlegdehub"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="knowlegdehub"?"true":""}`}>KNOWLEDGE HUB</span></animated.div>
+              <animated.div  onClick={handleProduct} className="menu-item" style={itemAnimation2} onMouseEnter={()=>handleMouseEnter('products')} ><FaAngleRight   className={`menu_main_right ${showStyle=="products"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="products"?"true":""}`}>PRODUCTS</span></animated.div>
+              <animated.div onClick={handleWhyChooseUs} className="menu-item" style={itemAnimation3}  onMouseEnter={()=>handleMouseEnter('whychoose')} > <FaAngleRight   className={`menu_main_right ${showStyle=="whychoose"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="whychoose"?"true":""}`}>WHY CHOOSE US</span></animated.div>
+              <animated.div  onClick={handleGoldenElixir} className="menu-item" style={itemAnimation4}  onMouseEnter={()=>handleMouseEnter('golden')} ><FaAngleRight   className={`menu_main_right ${showStyle=="golden"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="golden"?"true":""}`}>GOLDEN EXILIR</span></animated.div>
+              <animated.div  onClick={()=>{navigate('/chatbot')}} className="menu-item" style={itemAnimation5}  onMouseEnter={()=>handleMouseEnter('recommendar')} ><FaAngleRight   className={`menu_main_right ${showStyle=="recommendar"?"true":""}`}/>  <span className={`menu_main_items ${showStyle=="recommendar"?"true":""}`}>RECOMMENDAR</span></animated.div>
+              {user?(              <animated.div  onClick={()=>{navigate('/dashboard/profile')}} className="menu-item" style={itemAnimation6}  onMouseEnter={()=>handleMouseEnter('profile')} > <FaAngleRight   className={`menu_main_right ${showStyle=="profile"?"true":""}`}/>  <span className={`menu_main_items ${showStyle=="profile"?"true":""}`}>PROFILE</span></animated.div>
 ):(null)}
-              <animated.div onClick={()=>{navigate('/login')}}  className="menu-item" style={itemAnimation7}>LOGIN</animated.div></>
+              <animated.div onClick={()=>{navigate('/login')}}  className="menu-item" style={itemAnimation7}  onMouseEnter={()=>handleMouseEnter('login')} > <FaAngleRight   className={`menu_main_right ${showStyle=="login"?"true":""}`}/>  <span className={`menu_main_items ${showStyle=="login"?"true":""}`}>LOGIN</span></animated.div></>
              )
                    }
     </>

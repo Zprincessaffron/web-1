@@ -159,7 +159,6 @@
 .insight_div311{
     width: 90%;
     text-align: left;
-    cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 .insight_div311:hover{

@@ -35,7 +35,6 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-size: calc(0.10rem + 0.6vw);
-    cursor: pointer;
 }
 
 .footer-div3{
@@ -62,7 +61,6 @@
     display: flex;
     align-items: center;
     gap: 2px;
-    cursor: pointer;
     overflow: hidden;
 
 }
@@ -130,7 +128,6 @@
         font-weight: bold;
         letter-spacing: 1px;
         font-size: calc(0.067rem + 1vw);
-        cursor: pointer;
     }
     
     .footer-div3{
@@ -157,7 +154,6 @@
         display: flex;
         align-items: center;
         gap: 2px;
-        cursor: pointer;
         overflow: hidden;
     
     }

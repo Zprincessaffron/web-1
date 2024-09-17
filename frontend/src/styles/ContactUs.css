@@ -60,7 +60,6 @@
     font-size: calc(0.2rem + 1.5vw);
     margin-top: calc(0.5rem + 1.5vw);
     color: rgb(44, 44, 44);
-    cursor: pointer;
 }
 .contact_div121{
     display: flex;
@@ -147,7 +146,6 @@
         font-size: calc(0.7rem + 2vw);
         margin-top: calc(0.5rem + 1.5vw);
         color: rgb(44, 44, 44);
-        cursor: pointer;
     }
 
 }

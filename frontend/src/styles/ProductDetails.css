@@ -101,7 +101,6 @@
 .change-grams>h2,.change-grams>div>h2,.change-grams>div>h3{
   font-size: 0.8rem;
   letter-spacing: 1px;
-  cursor: pointer;
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -160,6 +159,54 @@ gap: 2rem;
 }
 
 
+
+
+/* // */
+
+
+.pd-right_belowitems>ul { 
+  padding: 0; 
+  list-style: none; 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: start;
+  
+}
+li { 
+  display: table-cell; 
+  position: relative; 
+  margin-top: 5px;
+  
+}
+a {
+  color: #000000;
+  text-transform: capitalize;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  
+  display: inline-block;
+  position: relative;
+  
+}
+a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  background: #000000;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
 
 /* reviews */
 
@@ -451,3 +498,323 @@ gap: 2rem;
   font-size: 15px;
 }
 
+@media only screen and (max-width: 480px) {
+
+  .product-details{
+    
+    position: relative;
+    height: fit-content;
+    
+    background-color: rgb(128, 81, 81);
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  .pd-right{
+    top: 0;
+    right: 0;
+    position: static;
+    height: fit-content;
+    width: 100vw;
+    background-color: rgb(255, 255, 255);
+    font-family: "Louis Vuitton Web", "Louis Vuitton Web Fallback", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  
+  }
+  .pd-right.true{
+    top: 0;
+    right: 0;
+    position:static ;
+    width: 100vw;
+  
+  
+  
+  }
+  .pd-left{
+    height: 50vh;
+    width: fit-content;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    position: relative;
+    margin-top: 10vh;
+    background-color: #333;
+  
+  }
+  .pd-left-1{
+    background-color: rgb(233, 233, 224);
+
+  }
+  .pd-left-2{
+    background-color: rgb(190, 237, 224);
+   
+  }
+  .pd-left-3{
+    background-color: rgb(206, 206, 121);
+ 
+  }
+  .pd-left-4{
+    background-color: rgb(197, 176, 211);
+ 
+  }
+
+  .pd-rightdetails{
+    padding: 20px
+  }
+  .pd-rightdetails>h1{
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .pd-rightdetails>p{
+    color: black;
+    margin-top: 0.3rem;
+ 
+    font-size: 0.8rem;
+  }
+  .font-tax{
+    font-size: x-small;
+    letter-spacing: 1px;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
+  
+  }
+  .pd-star-rating{
+    margin-top: 0.3rem;
+  
+  }
+  .pd_slider{
+    background-color: rgb(255, 255, 255);
+    padding-top: 10vh;
+    overflow: hidden;
+  }
+  .pd_slider>div{
+    height: 50vh;
+    color: black;
+
+  }
+  a {
+    color: #000000;
+    text-transform: capitalize;
+    text-decoration: none;
+    letter-spacing: 0.10em;
+    font-size: 0.5rem;
+    
+    display: inline-block;
+    position: relative;
+    
+  }
+  /* //reviews// */
+
+  
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+}
+
+.ratings-overview {
+  background-color: #fff;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 20px;
+}
+
+.ratings-overview .top-section { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-button {
+  padding: 8px 15px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 10px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.ratings-overview h2 {
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.review-line {
+  margin: 10px 0px;
+}
+
+/* Layout for ratings content: average rating and progress bars side by side */
+.ratings-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+
+  
+}
+
+.average-rating {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.average-stars h3 {
+  font-size: 1rem;
+  margin-right: 10px;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+.average-stars p {
+  color: #ffcc00;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.total-reviews {
+  font-size: 0.7rem;
+  color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating-bars {
+  flex-grow: 1;
+  padding-left: 0;
+  border: none;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.rating-progress {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.star-label {
+  width: 80px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.progress-bar {
+  flex-grow: 1;
+  background-color: #e0e0e0;
+  height: 10px;
+  border-radius: 5px;
+  margin: 0 10px;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #ffcc00;
+  border-radius: 5px;
+}
+
+.rating-count {
+  width: 80px; /* Ensures the rating count is visible and doesn't get cut off */
+  color: #555;
+  font-size: 0.9rem;
+  text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviews-list {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 0;
+  box-shadow: none;
+  
+}
+
+.reviews-list h2 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+
+.review-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+}
+
+.review-item h3 {
+  letter-spacing: 1px;
+  font-size: 9px;
+}
+
+.review-data .review-icon {
+  color: rgba(78, 78, 78, 0.858);
+  padding-top: 5px;
+}
+
+.review-data{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  padding: 0;
+
+}
+
+.review-text .review-star{
+  padding: 0px 0px;
+}
+
+.review-text .review-content {
+  padding: 5px 0px;
+  letter-spacing: 1px;
+  font-size: 8px;
+}
+
+
+.review-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.review-item h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.review-item p {
+  margin: 0;
+  color: #555;
+}
+
+.review-item p:first-of-type {
+  font-size: 1rem;
+  color: #00d9ff;
+}
+
+
+  
+}

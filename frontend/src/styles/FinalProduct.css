@@ -32,7 +32,6 @@
     left: 0;
     opacity: 0;
     overflow: hidden;
-    cursor: pointer;
 
   }
   .fp_hovercontent:hover{

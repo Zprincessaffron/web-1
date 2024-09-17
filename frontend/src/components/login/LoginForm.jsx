@@ -8,6 +8,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import axios from 'axios';
 import { useUserContext } from '../../context/MainContext';
 import { useNavigate } from 'react-router-dom';
+import profile from '../../assets/profile.png'
 
 
 const LoginForm = () => {
@@ -44,9 +45,12 @@ const LoginForm = () => {
       setSubmitting(false);
     }
   };
+
+
   return (
     <div className='rform_main'>
-      <h1> Welcome Back!</h1>
+     <img src={profile} alt="" />
+     <h1>CUSTOMER LOGIN</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

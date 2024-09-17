@@ -198,13 +198,11 @@
     height: 230px;
   }
   .pp_div2>div:hover{
-    cursor: pointer;
     scale: 99%;
   
   
   }
   .pp_div2>div:active{
-    cursor: pointer;
     scale: 97%;
   
   

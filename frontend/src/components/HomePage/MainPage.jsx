@@ -18,11 +18,13 @@ import ProfileHover from '../../navbar/ProfileHover'
 import Review from '../review/Review'
 import Arrowbtn from '../button/Arrowbtn'
 import FinalProduct from '../product/FinalProduct'
+import Cursor from './Cursor'
+import ReactSlick from '../product/ReactSlick'
 
 gsap.registerPlugin(ScrollTrigger);
 function MainPageTrial() {
   const navigate = useNavigate()
-  const { isMouse,setIsMouse,isMobile,profileHover, setProfileHover, menuSlider, setMenuSlider, sideBar, setSideBar, setShowNav, showLogin } = useUserContext()
+  const { CustomCuser,setCustomCuser,isMouse,setIsMouse,isMobile,profileHover, setProfileHover, menuSlider, setMenuSlider, sideBar, setSideBar, setShowNav, showLogin } = useUserContext()
   const [showEnd, setShowEnd] = useState(true)
   const [scrollPosition, setScrollPosition] = useState(0);
   const [height, setHeight] = useState(false)
@@ -37,33 +39,6 @@ function MainPageTrial() {
     setSideBar(false)
   }, [])
 
-  const cursorRoundedRef = useRef(null);
-  const cursorPointedRef = useRef(null);
-
-  useEffect(() => {
-    // Function to move the cursor
-    const moveCursor = (e) => {
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
-
-      // Update the transform of both cursor elements
-      if (cursorRoundedRef.current) {
-        cursorRoundedRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-      }
-
-      if (cursorPointedRef.current) {
-        cursorPointedRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-      }
-    };
-
-    // Add event listener on component mount
-    window.addEventListener('mousemove', moveCursor);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener('mousemove', moveCursor);
-    };
-  }, []);
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -150,27 +125,23 @@ function MainPageTrial() {
 console.log('video',videoPlay)
   
   return (
-    <div className='mainpage_main'>
+    <>
+   
+
       <Navbar />
       <SideBar />
       <MenuSlider /> 
       {profileHover ? (
         <ProfileHover />) : (null)}
       {showLogin ? (<LoginHover />) : ' '}
+  
+    <div className='mainpage_main'>
+     
       <div   className={`mainpagecon ${height ? "true" : ''}`}>
         <div style={{ transform: `translateY(${scrollPosition * 0.2}px)` }} className='mainpage_con1'>
-          <div  onClick={videoPlay?(playVideo):(pauseVideo)}  onMouseEnter={()=>{setIsMouse(true)}} onMouseLeave={()=>{setIsMouse(false)}} className='mainpage_container'>
+          <div  onClick={videoPlay?(playVideo):(pauseVideo)}  className='mainpage_container'>
             <div className="video-container">
-            {isMobile?(null):(<>
-            {isMouse?(
-              <div ref={cursorRoundedRef}  className='containerv'>
-      <div className='circle'>
-        <div className='triangle'></div>
-      </div>
-    </div>
-
-            ):(null)}
-            </>)}
+            
               <video ref={videoRef} loop muted autoPlay>
                 <source src={backvideo} type="video/mp4" />
               </video>
@@ -225,11 +196,14 @@ console.log('video',videoPlay)
           </div>
         </div>
       </div>
+      <ReactSlick/>
       <div className='footer_plus'>
         <NewsLetter />
-        <Footer />
       </div>
     </div>
+    <Footer />
+
+    </>
   )
 }
 

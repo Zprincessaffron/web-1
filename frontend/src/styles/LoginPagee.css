@@ -19,7 +19,7 @@
 
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0; 
 }
 .loginpagee_div11{
     padding: 2rem 3rem;
@@ -96,5 +96,29 @@
     margin-top: 2rem;
     font-weight: 100;
     font-size: 1rem;
+
+}
+.inputemail.true,.inputpassword.true{
+    border-bottom: 2px solid rgba(228, 7, 7, 0.722);
+}
+.loading-spinner {
+    animation: spin 1s linear infinite; /* Create spin animation */
+    color: #2b2e30; /* Set a color for the spinner */
+  }
+  
+  /* Keyframes for the spin animation */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+.inputname.true{
+    border-bottom: 2px solid rgba(228, 7, 7, 0.722);
+
 
 }

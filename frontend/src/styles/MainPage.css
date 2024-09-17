@@ -12,9 +12,8 @@
 .rounded{
   width: 30px;
   height: 30px;
-  border: 2px solid #fff;
+  border: 2px solid #fff; 
   border-radius: 50%;
-  cursor: none;
 
 }
 .rrmc-cursor-icon.play{
@@ -22,7 +21,6 @@
 }
 .rrmc-cursor-icon {
 
-  cursor: none;
 
 }
 /* PlayButton.css */
@@ -33,18 +31,23 @@
   height: fit-content;
   width: fit-content;
   background: none;
-  cursor: none;
   position: absolute;
+  z-index: 6;
 }
 
 .circle {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 2px solid rgba(98, 131, 167, 0.5); /* Light blue border with transparency */
+  border: 2px solid rgba(195, 216, 237, 0.5); /* Light blue border with transparency */
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 90%;
+  background-color: rgba(205, 177, 205, 0.247);
+  color: rgba(173, 165, 165, 0.767);
+  font-weight: bold;
+
 }
  
 .triangle {
@@ -61,7 +64,7 @@
     font-optical-sizing: auto;
     font-style: normal;
     overflow-x: hidden;
-    background-color: rgb(254, 236, 255)
+    background-color: rgb(254, 236, 255);
 }
 
 .mainpage_container{
@@ -75,7 +78,6 @@
     overflow: hidden;
     background-position: center;
     background-size: cover;
-    cursor: none;
     
 
   }
@@ -224,7 +226,6 @@
     color: rgb(31, 31, 31);
     text-transform: uppercase;
     transition: all 0.3s ease;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: end;
@@ -283,7 +284,6 @@
   border: none;
   letter-spacing: 1px;
   text-transform: capitalize;
-  cursor: pointer;
 
 }
 .review-bottom>button:hover{
@@ -426,7 +426,6 @@
     letter-spacing: 1px;
     border-radius: 30px;
     border: none;
-    cursor: pointer;
     font-weight: 500;
     display: flex;
     justify-content: center;

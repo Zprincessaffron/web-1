@@ -4,7 +4,7 @@
     font-weight: normal;
     font-style: normal;
   }
-  
+   
 .sidebar_main{
     font-family: 'Riviera Nights';
     position: fixed;
@@ -49,26 +49,44 @@
 }
 .sidebar_div2{
     width: 100%;
-    padding-right: 20px;
 
 
 }
 .sidebar_div2>div{
     color: white;
+    border-left: 1px solid white;
     width: 100%;
     font-size: 1rem;
     letter-spacing: 0.3rem;
     margin: 30px;
     font-family: 'Riviera Nights';
     z-index: 3;
-    padding-left: 30%;
-    cursor: pointer;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+
+}
+.menu_main_items{
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-15px);
+
+}
+.menu_main_items.true{
+    transform: translateX(0);
 }
 .sidebar_div2>div:hover{
     font-weight: bold;
-    scale: 102%;
 }
+.menu_main_right{
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease-in-out;
 
+}
+.menu_main_right.true{
+    opacity: 1;
+    transform: translateX(-5px);
+}
 #sidebar_kh{
     font-weight: bolder;
     
@@ -128,7 +146,6 @@
     font-family: 'Riviera Nights';
     z-index: 3;
     padding-left: 0%;
-    cursor: pointer;
     text-align: right;
 }
 #sidebar_kh{
