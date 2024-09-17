@@ -59,7 +59,7 @@
   width: 100%;
 }
 .pd-rightdetails{
-  padding: 20% 30% 0 20%;
+  padding: 20% calc(15% + 1vw) 0 calc(15% + 1vw);
 }
 .pd-rightdetails>h1{
   font-size: 1.5rem;
@@ -524,10 +524,9 @@ a:hover:after {
 
   .product-details{
     
-    position: relative;
+    position: static;
     height: fit-content;
     
-    background-color: rgb(128, 81, 81);
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -611,14 +610,16 @@ a:hover:after {
   
   }
   .pd_slider{
-    background-color: rgb(255, 255, 255);
-    padding-top: 10vh;
-    overflow: hidden;
+
   }
   .pd_slider>div{
-    height: 50vh;
     color: black;
+    background-color: #333;
+    height: 60vh;
+    position: static;
 
+  }
+  .pd_slider>div>h3{
   }
   a {
     color: #000000;
@@ -640,7 +641,9 @@ a:hover:after {
   gap: 0;
   padding: 0;
 }
-
+.sliderrdiv{
+  height: 70vh;
+}
 .ratings-overview {
   background-color: #fff;
   padding: 0;
