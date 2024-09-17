@@ -90,7 +90,13 @@
 }
 .pd-star-rating{
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
+.pd-star-rating span { 
+  font-size: 13px;
 }
 .change-grams{
   padding: 1rem 0;
@@ -293,6 +299,7 @@ a:hover:after {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Jost";
 }
 
 .rating-bars {
@@ -345,7 +352,7 @@ a:hover:after {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  
+  font-family: "Jost";
 }
 
 .reviews-list h2 {
@@ -354,14 +361,17 @@ a:hover:after {
   font-size: 20px;
 }
 
+
 .review-item {
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .review-item h3 {
   letter-spacing: 1px;
+  font-weight: 500;
 }
 
 .review-data .review-icon {
@@ -369,43 +379,55 @@ a:hover:after {
   padding-top: 5px;
 }
 
-.review-data{
+.review-data {
   display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.review-icon {
+  margin-right: 16px;
+}
+
+.review-text {
+  flex: 1;
+}
+
+.user-review {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  margin-bottom: 5px;
 }
 
-.review-text .review-star{
-  padding: 5px 0px;
-}
-
-.review-text .review-content {
-  padding: 5px 0px;
+.reviewer-name {
+  font-size: 0.8rem;
+  color: #1f1f1f;
+  font-family: "Jost";
   letter-spacing: 1px;
-  font-size: 14px;
 }
 
-
-.review-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
+.review-star {
+  color: #ffd700; /* Gold color for stars */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }
 
-.review-item h3 {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  font-weight: 500;
+.review-star .review-value{
+  color: black;
+  font-family: "Jost";
+  font-size: 12px;
 }
 
-.review-item p {
-  margin: 0;
+.review-content {
+  margin-top: 5px;
+  font-size: 15px;
   color: #555;
+  letter-spacing: 1px;
 }
 
-.review-item p:first-of-type {
-  font-size: 1rem;
-  color: #00d9ff;
-}
 
 /* review popup */
 
@@ -721,7 +743,7 @@ a:hover:after {
 .progress-bar {
   flex-grow: 1;
   background-color: #e0e0e0;
-  height: 10px;
+  height: 5px;
   border-radius: 5px;
   margin: 0 10px;
   position: relative;
@@ -769,10 +791,7 @@ a:hover:after {
   font-size: 9px;
 }
 
-.review-data .review-icon {
-  color: rgba(78, 78, 78, 0.858);
-  padding-top: 5px;
-}
+
 
 .review-data{
   display: flex;
@@ -787,11 +806,7 @@ a:hover:after {
   padding: 0px 0px;
 }
 
-.review-text .review-content {
-  padding: 5px 0px;
-  letter-spacing: 1px;
-  font-size: 8px;
-}
+
 
 
 .review-item:last-child {
@@ -800,7 +815,7 @@ a:hover:after {
 }
 
 .review-item h3 {
-  font-size: 1rem;
+  font-size: 13px;
   margin-bottom: 10px;
   font-weight: 500;
 }
@@ -810,9 +825,38 @@ a:hover:after {
   color: #555;
 }
 
-.review-item p:first-of-type {
-  font-size: 1rem;
-  color: #00d9ff;
+
+.reviewer-name {
+  font-size: 5px;
+  color: #1f1f1f;
+  font-family: "Jost";
+  letter-spacing: 1px;
+}
+
+.review-star {
+  color: #ffd700; /* Gold color for stars */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.review-star .review-value{
+  color: black;
+  font-family: "Jost";
+  font-size: 10px;
+}
+
+
+.review-content {
+  margin-top: 0;
+  font-size: 10px;
+  color: #cb1818;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+.reviewer-name{
+  font-size: 11px;
 }
 
 

@@ -78,6 +78,7 @@
     height: 100vh;
     background-color: #f7fafc; /* Equivalent to bg-gray-100 */
     padding: 1rem; /* Equivalent to p-4 */
+    font-family: "riviera";
   }
   
   .chat-header {
@@ -88,6 +89,7 @@
   }
   
   .chat-back-button {
+    border: none;
     padding: 0.5rem; /* Equivalent to p-2 */
     border-radius: 0.25rem; /* Equivalent to rounded */
     background-color: #e2e8f0; /* Equivalent to bg-gray-300 */
@@ -99,6 +101,7 @@
   }
   
   .chat-back-icon {
+    
     font-size: 1.25rem; /* Equivalent to text-xl */
     color: #4a5568; /* Equivalent to text-gray-700 */
   }
@@ -187,7 +190,8 @@
   }
   
   .chat-microphone-button {
-    padding: 0.5rem; /* Equivalent to p-2 */
+    border: none;
+    padding: 0.6rem; /* Equivalent to p-2 */
     border-radius: 50%; /* Equivalent to rounded-full */
     background-color: #4299e1; /* Equivalent to bg-blue-500 */
     color: white;
@@ -218,7 +222,12 @@
   }
   
   .chat-send-button {
-    padding: 0.5rem; /* Equivalent to p-2 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    padding: 0.6rem; /* Equivalent to p-2 */
     margin-left: 0.5rem; /* Equivalent to ml-2 */
     border-radius: 50%; /* Equivalent to rounded-full */
     background-color: #48bb78; /* Equivalent to bg-green-500 */

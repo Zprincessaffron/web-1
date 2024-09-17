@@ -9,12 +9,12 @@
 }
 
 .faq-container h1 {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   text-align: center;
   margin-bottom: 40px;
   padding: 25px 0px;
-  color: white;
-  background: linear-gradient(90deg, #a000b8, #5724ff 50%, #003efa);
+  color: black;
+  /* background: linear-gradient(90deg, #a000b8, #5724ff 50%, #003efa); */
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 7px;
@@ -31,9 +31,10 @@
 
 .faq-section {
   margin-bottom: 20px;
-  border-radius: 6px;
+  /* border-radius: 6px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+  background-color: #ffffff; */
+  border-bottom: 1px solid rgb(138, 138, 138) ;
   padding: 20px;
   width: 65%;
   overflow: hidden;
@@ -53,16 +54,17 @@
 }
 
 .faq-section:hover h2 {
-  color: #a000b8;
+  font-size: 1rem;
 }
 
 .faq-container p,
 .faq-container li {
-  font-size: 0.8rem;
-  color: #2e2e2e;
+  font-size: 12.8px;
+  color: #2c2c2c;
   margin-bottom: 10px;
   font-weight: 600;
   letter-spacing: 1px;
+  line-height: 18px;
 }
 
 .faq-container ul {
@@ -71,7 +73,7 @@
 }
 
 .faq-container strong {
-  color: #5724ff;
+  color: #000000;
   font-weight: 600;
 }
 

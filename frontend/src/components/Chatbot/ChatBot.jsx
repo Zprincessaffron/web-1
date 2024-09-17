@@ -391,7 +391,7 @@ const Chatbot = () => {
     <div className="chat-container">
       <div className="chat-header">
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate(-1)}
           className="chat-back-button"
         >
           <MdArrowBack className="chat-back-icon" />

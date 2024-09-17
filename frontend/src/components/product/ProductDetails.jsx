@@ -17,15 +17,17 @@ import { IoPersonOutline } from "react-icons/io5";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { userContext } from "../../context/UserContext";
 import ReactStars from "react-stars";
+import axios from "axios";
 import Slider from "react-slick";
 
 const ProductDetails = () => {
   const { setMenuSlider, setSideBar, setShowNav,isMobile } = useUserContext();
   const { addToCart, cartItems } = useContext(CartContext);
   const { user } = useContext(userContext);
-  console.log(user);
-  const { productId } = useParams(); // Get productId from the URL params
-  const [showReviewPopup, setShowReviewPopup] = useState(true);
+  const { id } = useParams(); // Get productId from the URL params
+  // Remove the suffix (-0, -1, etc.) from the id
+  const productId = id.split('-')[0];
+  const [showReviewPopup, setShowReviewPopup] = useState(false);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [rating, setRating] = useState(0); // Store rating
   const [comment, setComment] = useState(""); // Store review comment
@@ -34,23 +36,29 @@ const ProductDetails = () => {
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (rating === 0) {
-      setErrorMessage("Please provide a star rating!");
+      setErrorMessage("Please provide a rating.");
       return;
     }
 
     try {
-      // Send review to the backend
-      await axios.post(`/product/${productId}/review`, {
-        userId,
+      const response = await axios.post("/reviews", {
+        userId: user.id,
+        name: user.name,
+        productId,
         rating,
         comment,
       });
 
-      alert("Review submitted successfully!");
-      setShowReviewPopup(false); // Close the popup after submission
+      // Handle successful review submission
+      console.log("Review submitted:", response.data);
+      setShowReviewPopup(false);
+      setComment("");
+      setRating(0);
     } catch (error) {
       console.error("Error submitting review:", error);
+      setErrorMessage("Error submitting review. Please try again.");
     }
   };
 
@@ -58,6 +66,7 @@ const ProductDetails = () => {
 
   const location = useLocation();
   const { product } = location.state;
+  console.log(product)
   const [isDivAtBottom, setIsDivAtBottom] = useState(true);
   const divRef = useRef(null);
   const [availability, setAvailability] = useState(false);
@@ -96,6 +105,8 @@ const ProductDetails = () => {
     }
   }, [cartItems]);
 
+console.log(btnDissable);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -110,16 +121,37 @@ const ProductDetails = () => {
 
   ////ADD TO CART////
   const handleAddToCart = () => {
+    if (!product || !product.fullProduct || !product.fullProduct.variants || !Array.isArray(product.fullProduct.variants)) {
+      console.error('Product data or variants are not available');
+      return;
+    }
+  
+    // Log the full product data for debugging
+    console.log(product.fullProduct);
+  
+    // Find the selected variant by matching the weight
+    const selectedVariant = product.fullProduct.variants.find(variant => variant.weight === product.weight);
+  
+    if (!selectedVariant) {
+      console.error('No matching variant found for the product');
+      return;
+    }
+  
     const productToAdd = {
-      _id: product._id,
+      variantId: selectedVariant._id,  // Use the correct variant ID
+      productId: product._id.split('-')[0],
       name: product.name,
-      price: product.price,
-      weight: product.weight,
-      quantity: 1, // Use the updated quantity,
+      price: selectedVariant.price,    // Use the variant's price
+      weight: selectedVariant.weight,  // Use the variant's weight
+      quantity: 1,                     // Default quantity
       image: product.image,
     };
+  
     addToCart(productToAdd);
+    setBtnDissable(true);
+    console.log(productToAdd);
   };
+  
   ////BUY NOW////
   const handleBuyNow = () => {
     handleAddToCart();
@@ -127,12 +159,23 @@ const ProductDetails = () => {
   };
 
   // Function to check if user has purchased the product
-  const handleReviewClick = () => {
-    if (user.purchasedProducts && user.purchasedProducts.includes(productId)) {
-      // If the user has purchased this product, show the review form pop-up
-      setShowReviewPopup(true);
-    } else {
-      // If not, show an error message
+  const handleReviewClick = async () => {
+    try {
+      const response = await axios.get(
+        `/check-purchase/${user.id}/${productId}`
+      );
+      if (response.data.hasPurchased) {
+        // User has purchased the product, show the review form
+        setShowReviewPopup(true);
+      } else {
+        // User has not purchased the product, show an error message
+        setShowErrorMessage(true);
+        setTimeout(() => {
+          setShowErrorMessage(false);
+        }, 3000);
+      }
+    } catch (error) {
+      console.error("Error checking purchase:", error);
       setShowErrorMessage(true);
       setTimeout(() => {
         setShowErrorMessage(false);
@@ -146,6 +189,48 @@ const ProductDetails = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+  };
+
+  const [reviews, setReviews] = useState([]);
+  const [averageRating, setAverageRating] = useState(0);
+  const [totalRatings, setTotalRatings] = useState(0);
+  const [ratingCounts, setRatingCounts] = useState([]);
+
+  useEffect(() => {
+    // Fetch reviews dynamically from the backend
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get(`/reviews/${productId}`);
+        const { reviews, averageRating, totalRatings, ratingCounts } =
+          response.data;
+
+        setReviews(reviews);
+        setAverageRating(averageRating);
+        setTotalRatings(totalRatings);
+        setRatingCounts(ratingCounts);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      }
+    };
+
+    fetchReviews();
+  }, [productId]);
+
+  const getReviewTitle = (rating) => {
+    switch (Math.round(rating)) {
+      case 5:
+        return "Great Product!";
+      case 4:
+        return "Good Quality";
+      case 3:
+        return "Decent";
+      case 2:
+        return "Not Satisfied";
+      case 1:
+        return "Very Disappointed";
+      default:
+        return "Review";
+    }
   };
 
   return (
@@ -223,7 +308,15 @@ const ProductDetails = () => {
               <p>Origin: {product.fullProduct.productFeatures.origin}</p>
                 <p>Categories: {product.fullProduct.category.join(', ')}</p> */}
               <div className="pd-star-rating">
-                <StarProduct starValue={product.fullProduct.rating} />
+                <ReactStars
+                  count={5}
+                  value={averageRating} // This will handle decimal ratings like 4.3
+                  size={24}
+                  edit={false} // Make it non-editable
+                  half={true} // Allow half stars
+                  color2={"#ffd700"} // Star color
+                />
+                <span>( {averageRating} )</span>
               </div>
               {/* <div className='change-grams' onClick={()=>{setShowGram(true)}}>
                   <h2>Grams</h2> <div><h2>2 Grams / 5 Grams 
@@ -308,7 +401,7 @@ const ProductDetails = () => {
                             value={rating}
                           />
                         </div>
-                        
+
                         {/* Error Message if rating is not provided */}
                         {errorMessage && (
                           <p className="error-message">{errorMessage}</p>
@@ -333,7 +426,9 @@ const ProductDetails = () => {
                           </button>
 
                           {/* Submit Button */}
-                          <button className="sr-button" type="submit">Submit Review</button>
+                          <button className="sr-button" type="submit">
+                            Submit Review
+                          </button>
                         </div>
                       </form>
                     </div>
@@ -347,146 +442,77 @@ const ProductDetails = () => {
                 {/* <!-- Left side: Average rating and total reviews --> */}
                 <div class="average-rating">
                   <div class="average-stars">
-                    <h3>4.2</h3>
+                    <h3>{averageRating}</h3>
                     {/* <!-- Average Rating --> */}
-                    <p>⭐⭐⭐⭐⭐</p>
+                    <ReactStars
+                      count={5}
+                      value={averageRating} // This will handle decimal ratings like 4.3
+                      size={24}
+                      edit={false} // Make it non-editable
+                      half={true} // Allow half stars
+                      color2={"#ffd700"} // Star color
+                    />
                     {/* <!-- Star Icons for Visual Display --> */}
                   </div>
-                  <p class="total-reviews">1200 ratings</p>
-                  {/* <!-- Total Ratings --> */}
+                  <p class="total-reviews">{totalRatings} ratings</p>
                 </div>
 
-                {/* <!-- Right side: Progress bars with rating counts --> */}
-                <div class="rating-bars">
-                  <div class="rating-progress">
-                    <div class="star-label">5 stars</div>
-                    <div class="progress-bar">
-                      <div class="progress" style={{ width: "80%" }}></div>
+                {/* Right side: Progress bars with dynamic rating counts */}
+                <div className="rating-bars">
+                  {ratingCounts.map(({ star, count }) => (
+                    <div key={star} className="rating-progress">
+                      <div className="star-label">{star} stars</div>
+                      <div className="progress-bar">
+                        <div
+                          className="progress"
+                          style={{
+                            width: `${(count / totalRatings) * 100}%`, // Calculate percentage
+                          }}
+                        ></div>
+                      </div>
+                      <span className="rating-count">{count} reviews</span>
                     </div>
-                    <span class="rating-count">800 reviews</span>
-                    {/* <!-- Count for 5 stars --> */}
-                  </div>
-
-                  <div class="rating-progress">
-                    <div class="star-label">4 stars</div>
-                    <div class="progress-bar">
-                      <div class="progress" style={{ width: "60%" }}></div>
-                    </div>
-                    <span class="rating-count">600 reviews</span>
-                    {/* <!-- Count for 4 stars --> */}
-                  </div>
-
-                  <div class="rating-progress">
-                    <div class="star-label">3 stars</div>
-                    <div class="progress-bar">
-                      <div class="progress" style={{ width: "40%" }}></div>
-                    </div>
-                    <span class="rating-count">400 reviews</span>
-                    {/* <!-- Count for 3 stars --> */}
-                  </div>
-
-                  <div class="rating-progress">
-                    <div class="star-label">2 stars</div>
-                    <div class="progress-bar">
-                      <div class="progress" style={{ width: "20%" }}></div>
-                    </div>
-                    <span class="rating-count">200 reviews</span>
-                    {/* <!-- Count for 2 stars --> */}
-                  </div>
-
-                  <div class="rating-progress">
-                    <div class="star-label">1 star</div>
-                    <div class="progress-bar">
-                      <div class="progress" style={{ width: "10%" }}></div>
-                    </div>
-                    <span class="rating-count">100 reviews</span>
-                    {/* <!-- Count for 1 star --> */}
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
             {/* <!-- Bottom Portion: All Reviews Section --> */}
-            <div class="reviews-list">
+            <div className="reviews-list">
               <h2>All Reviews</h2>
               <hr className="review-line" />
-              <div class="review-item">
-                <h3>Great Product!</h3>
-                <div className="review-data">
-                  <div className="review-icon">
-                    <IoPersonCircleOutline size={40} />
-                  </div>
-                  <div className="review-text">
-                    <p className="review-star">⭐⭐⭐⭐⭐</p>
-                    <p className="review-content">
-                      This saffron is absolutely amazing! The flavor and quality
-                      are top-notch.
-                    </p>
-                  </div>
-                </div>
-              </div> 
+             
 
-              <div class="review-item">
-                <h3>Good Quality</h3>
-                <div className="review-data">
-                  <div className="review-icon">
-                    <IoPersonCircleOutline size={40} />
-                  </div>
-                  <div className="review-text">
-                    <p className="review-star">⭐⭐⭐⭐</p>
-                    <p className="review-content">
-                      Good quality but a bit pricey. Overall, I'm satisfied with
-                      my purchase.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="review-item">
-                <h3>Decent</h3>
-                <div className="review-data">
-                  <div className="review-icon">
-                    <IoPersonCircleOutline size={40} />
-                  </div>
-                  <div className="review-text">
-                    <p className="review-star">⭐⭐⭐</p>
-                    <p className="review-content">
-                      The saffron is decent but I've had better at this price
-                      point.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="review-item">
-                <h3>Not Satisfied</h3>
-                <div className="review-data">
-                  <div className="review-icon">
-                    <IoPersonCircleOutline size={40} />
-                  </div>
-                  <div className="review-text">
-                    <p className="review-star">⭐⭐</p>
-                    <p className="review-content">
-                      Not worth the money in my opinion. The quality could be
-                      better.
-                    </p>
+              {/* Loop through reviews array */}
+              {reviews.map((review, index) => (
+                <div className="review-item" key={index}>
+                  {/* Get the dynamic title based on rating */}
+                  <h3>{getReviewTitle(review.rating)}</h3>
+                  <div className="review-data">
+                    <div className="review-icon">
+                      <IoPersonCircleOutline size={40} />
+                    </div>
+                    <div className="review-text">
+                      <div className="user-review">
+                        <p className="reviewer-name">{review.name}</p>
+                        <p className="review-star">
+                          <span className="review-value">
+                            ({review.rating.toFixed(1)})
+                          </span>{" "}
+                          <ReactStars
+                            count={5}
+                            value={review.rating} // This will handle decimal ratings like 4.3
+                            size={24}
+                            edit={false} // Make it non-editable
+                            half={true} // Allow half stars
+                            color2={"#ffd700"} // Star color
+                          />
+                        </p>
+                      </div>
+                      <p className="review-content">{review.comment}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="review-item">
-                <h3>Very Disappointed</h3>
-                <div className="review-data">
-                  <div className="review-icon">
-                    <IoPersonCircleOutline size={40} />
-                  </div>
-                  <div className="review-text">
-                    <p className="review-star">⭐</p>
-                    <p className="review-content">
-                      The product did not meet my expectations at all.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

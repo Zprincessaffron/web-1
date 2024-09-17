@@ -1,33 +1,54 @@
-import React, { useState } from 'react'
-import '../../styles/OurProducts.css'
-import ourproductback from '../../images/ourproductsback.jpeg'
-import ourproductback1 from '../../images/homepageback2.jpg'
+import React, { useState } from 'react';
+import '../../styles/OurProducts.css';
+import ourproductback from '../../images/ourproductsback.jpeg';
 import { FaArrowRightLong } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
-import { useNavigate } from 'react-router-dom'
-import Arrowbtn from '../button/Arrowbtn'
-function OurProducts({ setFinalProduct,showFinalProduct }) {
-  const navigate=useNavigate()
-  const [mouse,setMouse]=useState(false)
-  function handleMouse(){
-      setMouse(true)
+function OurProducts({ setFinalProduct }) {
+  const navigate = useNavigate();
+  const [mouse, setMouse] = useState(false);
+
+  function handleMouse() {
+    setMouse(true);
   }
-  function handleLeave(){
-      setMouse(false)
+
+  function handleLeave() {
+    setMouse(false);
   }
-  function handleClick(){
-    setFinalProduct(true)
+
+  function handleClick() {
+    setFinalProduct(true);
+
+    // Check if the user has already visited the chatbot
+    const hasVisited = localStorage.getItem("hasVisitedChatBot");
+
+    if (!hasVisited) {
+      // Set the flag so the chatbot only opens once per user
+      localStorage.setItem("hasVisitedChatBot", "true");
+
+      // Navigate to the chatbot with a 3-second delay
+      setTimeout(() => {
+        navigate("/chatbot");
+      }, 2000); 
+    } 
   }
+
   return (
-    <div className='unveil_main' style={{backgroundImage:`url(${ourproductback})`}}>
+    <div className='unveil_main' style={{ backgroundImage: `url(${ourproductback})` }}>
       <div className='unveil_div1'>
         <h1>OUR PRODUCTS</h1>
         <div className='arrow_div'>
-         <button onClick={handleClick} onMouseEnter={handleMouse} onMouseLeave={handleLeave}>DISCOVER NOW <FaArrowRightLong className={`arrow_txt ${mouse?"true":""}`} />
-         </button>
-    </div>        </div>
-       </div>
-  )
+          <button
+            onClick={handleClick}
+            onMouseEnter={handleMouse}
+            onMouseLeave={handleLeave}
+          >
+            DISCOVER NOW <FaArrowRightLong className={`arrow_txt ${mouse ? "true" : ""}`} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default OurProducts
+export default OurProducts;

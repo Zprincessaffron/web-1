@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { loginUser, registerUser, test, getProfile, getUserData, getAdmin, authenticate, authorize,verifyOTP,resendOTP } from '../controllers/authController.js';
 import { getAllUsers, updateProfile, userLogout,userUnique } from '../controllers/userController.js';
-import { addReview ,getAllReviews,getKashmirSaffronReviews,getSpainSaffronReviews } from '../controllers/reviewController.js'
+import { addReview ,checkUserPurchase,createReview,fetchReviews,getAllReviews,getKashmirSaffronReviews,getSpainSaffronReviews } from '../controllers/reviewController.js'
 import { analyzeData } from '../controllers/recommenderController.js';
 import { getAllMarketers, getMarketer, registerMarketer } from '../controllers/marketerController.js';
 import { getAllWholesalers, getWholeSaler, registerWholesaler } from '../controllers/wholesalerController.js';
@@ -69,6 +69,9 @@ router.post("/create-order", createOrder);
 router.post("/verify-payment", verifyPayment);
 
 //reviews
+router.get('/check-purchase/:userId/:productId', checkUserPurchase);
+router.post('/reviews', createReview);
+router.get('/reviews/:productId', fetchReviews);
 router.post('/add-review' ,addReview);
 router.get('/allreviews' ,getAllReviews)
 router.get('/kashmir-review' ,getKashmirSaffronReviews);

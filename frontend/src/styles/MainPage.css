@@ -65,7 +65,85 @@
     font-style: normal;
     overflow-x: hidden;
     background-color: rgb(254, 236, 255);
+    position: relative;
 }
+
+.recommender-test {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  width: 80px; /* Adjust size as needed */
+  height: 80px; /* Adjust height as needed */
+  background-image: url('../../src/images/pngegg.png'); /* Add your image URL here */
+  transform: scaleX(-1);
+  background-size: cover; /* Make sure the image covers the entire box */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent background image repeating */
+  cursor: pointer; /* Add a pointer on hover to indicate it's clickable */
+  opacity: 0.9; /* Slight transparency */
+  margin-right: -30px;
+}
+
+.bot-text {
+  position: fixed;
+  top: 48%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 60;
+  width: 100px; /* Adjust size as needed */
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 1px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  background: #000;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.left-side {
+  position: fixed;
+  top: 48%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 60;
+  width: 100px; /* Adjust size as needed */
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  background: #000;
+  color: white;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.right-side {
+  position: fixed;
+  top: 48%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 60;
+  width: 100px; /* Adjust size as needed */
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 1px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  background: #000;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
 
 .mainpage_container{
   width: 100vw;
@@ -196,6 +274,11 @@
     color: rgb(0, 0, 0);
     font-size: 0.8rem;
   }
+
+  .mainpage_div3 a{ 
+    text-decoration: none;
+  }
+
   .our_products{
     margin-bottom: 20px;
     text-align: center;

@@ -1,15 +1,32 @@
-import mongoose from "mongoose";
-import { Schema } from "mongoose";
+import mongoose from 'mongoose';
 
-const reviewSchema = new Schema({
-  name: { type: String, required: true },
-  star: { type: String, required: true, min: 1, max: 5 },
-  review: { type: String, required: true },
-  product: { type: String, required: true, enum: ['Kashmir Saffron', 'Spain Saffron'] },
-  date: { type: Date, default: Date.now }
+const reviewSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  name: String,
+  product: {
+    type: String,
+    ref: 'Product',
+    required: true
+  },
+  rating: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 5
+  },
+  comment: {
+    type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
-
 const Review = mongoose.model('Review', reviewSchema);
-
 export default Review;

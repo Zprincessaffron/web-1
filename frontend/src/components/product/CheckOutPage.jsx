@@ -52,7 +52,8 @@ const CheckoutPage = () => {
       const orderData = {
         shippingDetails,
         items: cartItems.map((item) => ({
-          variantId: item._id,
+          variantId: item.variantId,
+          productId: item.productId,
           weight: item.weight,
           quantity: item.quantity,
           price: item.price,
@@ -62,6 +63,7 @@ const CheckoutPage = () => {
         user: user,
       };
 
+      console.log(orderData)
       const response = await axios.post("/orders", orderData, {
         headers: {
           "Content-Type": "application/json",
