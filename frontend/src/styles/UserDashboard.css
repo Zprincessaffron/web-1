@@ -338,7 +338,6 @@
     font-weight: 500; /* font-medium */
     color: #0d0b3d; /* text-indigo-600 */
     text-decoration: none;
-    cursor: pointer;
     transition: color 0.2s ease;
 }
 
@@ -471,7 +470,6 @@
     border-radius: 1rem; /* rounded-md */
     color: #fff; /* text-white */
     border: none;
-    cursor: pointer;
     letter-spacing: 1px;
     transition: background-color 0.2s ease;
 }

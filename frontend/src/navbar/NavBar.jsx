@@ -50,8 +50,8 @@ function Navbar( {itemCount} ) {
           
 
         </div>
-        <div className={`Navbar_div2 ${showNav?"true":""}`}   >
-          Z PRINCESS SAFFRON
+        <div   className={`Navbar_div2 ${showNav?"true":""}`}   >
+          <span onClick={()=>{navigate('/')}}>Z PRINCESS SAFFRON</span>
             
         </div>
        {user?(

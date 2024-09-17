@@ -46,7 +46,6 @@
     padding: 10px 50px;
     background-color: black;
     color: white;
-    cursor: pointer;
 }
 .loginhover_div2>button:hover{
     padding: 10px 50px;
@@ -86,7 +85,6 @@
 .loginhover_div3>button{
     padding: 10px 50px;
     transition: all 0.3s ease;
-    cursor: pointer;
 
 }
 .loginhover_div3>button:hover{

@@ -17,10 +17,14 @@ import { IoPersonOutline } from "react-icons/io5";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { userContext } from "../../context/UserContext";
 import ReactStars from "react-stars";
+<<<<<<< HEAD
 import axios from "axios";
+=======
+import Slider from "react-slick";
+>>>>>>> 0cfc6ce21a10889b63afe4b54886abf6d866a00f
 
 const ProductDetails = () => {
-  const { setMenuSlider, setSideBar, setShowNav } = useUserContext();
+  const { setMenuSlider, setSideBar, setShowNav,isMobile } = useUserContext();
   const { addToCart, cartItems } = useContext(CartContext);
   const { user } = useContext(userContext);
   const { id } = useParams(); // Get productId from the URL params
@@ -115,6 +119,7 @@ console.log(btnDissable);
     setMenuSlider(false);
     setSideBar(false);
     setShowNav(true);
+    setShowReviewPopup(false)
   }, []);
 
   ////ADD TO CART////
@@ -179,6 +184,14 @@ console.log(btnDissable);
         setShowErrorMessage(false);
       }, 3000);
     }
+  };
+  //settings for slider
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
 
   const [reviews, setReviews] = useState([]);
@@ -250,12 +263,43 @@ console.log(btnDissable);
       />
       <div>
         <div className="product-details">
-          <div className="pd-left">
+           {isMobile?(
+                     
+
+    <Slider className="pd_slider" {...settings}>
+
+    <div>
+      <h3>1</h3>
+    </div>
+    <div>
+      <h3>2</h3>
+    </div>
+    <div>
+      <h3>3</h3>
+    </div>
+    <div>
+      <h3>4</h3>
+    </div>
+    <div>
+      <h3>5</h3>
+    </div>
+    <div>
+      <h3>6</h3>
+    </div>
+  </Slider>
+  
+
+
+           ):(
+            <>
+            <div className="pd-left">
             <div className="pd-left-1"></div>
             <div className="pd-left-2"></div>
             <div className="pd-left-3"></div>
             <div ref={divRef} className="pd-left-4"></div>
           </div>
+            </>
+           )}
           <div className={`pd-right ${isDivAtBottom ? "" : "true"}`}>
             <div className="pd-rightdetails">
               <h1>{product.name}</h1>
@@ -294,39 +338,42 @@ console.log(btnDissable);
                 <button onClick={handleBuyNow}>BUY NOW</button>
               </div>
               <div className="pd-right_belowitems">
-                <h3
+                <ul>
+                <li><a
                   onClick={() => {
                     setAvailability(true);
                   }}
                 >
                   Check availability in store
-                </h3>
-                <h3
+                </a></li>
+                <li> <a
                   onClick={() => {
                     setpDetails(true);
                   }}
                 >
                   Product details
-                </h3>
-                <h3>Delivery & returns</h3>
-                <h3
+                </a> </li>
+                <li><a>Delivery & returns</a> </li>
+                <li> <a
                   onClick={() => {
                     setGifting(true);
                   }}
                 >
                   Gifting
-                </h3>
+                </a> </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
 
         <div className="pd-review-box">
-          <div class="reviews-container">
+          <div className="reviews-container">
             {/* <!-- Top Portion: Star Ratings with Progress Bar --> */}
             <div class="ratings-overview">
               <div className="top-section">
                 <h2>Reviews Overview</h2>
+               
                 <div>
                   <button className="review-button" onClick={handleReviewClick}>
                     Add review
@@ -432,7 +479,6 @@ console.log(btnDissable);
                 </div>
               </div>
             </div>
-
             {/* <!-- Bottom Portion: All Reviews Section --> */}
             <div className="reviews-list">
               <h2>All Reviews</h2>
@@ -468,7 +514,58 @@ console.log(btnDissable);
                     </div>
                   </div>
                 </div>
+<<<<<<< HEAD
               ))}
+=======
+              </div>
+
+              <div class="review-item">
+                <h3>Decent</h3>
+                <div className="review-data">
+                  <div className="review-icon">
+                    <IoPersonCircleOutline size={40} />
+                  </div>
+                  <div className="review-text">
+                    <p className="review-star">⭐⭐⭐</p>
+                    <p className="review-content">
+                      The saffron is decent but I've had better at this price
+                      point.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="review-item">
+                <h3>Not Satisfied</h3>
+                <div className="review-data">
+                  <div className="review-icon">
+                    <IoPersonCircleOutline size={40} />
+                  </div>
+                  <div className="review-text">
+                    <p className="review-star">⭐⭐</p>
+                    <p className="review-content">
+                      Not worth the money in my opinion. The quality could be
+                      better.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="review-item">
+                <h3>Very Disappointed</h3>
+                <div className="review-data">
+                  <div className="review-icon">
+                    <IoPersonCircleOutline size={40} />
+                  </div>
+                  <div className="review-text">
+                    <p className="review-star">⭐</p>
+                    <p className="review-content">
+                      The product did not meet my expectations at all.
+                    </p>
+                  </div>
+                </div>
+              </div>
+>>>>>>> 0cfc6ce21a10889b63afe4b54886abf6d866a00f
             </div>
           </div>
         </div>

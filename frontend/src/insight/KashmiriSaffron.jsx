@@ -9,7 +9,7 @@ import saffronculinary from '../images/kashmirfoods.jpeg'
 import saffronhim from '../images/saffranhim.jpg'
 // import saffronserum from '../images/beautyback.jpg'
 import saffronserum from '../images/beautyback1.jpeg'
-
+ 
 import saffronchai from '../images/kashmirteaa.jpeg'
 import Navbar from '../navbar/NavBar';
 import Footer from '../footer/Footer';

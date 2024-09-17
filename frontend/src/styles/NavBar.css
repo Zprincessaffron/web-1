@@ -27,7 +27,6 @@
     width: 20%;
     padding-left: 20px;
     color: white;
-    cursor: pointer;
 
 }
 .Navbar_div1>img{
@@ -59,7 +58,6 @@
     border: none;
     font-size: larger;
     background: none;
-    cursor: pointer;
     color: white;
     
 
@@ -102,7 +100,6 @@
     gap: 5px; 
     padding: 10px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.16);
-    cursor: pointer;
 }
 .ph_main>div:hover{
     background-color: rgba(47, 46, 46, 0.915);
@@ -123,7 +120,6 @@
     border: none;
     font-size: larger;
     background: none;
-    cursor: pointer;
     color: white;
     
 

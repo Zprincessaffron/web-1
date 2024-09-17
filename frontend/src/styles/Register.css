@@ -110,7 +110,7 @@
     
 }
 .rf_form1>label{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding-left: 5px;
     font-size: medium;
 }
@@ -140,7 +140,7 @@
     justify-content: left;
     align-items: start;
     padding-bottom: 10px;
-    width: 90%;
+    width: 100%;
     padding-right: 15px;
     color: gray;
 }
@@ -155,12 +155,17 @@
     
 }
 .rf_form11> input{
-    width: 80%;
-    height:35px;
-    border-radius: 5px;
-    border: 1px solid rgba(128, 128, 128, 0.345);
-    padding-left: 30px;
-    outline: none;
+  background: none;
+  border: none;
+  height: 30px;
+  width: 250px;
+  padding-left: 40px;
+  overflow: hidden;
+  outline: none;
+  color: white;
+  
+  border-bottom: 2px solid rgba(255, 251, 251, 0.722);
+
     
 }
 .rf_form11> input:active{
@@ -199,10 +204,10 @@
     width: 120px;
     font-family: "Raleway", sans-serif;
     background-color: #115DFC;
-    cursor: pointer;
+    
 }
 .sub_button:hover{
-    background-color: #0051ff;
+    background-color: #ffffff;
 }
 .sub_button:active{
     scale: 98%;
@@ -215,7 +220,6 @@
   font-size: medium;
   text-transform: capitalize;
   letter-spacing: 1px;
-  cursor: pointer;
   
 }
 .lander_div13>p{
@@ -253,6 +257,5 @@
     border: none;
     color: white;
 
-    background-color: rgb(205, 108, 33);
   }
 }

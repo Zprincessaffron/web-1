@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { TbPasswordMobilePhone } from "react-icons/tb";
 
 
-const Otp = () => {
-  const { navOtp,setNavOtp,userEmail }=useUserContext()
+const Otp = ({setNavOtp,navOtp}) => {
+  const { userEmail }=useUserContext()
   const initialValues = {
     email: userEmail,
     otp: ''
@@ -33,13 +33,12 @@ const Otp = () => {
           const timer = setTimeout(() => setSeconds(seconds - 1), 1000);
           return () => clearTimeout(timer);
       } else {
-        setReSend(true)
+        setReSend(false)
       }
   }, [seconds]);
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       const response = await axios.post('/verify-otp', values);
-      console.log('Registration Successful', response.data);
       // Handle successful registration, e.g., redirect to login page
       setNavOtp(true)
       resetForm();
@@ -61,6 +60,7 @@ const Otp = () => {
             email:userEmail
         });
         console.log('Opt resent', response.data);
+
         
     } catch (error) {
         
@@ -89,7 +89,7 @@ const Otp = () => {
                 name="otp"
               />
               <div>
-              <TbPasswordMobilePhone />
+              <TbPasswordMobilePhone className='password-icon' />
               </div>
               </div>
               <ErrorMessage name="otp" component="div" className="error" />

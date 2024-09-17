@@ -4,16 +4,16 @@
   font-family: 'riviera';
   src: url('../src/font/RivieraNightsTrial-Ultralight/RivieraNightsTrial-Ultralight.otf') format('opentype');
 }
-button{
-  cursor: pointer;
-}
+
 
 .numbersfont{
   font-family: "Roboto", system-ui;
   font-weight: 300;
 }
 
-
+*{
+  cursor: url(cursor.png)10 15,auto;
+}
 /* Product card styles */
 .product-card {
   transition: transform 0.3s ease-in-out;

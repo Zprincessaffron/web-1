@@ -255,7 +255,6 @@ font-size: 0.9rem;
 
 }
 .checkout_cartitems2>button:hover{
-  cursor: pointer;
   font-weight: bold;
 }
 @media only screen and (max-width: 500px) {
@@ -507,7 +506,6 @@ font-size: 0.9rem;
 
 }
 .checkout_cartitems2>button:hover{
-  cursor: pointer;
   font-weight: bold;
 }
 }

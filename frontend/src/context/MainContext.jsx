@@ -20,6 +20,8 @@ export const UserProvider = ({children})=>{
     const [isMobile, setIsMobile] = useState(false);
     const [isAddReview,setIsAddReview]=useState(false)
     const [isMouse,setIsMouse]=useState(true)
+    const [CustomCuser,setCustomCuser]=useState(false)
+
 
     useEffect(() => {
         // Function to check if the viewport width is less than or equal to 600px
@@ -92,7 +94,7 @@ export const UserProvider = ({children})=>{
   
 
     return(
-        <MainContext.Provider value={{ isMouse,setIsMouse,isAddReview,setIsAddReview,isMobile,setIsMobile,singleProduct,setSingleProduct,profileHover,setProfileHover,mainItems,setMainItems,goldenElixir,setGoldenElixir,menuSlider,setMenuSlider,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,userEmail,setUserEmail,navOtp,setNavOtp,showLogin,setShowLogin,showNav,setShowNav,slider1,setSlider1,slider2,setSlider2,slider3,setSlider3,Culinary,setCulinary,medical,setmedical,pregnancy,setPregnancy,cosmetic,setCosmetic,formData, setFormData }} >
+        <MainContext.Provider value={{ CustomCuser,setCustomCuser,isMouse,setIsMouse,isAddReview,setIsAddReview,isMobile,setIsMobile,singleProduct,setSingleProduct,profileHover,setProfileHover,mainItems,setMainItems,goldenElixir,setGoldenElixir,menuSlider,setMenuSlider,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,userEmail,setUserEmail,navOtp,setNavOtp,showLogin,setShowLogin,showNav,setShowNav,slider1,setSlider1,slider2,setSlider2,slider3,setSlider3,Culinary,setCulinary,medical,setmedical,pregnancy,setPregnancy,cosmetic,setCosmetic,formData, setFormData }} >
             {children}
         </MainContext.Provider>
     )

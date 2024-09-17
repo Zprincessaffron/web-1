@@ -44,7 +44,7 @@ function MedicinalUse() {
         };
       }, []);
   return (
-    <div>
+    <div >
         <ScrollToTop/>
         <Navbar/>
         <SideBar/>

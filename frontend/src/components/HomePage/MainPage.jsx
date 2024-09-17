@@ -6,6 +6,7 @@ import Footer from "../../footer/Footer";
 import { useUserContext } from "../../context/MainContext";
 import LoginHover from "../../navbar/LoginHover";
 import { GrNext } from "react-icons/gr";
+<<<<<<< HEAD
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -37,6 +38,28 @@ function MainPageTrial() {
     showLogin,
   } = useUserContext();
   const [showEnd, setShowEnd] = useState(true);
+=======
+import { motion } from 'framer-motion';
+import gsap from 'gsap'; 
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import NewsLetter from './NewsLetter'
+import OurProducts from './OurProducts'
+import SideBar from '../sidebar/SideBar'
+import { useNavigate } from 'react-router-dom'
+import MenuSlider from '../sidebar/MenuSlider'
+import ProfileHover from '../../navbar/ProfileHover'
+import Review from '../review/Review'
+import Arrowbtn from '../button/Arrowbtn'
+import FinalProduct from '../product/FinalProduct'
+import Cursor from './Cursor'
+import ReactSlick from '../product/ReactSlick'
+
+gsap.registerPlugin(ScrollTrigger);
+function MainPageTrial() {
+  const navigate = useNavigate()
+  const { CustomCuser,setCustomCuser,isMouse,setIsMouse,isMobile,profileHover, setProfileHover, menuSlider, setMenuSlider, sideBar, setSideBar, setShowNav, showLogin } = useUserContext()
+  const [showEnd, setShowEnd] = useState(true)
+>>>>>>> 0cfc6ce21a10889b63afe4b54886abf6d866a00f
   const [scrollPosition, setScrollPosition] = useState(0);
   const [height, setHeight] = useState(false);
   const [translateX, setTranslateX] = useState(0);
@@ -50,6 +73,7 @@ function MainPageTrial() {
     setSideBar(false);
   }, []);
 
+<<<<<<< HEAD
   const cursorRoundedRef = useRef(null);
   const cursorPointedRef = useRef(null);
 
@@ -77,6 +101,8 @@ function MainPageTrial() {
       window.removeEventListener("mousemove", moveCursor);
     };
   }, []);
+=======
+>>>>>>> 0cfc6ce21a10889b63afe4b54886abf6d866a00f
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -158,6 +184,7 @@ function MainPageTrial() {
   console.log("video", videoPlay);
 
   return (
+<<<<<<< HEAD
     <div className="mainpage_main">
       <RecommenderTest />
       <Navbar />
@@ -192,6 +219,25 @@ function MainPageTrial() {
                   ) : null}
                 </>
               )}
+=======
+    <>
+   
+
+      <Navbar />
+      <SideBar />
+      <MenuSlider /> 
+      {profileHover ? (
+        <ProfileHover />) : (null)}
+      {showLogin ? (<LoginHover />) : ' '}
+  
+    <div className='mainpage_main'>
+     
+      <div   className={`mainpagecon ${height ? "true" : ''}`}>
+        <div style={{ transform: `translateY(${scrollPosition * 0.2}px)` }} className='mainpage_con1'>
+          <div  onClick={videoPlay?(playVideo):(pauseVideo)}  className='mainpage_container'>
+            <div className="video-container">
+            
+>>>>>>> 0cfc6ce21a10889b63afe4b54886abf6d866a00f
               <video ref={videoRef} loop muted autoPlay>
                 <source src={backvideo} type="video/mp4" />
               </video>
@@ -274,12 +320,23 @@ function MainPageTrial() {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <div className="footer_plus">
+=======
+      <ReactSlick/>
+      <div className='footer_plus'>
+>>>>>>> 0cfc6ce21a10889b63afe4b54886abf6d866a00f
         <NewsLetter />
-        <Footer />
       </div>
     </div>
+<<<<<<< HEAD
   );
+=======
+    <Footer />
+
+    </>
+  )
+>>>>>>> 0cfc6ce21a10889b63afe4b54886abf6d866a00f
 }
 
 export default MainPageTrial;

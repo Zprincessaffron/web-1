@@ -7,20 +7,20 @@
     align-items: center;
     flex-direction: column;
     font-family: "Raleway", sans-serif;
-    background-color: rgb(255, 255, 255);
 
     
 }
 .otp_main>h1{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-weight: 500;
+    text-transform: uppercase;
 }
 .otp_main>p{
     margin-top: 10px;
     margin-bottom: 20px;
     font-size: 1rem;
     text-align: center;
-    color: rgb(78, 78, 78);
+    color: rgba(255, 255, 255, 0.912);
     width: 80%;
     font-size: 0.8rem;
 
@@ -38,13 +38,13 @@
 
 }
 .otp_form>label{
-    color: rgb(0, 0, 0);
+    color: rgb(193, 32, 32);
     font-size: 0.9rem;
     font-weight: 400;
 
 }
 .otp_form>input{
-    width: 50%;
+    width: 100%;
     height: 30px;
 
 }
@@ -53,36 +53,49 @@
     width: 100%;
 }
 .otp_btn_div>button{
-    margin: 15px;
-    padding: 10px 25px;
-    border-radius: 10px;
+    width: 50%;
     margin-top: 20px;
     border: none;
-    background-color: rgb(100, 141, 230);
-    color: white;
+    border-radius: 0;
+    background-color: rgb(255, 255, 255);
+    color: rgb(47, 38, 182);
+    text-transform: uppercase;
+    font-size: 1rem;
 
 }
 .resend_div{
-    width: 90%;
-    padding: 10px;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+
 }
 .resend_div>p{
-    color: gray;
+    color: rgb(231, 225, 225);
 
 
 }
 .resend_div>h5{
-    color: rgb(150, 145, 244);
+    color: rgb(216, 207, 239);
     font-size: 15px;
     font-weight: 400;
     font-family: "Roboto", sans-serif;
 
 }
 .resend_div>h4{
-    color: rgb(105, 98, 238);
+    color: rgb(255, 255, 255);
     font-size: medium;
     font-weight: 500;
     font-family: "Roboto", sans-serif;
-    cursor: pointer;
 
+}
+.label-form{
+    color: white;
+}
+.password-icon{
+    color: white;
+}
+.otp_btn_div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
