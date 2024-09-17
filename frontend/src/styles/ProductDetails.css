@@ -361,63 +361,6 @@ a:hover:after {
   font-size: 20px;
 }
 
-/* .review-item {
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-
-.review-item h3 {
-  letter-spacing: 1px;
-}
-
-
-
-.review-data{
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.review-text .user-review {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  
-}
-
-.review-text .review-star{
-  padding: 5px 0px;
-}
-
-.review-text .review-content {
-  padding: 5px 0px;
-  letter-spacing: 1px;
-  font-size: 14px;
-}
-
-
-.review-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.review-item h3 {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-
-.review-item p {
-  margin: 0;
-  color: #555;
-}
-
-.review-item p:first-of-type {
-  font-size: 1rem;
-  color: #00d9ff;
-} */
 
 .review-item {
   border: 1px solid #ddd;
@@ -480,7 +423,7 @@ a:hover:after {
 
 .review-content {
   margin-top: 5px;
-  font-size: 1rem;
+  font-size: 15px;
   color: #555;
   letter-spacing: 1px;
 }
@@ -800,7 +743,7 @@ a:hover:after {
 .progress-bar {
   flex-grow: 1;
   background-color: #e0e0e0;
-  height: 10px;
+  height: 5px;
   border-radius: 5px;
   margin: 0 10px;
   position: relative;
@@ -848,10 +791,7 @@ a:hover:after {
   font-size: 9px;
 }
 
-.review-data .review-icon {
-  color: rgba(78, 78, 78, 0.858);
-  padding-top: 5px;
-}
+
 
 .review-data{
   display: flex;
@@ -866,11 +806,7 @@ a:hover:after {
   padding: 0px 0px;
 }
 
-.review-text .review-content {
-  padding: 5px 0px;
-  letter-spacing: 1px;
-  font-size: 8px;
-}
+
 
 
 .review-item:last-child {
@@ -879,7 +815,7 @@ a:hover:after {
 }
 
 .review-item h3 {
-  font-size: 1rem;
+  font-size: 13px;
   margin-bottom: 10px;
   font-weight: 500;
 }
@@ -889,9 +825,38 @@ a:hover:after {
   color: #555;
 }
 
-.review-item p:first-of-type {
-  font-size: 1rem;
-  color: #00d9ff;
+
+.reviewer-name {
+  font-size: 5px;
+  color: #1f1f1f;
+  font-family: "Jost";
+  letter-spacing: 1px;
+}
+
+.review-star {
+  color: #ffd700; /* Gold color for stars */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.review-star .review-value{
+  color: black;
+  font-family: "Jost";
+  font-size: 10px;
+}
+
+
+.review-content {
+  margin-top: 0;
+  font-size: 10px;
+  color: #cb1818;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+.reviewer-name{
+  font-size: 11px;
 }
 
 
