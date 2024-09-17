@@ -863,5 +863,98 @@ a:hover:after {
 }
 
 
+/* review popup */
+
+.review-popup {
+  position: fixed;
+  top: 50vh;
+  left: 0%;
+  transform: translate(0, -50%);
+  margin: 5px;
+  background-color: white;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 30;
+  width: 95vw;
+}
+
+.review-popup .pb-rating {
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pb-rating label {
+  letter-spacing: 1.2px;
+}
+
+.review-popup textarea { 
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px 10px;
+  width: 90%;
+}
+
+.review-form {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  padding: 20px;
+}
+
+.review-form h3{
+  font-weight: 500;
+  letter-spacing: 1px;
+  /* padding-bottom: 10px; */
+  font-size: 20px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 10px 0px;
+  padding-top: 10px;
+}
+
+.form-buttons .sr-button { 
+  padding: 10px 25px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 10px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.form-buttons .cr-button { 
+  padding: 10px 25px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 10px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.error-message {
+  color: red;
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 30;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
   
 }
