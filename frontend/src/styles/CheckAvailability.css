@@ -1,6 +1,6 @@
 .check_availability_main{
     position: fixed;
-    z-index: 1;
+    z-index: 7;
     height: 100vh;
     top: 0;
     right: 0;
@@ -24,7 +24,7 @@
 .ckeck_avail_1>p{
    margin-right: 20px;
    font-size: medium;
-   color: black;
+   color: black; 
 }
 .ckeck_avail_2{
     padding: 6rem;
@@ -63,4 +63,10 @@
     font-size: 1rem;
     text-transform: capitalize;
     margin-top: 0.5rem;
+}
+
+@media only screen and (max-width: 480px) {
+    .check_availability_main.true{
+        width: 100vw;
+    }
 }
