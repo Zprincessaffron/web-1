@@ -9,15 +9,16 @@
 }
 
 .shipping-container h1 {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   text-align: center;
   margin-bottom: 40px;
   padding: 25px 0px;
-  color: white;
-  background: linear-gradient(90deg, #a000b8, #5724ff 50%, #003efa);
+  color: black;
+  /* background-color: #1e243d; */
+  /* background: linear-gradient(90deg, #a000b8, #5724ff 50%, #003efa); */
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 7px;
+  letter-spacing: 6px;
 }
 
 /* Flex container for sections */
@@ -31,17 +32,18 @@
 
 .shipping-section {
   margin-bottom: 20px;
-  border-radius: 6px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+  /* border-radius: 6px; */
+  /* box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; */
+  border-bottom: 1px solid rgb(138, 138, 138) ;
   padding: 20px;
   width: 65%;
   overflow: hidden;
 }
 
 .shipping-section h2 {
-  font-size: 1rem;
-  color: #5724ff;
+  font-size: 0.8rem;
+  /* color: #5724ff; */
   cursor: pointer;
   position: relative;
   display: flex;
@@ -54,16 +56,17 @@
 }
 
 .shipping-section:hover h2 {
-  color: #a000b8;
+  font-size: 1rem;
 }
 
 .shipping-container p,
 .shipping-container li {
-  font-size: 0.8rem;
-  color: #2e2e2e;
+  font-size: 12.8px;
+  color: #2c2c2c;
   margin-bottom: 10px;
   font-weight: 600;
   letter-spacing: 1px;
+  line-height: 18px;
 }
 
 .shipping-container ul {
@@ -72,7 +75,7 @@
 }
 
 .shipping-container strong {
-  color: #5724ff;
+  color: #000000;
   font-weight: 600;
 }
 

@@ -90,7 +90,13 @@
 }
 .pd-star-rating{
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
+.pd-star-rating span { 
+  font-size: 13px;
 }
 .change-grams{
   padding: 1rem 0;
@@ -246,6 +252,7 @@ gap: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Jost";
 }
 
 .rating-bars {
@@ -298,7 +305,7 @@ gap: 2rem;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  
+  font-family: "Jost";
 }
 
 .reviews-list h2 {
@@ -307,7 +314,7 @@ gap: 2rem;
   font-size: 20px;
 }
 
-.review-item {
+/* .review-item {
   border-bottom: 1px solid #e0e0e0;
   padding-bottom: 15px;
   margin-bottom: 15px;
@@ -317,15 +324,20 @@ gap: 2rem;
   letter-spacing: 1px;
 }
 
-.review-data .review-icon {
-  color: rgba(78, 78, 78, 0.858);
-  padding-top: 5px;
-}
+
 
 .review-data{
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+.review-text .user-review {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  
 }
 
 .review-text .review-star{
@@ -358,7 +370,74 @@ gap: 2rem;
 .review-item p:first-of-type {
   font-size: 1rem;
   color: #00d9ff;
+} */
+
+.review-item {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
+
+.review-item h3 {
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.review-data .review-icon {
+  color: rgba(78, 78, 78, 0.858);
+  padding-top: 5px;
+}
+
+.review-data {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.review-icon {
+  margin-right: 16px;
+}
+
+.review-text {
+  flex: 1;
+}
+
+.user-review {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.reviewer-name {
+  font-size: 0.8rem;
+  color: #1f1f1f;
+  font-family: "Jost";
+  letter-spacing: 1px;
+}
+
+.review-star {
+  color: #ffd700; /* Gold color for stars */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.review-star .review-value{
+  color: black;
+  font-family: "Jost";
+  font-size: 12px;
+}
+
+.review-content {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #555;
+  letter-spacing: 1px;
+}
+
 
 /* review popup */
 

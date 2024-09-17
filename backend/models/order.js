@@ -13,7 +13,8 @@ const orderSchema = new Schema({
     mobile: String,
   },
   cartItems: [{
-    id: mongoose.Schema.Types.ObjectId,
+    variantId: { type: mongoose.Schema.Types.ObjectId, required: true },
+    productId: { type: String, ref: 'Product', required: true },
     name: String,
     price: Number,
     quantity: Number,
