@@ -423,7 +423,7 @@ const ProductDetails = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> 
 
               <div class="review-item">
                 <h3>Good Quality</h3>
