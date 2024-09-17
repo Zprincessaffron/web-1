@@ -42,14 +42,9 @@
 }
 
 .shipping-section h2 {
-<<<<<<< HEAD
   font-size: 0.8rem;
   /* color: #5724ff; */
   cursor: pointer;
-=======
-  font-size: 1rem;
-  color: #5724ff;
->>>>>>> 0cfc6ce21a10889b63afe4b54886abf6d866a00f
   position: relative;
   display: flex;
   justify-content: space-between;

@@ -17,11 +17,9 @@ import { IoPersonOutline } from "react-icons/io5";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { userContext } from "../../context/UserContext";
 import ReactStars from "react-stars";
-<<<<<<< HEAD
 import axios from "axios";
-=======
 import Slider from "react-slick";
->>>>>>> 0cfc6ce21a10889b63afe4b54886abf6d866a00f
+
 
 const ProductDetails = () => {
   const { setMenuSlider, setSideBar, setShowNav,isMobile } = useUserContext();
@@ -514,62 +512,14 @@ console.log(btnDissable);
                     </div>
                   </div>
                 </div>
-<<<<<<< HEAD
+
               ))}
-=======
-              </div>
 
-              <div class="review-item">
-                <h3>Decent</h3>
-                <div className="review-data">
-                  <div className="review-icon">
-                    <IoPersonCircleOutline size={40} />
-                  </div>
-                  <div className="review-text">
-                    <p className="review-star">⭐⭐⭐</p>
-                    <p className="review-content">
-                      The saffron is decent but I've had better at this price
-                      point.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            </div>
 
-              <div className="review-item">
-                <h3>Not Satisfied</h3>
-                <div className="review-data">
-                  <div className="review-icon">
-                    <IoPersonCircleOutline size={40} />
-                  </div>
-                  <div className="review-text">
-                    <p className="review-star">⭐⭐</p>
-                    <p className="review-content">
-                      Not worth the money in my opinion. The quality could be
-                      better.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="review-item">
-                <h3>Very Disappointed</h3>
-                <div className="review-data">
-                  <div className="review-icon">
-                    <IoPersonCircleOutline size={40} />
-                  </div>
-                  <div className="review-text">
-                    <p className="review-star">⭐</p>
-                    <p className="review-content">
-                      The product did not meet my expectations at all.
-                    </p>
-                  </div>
-                </div>
-              </div>
->>>>>>> 0cfc6ce21a10889b63afe4b54886abf6d866a00f
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };
