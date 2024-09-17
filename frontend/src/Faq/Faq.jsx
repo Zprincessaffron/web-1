@@ -4,8 +4,8 @@ import MenuSlider from '../components/sidebar/MenuSlider';
 import SideBar from '../components/sidebar/SideBar';
 import Navbar from '../navbar/NavBar';
 import Footer from '../footer/Footer';
-import './FAQ.css';  // Import the FAQ.css file
-import faqData from './faq.json';
+import './Faq.css';  // Import the FAQ.css file
+import faqData from './Faq.json';
 import { useUserContext } from '../context/MainContext';
 
 const FAQ = () => {

@@ -46,11 +46,10 @@
     background-color: rgb(254, 236, 255)
 }
 .pu_div2 p,.pu_div4 p{
-    color: rgb(44, 44, 44);
+    color: rgb(0, 0, 0);
     letter-spacing: 1.5px;
     word-spacing: 2px;
     line-height: 25px;
-    font-weight: bold;
 }
 .pu_div2 h1,.pu_div4 h1{
     color: black;
@@ -129,7 +128,7 @@
 .pu_div4>div>div>p{
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     word-spacing: 1.5px;
     text-align: center;
     width: 80%;
@@ -144,6 +143,7 @@
     color: rgb(0, 0, 0);
     text-transform: capitalize;
     font-weight: bold;
+    font-size: 0.9rem;
     
 }
 .culinary_subheadings{

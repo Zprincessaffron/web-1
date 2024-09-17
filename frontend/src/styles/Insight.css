@@ -263,14 +263,13 @@
 .insight_div2>p{
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     word-spacing: 1.5px;
     text-align: center;
     color: rgb(42,42,42);
     text-transform: capitalize;
     width: 50%;
     margin-top: 20px;
-    font-weight: bold;
 }
 .insight_div2>div{
     width: 10%;
@@ -357,7 +356,7 @@
 
 }
 .insight_div511>img{
-    width: 100%;
+    width: 80%;
     overflow: hidden;
     
 }
@@ -377,12 +376,12 @@
 }.insight_div512>p{
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     word-spacing: 2px;
     width: 80%;
     text-transform: capitalize;
     margin-top: 10px;
-    font-weight: bold;
+    font-weight: 100;
     color: rgb(42,42,42);
     
 
@@ -417,21 +416,22 @@
     gap: 10px;
 }
 .insight_div6>p{
-    width: 70%;
+    line-height: 1.9230769231;
+    letter-spacing: 0.0484615385em;
     font-size: 0.8rem;
-    letter-spacing: 1.5px;
     word-spacing: 2px;
     text-transform: capitalize;
-    line-height: 25px;
+    width: 70%;
     text-align: center;
-    color: white;
+    color: rgba(225, 223, 223, 0.81);
+    font-weight: 100;
 }
 .insight_div6>h1{
     text-transform: uppercase;
     font-size: calc(0.256rem + 2vw);
     margin-bottom: 5vh;
     letter-spacing: 0.3rem;
-    color: white;
+    color: rgb(255, 255, 255);
 
    
 }
