@@ -97,7 +97,7 @@ console.log(values)
           </div>
           <button onClick={handleLogin}>{loading?"REGISTER":<AiOutlineLoading3Quarters  className='loading-spinner'/>
           }</button>
-          <h3>Existing User? Continue Login</h3>
+          <h3 onClick={()=>{navigate('/login')}}>Existing User? Continue Login</h3>
          </>
          )}
 

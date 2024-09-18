@@ -11,10 +11,10 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { userContext } from '../context/UserContext';
 import { CartContext } from '../context/CartContext';
 
+
 function Navbar( {itemCount} ) {
   const { addToCart, cartItems } = useContext(CartContext);
-
-  const { showMenuSub,setShowMenuSub,profileHover,setProfileHover,mainItems,setMainItems,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,showNav,setShowNav,showLogin,setShowLogin } =useUserContext()
+  const { isMobile,showMenuSub,setShowMenuSub,profileHover,setProfileHover,mainItems,setMainItems,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,showNav,setShowNav,showLogin,setShowLogin } =useUserContext()
   const { user }=useContext(userContext)
   const navigate = useNavigate()
   function handleLogin(e){
@@ -45,26 +45,22 @@ function Navbar( {itemCount} ) {
     <div className={`Navbar_main ${showNav?"true":""}`}>
         <div className='Navbar_div1'> 
           <div className='Navbar_div11'>
-          <AiOutlineMenu onClick={handelMenu}/> <span onClick={handelMenu}>MENU</span></div>
+          <AiOutlineMenu onClick={handelMenu}/> {!isMobile?(<span onClick={handelMenu}>MENU</span>):(null)}</div>
         </div>
         <div   className={`Navbar_div2 ${showNav?"true":""}`}   >
-          <span onClick={()=>{navigate('/')}}>Z PRINCESS SAFFRON</span>
-            
+          <span onClick={()=>{navigate('/')}}>Z PRINCESS SAFFRON</span>  
         </div>
        {user?(
          <div className={`Navbar_div3 ${showNav?"true":""}`} >
-            <button className='button_user' onClick={()=>{navigate('/dashboard/profile')}}><span>{user.name} </span></button>
+            <button className='button_user' onClick={()=>{navigate('/dashboard/profile')}}>{!isMobile?(<span>{user.name} </span>):(<PiUser className='piUser' /> )}</button>
          <button style={{position:'relative',overflow:"hidden",padding:"5px"}} onClick={()=>{navigate('/cart')}}><BsCart/> <p style={{position:'absolute',top:0,right:0,backgroundColor:"#fd625e",color:"#ffe8e8",height:"18px",width:"18px",borderRadius:"10px",display:"flex",alignItems:"center",justifyContent:"center",overflow:"hidden",fontSize:"10px"}}>{cartItems.length}</p> </button>
      </div>
        ):(
-
         <div className={`Navbar_div3 ${showNav?"true":""}`} >
             <button onMouseEnter={handleMouseEnter} onClick={handleLogin}><PiUser className='piUser' /> </button>
             <button onClick={()=>{navigate('/cart')}}><BsCart/></button>
         </div>
        )}
-
-
     </div>
   )
 }
