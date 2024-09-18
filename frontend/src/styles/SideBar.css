@@ -56,7 +56,7 @@
     color: white;
     border-left: 1px solid white;
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 0.3rem;
     margin: 30px;
     font-family: 'Riviera Nights';
@@ -68,24 +68,25 @@
 }
 .menu_main_items{
     transition: all 0.3s ease-in-out;
-    transform: translateX(-15px);
+    transform: translateX(10px);
 
 }
 .menu_main_items.true{
-    transform: translateX(0);
+    transform: translateX(20px);
 }
 .sidebar_div2>div:hover{
     font-weight: bold;
 }
 .menu_main_right{
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-10px);
     transition: all 0.3s ease-in-out;
+    font-size: 0.8rem;
 
 }
 .menu_main_right.true{
     opacity: 1;
-    transform: translateX(-5px);
+    transform: translateX(5px);
 }
 #sidebar_kh{
     font-weight: bolder;

@@ -10,9 +10,8 @@ import { CartContext } from '../../context/CartContext';
 const FinalProduct = () => {
   const [products, setProducts] = useState([]);
   const { addToCart, cartItems } = useContext(CartContext);
-
   const navigate = useNavigate();
-  const [itemHover,setItemHover]=useState(false)
+  const [itemHover,setItemHover]=useState(false) 
 
   const productImage={
     "66d2e6ed20b726ac685d2649-0":product1,

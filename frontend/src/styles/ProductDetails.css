@@ -186,7 +186,7 @@ li {
   margin-top: 5px;
   
 }
-a {
+.pd-right_belowitems a {
   color: #000000;
   text-transform: capitalize;
   text-decoration: none;
@@ -199,7 +199,7 @@ a {
 }
 a:after {    
   background: none repeat scroll 0 0 transparent;
-  bottom: 0;
+  bottom: 0; 
   content: "";
   display: block;
   height: 1px;

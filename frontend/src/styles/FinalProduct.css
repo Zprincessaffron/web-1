@@ -72,3 +72,20 @@
     text-underline-offset: 4px;
     text-decoration-thickness: 1px; 
   }
+  @media only screen and (max-width: 480px) {
+    .product_cards {
+      display: grid;
+      grid-template-columns: auto auto ;
+      padding-left: 10px;
+      
+   
+    }
+    .product_card {
+      width: 90%;
+      height: 70%;
+      overflow: hidden;
+      position: relative;
+  
+    }
+
+  }

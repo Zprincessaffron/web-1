@@ -236,17 +236,17 @@ function SideBar() {
                     </>)
                    }
                     {menuSubItems == 'mainitem' && (
-              <><animated.div onClick={handleKnowledgw} className="menu-item" style={itemAnimation1}  onMouseEnter={()=>handleMouseEnter('knowlegdehub')} > <FaAngleRight   className={`menu_main_right ${showStyle=="knowlegdehub"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="knowlegdehub"?"true":""}`}>KNOWLEDGE HUB</span></animated.div>
-              <animated.div  onClick={handleProduct} className="menu-item" style={itemAnimation2} onMouseEnter={()=>handleMouseEnter('products')} ><FaAngleRight   className={`menu_main_right ${showStyle=="products"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="products"?"true":""}`}>PRODUCTS</span></animated.div>
-              <animated.div onClick={handleWhyChooseUs} className="menu-item" style={itemAnimation3}  onMouseEnter={()=>handleMouseEnter('whychoose')} > <FaAngleRight   className={`menu_main_right ${showStyle=="whychoose"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="whychoose"?"true":""}`}>WHY CHOOSE US</span></animated.div>
-              <animated.div  onClick={handleGoldenElixir} className="menu-item" style={itemAnimation4}  onMouseEnter={()=>handleMouseEnter('golden')} ><FaAngleRight   className={`menu_main_right ${showStyle=="golden"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="golden"?"true":""}`}>GOLDEN EXILIR</span></animated.div>
-              <animated.div  onClick={()=>{navigate('/chatbot')}} className="menu-item" style={itemAnimation5}  onMouseEnter={()=>handleMouseEnter('recommendar')} ><FaAngleRight   className={`menu_main_right ${showStyle=="recommendar"?"true":""}`}/>  <span className={`menu_main_items ${showStyle=="recommendar"?"true":""}`}>RECOMMENDAR</span></animated.div>
-              {user?(              <animated.div  onClick={()=>{navigate('/dashboard/profile')}} className="menu-item" style={itemAnimation6}  onMouseEnter={()=>handleMouseEnter('profile')} > <FaAngleRight   className={`menu_main_right ${showStyle=="profile"?"true":""}`}/>  <span className={`menu_main_items ${showStyle=="profile"?"true":""}`}>PROFILE</span></animated.div>
+              <><animated.div onClick={handleKnowledgw} className="menu-item" style={itemAnimation1}  onMouseEnter={()=>handleMouseEnter('knowlegdehub')} > <span   className={`menu_main_right ${showStyle=="knowlegdehub"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="knowlegdehub"?"true":""}`}>KNOWLEDGE HUB</span></animated.div>
+              <animated.div  onClick={handleProduct} className="menu-item" style={itemAnimation2} onMouseEnter={()=>handleMouseEnter('products')} ><span   className={`menu_main_right ${showStyle=="products"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="products"?"true":""}`}>PRODUCTS</span></animated.div>
+              <animated.div onClick={handleWhyChooseUs} className="menu-item" style={itemAnimation3}  onMouseEnter={()=>handleMouseEnter('whychoose')} > <span   className={`menu_main_right ${showStyle=="whychoose"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="whychoose"?"true":""}`}>WHY CHOOSE US</span></animated.div>
+              <animated.div  onClick={handleGoldenElixir} className="menu-item" style={itemAnimation4}  onMouseEnter={()=>handleMouseEnter('golden')} ><span   className={`menu_main_right ${showStyle=="golden"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="golden"?"true":""}`}>GOLDEN EXILIR</span></animated.div>
+              <animated.div  onClick={()=>{navigate('/chatbot')}} className="menu-item" style={itemAnimation5}  onMouseEnter={()=>handleMouseEnter('recommendar')} ><span   className={`menu_main_right ${showStyle=="recommendar"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="recommendar"?"true":""}`}>RECOMMENDAR</span></animated.div>
+              {user?(              <animated.div  onClick={()=>{navigate('/dashboard/profile')}} className="menu-item" style={itemAnimation6}  onMouseEnter={()=>handleMouseEnter('profile')} > <span   className={`menu_main_right ${showStyle=="profile"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="profile"?"true":""}`}>PROFILE</span></animated.div>
 ):(null)}
-              <animated.div onClick={()=>{navigate('/login')}}  className="menu-item" style={itemAnimation7}  onMouseEnter={()=>handleMouseEnter('login')} > <FaAngleRight   className={`menu_main_right ${showStyle=="login"?"true":""}`}/>  <span className={`menu_main_items ${showStyle=="login"?"true":""}`}>LOGIN</span></animated.div></>
+              <animated.div onClick={()=>{navigate('/login')}}  className="menu-item" style={itemAnimation7}  onMouseEnter={()=>handleMouseEnter('login')} > <span   className={`menu_main_right ${showStyle=="login"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="login"?"true":""}`}>LOGIN</span></animated.div></>
              )
                    }
-    </>
+</>
               
              ):(null)}
             
