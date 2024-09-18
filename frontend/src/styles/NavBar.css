@@ -15,7 +15,7 @@
     
 }
 .Navbar_main.true{
-    background-color: white;
+    background-color: white; 
     color: rgb(0, 0, 0);
 
 }
@@ -106,19 +106,21 @@
     color: white;
 }
 .Navbar_div11{
-    letter-spacing: 0.15em;
-    font-size: 0.9rem;  
+
+}
+.Navbar_div11.true>span{
+
+
 }
 .Navbar_div11>span{
-    color: #ffffff;
     text-transform: capitalize;
     text-decoration: none;
     letter-spacing: 0.15em;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     
     display: inline-block;
     position: relative;
-    font-weight: 100;
+    font-weight: 300;
     
 }
 .Navbar_div11>span:after {    
@@ -132,6 +134,10 @@
     background: #ffffff;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
+  }
+  .Navbar_div11.true>span:after {    
+    background: #000000;
+
   }
   .Navbar_div11>span:hover:after { 
     width: 100%; 

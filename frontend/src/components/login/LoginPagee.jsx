@@ -7,17 +7,22 @@ import backvideo from '../../images/backvideo.mp4'
 import axios from 'axios';
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { FaMobileAlt } from "react-icons/fa";
 
 function LoginPagee() {
   const navigate = useNavigate()
   const [email,setEmail]=useState()
   const [password,setPassword]=useState()
   const [loading,setLoading]=useState(true)
+  const [mobileIcon,setMobileIcon] = useState(false)
   const [values, setValues] = useState({
     "email": "",
     "password": ""
   });
  async function handleLogin(){
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const phoneRegex = /^[0-9]{10}$/;
 
     if(!values.email && !/\S+@\S+\.\S+/.test(values.email)){
       setEmail(true)
@@ -27,61 +32,111 @@ function LoginPagee() {
       setPassword(true)
       return
     }
-    try {
-      setLoading(false)
-      await axios.post('/login',{
-        email:values.email,
-        password:values.password
-      }).then((res)=>{
-        setLoading(true)
-        navigate("/")
-      })
-
+    if (emailRegex.test(values.email)) {
+      setMobileIcon(false)
+          try {
+            setLoading(false)
+            await axios.post('/login',{
+              email:values.email,
+              password:values.password
+            }).then((res)=>{
+              setLoading(true)
+              navigate("/")
+              toast("Successfully Loged")
+            })
       
+            
+      
+      
+          } catch (error) {
+            console.error('Registration Error', error.response.data);
+            if(error.response.data.msg){
+              setLoading(false)
+              toast(error.response.data.msg)
+             
+      
+            }}
+          
+    } else if (phoneRegex.test(values.email)) {
+      setMobileIcon(true)
+
+      try {
+        setLoading(false)
+        await axios.post('/login',{
+          phone:values.email,
+          password:values.password
+        }).then((res)=>{
+          setLoading(true)
+          navigate("/")
+          toast("Successfully Loged")
+        })
+  
+        
+  
+  
+      } catch (error) {
+        console.error('Registration Error', error.response.data);
+        if(error.response.data.msg){
+          setLoading(true)
+          toast(error.response.data.msg)
+         
+  
+        }
+        }
+
+      return 'phone';
+    } else {
+      toast("Enter a valid email or phone")
 
 
-    } catch (error) {
-      console.error('Registration Error', error.response.data);
+      return 'invalid';
+    
     }
+  
+    
 
   }
-console.log(values)
   // Handle input change
   const handleChange = (e) => {
+
     const { name, value } = e.target;
+    if(name=='email' ){
+      const numberRegex = /^[0-9]+$/; 
+        if(numberRegex.test(value)){
+          setMobileIcon(true)
+        
+        }else{
+          setMobileIcon(false)
+
+        }
+    }
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value 
     }));
   };
-
   return (
     <div className='loginpageemain'>
        <video loop muted autoPlay>
                 <source src={backvideo} type="video/mp4" />
               </video>
-      
         <div className='loginpagee_div1'>
         <div className='loginpagee_div11'>
           <img src={profile} alt="" />
           <h1>CUSTOMER LOGIN</h1>
           <div className='loginpagee_input'>
-            <input placeholder='Enter Email' className={`inputemail ${email?"true":""}`} type="email" name="email" value={values.email} onChange={handleChange}  />
-            <p><IoMailSharp/></p>
-
+            <input placeholder='Enter Email or Phone number' className={`inputemail ${email?"true":""}`} type="email" name="email" value={values.email} onChange={handleChange}  />
+            <p>{mobileIcon?(<FaMobileAlt/>):(<IoMailSharp/>)}</p>
           </div>
           <div className='loginpagee_input'>
             <input  placeholder='Enter Password' className={`inputpassword ${password?"true":""}`}  type="password" name="password" value={values.password} onChange={handleChange} />
             <p><IoIosLock/></p>
-
           </div>
           <button onClick={handleLogin}>{loading?"LOGIN":<AiOutlineLoading3Quarters  className='loading-spinner'/>
           }</button>
           <h3 onClick={()=>{navigate('/register')}}>New User? Create Account</h3>
-
       </div>
         </div>
- 
     </div>
   )
 }
