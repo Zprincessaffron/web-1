@@ -12,7 +12,7 @@ import saffronchai from '../images/saffronchai.jpg'
 import Navbar from '../navbar/NavBar';
 import Footer from '../footer/Footer';
 import spainquality from '../images/saffrontech.jpg'
-import spaintraditional from '../images/spaintraditionalnew.jpg'
+import spaintraditional from '../images/spainquality.jpeg'
 import beautyspain from '../images/beautyspain1.jpg'
 import KesariRasmalai from '../images/spainfoods.jpeg'
 import spainharvesting from '../images/saffronfield2.jpg'

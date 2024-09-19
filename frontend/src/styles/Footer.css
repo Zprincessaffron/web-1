@@ -94,6 +94,13 @@
     font-weight: 300;
 
 }
+.footer-div32>img{
+    width: 30px;
+    height: auto;
+    opacity: 80%;
+
+
+}
 @media only screen and (max-width: 480px) {
     .footer_main{
         background-color: rgb(32, 34, 42);
@@ -155,7 +162,7 @@
         color: gray;
         font-size: 10px;
         padding-left: 0rem;
-        gap: 1rem;
+        gap: 5px;
         overflow: hidden;
     
     }
@@ -186,6 +193,9 @@
         font-family: "Roboto", system-ui;
         font-weight: 300;
     
+    }
+    .footer-div32>img{
+        width: 15px;
     }
 
 }

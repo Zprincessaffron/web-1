@@ -14,6 +14,13 @@ import { PiWhatsappLogoLight } from "react-icons/pi";
 import { CiMail } from "react-icons/ci";
 import { RiLinkedinLine } from "react-icons/ri";
 
+//importing icons
+import whatsapp from '../images/footericon/whatsapp.png'
+import twitter from '../images/footericon/twitter.png'
+import insta from '../images/footericon/insta.png'
+import facebook from '../images/footericon/facebook.png'
+import gmail from '../images/footericon/gmail.png'
+import linkedin from '../images/footericon/linkedin.png'
 function Footer() {
   const [showContent, setShowContent] = useState(false);
   const navigate = useNavigate();
@@ -100,11 +107,11 @@ function Footer() {
           </div>
         </div>
         <div className="footer-div32">
-          <RiLinkedinLine />
-          <CiMail />
-          <PiWhatsappLogoLight  className="fontwa"/>
-          <TfiInstagram  className="fontinsta"/>
-          <FaXTwitter className="fontx"/>
+          <img src={insta} alt="" />
+          <img src={whatsapp} alt="" />
+          <img src={facebook} alt="" />
+          <img src={linkedin} alt="" />
+          <img src={gmail} alt="" />
         </div>
       </div>
       <div className="footer-div2"></div>

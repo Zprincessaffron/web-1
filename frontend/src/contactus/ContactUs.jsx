@@ -127,12 +127,7 @@ function ContactUs() {
                 <p><MdLocationOn/>Chennai,India</p>
                 <p><IoMdCall/>+91 72001 50577</p>
                 <p><CgMail/>zprincessaffron@gmail.com</p>
-                <div className='fontsaligh'>
-                <FaLinkedinIn/>
-                <CgMail/>
-                <FaWhatsapp/>
-                <FaInstagram/>
-                </div>
+               
             </div>
             <div className={`contact_div121 ${showForm?"true":""}`}>
                     <div className='contact_div121_close'>

@@ -14,6 +14,10 @@
 *{
   cursor: url(cursor.png)10 15,auto;
 }
+
+button:hover{
+  cursor: url(cursorhover.png)10 15,auto;
+}
 /* Product card styles */
 .product-card {
   transition: transform 0.3s ease-in-out;
