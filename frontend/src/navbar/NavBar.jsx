@@ -15,13 +15,13 @@ import { IoBagOutline } from "react-icons/io5";
 
 function Navbar( {itemCount,adjustScrollPosition,showproduct} ) {
   const { addToCart, cartItems } = useContext(CartContext);
-  const { isMobile,showMenuSub,setShowMenuSub,profileHover,setProfileHover,mainItems,setMainItems,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,showNav,setShowNav,showLogin,setShowLogin } =useUserContext()
+  const { setMainPageItems,isMobile,showMenuSub,setShowMenuSub,profileHover,setProfileHover,mainItems,setMainItems,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,showNav,setShowNav,showLogin,setShowLogin } =useUserContext()
   const { user }=useContext(userContext)
   const navigate = useNavigate()
   function handleLogin(e){
     setShowLogin(true)
 
-  }
+  } 
   function handleAbout(e){
     navigate('/about')
 
@@ -33,6 +33,7 @@ function Navbar( {itemCount,adjustScrollPosition,showproduct} ) {
     setSideBar(true)
     setMenuItems(true)
     setMenuSubItems('mainitem')
+    setMainPageItems(false)
   }
  function handleProfileEnter(){
   setProfileHover(true)

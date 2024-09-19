@@ -26,7 +26,7 @@ gsap.registerPlugin(ScrollTrigger);
 function MainPageTrial() {
   const navigate = useNavigate()
   const showproduct = true
-  const { CustomCuser,setCustomCuser,isMouse,setIsMouse,isMobile,profileHover, setProfileHover, menuSlider, setMenuSlider, sideBar, setSideBar, setShowNav, showLogin } = useUserContext()
+  const { mainpageItems,setMainPageItems,CustomCuser,setCustomCuser,isMouse,setIsMouse,isMobile,profileHover, setProfileHover, menuSlider, setMenuSlider, sideBar, setSideBar, setShowNav, showLogin } = useUserContext()
   const [showEnd, setShowEnd] = useState(true)
   const [scrollPosition, setScrollPosition] = useState(0);
   const [height, setHeight] = useState(false);
@@ -39,6 +39,9 @@ function MainPageTrial() {
   useEffect(() => {
     setMenuSlider(false);
     setSideBar(false);
+    setTimeout(() => {
+      setMainPageItems(true)
+    }, 300);
   }, []);
 
   const cursorRoundedRef = useRef(null);
@@ -182,13 +185,13 @@ function MainPageTrial() {
                 <source src={backvideo} type="video/mp4" />
               </video>
               <div className="mainpage_div">
-                <div className={`mainpage_div1 ${zPrinces ? "true" : ""}`}>
+                <div className={`mainpage_div1 ${mainpageItems ? "true" : "false"}`}>
                   {/* //////////////// */}Z PRINCESS SAFFRON
                   {/* /////////////// */}
                 </div>
-                <div className="line_l"></div>
-                <div className="mainpage_div2">World's Finest Saffron</div>
-                <div className="mainpage_div3">
+                <div className={`line_l ${mainpageItems?"true":""}`}></div>
+                <div className={`mainpage_div2 ${mainpageItems?"true":"false"}`}>World's Finest Saffron</div>
+                <div className={`mainpage_div3 ${mainpageItems?"true":"false"}`} >
                   <Arrowbtn
                     linkFromMain="/about-us"
                     onMouseEnter={() => {

@@ -21,6 +21,7 @@ export const UserProvider = ({children})=>{
     const [isAddReview,setIsAddReview]=useState(false)
     const [isMouse,setIsMouse]=useState(true)
     const [CustomCuser,setCustomCuser]=useState(false)
+    const [mainpageItems,setMainPageItems]=useState(false)
 
 
     useEffect(() => {
@@ -94,7 +95,7 @@ export const UserProvider = ({children})=>{
   
 
     return(
-        <MainContext.Provider value={{ CustomCuser,setCustomCuser,isMouse,setIsMouse,isAddReview,setIsAddReview,isMobile,setIsMobile,singleProduct,setSingleProduct,profileHover,setProfileHover,mainItems,setMainItems,goldenElixir,setGoldenElixir,menuSlider,setMenuSlider,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,userEmail,setUserEmail,navOtp,setNavOtp,showLogin,setShowLogin,showNav,setShowNav,slider1,setSlider1,slider2,setSlider2,slider3,setSlider3,Culinary,setCulinary,medical,setmedical,pregnancy,setPregnancy,cosmetic,setCosmetic,formData, setFormData }} >
+        <MainContext.Provider value={{ mainpageItems,setMainPageItems,CustomCuser,setCustomCuser,isMouse,setIsMouse,isAddReview,setIsAddReview,isMobile,setIsMobile,singleProduct,setSingleProduct,profileHover,setProfileHover,mainItems,setMainItems,goldenElixir,setGoldenElixir,menuSlider,setMenuSlider,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,userEmail,setUserEmail,navOtp,setNavOtp,showLogin,setShowLogin,showNav,setShowNav,slider1,setSlider1,slider2,setSlider2,slider3,setSlider3,Culinary,setCulinary,medical,setmedical,pregnancy,setPregnancy,cosmetic,setCosmetic,formData, setFormData }} >
             {children}
         </MainContext.Provider>
     )

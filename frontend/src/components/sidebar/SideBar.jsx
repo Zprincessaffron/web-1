@@ -20,8 +20,9 @@ function SideBar() {
   const [showStyle,setShowStyle]=useState()
   const [products, setProducts] = useState([]);
   const { user } =useContext(userContext)
-    const { isMobile, setIsMobile,singleProduct,setSingleProduct,showMenuSub,setShowMenuSub,mainItems,setMainItems,setGoldenElixir,menuSlider,setMenuSlider,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar }=useUserContext()
+    const { setMainPageItems,isMobile, setIsMobile,singleProduct,setSingleProduct,showMenuSub,setShowMenuSub,mainItems,setMainItems,setGoldenElixir,menuSlider,setMenuSlider,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar }=useUserContext()
   useEffect(() => {
+    setMainPageItems(false)
       // Fetch products from your API
       fetch('http://localhost:4040/products')  // replace with your actual API endpoint
         .then((response) => response.json())
@@ -159,6 +160,7 @@ function SideBar() {
   setMenuItems(false)
   setSideBar(false)
   setMenuSlider(false)
+  setMainPageItems(true)
 
  }
  function handleBack(){

@@ -227,7 +227,11 @@
   height: 0.5px;
   margin-bottom: 10px;
   width: 250px;
+  opacity: 0;
   background-color: rgba(238, 222, 52, 0.578);
+}
+.line_l.true{
+  opacity: 1;
 }
 .mainpage_div {
     position: relative;
@@ -247,17 +251,45 @@
   }
   .mainpage_div1{
     letter-spacing: .8rem;
+    opacity: 0;
+
     text-transform: uppercase;
     font-size: 3.5rem;
     color: white;
     font-weight: bold;
 
     font-family: 'Riviera Nights';
+    transition: all 0.3s ease-in-out;
+    transform: translateY(30px);
   }
+.mainpage_div1.true{
+  opacity: 1;
+  transform: translateY(0);
 
+
+
+}
+.mainpage_div1.false{
+  opacity: 0;
+  transform: translateY(30px);
+
+
+
+}
   .mainpage_div2{
     font-size: 1.1rem;
+    transition: all 0.4s ease-in-out;
+    transform: translateY(30px);
+    opacity: 0;
     
+  }
+  .mainpage_div2.true{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .mainpage_div2.false{
+    opacity: 0;
+    transform: translateY(30px);
   }
   .mainpage_div3{
     padding: 0;
@@ -265,6 +297,19 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    transition: all 0.5s ease-in-out;
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  .mainpage_div3.true{
+    opacity: 1;
+    transform: translateY(0);
+
+  }
+  .mainpage_div3.false{
+    opacity: 0;
+    transform: translateY(30px);
+
   }
   .mainpage_div3>button{
     padding: 15px 35px;
