@@ -15,7 +15,7 @@
     padding-top: 2rem;
     padding-left: 4rem;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.3rem;
 }
 .productd_main h1,.productd_main h2,.productd_main h3,.productd_main p{
     font-family: "Jost", sans-serif;
@@ -31,6 +31,7 @@
     font-weight: 400;
     text-align: left;
     margin-top: 0.3rem;
+    font-size: 0.9rem;
 
 
 }
@@ -41,6 +42,11 @@
     font-optical-sizing: auto;
     font-style: normal;
     font-size: 0.8rem;
+    letter-spacing:0.9px;
+    word-spacing: 1.5px;
+    font-weight: 300;
+    color: black;
+    line-height: 20px;
     margin-top: 0.3rem;
 }
 @media only screen and (max-width: 480px) {
