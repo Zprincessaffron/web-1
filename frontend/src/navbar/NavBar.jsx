@@ -13,7 +13,7 @@ import { CartContext } from '../context/CartContext';
 import { IoBagOutline } from "react-icons/io5";
 
 
-function Navbar( {itemCount,adjustScrollPosition} ) {
+function Navbar( {itemCount,adjustScrollPosition,showproduct} ) {
   const { addToCart, cartItems } = useContext(CartContext);
   const { isMobile,showMenuSub,setShowMenuSub,profileHover,setProfileHover,mainItems,setMainItems,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,showNav,setShowNav,showLogin,setShowLogin } =useUserContext()
   const { user }=useContext(userContext)
@@ -62,7 +62,7 @@ function Navbar( {itemCount,adjustScrollPosition} ) {
 
              ):( <button onMouseEnter={handleMouseEnter} onClick={handleLogin}><PiUser className='piUser' /> </button>
           )}
-             <button onClick={()=>adjustScrollPosition(500)}><IoBagOutline/></button>
+            {showproduct?( <button onClick={()=>adjustScrollPosition(500)}><IoBagOutline/></button>):(null)}
             <button style={{position:'relative',overflow:"hidden",padding:"5px"}} onClick={()=>{navigate('/cart')}}><BsCart/> <p style={{position:'absolute',top:0,right:0,backgroundColor:"#fd625e",color:"#ffe8e8",height:"15px",width:"15px",borderRadius:"10px",display:"flex",alignItems:"center",justifyContent:"center",overflow:"hidden",fontSize:"10px"}}>{cartItems.length}</p> </button>
 
         </div>

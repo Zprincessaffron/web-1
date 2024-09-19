@@ -25,6 +25,7 @@ import RecommenderTest from "./RecommenderTest";
 gsap.registerPlugin(ScrollTrigger);
 function MainPageTrial() {
   const navigate = useNavigate()
+  const showproduct = true
   const { CustomCuser,setCustomCuser,isMouse,setIsMouse,isMobile,profileHover, setProfileHover, menuSlider, setMenuSlider, sideBar, setSideBar, setShowNav, showLogin } = useUserContext()
   const [showEnd, setShowEnd] = useState(true)
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -163,7 +164,7 @@ function MainPageTrial() {
   return (
     <>
        <RecommenderTest/>
-       <Navbar adjustScrollPosition={scrollToSecondDiv} />
+       <Navbar adjustScrollPosition={scrollToSecondDiv}  showproduct={showproduct}/>
       <SideBar />
       <MenuSlider />  
       {profileHover ? (
