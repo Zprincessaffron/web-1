@@ -6,16 +6,14 @@ import { useSpring, animated } from 'react-spring';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import { FaL } from 'react-icons/fa6';
-import culinaryslide from '../../images/culinaryslide.jpg'
-import medicinalslider from '../../images/medicinalslider.jpg'
-import pregnancyslider from '../../images/pregnancyslider.jpg'
-import beautyslider from '../../images/beautyslider.jpg'
 import { userContext } from '../../context/UserContext';
 import { FaAngleRight } from "react-icons/fa6";
 import product1 from '../../images/product1.jpeg'
 import product2 from '../../images/product2.jpg'
 import product3 from '../../images/product3.jpg'
 import product4 from '../../images/product4.jpg'
+
+
 
 function SideBar() {
   const navigate = useNavigate() 

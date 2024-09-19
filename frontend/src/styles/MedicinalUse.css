@@ -13,7 +13,7 @@
 .mu_main>div{
     width: 100%;
     height: 100%;
-    display: flex;
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
@@ -119,7 +119,7 @@
 .culinary_div21-h1.true{
     color: rgb(3, 3, 3);
     font-weight: bold;
-    border: 1px solid gray
+    background-color: rgb(231, 248, 250);;
 }
 .culinary_div21-h1{
 }

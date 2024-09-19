@@ -151,7 +151,7 @@
 .oh-title {font-weight: 600; /* font-semibold */
     margin-bottom: 2rem; 
     font-family: 'riviera';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
@@ -192,7 +192,7 @@
 
 .oh-order-date,
 .oh-order-status {
-    font-size: 0.875rem; /* text-sm */
+    font-size: 0.75rem; /* text-sm */
     color: #4a5568; /* text-gray-600 */
 }
 
@@ -249,7 +249,7 @@
 .order-title {
     font-size: 1.875rem; /* text-3xl */
     font-weight: 800; /* font-extrabold */
-    color: #1a202c; /* text-gray-900 */
+    color: #10151f; /* text-gray-900 */
 }
 
 .order-card {
@@ -265,7 +265,7 @@
     font-weight: 600; /* font-semibold */
     margin-bottom: 2rem; 
     font-family: 'riviera';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
@@ -424,7 +424,7 @@
     font-weight: 600; /* font-semibold */
     margin-bottom: 2rem; 
     font-family: 'riviera';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
@@ -545,7 +545,7 @@
     font-weight: 600; /* font-semibold */
     margin-bottom: 2rem; 
     font-family: 'riviera';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }

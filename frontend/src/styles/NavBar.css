@@ -16,7 +16,7 @@
 }
 .Navbar_main.true{
     background-color: white; 
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);  
 
 }
 .Navbar_main.true>div{
@@ -54,9 +54,8 @@
     font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    font-size: medium;
     border: none;
-    font-size: larger;
+    font-size: 1.1rem;
     background: none;
     color: white;
     
@@ -67,6 +66,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+    margin-right: 40px;
 }
 .Navbar_div3.true>button{
     color: black;
@@ -116,12 +116,10 @@
     text-transform: capitalize;
     text-decoration: none;
     letter-spacing: 0.15em;
-    font-size: 0.9rem;
-    
+    font-size: 0.7rem;
     display: inline-block;
     position: relative;
     font-weight: 300;
-    
 }
 .Navbar_div11>span:after {    
     background: none repeat scroll 0 0 transparent;
@@ -177,7 +175,7 @@
     font-optical-sizing: auto;
     font-style: normal;
     border: none;
-    font-size: larger;
+    font-size: medium;
     background: none;
     color: white;
     
@@ -187,7 +185,8 @@
     width: 30%;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
+    margin: 0;
 }
 .Navbar_div3.true>button{
     color: black;

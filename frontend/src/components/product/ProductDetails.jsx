@@ -18,7 +18,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { userContext } from "../../context/UserContext";
 import ReactStars from "react-stars";
 import axios from "axios";
-import Slider from "react-slick";
+import Slider from "react-slick"; 
 
 
 const ProductDetails = () => {

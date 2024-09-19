@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import culinaryslide from '../../images/culinaryuses.jpeg'
 import medicinalslider from '../../images/medicinalsidebar.jpeg'
 import pregnancyslider from '../../images/pregnancyslider.jpg'
-import beautyslider from '../../images/beautyslider.jpg'
+import beautyslider from '../../images/beautyslider.jpeg'
 
 
 

@@ -52,7 +52,7 @@ function Cart() {
         {/* <div className='cart_div1'>            
             <h1>BACK TO HOME</h1>                     
         </div>                                       */}
-        {!user && (
+        {!user && cartItems.length== 0 &&(
             <div className='cart_div2'>
             <img src={emptycart} alt="" />
             <h1>YOUR CART IS EMPTY</h1>
@@ -62,7 +62,7 @@ function Cart() {
 
           
         )}
-        {cartItems.length== 0 &&(
+        {cartItems.length== 0 && user &&(
               <div className='cart_div2'>
               <img src={emptycart} alt="" />
               <h1>YOUR CART IS EMPTY</h1>

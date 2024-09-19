@@ -11,7 +11,7 @@ import saffronserum from '../images/beautyback.jpg'
 import saffronchai from '../images/saffronchai.jpg'
 import Navbar from '../navbar/NavBar';
 import Footer from '../footer/Footer';
-import spainquality from '../images/saffronspainculture.jpg'
+import spainquality from '../images/luxuryback.jpg'
 import spaintraditional from '../images/spaintraditionalnew.jpeg'
 import beautyspain from '../images/saffronfacecare.jpeg'
 import KesariRasmalai from '../images/spainfoods.jpeg'
@@ -62,8 +62,8 @@ function SpainSaffron() {
       <MenuSlider/>
       <ScrollToTop/>
     <div className='ks_main'>
-     <div className='ks_div1' > 
-       <div className='ks_div11'>
+     <div className='ks_div1' style={{backgroundColor:"rgb(33, 79, 67)"}} > 
+       <div className='ks_div11' >
        <h1>SPAIN SAFFRON</h1>
        <h2 className='ks_thegolden'>The Crown Jewel of La Mancha</h2>
         <p className='ks_secondp'>Cultivated in the historic region of La Mancha, Spanish saffron is synonymous with authenticity and excellence. This variety, often referred to as "the best in the world," is celebrated for its distinctive floral notes, striking golden hue, and unmatched quality. Spanish saffron has a rich history that intertwines with the cultural heritage of La Mancha, a region renowned for its agricultural prowess and dedication to producing the finest saffron.</p>

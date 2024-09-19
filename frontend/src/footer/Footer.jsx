@@ -7,6 +7,13 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+
+import { TfiInstagram } from "react-icons/tfi";
+import { FaXTwitter } from "react-icons/fa6";
+import { PiWhatsappLogoLight } from "react-icons/pi";
+import { CiMail } from "react-icons/ci";
+import { RiLinkedinLine } from "react-icons/ri";
+
 function Footer() {
   const [showContent, setShowContent] = useState(false);
   const navigate = useNavigate();
@@ -93,10 +100,11 @@ function Footer() {
           </div>
         </div>
         <div className="footer-div32">
-          <FaLinkedinIn />
-          <CgMail />
-          <FaWhatsapp />
-          <FaInstagram />
+          <RiLinkedinLine />
+          <CiMail />
+          <PiWhatsappLogoLight  className="fontwa"/>
+          <TfiInstagram  className="fontinsta"/>
+          <FaXTwitter className="fontx"/>
         </div>
       </div>
       <div className="footer-div2"></div>

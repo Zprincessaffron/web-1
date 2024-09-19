@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import '../../styles/Beauty.css';
-import beautymain from '../../images/beautyback3.jpg'
+// import beautymain from '../../images/beautyback3.jpg'
+import beautymain from '../../images/beautyuseback.png'
+
 import Navbar from '../../navbar/NavBar';
 import Footer from '../../footer/Footer';
 import { useUserContext } from '../../context/MainContext';
@@ -19,7 +21,7 @@ function Beauty() {
       }, [])
     useEffect(() => {
         const handleScroll = () => { 
-          if (window.scrollY > 300) {
+           if (window.scrollY > 300) {
             setShowNav(true);
           } else {
             setShowNav(false);
@@ -60,10 +62,10 @@ function Beauty() {
 
 
 
-            <h1  onClick={()=>handleClick("brightning")}className={`culinary_div21-h1 ${dish=='brightning'?"true":""}`}>SKIN BRIGHTNING</h1>
-                <h1  onClick={()=>handleClick("antiaging")}  className={`culinary_div21-h1 ${dish=='antiaging'?"true":""}`}>ANTI-AGING</h1>
-                <h1 onClick={()=>handleClick("skintone")}  className={`culinary_div21-h1 ${dish=='skintone'?"true":""}`}>EVEN SKIN TONE</h1>
-                <h1 onClick={()=>handleClick("acne")}  className={`culinary_div21-h1 ${dish=='acne'?"true":""}`}>ACNE TREATMENT</h1>
+            <h1  onClick={()=>handleClick("brightning")}className={`culinary_div21b-h1 ${dish=='brightning'?"true":""}`}>SKIN BRIGHTNING</h1>
+                <h1  onClick={()=>handleClick("antiaging")}  className={`culinary_div21b-h1 ${dish=='antiaging'?"true":""}`}>ANTI-AGING</h1>
+                <h1 onClick={()=>handleClick("skintone")}  className={`culinary_div21b-h1 ${dish=='skintone'?"true":""}`}>EVEN SKIN TONE</h1>
+                <h1 onClick={()=>handleClick("acne")}  className={`culinary_div21b-h1 ${dish=='acne'?"true":""}`}>ACNE TREATMENT</h1>
 
 </div>
         </div>

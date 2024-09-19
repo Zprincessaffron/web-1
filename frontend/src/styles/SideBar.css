@@ -22,7 +22,7 @@
     transition: all 0.3s ease-in-out;
     float: left;
 
-
+ 
 
 }
 .sidebar_main.true{
@@ -37,18 +37,23 @@
 .sidebar_main>a{
     text-decoration: none;
     font-weight: 600;
-    color: rgb(225, 153, 153);
+    color: rgb(255, 255, 255);
     font-size: 20px;
 }
 .sidebar_div1{
     height: 10%;
     padding: 20px;
     color: white;
-    font-size: 1.5rem;
+
+}
+.subitemspace{
+    padding-left: 20px;
+
 
 }
 .sidebar_div2{
     width: 100%;
+
 
 
 }
@@ -56,22 +61,21 @@
     color: white;
     border-left: 1px solid white;
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     letter-spacing: 0.3rem;
     margin: 30px;
     font-family: 'Riviera Nights';
     z-index: 3;
     padding: 10px 0;
-    padding-left: 20px;
+    padding-left: 30px;
     display: flex;
     align-items: center;
+    margin-left: 40%;
     font-weight: lighter;
-
 }
 .menu_main_items{
     transition: all 0.3s ease-in-out;
-    transform: translateX(10px);
-
+    transform: translateX(0);
 }
 .menu_main_items.true{
     transform: translateX(20px);
@@ -81,18 +85,17 @@
 }
 .menu_main_right{
     opacity: 0;
-    transform: translateX(-10px);
+    transform: translateX(-20px);
     transition: all 0.3s ease-in-out;
-    font-size: 0.8rem;
+    font-size: 0.5rem;
 
 }
 .menu_main_right.true{
     opacity: 1;
-    transform: translateX(5px);
+    transform: translateX(0);
 }
 #sidebar_kh{
     font-weight: bolder;
-    
 }
 .sidebar_arrow{
     margin-right: 5px;
@@ -143,14 +146,16 @@
 .sidebar_div2>div{
     color: white;
     width: 90%;
-    font-size: 01rem;
+    font-size: 0.8rem;
     letter-spacing: 0.3rem;
     margin-top: 10px;
     font-family: 'Riviera Nights';
     z-index: 3;
     padding-left: 0%;
     text-align: right;
+    margin-left: 50px;
 }
+
 #sidebar_kh{
     font-weight: bolder;
     

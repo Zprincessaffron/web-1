@@ -42,9 +42,22 @@ function MainPageTrial() {
 
   const cursorRoundedRef = useRef(null);
   const cursorPointedRef = useRef(null);
+  const secondDivRef = useRef(null);
+
+  // Function to handle the scroll
+  const scrollToSecondDiv = () => {
+    // Use scrollIntoView to scroll to the second div
+    secondDivRef.current.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      
+      setFinalProduct(true);
+    }, 800);
+  };
+
 
   useEffect(() => {
     // Function to move the cursor
+    // scrollToSecondDiv()
     const moveCursor = (e) => {
       const mouseX = e.clientX;
       const mouseY = e.clientY;
@@ -150,7 +163,7 @@ function MainPageTrial() {
   return (
     <>
        <RecommenderTest/>
-       <Navbar />
+       <Navbar adjustScrollPosition={scrollToSecondDiv} />
       <SideBar />
       <MenuSlider />  
       {profileHover ? (
@@ -199,19 +212,19 @@ function MainPageTrial() {
             </div>
           </div>
         </div>
-        <div
+        <div ref={secondDivRef}
           onMouseLeave={() => {
             setFinalProduct(false);
           }}
           className="mainpage_con2"
           style={{ transform: `translateY(${scrollPosition * -0.2}px)` }}
         >
-          <OurProducts
+          <OurProducts  
             showFinalProduct={showFinalProduct}
             setFinalProduct={setFinalProduct}
           />
           {showFinalProduct ? (
-            <div
+            <div  
               className={`mainpage_con212 ${showFinalProduct ? "true" : ""}`}
             >
               <FinalProduct />
@@ -220,7 +233,7 @@ function MainPageTrial() {
         </div>
       </div>
 
-      <div className="mainpagetrialdiv">
+      <div  className="mainpagetrialdiv">
         <div className="setus_div1">WHAT SET US APART</div>
         <div className="setus_div2">
           <div>

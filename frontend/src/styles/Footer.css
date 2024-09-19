@@ -45,6 +45,15 @@
     overflow: hidden;
 
 }
+.fontinsta{
+    font-size: 1rem;
+}
+.fontwa{
+    font-size:1.4rem ;
+}
+.fontx{
+    font-size: 1.2rem;
+}
 .footer-div32{
     display: flex;
     justify-content: center;

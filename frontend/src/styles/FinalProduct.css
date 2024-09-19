@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-
+ 
   }
   
   .product_card {
@@ -45,15 +45,16 @@
   }
   .fp_hovercontent>h3{
     margin-top: 0.5rem;
-    margin-left: 0.3rem;
+    margin-left: 1rem;
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 400;
+    font-size: 0.9rem;
     text-transform: uppercase;
   }
   .fp_hovercontent>p{
-    margin-left: 0.3rem;
+    margin-left: 1rem;
     color: black;
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
@@ -63,7 +64,7 @@
   }
   
   .fp_hovercontent>h4{
-    margin-left: 0.3rem;
+    margin-left: 1rem;
     color: black;
     font-size: 0.9rem;
     font-family: "Jost", sans-serif;
@@ -79,7 +80,7 @@
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 500;
-    margin-left: 0.3rem;
+    margin-left: 1rem;
     padding: 10px 0;
     text-underline-offset: 4px;
     text-decoration-thickness: 1px; 

@@ -51,12 +51,13 @@
     height: 40vh;
     padding-top: 3rem;
     color: black;
-    margin-left: 3vw;
+    padding-left: 7vw;
     margin: 1px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    width: fit-content;
     overflow: hidden;
 }
 .wc_div21{
@@ -89,7 +90,7 @@
     height: 80vh;
     padding-top: 3rem;
     color: black;
-    margin-left: 3vw;
+    padding-left: 4vw;
     margin: 1px;
     display: flex;
     flex-direction: row-reverse;
@@ -177,9 +178,9 @@
     letter-spacing: 1px;
     word-spacing: 2px;
     font-weight: 100;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: rgb(255, 255, 255);
-    font-weight: bold;
+    font-weight: 100;
     
 }
 

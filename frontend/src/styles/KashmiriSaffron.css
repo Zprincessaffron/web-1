@@ -9,7 +9,7 @@
     font-size: calc(0.056rem + 1.5vw);
     letter-spacing: 0.2rem;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; 
     text-align: center;
   } 
   .ks_main p{
@@ -45,7 +45,8 @@
   .ks_div1{
     background-size: cover;
     background-position: center;
-    background: radial-gradient(circle, rgb(255, 255, 255), rgb(109, 185, 190));
+    background-color: rgb(27, 26, 42);
+    color: rgba(255, 255, 255, 0.912);
   
   
   }
@@ -76,7 +77,6 @@
     left: 1.5px;
     word-spacing: 2px;
     text-transform: capitalize;
-    
     line-height: 1.9230769231;
   }
   .ks_div2{
@@ -154,7 +154,7 @@
 
   }
   .ks_div11>p{
-    color: rgb(0, 0, 0);
+    color: rgba(255, 255, 255, 0.779);
     width: 60%;
     line-height: 1.9230769231;
     letter-spacing: 0.0484615385em;
