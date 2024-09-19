@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap'; 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import NewsLetter from './NewsLetter'
-import OurProducts from './OurProducts'
+import OurProducts from './OurProducts' 
 import SideBar from '../sidebar/SideBar'
 import { useNavigate } from 'react-router-dom'
 import MenuSlider from '../sidebar/MenuSlider'
@@ -22,7 +22,7 @@ import Cursor from './Cursor'
 import ReactSlick from '../product/ReactSlick'
 import RecommenderTest from "./RecommenderTest";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger); 
 function MainPageTrial() {
   const navigate = useNavigate()
   const showproduct = true
@@ -175,7 +175,6 @@ function MainPageTrial() {
       {showLogin ? (<LoginHover />) : ' '}
   
     <div className='mainpage_main'>
-     
       <div   className={`mainpagecon ${height ? "true" : ''}`}>
         <div style={{ transform: `translateY(${scrollPosition * 0.2}px)` }} className='mainpage_con1'>
           <div  onClick={videoPlay?(playVideo):(pauseVideo)}  className='mainpage_container'>
@@ -227,13 +226,11 @@ function MainPageTrial() {
             showFinalProduct={showFinalProduct}
             setFinalProduct={setFinalProduct}
           />
-          {showFinalProduct ? (
             <div  
               className={`mainpage_con212 ${showFinalProduct ? "true" : ""}`}
             >
               <FinalProduct />
             </div>
-          ) : null}
         </div>
       </div>
 

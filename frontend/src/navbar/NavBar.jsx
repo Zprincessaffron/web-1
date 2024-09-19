@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import "../styles/NavBar.css"
 import { PiUser } from "react-icons/pi";
 import { useNavigate } from 'react-router-dom';
@@ -15,6 +15,7 @@ import { IoBagOutline } from "react-icons/io5";
 
 function Navbar( {itemCount,adjustScrollPosition,showproduct} ) {
   const { addToCart, cartItems } = useContext(CartContext);
+  const [showline, setShowLine]=useState(false)
   const { setMainPageItems,isMobile,showMenuSub,setShowMenuSub,profileHover,setProfileHover,mainItems,setMainItems,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,showNav,setShowNav,showLogin,setShowLogin } =useUserContext()
   const { user }=useContext(userContext)
   const navigate = useNavigate()
@@ -29,7 +30,7 @@ function Navbar( {itemCount,adjustScrollPosition,showproduct} ) {
   function handleMouseEnter(){
     setShowLogin(true)
   }
-  function handelMenu(){
+  function handelMenu(){ 
     setSideBar(true)
     setMenuItems(true)
     setMenuSubItems('mainitem')
@@ -42,12 +43,12 @@ function Navbar( {itemCount,adjustScrollPosition,showproduct} ) {
  function handleProfileLeave(){
     setProfileHover(false)
  }
-
+ 
   return (
     <div className={`Navbar_main ${showNav?"true":""}`}>
         <div className='Navbar_div1'> 
           <div className={`Navbar_div11 ${showNav?"true":""}`}>
-          <AiOutlineMenu onClick={handelMenu}/> {!isMobile?(<span onClick={handelMenu}>MENU</span>):(null)}</div>
+          <AiOutlineMenu className='menuicon' onMouseEnter={()=>{setShowLine(true)}}  onMouseLeave={()=>{setShowLine(false)}} onClick={handelMenu}/> {!isMobile?(<span className={`menutext ${showline?"true":""}`} onClick={handelMenu}>Menu</span>):(null)}</div>
         </div>
         <div   className={`Navbar_div2 ${showNav?"true":""}`}   >
           <span onClick={()=>{navigate('/')}}>Z PRINCESS SAFFRON</span>  

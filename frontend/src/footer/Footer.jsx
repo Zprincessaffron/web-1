@@ -21,6 +21,13 @@ import insta from '../images/footericon/insta.png'
 import facebook from '../images/footericon/facebook.png'
 import gmail from '../images/footericon/gmail.png'
 import linkedin from '../images/footericon/linkedin.png'
+//
+import { FaFacebookF } from "react-icons/fa";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { RiInstagramFill } from "react-icons/ri";
+import { ImMail4 } from "react-icons/im";
+import { TiSocialLinkedinCircular } from "react-icons/ti";
+
 function Footer() {
   const [showContent, setShowContent] = useState(false);
   const navigate = useNavigate();
@@ -107,11 +114,11 @@ function Footer() {
           </div>
         </div>
         <div className="footer-div32">
-          <img src={insta} alt="" />
-          <img src={whatsapp} alt="" />
-          <img src={facebook} alt="" />
-          <img src={linkedin} alt="" />
-          <img src={gmail} alt="" />
+         <span><FaFacebookF/></span>
+         <span><IoLogoWhatsapp/></span>
+         <span><RiInstagramFill/></span>
+         <span><ImMail4/></span>
+         <span><TiSocialLinkedinCircular/></span>
         </div>
       </div>
       <div className="footer-div2"></div>

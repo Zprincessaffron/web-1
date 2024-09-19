@@ -213,13 +213,17 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 0;
   height: 100vh;
   z-index: 1;
   opacity: 0;
+  transition: all 0.3s ease-in;
+  
 }
 .mainpage_con212.true{
   opacity: 1;
+  width: 100vw;
+  
 }
 
 /* //////////////////////////////////////// */
@@ -299,6 +303,7 @@
     align-items: center;
     transition: all 0.5s ease-in-out;
     transform: translateY(30px);
+    margin-top: 2rem;
     opacity: 0;
   }
   .mainpage_div3.true{

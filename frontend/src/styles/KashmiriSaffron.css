@@ -45,7 +45,7 @@
   .ks_div1{
     background-size: cover;
     background-position: center;
-    background-color: rgb(27, 26, 42);
+    background-color:rgb(40, 11, 59);
     color: rgba(255, 255, 255, 0.912);
   
   
@@ -143,8 +143,9 @@
   
   }
   .ks_div11>h1{
-    font-size: 4rem;
-    letter-spacing: 0.6rem;
+    font-size: 3.8rem;
+    letter-spacing: 1rem;
+    margin-bottom: 3rem;
   }
   .ks_div11>h2{
     text-transform: uppercase;
