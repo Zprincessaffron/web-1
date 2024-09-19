@@ -13,7 +13,7 @@ export const UserProvider = ({children})=>{
     const [menuItems,setMenuItems]=useState(false)
     const [menuSubItems,setMenuSubItems]=useState('mainitem')
     const [menuSlider,setMenuSlider]=useState(false)
-    const [goldenElixir,setGoldenElixir]=useState('culinary')
+    const [goldenElixir,setGoldenElixir]=useState('beauty')
     const [mainItems,setMainItems]=useState(true) 
     const [profileHover,setProfileHover]=useState(false)
     const [singleProduct,setSingleProduct]=useState(true)

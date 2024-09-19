@@ -39,7 +39,7 @@ function SideBar() {
               image:product1,
               flipimage:product4
             },
-            {
+            { 
               _id: data[0]._id + "-1",  // Unique ID for variant 2 of product 1
               name: `${data[0].name}`,
               price: data[0].variants[1].price,

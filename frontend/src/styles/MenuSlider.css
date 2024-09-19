@@ -20,12 +20,20 @@ height: 100%;
 
 
 }
-
+.ms_main{
+    width: 0;
+    transition: width 0.3s ease-in-out;
+}
 .ms_main.false{
-    width: 0;display: none;
+    width: 0;
+    opacity: 0;
+
+    transition: width 0.3s ease-in-out;
+
 }
 .ms_main.true{
     width: 65vw;
+    opacity: 1;
 }
 .ms_div.culinary{
     background-size: cover;
