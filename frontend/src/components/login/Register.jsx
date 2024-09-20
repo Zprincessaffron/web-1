@@ -9,6 +9,10 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import { FaUser } from "react-icons/fa";
 import Otp from './Otp'
+import { toast } from 'react-toastify';
+import { FaMobileAlt } from "react-icons/fa";
+
+
 function LoginPagee() {
   const navigate = useNavigate()
   const [email,setEmail]=useState()
@@ -16,12 +20,15 @@ function LoginPagee() {
   const [password,setPassword]=useState()
   const [loading,setLoading]=useState(true)
   const [navOtp,setNavOtp]=useState(false)
+  const [mobileIcon,setMobileIcon] = useState(false)
   const [values, setValues] = useState({
     "name":"",
     "email": "",
     "password": ""
   });
  async function handleLogin(){
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const phoneRegex = /^[0-9]{10}$/;
 
     if(!values.email && !/\S+@\S+\.\S+/.test(values.email)){
       setEmail(true)
@@ -35,23 +42,52 @@ function LoginPagee() {
       setPassword(true)
       return
     }
+  
     try {
       setLoading(false)
-      await axios.post('/register',{
-        name:values.name,
-        email:values.email,
-        password:values.password
-      }).then((res)=>{
-        setLoading(true)
-        setNavOtp(true)
-        
-      })
+      if (emailRegex.test(values.email)) {
+        await axios.post('/register',{
+          name:values.name,
+          email:values.email,
+          password:values.password
+        }).then((res)=>{
+          setLoading(true)
+          setNavOtp(true)
+          
+        })
+      }else if (phoneRegex.test(values.email)) {
+        await axios.post('/register',{
+          name:values.name,
+          phone:values.email,
+          password:values.password
+        }).then((res)=>{
+          setLoading(true)
+          setNavOtp(true)
+          
+        })
+      }else {
+        toast("Enter a valid email or phone")
+  
+  
+        return 'invalid';
+      
+      }
+   
 
       
 
 
     } catch (error) {
       console.error('Registration Error', error.response.data);
+      if(error.response.data.msg){
+        setLoading(false)
+        toast(error.response.data.msg)
+        setTimeout(() => {
+          navigate('/login')
+        }, 1000);
+
+
+      }
     }
 
   }
@@ -59,6 +95,16 @@ console.log(values)
   // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if(name=='email' ){
+      const numberRegex = /^[0-9]+$/; 
+        if(numberRegex.test(value)){
+          setMobileIcon(true)
+        
+        }else{
+          setMobileIcon(false)
+
+        }
+    }
     setValues((prevValues) => ({
       ...prevValues,
       [name]: value 
@@ -75,7 +121,7 @@ console.log(values)
         <div className='loginpagee_div11'>
          
          {navOtp?(
-          <Otp navOtp={navOtp} setNavOtp={setNavOtp}/>
+          <Otp  userEmail={values.email} navOtp={navOtp} setNavOtp={setNavOtp}/>
          ):(
           <>
            <img src={profile} alt="" />
@@ -86,8 +132,8 @@ console.log(values)
 
           </div>
           <div className='loginpagee_input'>
-            <input placeholder='Enter Email' className={`inputemail ${email?"true":""}`} type="email" name="email" value={values.email} onChange={handleChange}  />
-            <p><IoMailSharp/></p>
+            <input placeholder='Enter Email or Phone' className={`inputemail ${email?"true":""}`} type="email" name="email" value={values.email} onChange={handleChange}  />
+            <p>{mobileIcon?(<FaMobileAlt/>):(<IoMailSharp/>)}</p>
 
           </div>
           <div className='loginpagee_input'>
@@ -97,13 +143,12 @@ console.log(values)
           </div>
           <button onClick={handleLogin}>{loading?"REGISTER":<AiOutlineLoading3Quarters  className='loading-spinner'/>
           }</button>
-          <h3>Existing User? Continue Login</h3>
+          <h3 onClick={()=>{navigate('/login')}}>Existing User? Continue Login</h3>
          </>
          )}
 
       </div>
         </div>
- 
     </div>
   )
 }

@@ -22,7 +22,7 @@ function MedicinalUse() {
             
         }, 50);
         
-    }
+    } 
     
     useEffect(() => {
         setMenuSlider(false)

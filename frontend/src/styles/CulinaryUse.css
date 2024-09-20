@@ -7,14 +7,15 @@
 }
 .culinarymain{ 
     width: 100vw;
-    background-color: rgb(254, 236, 255)
+    background-color: rgb(231, 248, 250);
+
 }
-.medicinal_highlighter{
+.medicinal_highlighter{ 
     color: rgb(63, 63, 63);
     text-transform: capitalize;
     font-family: "Roboto", system-ui;
     font-style: normal;
-    font-size: 0.9rem;
+    font-size: 0.9rem; 
     font-weight: 500;
     
 
@@ -45,23 +46,25 @@
 }
 .culinary_div2{
     width: 100%;
-    padding: 10vh;
+    padding: 10vh 0;
     height: fit-content;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .culinary_div21{
-    height: 60px;
+    height: 50px;
     width: 70vw;
     background-color: rgb(255, 255, 255) ;
     border-radius: 30px;
     display: flex;
     flex-direction: row;
+    
     justify-content: space-around;
     align-items: center;
 }
 .culinary_div21>h1{
-    font-size: 1rem;
+    font-size: 0.8rem;
     letter-spacing: 0.1rem;
     padding: 10px 25px;
     border-radius: 20px;
@@ -72,17 +75,25 @@
 } 
 .avoid_overcuse{
 }
-.culinary_div3{
+.culinary_div21-h1{
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
 }
+.culinary_div21-h1.true{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+
+}
+
 .culinary_div3{
     text-align: center;
 }
 .culinary_div31>h1{
-    font-size: 3rem;
     letter-spacing: 0.3rem;
     text-transform: uppercase;
     color: rgb(0, 0, 0);
-}
+} 
 
 .culinary_div32{
     display: flex;
@@ -122,7 +133,7 @@
 }
 .culinary_div31>p{
     margin-bottom: 40px;
-    color: black;
+    color: rgb(0, 0, 0);
     font-size: 1rem;
     letter-spacing: 1.5px;
     font-weight: bold;
@@ -167,7 +178,7 @@ margin-bottom: 0.5rem;
 }
 .culinary_div31>h1{
     margin-bottom: 15px;
-    font-size: 2.3rem;
+    font-size: 2rem;
 }
 /* .culinary_div3.pilafs{
     background-color: rgb(188, 192, 224);

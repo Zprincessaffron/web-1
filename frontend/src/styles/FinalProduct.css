@@ -1,12 +1,13 @@
 .product_cards {
     display: flex;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.795);
     width: 100vw;
     height: 100vh;
     justify-content: center;
     align-items: center;
     gap: 20px;
-
+    backdrop-filter: blur(30px);
+ 
   }
   
   .product_card {
@@ -26,7 +27,8 @@
   }
   .fp_hovercontent{
     width: 100%;
-    background-color: rgb(248, 249, 253);
+    background:none;
+
     position: absolute;
     top: 0;
     left: 0;
@@ -45,15 +47,28 @@
   }
   .fp_hovercontent>h3{
     margin-top: 0.5rem;
-    margin-left: 0.3rem;
+    margin-left: 1rem;
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 400;
+    font-size: 0.9rem;
+    text-transform: uppercase;
   }
   .fp_hovercontent>p{
-    margin-left: 0.3rem;
+    margin-left: 1rem;
     color: black;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+  }
+  
+  .fp_hovercontent>h4{ 
+    margin-left: 1rem;
+    color: black;
+    font-size: 0.9rem;
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -67,8 +82,71 @@
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 500;
-    margin-left: 0.3rem;
+    margin-left: 1rem;
     padding: 10px 0;
     text-underline-offset: 4px;
     text-decoration-thickness: 1px; 
+  }
+  @media only screen and (max-width: 480px) {
+    .product_cards {
+      display: grid;
+      grid-template-columns: auto auto ;
+      padding-left: 10px;
+      overflow: hidden;
+      
+   
+    }
+    .product_card {
+      width: 90%;
+      height: auto;
+      overflow: hidden;
+      position: relative;
+      overflow: hidden;
+  
+    }
+    .fp_hovercontent{
+      width: 100%;
+      background:none;
+      position: static;
+      top: 0;
+      left: 0;
+      opacity: 1;
+      overflow: hidden;
+  
+    }
+    
+  .product_card>img{
+    height: auto;
+    overflow: hidden;
+    width: 80%;
+
+  }
+  
+  .fp_hovercontent>h3{
+    margin-top: 0.05rem;
+    margin-left: 0.1rem;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+  .fp_hovercontent>p{
+    margin-left: 0.1rem;
+    color: black;
+    font-weight: 300;
+    font-size: 0.7rem;
+
+  }
+  .fp_hovercontent>h4{
+    margin-left: 0.1rem;
+    color: black;
+    font-weight: 300;
+    font-size: 0.6rem;
+
+  }
+  .fp_hovercontent>button{
+  
+    font-weight: 400;
+    margin-left: 0.1rem;
+    
+  }
+
   }

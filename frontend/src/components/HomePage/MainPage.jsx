@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap'; 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import NewsLetter from './NewsLetter'
-import OurProducts from './OurProducts'
+import OurProducts from './OurProducts' 
 import SideBar from '../sidebar/SideBar'
 import { useNavigate } from 'react-router-dom'
 import MenuSlider from '../sidebar/MenuSlider'
@@ -23,10 +23,9 @@ import ReactSlick from '../product/ReactSlick'
 import RecommenderTest from "./RecommenderTest";
 import { userContext } from "../../context/UserContext";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger); 
 function MainPageTrial() {
   const navigate = useNavigate()
-  const {user} = useContext(userContext);
   const { CustomCuser,setCustomCuser,isMouse,setIsMouse,isMobile,profileHover, setProfileHover, menuSlider, setMenuSlider, sideBar, setSideBar, setShowNav, showLogin } = useUserContext()
   const [showEnd, setShowEnd] = useState(true)
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -40,13 +39,29 @@ function MainPageTrial() {
   useEffect(() => {
     setMenuSlider(false);
     setSideBar(false);
+    setTimeout(() => {
+      setMainPageItems(true)
+    }, 300);
   }, []);
 
   const cursorRoundedRef = useRef(null);
   const cursorPointedRef = useRef(null);
+  const secondDivRef = useRef(null);
+
+  // Function to handle the scroll
+  const scrollToSecondDiv = () => {
+    // Use scrollIntoView to scroll to the second div
+    secondDivRef.current.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      
+      setFinalProduct(true);
+    }, 800);
+  };
+
 
   useEffect(() => {
     // Function to move the cursor
+    // scrollToSecondDiv()
     const moveCursor = (e) => {
       const mouseX = e.clientX;
       const mouseY = e.clientY;
@@ -166,7 +181,7 @@ function MainPageTrial() {
   return (
     <>
        <RecommenderTest/>
-       <Navbar />
+       <Navbar adjustScrollPosition={scrollToSecondDiv}  showproduct={showproduct}/>
       <SideBar />
       <MenuSlider />  
       {profileHover ? (
@@ -174,7 +189,6 @@ function MainPageTrial() {
       {showLogin ? (<LoginHover />) : ' '}
   
     <div className='mainpage_main'>
-     
       <div   className={`mainpagecon ${height ? "true" : ''}`}>
         <div style={{ transform: `translateY(${scrollPosition * 0.2}px)` }} className='mainpage_con1'>
           <div  onClick={videoPlay?(playVideo):(pauseVideo)}  className='mainpage_container'>
@@ -184,13 +198,13 @@ function MainPageTrial() {
                 <source src={backvideo} type="video/mp4" />
               </video>
               <div className="mainpage_div">
-                <div className={`mainpage_div1 ${zPrinces ? "true" : ""}`}>
+                <div className={`mainpage_div1 ${mainpageItems ? "true" : "false"}`}>
                   {/* //////////////// */}Z PRINCESS SAFFRON
                   {/* /////////////// */}
                 </div>
-                <div className="line_l"></div>
-                <div className="mainpage_div2">World's Finest Saffron</div>
-                <div className="mainpage_div3">
+                <div className={`line_l ${mainpageItems?"true":""}`}></div>
+                <div className={`mainpage_div2 ${mainpageItems?"true":"false"}`}>World's Finest Saffron</div>
+                <div className={`mainpage_div3 ${mainpageItems?"true":"false"}`} >
                   <Arrowbtn
                     linkFromMain="/about-us"
                     onMouseEnter={() => {
@@ -210,28 +224,26 @@ function MainPageTrial() {
             </div>
           </div>
         </div>
-        <div
+        <div ref={secondDivRef}
           onMouseLeave={() => {
             setFinalProduct(false);
           }}
           className="mainpage_con2"
           style={{ transform: `translateY(${scrollPosition * -0.2}px)` }}
         >
-          <OurProducts
+          <OurProducts  
             showFinalProduct={showFinalProduct}
             setFinalProduct={setFinalProduct}
           />
-          {showFinalProduct ? (
-            <div
+            <div  
               className={`mainpage_con212 ${showFinalProduct ? "true" : ""}`}
             >
               <FinalProduct />
             </div>
-          ) : null}
         </div>
       </div>
 
-      <div className="mainpagetrialdiv">
+      <div  className="mainpagetrialdiv">
         <div className="setus_div1">WHAT SET US APART</div>
         <div className="setus_div2">
           <div>

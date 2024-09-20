@@ -18,7 +18,7 @@ function Availability({ stock,state,setState,name,price,stockk }) {
 
             </div>
 
-        </div>
+        </div> 
     </div>
   )
 }

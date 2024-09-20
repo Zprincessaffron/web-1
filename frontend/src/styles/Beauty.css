@@ -10,10 +10,10 @@
     font-size: 1.5rem;
 
 
-}
+} 
 
 .beauty_main{ 
-   width: 100vw; 
+   width: 100vw;  
    height: 100vh;
    background-position: center center;
    background-size: cover;
@@ -133,11 +133,12 @@
 
 
 }
-.radio_btn_beauty.true{
-    background-color: rgba(156, 195, 202, 0.651);
-    color: rgb(0, 0, 0);
-    font-weight: bold;
 
+.culinary_div21b-h1{
+    background-color: white;
+}
+.culinary_div21b-h1.true{
+    background-color: rgb(254, 236, 255);;
 }
 .beauty_div1{
     transition: all 0.5s ease-in-out;
@@ -149,31 +150,31 @@
 
 /* ////////////////////brightning///////////////////// */
 .radio_btton_beauty.brightning{
-    background-color: rgb(231, 248, 250);
+    background-color: rgb(254, 236, 255)
 }
 .beauty_div1.brightning{
-    background-color: rgb(231, 248, 250);
+    background-color: rgb(254, 236, 255)
 }
 /* ////////////////////antiaging///////////////////// */
 .radio_btton_beauty.antiaging{
-    background-color: rgb(231, 248, 250);
+    background-color: rgb(254, 236, 255)
 }
 .beauty_div1.antiaging{
-    background-color: rgb(231, 248, 250);
+    background-color: rgb(254, 236, 255)
 }
 /* ////////////////////skintone///////////////////// */
 .radio_btton_beauty.skintone{
-    background-color: rgb(231, 248, 250);
+    background-color: rgb(254, 236, 255)
 }
 .beauty_div1.skintone{
-    background-color: rgb(231, 248, 250);
+    background-color: rgb(254, 236, 255)
 }
 /* ////////////////////acne///////////////////// */
 .radio_btton_beauty.acne{
-    background-color: rgb(231, 248, 250);
+    background-color: rgb(254, 236, 255)
 }
 .beauty_div1.acne{
-    background-color: rgb(231, 248, 250);
+    background-color: rgb(254, 236, 255)
 }
 @media only screen and (max-width: 480px) {
     

@@ -7,6 +7,26 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+
+import { TfiInstagram } from "react-icons/tfi";
+import { FaXTwitter } from "react-icons/fa6";
+import { PiWhatsappLogoLight } from "react-icons/pi";
+import { CiMail } from "react-icons/ci";
+import { RiLinkedinLine } from "react-icons/ri";
+
+//importing icons
+import whatsapp from '../images/footericon/whatsapp.png'
+import twitter from '../images/footericon/twitter.png'
+import insta from '../images/footericon/insta.png'
+import facebook from '../images/footericon/facebook.png'
+import gmail from '../images/footericon/gmail.png'
+import linkedin from '../images/footericon/linkedin.png'
+//
+import { FaFacebookF } from "react-icons/fa";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { RiInstagramFill } from "react-icons/ri";
+import { BiLogoGmail } from "react-icons/bi";
+
 function Footer() {
   const [showContent, setShowContent] = useState(false);
   const navigate = useNavigate();
@@ -93,10 +113,11 @@ function Footer() {
           </div>
         </div>
         <div className="footer-div32">
-          <FaLinkedinIn />
-          <CgMail />
-          <FaWhatsapp />
-          <FaInstagram />
+         <span><FaFacebookF/></span>
+         <span><IoLogoWhatsapp/></span>
+         <span><RiInstagramFill/></span>
+         <span><BiLogoGmail/></span>
+         <span><FaLinkedinIn/></span>
         </div>
       </div>
       <div className="footer-div2"></div>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../../styles/SideBar.css'
 import { IoCloseSharp } from "react-icons/io5";
 import { useUserContext } from '../../context/MainContext'; 
@@ -6,18 +6,82 @@ import { useSpring, animated } from 'react-spring';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import { FaL } from 'react-icons/fa6';
-import culinaryslide from '../../images/culinaryslide.jpg'
-import medicinalslider from '../../images/medicinalslider.jpg'
-import pregnancyslider from '../../images/pregnancyslider.jpg'
-import beautyslider from '../../images/beautyslider.jpg'
 import { userContext } from '../../context/UserContext';
 import { FaAngleRight } from "react-icons/fa6";
+import product1 from '../../images/product1.jpeg'
+import product2 from '../../images/product2.jpg'
+import product3 from '../../images/product3.jpg'
+import product4 from '../../images/product4.jpg'
+
+
 
 function SideBar() {
   const navigate = useNavigate() 
   const [showStyle,setShowStyle]=useState()
+  const [products, setProducts] = useState([]);
   const { user } =useContext(userContext)
-    const { isMobile, setIsMobile,singleProduct,setSingleProduct,showMenuSub,setShowMenuSub,mainItems,setMainItems,setGoldenElixir,menuSlider,setMenuSlider,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar }=useUserContext()
+    const { setMainPageItems,isMobile, setIsMobile,singleProduct,setSingleProduct,showMenuSub,setShowMenuSub,mainItems,setMainItems,setGoldenElixir,menuSlider,setMenuSlider,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar }=useUserContext()
+  useEffect(() => {
+    setMainPageItems(false)
+      // Fetch products from your API
+      fetch('http://localhost:4040/products')  // replace with your actual API endpoint
+        .then((response) => response.json())
+        .then((data) => {
+          // Split the products into four based on variants
+  
+          const splitProducts = [
+            {
+              _id: data[0]._id + "-0",  // Unique ID for variant 1 of product 1
+              name: `${data[0].name} `,
+              price: data[0].variants[0].price,
+              weight: data[0].variants[0].weight,
+              fullProduct: data[0],
+              stock:data[0].variants[0].stock,
+              image:product1,
+              flipimage:product4
+            },
+            { 
+              _id: data[0]._id + "-1",  // Unique ID for variant 2 of product 1
+              name: `${data[0].name}`,
+              price: data[0].variants[1].price,
+              weight: data[0].variants[1].weight,
+              fullProduct: data[0],
+              stock:data[0].variants[1].stock,
+              image:product2,
+              flipimage:product1
+            },
+            {
+              _id: data[1]._id + "-0",  // Unique ID for variant 1 of product 2
+              name: `${data[1].name} `,
+              price: data[1].variants[0].price,
+              weight: data[1].variants[0].weight,
+              fullProduct: data[1],
+              stock:data[1].variants[0].stock,
+              image:product3,
+              flipimage:product2
+            },
+            {
+              _id: data[1]._id + "-1",  // Unique ID for variant 2 of product 2
+              name: `${data[1].name} `,
+              price: data[1].variants[1].price,
+              weight: data[1].variants[1].weight,
+              fullProduct: data[1],
+              stock:data[1].variants[1].stock,
+              image:product4,
+              flipimage:product3
+            },
+          ];
+          setProducts(splitProducts);
+        });
+    }, []);
+    const handleProductClick = (val) => {
+      // Navigate to product details page with the full product data
+      const product = products[val]
+      navigate(`/product/${product._id}`, { state: { product } });
+      setMenuItems(false)
+      setSideBar(false)
+      setMenuSlider(false)
+    };
 
 
     const itemAnimation1 = useSpring({
@@ -96,6 +160,7 @@ function SideBar() {
   setMenuItems(false)
   setSideBar(false)
   setMenuSlider(false)
+  setMainPageItems(true)
 
  }
  function handleBack(){
@@ -104,19 +169,29 @@ function SideBar() {
  }
  function handleKasmir(){
   setMenuItems(false)
-  setSideBar(false)
-  setMenuSlider(false)
-  setSingleProduct(true)
+  setMenuSubItems('')
+  
+  setMenuSubItems('kashmir')
 
-  navigate('/singleproduct')
+  setTimeout(() => {
+
+  setMenuItems(true)
+  }, 600);
+
+
   
  }
  function handleSpain(){
   setMenuItems(false)
-  setSideBar(false)
-  setMenuSlider(false)
-  setSingleProduct(false)
-  navigate('/singleproduct')
+  setMenuSubItems('')
+  
+  setMenuSubItems('spain')
+
+  setTimeout(() => {
+
+  setMenuItems(true)
+  }, 600);
+
   
  }
  function handleBackGolden(){
@@ -188,6 +263,9 @@ function SideBar() {
   setShowStyle(e)
 
  }
+ function handleProductBack(){
+  setMenuSubItems('products')
+ }
 
   return (
     <div className={`sidebar_main ${sideBar?"true":"false"}`}>
@@ -213,6 +291,20 @@ function SideBar() {
         <animated.div  onClick={handleSpain}  className="menu-item" style={itemAnimation1}>SPAIN SAFFRON</animated.div>
                     </>)
                    }
+                    {menuSubItems == 'kashmir' && (
+                    <>
+                    <animated.div id="sidebar_kh" className="menu-item" onClick={handleProductBack} style={itemAnimation3}><IoMdArrowRoundBack className='sidebar_arrow'/>KASHMIR SAFFRON</animated.div>
+        <animated.div onClick={()=>handleProductClick(0)} className="menu-item" style={itemAnimation2}> 2 GRAMS </animated.div>
+        <animated.div  onClick={()=>handleProductClick(1)}className="menu-item" style={itemAnimation1}>5 GRAMS</animated.div>
+                    </>)
+                   }
+                    {menuSubItems == 'spain' && (
+                    <>
+                    <animated.div id="sidebar_kh" className="menu-item" onClick={handleProductBack} style={itemAnimation3}><IoMdArrowRoundBack className='sidebar_arrow'/>SPAIN SAFFRON</animated.div>
+                    <animated.div onClick={()=>handleProductClick(2)} className="menu-item" style={itemAnimation2}> 2 GRAMS </animated.div>
+                    <animated.div  onClick={()=>handleProductClick(3)}  className="menu-item" style={itemAnimation1}>5 GRAMS</animated.div>
+                    </>)
+                   }
                     
                     {menuSubItems == 'goldenelixir' && (
                     <>
@@ -231,22 +323,22 @@ function SideBar() {
                       <animated.div onClick={()=> handleGoldenElixerChange('medicine')} className="menu-item" style={itemAnimation3}>MEDICINAL USES</animated.div>
                       <animated.div onClick={()=> handleGoldenElixerChange('pregnancy')}  className="menu-item" style={itemAnimation5}>PREGNANCY</animated.div>
                       </>
-                    )}
+                    )} 
 
                     </>)
                    }
                     {menuSubItems == 'mainitem' && (
-              <><animated.div onClick={handleKnowledgw} className="menu-item" style={itemAnimation1}  onMouseEnter={()=>handleMouseEnter('knowlegdehub')} > <FaAngleRight   className={`menu_main_right ${showStyle=="knowlegdehub"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="knowlegdehub"?"true":""}`}>KNOWLEDGE HUB</span></animated.div>
-              <animated.div  onClick={handleProduct} className="menu-item" style={itemAnimation2} onMouseEnter={()=>handleMouseEnter('products')} ><FaAngleRight   className={`menu_main_right ${showStyle=="products"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="products"?"true":""}`}>PRODUCTS</span></animated.div>
-              <animated.div onClick={handleWhyChooseUs} className="menu-item" style={itemAnimation3}  onMouseEnter={()=>handleMouseEnter('whychoose')} > <FaAngleRight   className={`menu_main_right ${showStyle=="whychoose"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="whychoose"?"true":""}`}>WHY CHOOSE US</span></animated.div>
-              <animated.div  onClick={handleGoldenElixir} className="menu-item" style={itemAnimation4}  onMouseEnter={()=>handleMouseEnter('golden')} ><FaAngleRight   className={`menu_main_right ${showStyle=="golden"?"true":""}`}/>   <span className={`menu_main_items ${showStyle=="golden"?"true":""}`}>GOLDEN EXILIR</span></animated.div>
-              <animated.div  onClick={()=>{navigate('/chatbot')}} className="menu-item" style={itemAnimation5}  onMouseEnter={()=>handleMouseEnter('recommendar')} ><FaAngleRight   className={`menu_main_right ${showStyle=="recommendar"?"true":""}`}/>  <span className={`menu_main_items ${showStyle=="recommendar"?"true":""}`}>RECOMMENDAR</span></animated.div>
-              {user?(              <animated.div  onClick={()=>{navigate('/dashboard/profile')}} className="menu-item" style={itemAnimation6}  onMouseEnter={()=>handleMouseEnter('profile')} > <FaAngleRight   className={`menu_main_right ${showStyle=="profile"?"true":""}`}/>  <span className={`menu_main_items ${showStyle=="profile"?"true":""}`}>PROFILE</span></animated.div>
+              <><animated.div onClick={handleKnowledgw} className="menu-item" style={itemAnimation1}  onMouseEnter={()=>handleMouseEnter('knowlegdehub')} > <span   className={`menu_main_right ${showStyle=="knowlegdehub"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="knowlegdehub"?"true":""}`}>KNOWLEDGE HUB</span></animated.div>
+              <animated.div  onClick={handleProduct} className="menu-item" style={itemAnimation2} onMouseEnter={()=>handleMouseEnter('products')} ><span   className={`menu_main_right ${showStyle=="products"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="products"?"true":""}`}>PRODUCTS</span></animated.div>
+              <animated.div onClick={handleWhyChooseUs} className="menu-item" style={itemAnimation3}  onMouseEnter={()=>handleMouseEnter('whychoose')} > <span   className={`menu_main_right ${showStyle=="whychoose"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="whychoose"?"true":""}`}>WHY CHOOSE US</span></animated.div>
+              <animated.div  onClick={handleGoldenElixir} className="menu-item" style={itemAnimation4}  onMouseEnter={()=>handleMouseEnter('golden')} ><span   className={`menu_main_right ${showStyle=="golden"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="golden"?"true":""}`}>GOLDEN EXILIR</span></animated.div>
+              <animated.div  onClick={()=>{navigate('/chatbot')}} className="menu-item" style={itemAnimation5}  onMouseEnter={()=>handleMouseEnter('recommendar')} ><span   className={`menu_main_right ${showStyle=="recommendar"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="recommendar"?"true":""}`}>RECOMMENDAR</span></animated.div>
+              {user?(              <animated.div  onClick={()=>{navigate('/dashboard/profile')}} className="menu-item" style={itemAnimation6}  onMouseEnter={()=>handleMouseEnter('profile')} > <span   className={`menu_main_right ${showStyle=="profile"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="profile"?"true":""}`}>PROFILE</span></animated.div>
 ):(null)}
-              <animated.div onClick={()=>{navigate('/login')}}  className="menu-item" style={itemAnimation7}  onMouseEnter={()=>handleMouseEnter('login')} > <FaAngleRight   className={`menu_main_right ${showStyle=="login"?"true":""}`}/>  <span className={`menu_main_items ${showStyle=="login"?"true":""}`}>LOGIN</span></animated.div></>
+              <animated.div onClick={()=>{navigate('/login')}}  className="menu-item" style={itemAnimation7}  onMouseEnter={()=>handleMouseEnter('login')} > <span   className={`menu_main_right ${showStyle=="login"?"true":""}`}>Z</span><span className={`menu_main_items ${showStyle=="login"?"true":""}`}>LOGIN</span></animated.div></>
              )
                    }
-    </>
+</>
               
              ):(null)}
             

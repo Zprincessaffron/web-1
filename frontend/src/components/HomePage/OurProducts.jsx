@@ -9,7 +9,7 @@ function OurProducts({ setFinalProduct }) {
   const [mouse, setMouse] = useState(false);
 
   function handleMouse() {
-    setMouse(true);
+    setMouse(true); 
   }
 
   function handleLeave() {
@@ -38,7 +38,7 @@ function OurProducts({ setFinalProduct }) {
       <div className='unveil_div1'>
         <h1>OUR PRODUCTS</h1>
         <div className='arrow_div'>
-          <button
+          <button style={{marginTop:"2rem"}}
             onClick={handleClick}
             onMouseEnter={handleMouse}
             onMouseLeave={handleLeave}

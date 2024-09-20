@@ -6,17 +6,15 @@ import product2 from '../../images/product2.jpg'
 import product3 from '../../images/product3.jpg'
 import product4 from '../../images/product4.jpg'
 import { CartContext } from '../../context/CartContext';
+import { useUserContext } from '../../context/MainContext';
 
 const FinalProduct = () => {
   const [products, setProducts] = useState([]);
   const { addToCart, cartItems } = useContext(CartContext);
+  const navigate = useNavigate(); 
+  const [itemHover,setItemHover]=useState(false) 
+  const { isMobile }=useUserContext()
 
-  const navigate = useNavigate();
-  const [itemHover,setItemHover]=useState(false)
-
-  const productImage={
-    "66d2e6ed20b726ac685d2649-0":product1,
-  }
   useEffect(() => {
     // Fetch products from your API
     fetch('http://localhost:4040/products')  // replace with your actual API endpoint
@@ -91,10 +89,11 @@ navigate('/checkout');
         <div key={product._id} className="product_card">
 <img  onClick={() => handleProductClick(product)} src={product.image} />     
   <div  className='fp_hovercontent'>
-  <img  onClick={() => handleProductClick(product)} src={product.flipimage} alt="" />
+    {!isMobile?(  <img  onClick={() => handleProductClick(product)} src={product.flipimage} alt="" />
+):""}
   <h3  onClick={() => handleProductClick(product)}>{product.name}</h3>
 <p  onClick={() => handleProductClick(product)}>Price: ₹{product.price}</p>
-<p  onClick={() => handleProductClick(product)}>Weight: {product.weight}g</p>
+<h4  onClick={() => handleProductClick(product)}>Weight: {product.weight}g</h4>
 <button onClick={()=>handleBuyNow(product)}>Buy Now</button>
    </div>
    </div>

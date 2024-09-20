@@ -20,7 +20,7 @@ export const registerUser = async (req, res) => {
     name,
     email,
     password,
-    phone 
+    phone
   } = req.body;
   try {
     let user = await User.findOne({ email });
@@ -34,11 +34,8 @@ export const registerUser = async (req, res) => {
             const otp = Math.floor(100000 + Math.random() * 900000).toString();
             user.otp = otp;
             user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
-    
             await user.save();
-    
             await sendOTP(email, otp);
-    
             res.status(200).json({ msg: 'OTP sent to email' });
             return
         }
@@ -128,35 +125,51 @@ export const resendOTP = async (req, res) => {
 
 // user login endpoint
 export const loginUser = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, phone } = req.body;
 
   try {
     // Attempt to find the user in the possible collections
     const collections = [Marketer, Wholesaler, User];
     let user = null;
     let role = '';
-
-    for (const Collection of collections) {
-      user = await Collection.findOne({ email });
-      if (user) {
-        if (Collection.modelName === "User") {
-          role = user.role; // Get the role directly from the user document
-        } else {
-          role = Collection.modelName.toLowerCase(); // Assign role based on the model name for non-User collections
+    if(email){
+      for (const Collection of collections) {
+        user = await Collection.findOne({ email });
+        if (user) {
+          if (Collection.modelName === "User") {
+            role = user.role; // Get the role directly from the user document
+          } else {
+            role = Collection.modelName.toLowerCase(); // Assign role based on the model name for non-User collections
+          }
+          break;
         }
-        break;
       }
+  
     }
-
+    if(phone){
+      for (const Collection of collections) {
+        user = await Collection.findOne({ phone });
+        if (user) {
+          if (Collection.modelName === "User") {
+            role = user.role; // Get the role directly from the user document
+          } else {
+            role = Collection.modelName.toLowerCase(); // Assign role based on the model name for non-User collections
+          }
+          break;
+        }
+      }
+  
+    }
+    
     // If user is not found in any collection
     if (!user) {
-      return res.status(404).json({ error: "No user found" });
+      return res.status(404).json({ msg: "User Not found" });
     }
 
     // Check if the password matches
     const isMatch = await comparePassword(password, user.password);
     if (!isMatch) {
-      return res.status(401).json({ error: "Incorrect password" });
+      return res.status(401).json({ msg: "Incorrect password" });
     }
 
     // Generate a unique ID if it doesn't exist

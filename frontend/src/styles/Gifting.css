@@ -37,3 +37,15 @@
 .pd_div2>div{
     margin-top: calc(2rem + 2vw);
 }
+@media only screen and (max-width: 480px) {
+    .gifting_main.true{
+        width: 100vw;
+      
+      }
+      .pd_div2>p{
+        font-weight: 300;
+        font-size: calc(0.8rem);
+        margin-top: 2rem;
+        text-transform: capitalize;
+    }
+}

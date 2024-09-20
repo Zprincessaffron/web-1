@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import "../styles/NavBar.css"
 import { PiUser } from "react-icons/pi";
 import { useNavigate } from 'react-router-dom';
@@ -10,17 +10,19 @@ import { BsCart } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
 import { userContext } from '../context/UserContext';
 import { CartContext } from '../context/CartContext';
+import { IoBagOutline } from "react-icons/io5";
 
-function Navbar( {itemCount} ) {
+
+function Navbar( {itemCount,adjustScrollPosition,showproduct} ) {
   const { addToCart, cartItems } = useContext(CartContext);
-
-  const { showMenuSub,setShowMenuSub,profileHover,setProfileHover,mainItems,setMainItems,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,showNav,setShowNav,showLogin,setShowLogin } =useUserContext()
+  const [showline, setShowLine]=useState(false)
+  const { setMainPageItems,isMobile,showMenuSub,setShowMenuSub,profileHover,setProfileHover,mainItems,setMainItems,menuItems,setMenuItems,menuSubItems,setMenuSubItems,sideBar,setSideBar,showNav,setShowNav,showLogin,setShowLogin } =useUserContext()
   const { user }=useContext(userContext)
   const navigate = useNavigate()
   function handleLogin(e){
     setShowLogin(true)
 
-  }
+  } 
   function handleAbout(e){
     navigate('/about')
 
@@ -28,10 +30,11 @@ function Navbar( {itemCount} ) {
   function handleMouseEnter(){
     setShowLogin(true)
   }
-  function handelMenu(){
+  function handelMenu(){ 
     setSideBar(true)
     setMenuItems(true)
     setMenuSubItems('mainitem')
+    setMainPageItems(false)
   }
  function handleProfileEnter(){
   setProfileHover(true)
@@ -39,38 +42,34 @@ function Navbar( {itemCount} ) {
  }
  function handleProfileLeave(){
     setProfileHover(false)
- 
-
  }
-
+ 
   return (
     <div className={`Navbar_main ${showNav?"true":""}`}>
         <div className='Navbar_div1'> 
-          <AiOutlineMenu onClick={handelMenu}/>
-          
-
+          <div className={`Navbar_div11 ${showNav?"true":""}`}>
+          <AiOutlineMenu className='menuicon' onMouseEnter={()=>{setShowLine(true)}}  onMouseLeave={()=>{setShowLine(false)}} onClick={handelMenu}/> {!isMobile?(<span className={`menutext ${showline?"true":""}`} onClick={handelMenu}>Menu</span>):(null)}</div>
         </div>
         <div   className={`Navbar_div2 ${showNav?"true":""}`}   >
-          <span onClick={()=>{navigate('/')}}>Z PRINCESS SAFFRON</span>
-            
+          <span onClick={()=>{navigate('/')}}>Z PRINCESS SAFFRON</span>  
         </div>
-       {user?(
-         <div className={`Navbar_div3 ${showNav?"true":""}`} >
-            <button onClick={()=>{navigate('/dashboard/profile')}}><PiUser className='piUser' /> </button>
-            <button onClick={()=>navigate('/products')}><HiOutlineShoppingBag/></button>
-         <button style={{position:'relative',overflow:"hidden",padding:"5px"}} onClick={()=>{navigate('/cart')}}><BsCart/> <p style={{position:'absolute',top:0,right:0,backgroundColor:"#fd625e",color:"#ffe8e8",height:"18px",width:"18px",borderRadius:"10px",display:"flex",alignItems:"center",justifyContent:"center",overflow:"hidden",fontSize:"10px"}}>{cartItems.length}</p> </button>
-     </div>
-       ):(
-
+      
+     
+     
         <div className={`Navbar_div3 ${showNav?"true":""}`} >
-            <button onMouseEnter={handleMouseEnter} onClick={handleLogin}><PiUser className='piUser' /> </button>
-            <button onClick={()=>navigate('/products')}><HiOutlineShoppingBag/></button>
-            <button onClick={()=>{navigate('/cart')}}><BsCart/></button>
+
+
+        {user?(
+             <button className='button_user' onClick={()=>{navigate('/dashboard/profile')}}>{!isMobile?(<span>{user.name} </span>):(<PiUser className='piUser' /> )}</button>
+
+             ):( <button onMouseEnter={handleMouseEnter} onClick={handleLogin}><PiUser className='piUser' /> </button>
+          )}
+            {showproduct?( <button onClick={()=>adjustScrollPosition(500)}><IoBagOutline/></button>):(null)}
+            <button style={{position:'relative',overflow:"hidden",padding:"5px"}} onClick={()=>{navigate('/cart')}}><BsCart/> <p style={{position:'absolute',top:0,right:0,backgroundColor:"#fd625e",color:"#ffe8e8",height:"15px",width:"15px",borderRadius:"10px",display:"flex",alignItems:"center",justifyContent:"center",overflow:"hidden",fontSize:"10px"}}>{cartItems.length}</p> </button>
+
         </div>
-       )}
-
-
-    </div>
+      
+    </div> 
   )
 }
 

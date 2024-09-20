@@ -7,6 +7,8 @@
     z-index: 2;
     opacity: 0;
     animation: fadeIn 0.3s forwards;
+    font-family: 'Riviera Nights';
+
     border: 0.5px solid rgba(128, 128, 128, 0.436);
 }
 @keyframes fadeIn {
@@ -29,6 +31,7 @@
     font-size: 12px;
     text-align: center;
     font-weight: 500;
+    font-weight: bold;
 
 }
 .loginhover_div2>p{
@@ -73,6 +76,7 @@
     font-size: 12px;
     text-align: center;
     font-weight: 500;
+    font-weight: bold;
 }
 .loginhover_div3>p{
     font-size: 13px;
@@ -81,6 +85,7 @@
     margin-top: 5px;
     margin-bottom: 10px;
     text-align: center;
+    color: black;
 }
 .loginhover_div3>button{
     padding: 10px 50px;

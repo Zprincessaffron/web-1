@@ -38,7 +38,7 @@
 .circle {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: 50%; 
   border: 2px solid rgba(195, 216, 237, 0.5); /* Light blue border with transparency */
   display: flex;
   justify-content: center;
@@ -219,21 +219,29 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 0;
   height: 100vh;
   z-index: 1;
   opacity: 0;
+  transition: all 0.3s ease-in;
+  
 }
 .mainpage_con212.true{
   opacity: 1;
+  width: 100vw;
+  
 }
 
 /* //////////////////////////////////////// */
 .line_l{
   height: 0.5px;
   margin-bottom: 10px;
-  width: 300px;
+  width: 250px;
+  opacity: 0;
   background-color: rgba(238, 222, 52, 0.578);
+}
+.line_l.true{
+  opacity: 1;
 }
 .mainpage_div {
     position: relative;
@@ -253,23 +261,66 @@
   }
   .mainpage_div1{
     letter-spacing: .8rem;
+    opacity: 0;
+
     text-transform: uppercase;
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: white;
     font-weight: bold;
 
     font-family: 'Riviera Nights';
+    transition: all 0.3s ease-in-out;
+    transform: translateY(30px);
   }
+.mainpage_div1.true{
+  opacity: 1;
+  transform: translateY(0);
 
+
+
+}
+.mainpage_div1.false{
+  opacity: 0;
+  transform: translateY(30px);
+
+
+
+}
   .mainpage_div2{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    transition: all 0.4s ease-in-out;
+    transform: translateY(30px);
+    opacity: 0;
     
   }
+  .mainpage_div2.true{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .mainpage_div2.false{
+    opacity: 0;
+    transform: translateY(30px);
+  }
   .mainpage_div3{
-    padding: 2rem;
+    padding: 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+    transform: translateY(30px);
+    margin-top: 2rem;
+    opacity: 0;
+  }
+  .mainpage_div3.true{
+    opacity: 1;
+    transform: translateY(0);
+
+  }
+  .mainpage_div3.false{
+    opacity: 0;
+    transform: translateY(30px);
+
   }
   .mainpage_div3>button{
     padding: 15px 35px;
@@ -667,11 +718,11 @@ height: 100%;
 }
 
 .setus_div2 div p{
-  color: rgb(0, 0, 0);
+  color: rgb(42,42,42);
   line-height: 1.9230769231;
   letter-spacing: 0.0684615385em;
   font-size: 0.8rem; 
-  font-weight: bold;
+  font-weight: 100;
 }
 .parallax_div1>p{
   line-height: 1.9230769231;

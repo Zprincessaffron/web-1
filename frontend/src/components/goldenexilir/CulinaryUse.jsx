@@ -17,7 +17,7 @@ function CulinaryUse() {
         setDish(val) 
     }
 
-
+ 
     useEffect(() => {
         setMenuSlider(false)
         setSideBar(false)

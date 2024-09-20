@@ -8,8 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { TbPasswordMobilePhone } from "react-icons/tb";
 
 
-const Otp = ({setNavOtp,navOtp}) => {
-  const { userEmail }=useUserContext()
+const Otp = ({setNavOtp,navOtp,userEmail}) => {
   const initialValues = {
     email: userEmail,
     otp: ''

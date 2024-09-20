@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     color: #4a5568;
+
 }
  
 .dashboard-main {
@@ -78,6 +79,9 @@
 .dashboard-menu {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    border: none;
 }
 
 .dashboard-menu li {
@@ -147,7 +151,7 @@
 .oh-title {font-weight: 600; /* font-semibold */
     margin-bottom: 2rem; 
     font-family: 'riviera';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
@@ -188,7 +192,7 @@
 
 .oh-order-date,
 .oh-order-status {
-    font-size: 0.875rem; /* text-sm */
+    font-size: 0.75rem; /* text-sm */
     color: #4a5568; /* text-gray-600 */
 }
 
@@ -245,7 +249,7 @@
 .order-title {
     font-size: 1.875rem; /* text-3xl */
     font-weight: 800; /* font-extrabold */
-    color: #1a202c; /* text-gray-900 */
+    color: #10151f; /* text-gray-900 */
 }
 
 .order-card {
@@ -261,7 +265,7 @@
     font-weight: 600; /* font-semibold */
     margin-bottom: 2rem; 
     font-family: 'riviera';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
@@ -298,6 +302,9 @@
     padding: 1rem; /* px-6 py-4 */
     white-space: nowrap; /* whitespace-nowrap */
     font-size: 0.875rem; /* text-sm */
+    font-family: "Roboto", system-ui;
+    font-weight: 300;
+    letter-spacing: 0.5px;
     color: #4a5568; /* text-gray-900 and text-gray-500 */
 }
 
@@ -417,7 +424,7 @@
     font-weight: 600; /* font-semibold */
     margin-bottom: 2rem; 
     font-family: 'riviera';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
@@ -443,6 +450,8 @@
     height: 20px;
     letter-spacing: 1px;
     font-size: small;
+    font-family: "Roboto", system-ui;
+    font-weight: 300;
     border: 1px solid #d1d5db; /* border-gray-300 */
     padding: 0.5rem 0.75rem; /* px-4 py-2 */
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
@@ -536,7 +545,7 @@
     font-weight: 600; /* font-semibold */
     margin-bottom: 2rem; 
     font-family: 'riviera';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
@@ -566,6 +575,8 @@
     align-items: center;
     letter-spacing: 1px;
     color: black;
+    font-weight:300;
+    font-family: "Roboto", system-ui;
     border: 1px solid #d1d5db; /* border-gray-300 */
     background-color: #f3f4f6; /* bg-gray-100 */
     padding: 0.5rem 20px; /* p-2 */

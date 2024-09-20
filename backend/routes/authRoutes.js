@@ -11,6 +11,7 @@ import { OrderData ,userOrders, getOrderData, getUserOrders, updateOrderStatus }
 import { getAllUserOrders, getAllWholesalerOrders } from '../controllers/adminController.js';
 import { getProducts, updateProduct } from '../controllers/productController.js';
 import { telecallerOrders } from '../controllers/telecallerController.js';
+import { sendMail } from '../controllers/mailController.js';
 
 const router = express.Router();
 
@@ -84,4 +85,11 @@ router.put('/products/:id', updateProduct);
 
 // telecaller orders
 router.post('/telecaller-orders', telecallerOrders);
+
+///contactus-email
+
+
+
+router.post('/sendmail', sendMail);
+
 export default router;
