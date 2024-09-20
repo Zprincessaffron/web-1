@@ -25,8 +25,7 @@ import linkedin from '../images/footericon/linkedin.png'
 import { FaFacebookF } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { RiInstagramFill } from "react-icons/ri";
-import { ImMail4 } from "react-icons/im";
-import { TiSocialLinkedinCircular } from "react-icons/ti";
+import { BiLogoGmail } from "react-icons/bi";
 
 function Footer() {
   const [showContent, setShowContent] = useState(false);
@@ -117,8 +116,8 @@ function Footer() {
          <span><FaFacebookF/></span>
          <span><IoLogoWhatsapp/></span>
          <span><RiInstagramFill/></span>
-         <span><ImMail4/></span>
-         <span><TiSocialLinkedinCircular/></span>
+         <span><BiLogoGmail/></span>
+         <span><FaLinkedinIn/></span>
         </div>
       </div>
       <div className="footer-div2"></div>
