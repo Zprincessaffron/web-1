@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import "../../styles/MainPage.css";
 import backvideo from "../../images/backvideo.mp4";
 import Navbar from "../../navbar/NavBar";
@@ -21,6 +21,7 @@ import FinalProduct from '../product/FinalProduct'
 import Cursor from './Cursor'
 import ReactSlick from '../product/ReactSlick'
 import RecommenderTest from "./RecommenderTest";
+import { userContext } from "../../context/UserContext";
 
 gsap.registerPlugin(ScrollTrigger); 
 function MainPageTrial() {
@@ -164,6 +165,20 @@ function MainPageTrial() {
   };
   console.log("video", videoPlay);
 
+  const handleDemoRedirect = () => {
+    if (user) {
+      // Assuming user object contains necessary information
+      const demoParams = new URLSearchParams({
+        userId: user.id, // Pass user ID or any necessary information
+        demo: 'true' // Add demo parameter if needed
+      }).toString();
+      
+      window.open(`http://localhost:5173/home?${demoParams}`, '_blank', 'noopener,noreferrer');
+    } else {
+      navigate('/login');
+    }
+  };
+
   return (
     <>
        <RecommenderTest/>
@@ -201,13 +216,8 @@ function MainPageTrial() {
                     }}
                     name="DISCOVER NOW"
                   />
-                  <a
-                    href="http://localhost:5174/home"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="arrow-btn" // Add your own class for styling
-                  >
-                    <Arrowbtn name="Web 2" linkFromMain="/"/>
+                  <a onClick={handleDemoRedirect} className="arrow-btn">
+                    <Arrowbtn name="Web 2" linkFromMain="/" />
                   </a>
                 </div>
                 <div className="mainpage_end"></div>
