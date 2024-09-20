@@ -85,6 +85,11 @@
   margin-right: -30px;
 }
 
+.recommender-test:hover{
+  width: 90px; /* Adjust size as needed */
+  height: 90px;
+}
+
 .bot-text {
   position: fixed;
   top: 48%;
@@ -104,6 +109,7 @@
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
 }
+
 
 .left-side {
   position: fixed;

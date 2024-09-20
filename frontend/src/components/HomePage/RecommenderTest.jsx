@@ -55,7 +55,8 @@ const RecommenderTest = () => {
 
   return (
     <>
-      <motion.div
+    <div className="main-bot-container">
+    <motion.div
         className="recommender-test"
         onClick={() => navigate("/chatbot")}
         animate={controls}
@@ -64,8 +65,10 @@ const RecommenderTest = () => {
          
       </motion.div>
       <p className={`bot-text ${scrollStep % 2 === 0 ? "right-side" : "left-side"}`}>
-         Hello, This is Siri
+         Hello, This is Zyra
       </p>
+    </div>
+      
     </>
   );
 };
