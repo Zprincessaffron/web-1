@@ -22,7 +22,7 @@ dotenv.config();
 // }));
 // Allow requests from your Vercel frontend
 app.use(cors({
-  origin: 'http://localhost:5174', // Your Vercel domain
+  origin: 'https://web-1-8cji.vercel.app', // Your Vercel domain
   methods: 'GET,POST,PUT,DELETE',
   credentials: true
 }));
