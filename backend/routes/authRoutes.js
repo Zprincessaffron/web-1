@@ -20,7 +20,7 @@ const router = express.Router();
 router.use(
   cors({
     credentials: true,
-    origin: 'https://web-1-8cji.vercel.app'
+    origin: 'http://localhost:5173'
   })
 )
 

@@ -73,15 +73,15 @@ import ShippingAndDeliveryPolicy from "./shippingAndDeliveryPolicy/ShippingAndDe
 import Faq from "./Faq/Faq.jsx";
 
 function App() {
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
 
-  useEffect(() => {
-    scroller.scrollTo('top', {
-      duration: 200,
-      delay: 0,
-      smooth: 'easeInOutQuart',
-    });
-  }, [pathname]);
+  // useEffect(() => {
+  //   scroller.scrollTo('top', {
+  //     duration: 200,
+  //     delay: 0,
+  //     smooth: 'easeInOutQuart',
+  //   });
+  // }, [pathname]);
   
   return (
     <UserProvider>
