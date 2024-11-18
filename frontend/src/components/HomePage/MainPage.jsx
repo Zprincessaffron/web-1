@@ -173,7 +173,7 @@ function MainPageTrial() {
         demo: 'true' // Add demo parameter if needed
       }).toString();
       
-      window.open(`http://localhost:5173/home?${demoParams}`, '_blank', 'noopener,noreferrer');
+      window.open(`/home?${demoParams}`, '_blank', 'noopener,noreferrer');
     } else {
       navigate('/login');
     }

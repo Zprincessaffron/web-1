@@ -17,7 +17,7 @@ const FinalProduct = () => {
 
   useEffect(() => {
     // Fetch products from your API
-    fetch('http://localhost:4040/products')  // replace with your actual API endpoint
+    fetch('/products')  // replace with your actual API endpoint
       .then((response) => response.json())
       .then((data) => {
         // Split the products into four based on variants
