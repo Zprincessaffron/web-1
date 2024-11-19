@@ -56,7 +56,7 @@ function Footer() {
             <div>PRODUCTS</div>
           </div>
 
-          <div>
+          <div className="footer_div22">
             <div
               onClick={() => {
                 navigate("/termsandcondition");
@@ -72,13 +72,22 @@ function Footer() {
             >
               PRIVACY POLICY
             </div>
+
             <div
               onClick={() => {
-                navigate("/faq");
+                setShowContent(!showContent);
               }}
+              className="corporate-essentials"
             >
-              FAQ
+              CORPORATE essentials <FaAngleDown />{" "}
             </div>
+            <div className={`liscence-con ${showContent ? "true" : ""}`}>
+              <div>fssai license no:12423008002367</div>
+              <div>gstin:33ABFA6551N1ZZ</div> <div>MSME UAN:TN-02-0006511</div>
+            </div>
+
+
+           
           </div>
 
           <div>
@@ -100,15 +109,10 @@ function Footer() {
             </div>
             <div
               onClick={() => {
-                setShowContent(!showContent);
+                navigate("/faq");
               }}
-              className="corporate-essentials"
             >
-              CORPORATE essentials <FaAngleDown />{" "}
-            </div>
-            <div className={`liscence-con ${showContent ? "true" : ""}`}>
-              <div>fssai license no:12423008002367</div>
-              <div>gstin:33ABFA6551N1ZZ</div> <div>MSME UAN:TN-02-0006511</div>
+              FAQ
             </div>
           </div>
         </div>

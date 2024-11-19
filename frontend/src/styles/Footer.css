@@ -27,7 +27,10 @@
     display: flex;
     flex-direction: row;
     float: left;
-    gap: 10rem;
+    gap: 9vw;
+}
+.footer_div22{
+    width: 30%;
 }
 .footer-div31>div>div{
     color: white;
