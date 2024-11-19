@@ -1,6 +1,6 @@
 .footer_main{
-    background-color: rgb(30, 36, 61);
-    padding: 1rem 0;
+    background-color: rgb(38, 30, 61);
+    padding: 3rem 0 5rem 0;
     font-family: 'Riviera Nights';
     display: flex;
     flex-direction: column;
@@ -57,25 +57,23 @@
 .footer-div32{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
     flex-direction: row;
-    color: rgba(255, 255, 255, 0.366);
+    color: rgba(255, 255, 255, 0.442);
     font-size: 1.2rem;
     padding-left: 0rem;
-    gap: 1rem;
     overflow: hidden;
 
 }
 .footer-div32>span{
     width: 40px;
     height: 28px;
-    background-color: rgba(0, 0, 0, 0.077);
-    border: 0.5px solid rgba(128, 128, 128, 0.284);
     backdrop-filter: blur(20px);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 
