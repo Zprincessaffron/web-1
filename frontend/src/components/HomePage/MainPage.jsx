@@ -181,7 +181,7 @@ function MainPageTrial() {
 
   return (
     <>
-       <RecommenderTest/>
+       {/* <RecommenderTest/> */}
        <Navbar adjustScrollPosition={scrollToSecondDiv}  showproduct={showproduct}/>
       <SideBar />
       <MenuSlider />  
@@ -216,9 +216,9 @@ function MainPageTrial() {
                     }}
                     name="DISCOVER NOW"
                   />
-                  <a onClick={handleDemoRedirect} className="arrow-btn">
+                  {/* <a onClick={handleDemoRedirect} className="arrow-btn">
                     <Arrowbtn name="Web 2" linkFromMain="/" />
-                  </a>
+                  </a> */}
                 </div>
                 <div className="mainpage_end"></div>
               </div>

@@ -262,12 +262,10 @@
   .mainpage_div1{
     letter-spacing: .8rem;
     opacity: 0;
-
     text-transform: uppercase;
     font-size: 3.5rem;
     color: white;
-    font-weight: bold;
-
+    font-weight: thin;
     font-family: 'Riviera Nights';
     transition: all 0.3s ease-in-out;
     transform: translateY(30px);
