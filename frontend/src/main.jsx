@@ -6,7 +6,7 @@ import "./index.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://web-1-3.onrender.com";
+axios.defaults.baseURL = "https://zprincessserver.onrender.com";
 axios.defaults.withCredentials = true;
 // http://localhost:4040
 ReactDOM.createRoot(document.getElementById("root")).render(
