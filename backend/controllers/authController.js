@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 import UserData from "../models/userData.js";
 import dotenv from "dotenv";
 import { sendOTP } from "../utils/email.js";
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
 
 dotenv.config();
 
@@ -16,53 +16,45 @@ export const test = (req, res) => {
 
 // user Registration endpoint
 export const registerUser = async (req, res) => {
-  const {
-    name,
-    email,
-    password,
-    phone
-  } = req.body;
+  const { name, email, password, phone } = req.body;
   try {
     let user = await User.findOne({ email });
     if (user) {
-        if(user.isVerified){
-        return res.status(400).json({ msg: 'User already exists' });}
-        else{
-            const salt = await bcrypt.genSalt(10);
-            user.password = await bcrypt.hash(password, salt);
-    
-            const otp = Math.floor(100000 + Math.random() * 900000).toString();
-            user.otp = otp;
-            user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
-            await user.save();
-            await sendOTP(email, otp);
-            res.status(200).json({ msg: 'OTP sent to email' });
-            return
-        }
+      if (user.isVerified) {
+        return res.status(400).json({ msg: "User already exists" });
+      } else {
+        const salt = await bcrypt.genSalt(10);
+        user.password = await bcrypt.hash(password, salt);
 
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
+        user.otp = otp;
+        user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
+        await user.save();
+        await sendOTP(email, otp);
+        res.status(200).json({ msg: "OTP sent to email" });
+        return;
+      }
     }
 
-   
     user = new User({
       name,
       email,
       password,
-      phone
-      
-  });
+      phone,
+    });
 
-  const salt = await bcrypt.genSalt(10);
-  user.password = await bcrypt.hash(password, salt);
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(password, salt);
 
-  const otp = Math.floor(100000 + Math.random() * 900000).toString();
-  user.otp = otp;
-  user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    user.otp = otp;
+    user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
 
-  await user.save();
+    await user.save();
 
-  await sendOTP(email, otp);
+    await sendOTP(email, otp);
 
-  res.status(200).json({ msg: 'OTP sent to email' });
+    res.status(200).json({ msg: "OTP sent to email" });
   } catch (error) {
     console.log(error);
   }
@@ -73,26 +65,26 @@ export const verifyOTP = async (req, res) => {
   const { email, otp } = req.body;
 
   try {
-      let user = await User.findOne({ email });
+    let user = await User.findOne({ email });
 
-      if (!user) {
-          return res.status(400).json({ msg: 'Invalid email or OTP' });
-      }
+    if (!user) {
+      return res.status(400).json({ msg: "Invalid email or OTP" });
+    }
 
-      if (user.otp !== otp || user.otpExpires < Date.now()) {
-          return res.status(400).json({ msg: 'Invalid OTP or OTP expired' });
-      }
+    if (user.otp !== otp || user.otpExpires < Date.now()) {
+      return res.status(400).json({ msg: "Invalid OTP or OTP expired" });
+    }
 
-      user.isVerified = true;
-      user.otp = undefined;
-      user.otpExpires = undefined;
+    user.isVerified = true;
+    user.otp = undefined;
+    user.otpExpires = undefined;
 
-      await user.save();
+    await user.save();
 
-      res.status(200).json({ msg: 'Email verified successfully' });
+    res.status(200).json({ msg: "Email verified successfully" });
   } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server error');
+    console.error(err.message);
+    res.status(500).send("Server error");
   }
 };
 //resend otp
@@ -101,27 +93,26 @@ export const resendOTP = async (req, res) => {
   const { email } = req.body;
 
   try {
-      let user = await User.findOne({ email });
+    let user = await User.findOne({ email });
 
-      if (!user) {
-          return res.status(400).json({ msg: 'User does not exist' });
-      }
+    if (!user) {
+      return res.status(400).json({ msg: "User does not exist" });
+    }
 
-      const otp = Math.floor(100000 + Math.random() * 900000).toString();
-      user.otp = otp;
-      user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    user.otp = otp;
+    user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
 
-      await user.save();
+    await user.save();
 
-      await sendOTP(email, otp);
+    await sendOTP(email, otp);
 
-      res.status(200).json({ msg: 'OTP resent to email' });
+    res.status(200).json({ msg: "OTP resent to email" });
   } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server error');
+    console.error(err.message);
+    res.status(500).send("Server error");
   }
 };
-
 
 // user login endpoint
 export const loginUser = async (req, res) => {
@@ -131,8 +122,8 @@ export const loginUser = async (req, res) => {
     // Attempt to find the user in the possible collections
     const collections = [Marketer, Wholesaler, User];
     let user = null;
-    let role = '';
-    if(email){
+    let role = "";
+    if (email) {
       for (const Collection of collections) {
         user = await Collection.findOne({ email });
         if (user) {
@@ -144,9 +135,8 @@ export const loginUser = async (req, res) => {
           break;
         }
       }
-  
     }
-    if(phone){
+    if (phone) {
       for (const Collection of collections) {
         user = await Collection.findOne({ phone });
         if (user) {
@@ -158,9 +148,8 @@ export const loginUser = async (req, res) => {
           break;
         }
       }
-  
     }
-    
+
     // If user is not found in any collection
     if (!user) {
       return res.status(404).json({ msg: "User Not found" });
@@ -188,20 +177,18 @@ export const loginUser = async (req, res) => {
     );
 
     // Return the response with the token and user details
-    res.cookie("token", token)
-    .json({
+    res.cookie("token", token).json({
       email: user.email,
       id: user._id,
       name: user.name,
       role,
+      token,
     });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error" });
   }
 };
-
-
 
 export const getUserData = async (req, res) => {
   try {
@@ -211,7 +198,6 @@ export const getUserData = async (req, res) => {
     res.status(500).json({ message: "Error retrieving data", error });
   }
 };
-
 
 // user profile tracking
 
@@ -268,7 +254,6 @@ export const getProfile = async (req, res) => {
   }
 };
 
-
 // Middleware to verify JWT and attach user data to request
 export const authenticate = (req, res, next) => {
   const { token } = req.cookies;
@@ -299,18 +284,16 @@ export const authorize = (roles) => {
   };
 };
 
-
-export const getAdmin = async(req,res) =>{
+export const getAdmin = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
-    console.log(user)
-    if (user && user.role === 'admin') {
+    console.log(user);
+    if (user && user.role === "admin") {
       res.json(user);
     } else {
-      res.status(403).json({ message: 'Forbidden' });
+      res.status(403).json({ message: "Forbidden" });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-}
-
+};
