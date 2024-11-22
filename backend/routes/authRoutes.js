@@ -17,12 +17,12 @@ const router = express.Router();
 
 //middleware
 
-router.use(
-  cors({
-    credentials: true,
-    origin: 'https://web-1-8cji.vercel.app'
-  })
-)
+// router.use(
+//   cors({
+//     credentials: true,
+//     origin: 'http://localhost:5173'
+//   })
+// )
 
 
 // auth
