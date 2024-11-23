@@ -16,7 +16,7 @@ import axios from "axios";
 
 function SideBar() {
   const navigate = useNavigate();
-  const [showStyle, setShowStyle] = useState();
+  const [showStyle, setShowStyle] = useState(); 
   const [products, setProducts] = useState([]);
   const { user } = useContext(userContext);
   const {
@@ -410,7 +410,7 @@ function SideBar() {
                       className="menu-img-item medicine"
                       style={itemAnimation3}
                     >
-                      <div>MEDICINE</div>
+                      <div>MEDICINAL USES</div>
                     </animated.div>
                     <animated.div
                       onClick={() => {
@@ -419,7 +419,7 @@ function SideBar() {
                       className="menu-img-item beauty"
                       style={itemAnimation4}
                     >
-                      <div>FACE CARE</div>
+                      <div>BEAUTY USES</div>
                     </animated.div>
                     <animated.div
                       onClick={() => {
@@ -428,7 +428,7 @@ function SideBar() {
                       className="menu-img-item pregnancy"
                       style={itemAnimation5}
                     >
-                      <div>PREGNANCY</div>
+                      <div>PREGNANT WOMAN</div>
                     </animated.div>
                   </>
                 ) : (

@@ -1,0 +1,209 @@
+/* ActiveUsers.css */
+.au-container {
+    padding: 1rem;
+  }
+  
+  .au-card {
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+  }
+  
+  .au-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .au-active-users {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  
+  /* Analytics.css */
+.analytics-container {
+    padding: 1.5rem;
+  }
+  
+  .analytics-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .analytics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .analytics-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .analytics-card {
+    padding: 1.5rem;
+  }
+  
+  .analytics-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .analytics-content {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  
+
+  /* analytics filter */
+  /* Analytics.css */
+.analytics-container {
+    padding: 1.5rem;
+  }
+  
+  .analytics-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .analytics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .analytics-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .analytics-card {
+    padding: 1.5rem;
+  }
+  
+  .analytics-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .analytics-content {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  
+
+  /* RevenueByProduct.css */
+.rbp-container {
+    padding: 1rem;
+  }
+  
+  .rbp-card {
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .rbp-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  
+
+  /* SalesOverTime.css */
+.sot-container {
+    padding: 1rem;
+  }
+  
+  .sot-card {
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .sot-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+
+
+  /* TopSellingProducts.css */
+.tsp-container {
+    padding: 1rem;
+  }
+  
+  .tsp-card {
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .tsp-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tsp-list-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  /* TotalSales.css */
+.ts-container {
+    padding: 1rem;
+  }
+  
+  .ts-card {
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .ts-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ts-total {
+    font-size: 1.875rem; /* Equivalent to text-3xl */
+    font-weight: 600;
+  }
+  
+  
+
+  /* UserGrowth.css */
+.ug-container {
+    padding: 1rem;
+  }
+  
+  .ug-card {
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .ug-heading {
+    font-size: 1.25rem; /* Equivalent to text-xl */
+    font-weight: 700; /* Equivalent to font-bold */
+    margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+  }
+  

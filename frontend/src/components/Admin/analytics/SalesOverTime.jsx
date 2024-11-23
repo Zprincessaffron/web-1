@@ -17,9 +17,11 @@ const SalesOverTime = ({ salesData }) => {
   };
 
   return (
-    <div className="p-4 bg-white shadow-lg rounded-lg">
+    <div className="tailwind-container">
+    <div  className="p-4 bg-white shadow-lg rounded-lg">
       <h2 className="text-xl font-bold mb-2">Sales Over Time</h2>
       <Line data={data} />
+    </div>
     </div>
   );
 };

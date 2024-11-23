@@ -1,10 +1,13 @@
 import React from 'react';
+import '../styles/Analytics.css'; // Import the external CSS file
 
 const ActiveUsers = ({ users }) => {
   return (
-    <div className="p-4 bg-white shadow-lg rounded-lg">
-      <h2 className="text-xl font-bold mb-2">Total Users</h2>
-      <p className="text-3xl font-semibold">{users.active}</p>
+    <div className="au-container">
+      <div className="au-card">
+        <h2 className="au-heading">Total Users</h2>
+        <p className="au-active-users">{users.active}</p>
+      </div>
     </div>
   );
 };

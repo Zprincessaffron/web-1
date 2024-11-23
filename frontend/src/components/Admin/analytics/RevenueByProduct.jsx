@@ -27,9 +27,11 @@ const RevenueByProduct = ({ revenueData }) => {
   };
 
   return (
+    <div className="tailwind-container">
     <div className="p-4 bg-white shadow-lg rounded-lg">
       <h2 className="text-xl font-bold mb-2">Revenue by Product Category</h2>
       <Pie data={data} />
+    </div>
     </div>
   );
 };

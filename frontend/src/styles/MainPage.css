@@ -740,11 +740,12 @@ height: 100%;
     text-transform: uppercase;
     font-size: 2rem;
     color: white;
-    font-weight: bold;
+    font-weight: 100;
     font-family: 'Riviera Nights';
   }
   .mainpage_div2{
     font-size: 1rem;
+    font-weight: 100;
     
   }
   .line_l{

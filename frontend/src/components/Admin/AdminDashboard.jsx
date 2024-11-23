@@ -13,6 +13,7 @@ import {
 } from "react-icons/md";
 import { IoPersonCircleOutline, IoSettings } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
+import './styles/AdminDashboard.css'
 
 const AdminDashboard = () => {
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
@@ -39,7 +40,8 @@ const AdminDashboard = () => {
 
 
   return (
-    <div
+    <div className="tailwind-container">
+    <div 
       className={`flex h-screen ${isDarkMode ? "bg-gray-900" : "bg-gray-100"}`}
     >
       {/* Sidebar */}
@@ -324,10 +326,11 @@ const AdminDashboard = () => {
           </div>
         </div>
         
-        <div>
+        <div className="tailwind-container">
           <Outlet/>
         </div>
       </div>
+    </div>
     </div>
   );
 };

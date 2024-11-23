@@ -29,6 +29,7 @@ const AdminProfile = () => {
   }, [user]);
 
   return (
+    <div className="tailwind-container">
     <div className="p-8 bg-gray-50 shadow-lg rounded-lg max-w-md mx-auto">
       <div className="flex items-center space-x-4 mb-6">
         <div className="relative w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
@@ -94,6 +95,7 @@ const AdminProfile = () => {
           </button>
         </div>
       )}
+    </div>
     </div>
   );
 };

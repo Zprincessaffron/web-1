@@ -17,10 +17,12 @@ const UserGrowth = ({ userGrowthData }) => {
   };
 
   return (
-    <div className="p-4 bg-white shadow-lg rounded-lg">
+    <div className="tailwind-container">
+    <div   className="p-4 bg-white shadow-lg rounded-lg">
       <h2 className="text-xl font-bold mb-2">User Growth</h2>
       <Bar data={data} />
     </div>
+   </div>
   );
 };
 

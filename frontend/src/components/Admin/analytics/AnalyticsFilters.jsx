@@ -12,7 +12,7 @@ const AnalyticsFilters = ({ onApplyFilters }) => {
   };
 
   return (
-    <div className="p-4 bg-white shadow-lg rounded-lg mb-6">
+    <div  id="tailwind-container"  className="p-4 bg-white shadow-lg rounded-lg mb-6">
       <h2 className="text-xl font-bold mb-2">Filters</h2>
       <div className="flex space-x-4">
         <div>

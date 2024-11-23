@@ -25,6 +25,8 @@ ChartJS.register(
   ArcElement
 );
 
+import './styles/DefaultDashboard.css'
+
 const DefaultDashboard = ({ isDarkMode }) => {
   // Sample data for Line Chart
   const lineChartData = {
@@ -74,24 +76,24 @@ const DefaultDashboard = ({ isDarkMode }) => {
   };
 
   return (
-    <div className={`p-6 ${isDarkMode ? 'bg-gray-900 text-gray-800' : 'bg-white text-gray-800'}`}>
-      <h2 className={`text-3xl font-bold mb-6 ${isDarkMode ? "text-white" : "text-gray-800"}`}>Analytics Overview</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className={`dd-container ${isDarkMode ? 'dd-container-dark' : ''}`}>
+      <h2 className={`dd-heading ${isDarkMode ? 'dd-heading-dark' : ''}`}>Analytics Overview</h2>
+      <div className="dd-grid">
         {/* Line Chart */}
-        <div className="p-4 bg-white shadow-lg rounded-lg dark:bg-gray-800 dark:text-gray-200">
-          <h3 className="text-xl font-semibold mb-4">Sales Data</h3>
+        <div className={`dd-card ${isDarkMode ? 'dd-card-dark' : ''}`}>
+          <h3 className={`dd-card-heading ${isDarkMode ? 'dd-card-heading-dark' : ''}`}>Sales Data</h3>
           <Line data={lineChartData} options={{ responsive: true }} />
         </div>
 
         {/* Bar Chart */}
-        <div className="p-4 bg-white shadow-lg rounded-lg dark:bg-gray-800 dark:text-gray-200">
-          <h3 className="text-xl font-semibold mb-4">Revenue Data</h3>
+        <div className={`dd-card ${isDarkMode ? 'dd-card-dark' : ''}`}>
+          <h3 className={`dd-card-heading ${isDarkMode ? 'dd-card-heading-dark' : ''}`}>Revenue Data</h3>
           <Bar data={barChartData} options={{ responsive: true }} />
         </div>
 
         {/* Pie Chart (Top Selling Products) */}
-        <div className="p-4 bg-white shadow-lg rounded-lg dark:bg-gray-800 dark:text-gray-200">
-          <h3 className="text-xl font-semibold mb-4">Top Selling Products</h3>
+        <div className={`dd-card ${isDarkMode ? 'dd-card-dark' : ''}`}>
+          <h3 className={`dd-card-heading ${isDarkMode ? 'dd-card-heading-dark' : ''}`}>Top Selling Products</h3>
           <Pie data={pieChartData} options={{ responsive: true }} />
         </div>
       </div>
