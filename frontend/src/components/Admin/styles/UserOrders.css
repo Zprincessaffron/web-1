@@ -1,0 +1,97 @@
+.uo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    color: #333333;
+  }
+  
+  .uo-container.uo-dark {
+    background-color: #2d2d2d;
+    color: #ffffff;
+  }
+  
+  .uo-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .uo-table-container {
+    margin-top: 20px;
+  }
+  
+  .uo-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .uo-table th,
+  .uo-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #dddddd;
+  }
+  
+  .uo-status {
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .uo-status-delivered {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .uo-status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  
+  .uo-view-details {
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  .uo-details {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+  }
+  
+  .uo-details-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .uo-select {
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .uo-close-details {
+    margin-top: 20px;
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  .uo-error {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .uo-loading {
+    font-size: 1.5rem;
+  }
+  
+  .uo-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
