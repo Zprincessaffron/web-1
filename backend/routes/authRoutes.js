@@ -30,8 +30,8 @@ router.get('/', test);
 router.post('/register', registerUser);
 router.post('/login', loginUser);
 router.post('/logout', userLogout);
-router.get('/profile', authenticate ,getProfile);
-router.put('/profile', authenticate ,updateProfile)
+router.get('/profile/:id',getProfile);
+router.put('/profile' ,updateProfile)
 
 router.post('/verify-otp', verifyOTP);
 router.post('/resend-otp', resendOTP);

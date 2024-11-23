@@ -12,7 +12,8 @@ import {
   MdNotifications,
 } from "react-icons/md";
 import { IoPersonCircleOutline, IoSettings } from "react-icons/io5";
-import { CiLogout } from "react-icons/ci";
+
+import "./styles/AdminDashboard.css";
 
 const AdminDashboard = () => {
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
@@ -21,312 +22,100 @@ const AdminDashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const toggleUserDropdown = () => {
-    setIsUserDropdownOpen(!isUserDropdownOpen);
+  const toggleDropdown = (dropdownType) => {
+    if (dropdownType === "user") {
+      setIsUserDropdownOpen(!isUserDropdownOpen);
+    } else if (dropdownType === "order") {
+      setIsOrderDropdownOpen(!isOrderDropdownOpen);
+    } else if (dropdownType === "profile") {
+      setIsProfileDropdownOpen(!isProfileDropdownOpen);
+    }
   };
-
-  const toggleOrderDropdown = () => {
-    setIsOrderDropdownOpen(!isOrderDropdownOpen);
-  };
-
-  const toggleProfileDropdown = () => {
-    setIsProfileDropdownOpen(!isProfileDropdownOpen);
-  };
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
 
   return (
     <div
-      className={`flex h-screen ${isDarkMode ? "bg-gray-900" : "bg-gray-100"}`}
+      className={`ad-container ${isDarkMode ? "ad-main-content-dark" : "ad-main-content-light"}`}
     >
       {/* Sidebar */}
       <div
-        className={`w-64 fixed h-full ${
-          isDarkMode ? "bg-gray-800 text-gray-200" : "bg-white text-gray-700"
-        } shadow-lg`}
+        className={`ad-sidebar ${
+          isDarkMode ? "ad-sidebar-dark" : "ad-sidebar-light"
+        }`}
       >
-        <div className="p-6 text-center border-b border-gray-200">
-          <h1 className="text-2xl font-bold text-indigo-600">
-            Admin Dashboard
-          </h1>
+        <div className="ad-header">
+          <h1 className="ad-title">Admin Dashboard</h1>
         </div>
-        <nav className="mt-10 space-y-2">
+        <nav className="ad-nav">
           <Link
-          onClick={() => setSelectedCategory("dashboard")}
-          to={"/admin/dashboard"}
-            className={`flex items-center py-2.5 px-4 rounded-lg transition duration-200 ${
-              selectedCategory === "dashboard"
-                ? "bg-indigo-600 text-white"
-                : isDarkMode
-                ? "hover:bg-gray-700 text-gray-200"
-                : "hover:bg-indigo-600 text-gray-700 hover:text-white"
+            onClick={() => setSelectedCategory("dashboard")}
+            to="/admin/dashboard"
+            className={`ad-nav-item ${
+              selectedCategory === "dashboard" ? "ad-nav-item-active" : isDarkMode ? "ad-nav-item-dark" : "ad-nav-item-light"
             }`}
           >
-            <MdDashboard size={24} className="mr-3" />
+            <MdDashboard size={24} className="ad-icon" />
             Dashboard
           </Link>
-          <div className="relative">
-            <a
-              onClick={toggleOrderDropdown}
-              className={`flex items-center py-2.5 px-4 rounded-lg transition duration-200 cursor-pointer ${
-                selectedCategory === "orders"
-                  ? "bg-indigo-600 text-white"
-                  : isDarkMode
-                  ? "hover:bg-gray-700 text-gray-200"
-                  : "hover:bg-indigo-600 text-gray-700 hover:text-white"
+          {/* Orders */}
+          <div>
+            <div
+              onClick={() => toggleDropdown("order")}
+              className={`ad-nav-item ${
+                selectedCategory === "orders" ? "ad-nav-item-active" : isDarkMode ? "ad-nav-item-dark" : "ad-nav-item-light"
               }`}
             >
-              <MdShoppingCart size={24} className="mr-3" />
+              <MdShoppingCart size={24} className="ad-icon" />
               Orders
-            </a>
+            </div>
             {isOrderDropdownOpen && (
-              <div
-                className={`mt-2 pl-6 space-y-1 ${
-                  isDarkMode
-                    ? "bg-gray-800 text-gray-200"
-                    : "bg-white text-gray-700"
-                } shadow-lg rounded-lg z-10`}
-              >
+              <div className="ad-dropdown">
                 <Link
-                  to='/admin/user-orders'
+                  to="/admin/user-orders"
                   onClick={() => setSelectedCategory("userOrders")}
-                  className={`block py-2 px-4 hover:bg-indigo-600 hover:text-white transition duration-200 rounded-t-lg ${
-                    selectedCategory === "userOrders"
-                      ? "bg-indigo-600 text-white"
-                      : isDarkMode
-                      ? "text-gray-200"
-                      : "text-gray-700"
+                  className={`ad-dropdown-item ${
+                    selectedCategory === "userOrders" ? "ad-dropdown-item-active" : isDarkMode ? "ad-dropdown-item-dark" : "ad-dropdown-item-light"
                   }`}
                 >
                   User Orders
                 </Link>
                 <Link
-                  to='/admin/wholesaler-orders'
+                  to="/admin/wholesaler-orders"
                   onClick={() => setSelectedCategory("wholesalerOrders")}
-                  className={`block py-2 px-4 hover:bg-indigo-600 hover:text-white transition duration-200 ${
-                    selectedCategory === "wholesalerOrders"
-                      ? "bg-indigo-600 text-white"
-                      : isDarkMode
-                      ? "text-gray-200"
-                      : "text-gray-700"
+                  className={`ad-dropdown-item ${
+                    selectedCategory === "wholesalerOrders" ? "ad-dropdown-item-active" : isDarkMode ? "ad-dropdown-item-dark" : "ad-dropdown-item-light"
                   }`}
                 >
-                  WholeSaler Orders
+                  Wholesaler Orders
                 </Link>
                 <Link
-                  to='/admin/telecaller-orders'
+                  to="/admin/telecaller-orders"
                   onClick={() => setSelectedCategory("telecallerOrders")}
-                  className={`block py-2 px-4 hover:bg-indigo-600 hover:text-white transition duration-200 rounded-b-lg ${
-                    selectedCategory === "telecallerOrders"
-                      ? "bg-indigo-600 text-white"
-                      : isDarkMode
-                      ? "text-gray-200"
-                      : "text-gray-700"
+                  className={`ad-dropdown-item ${
+                    selectedCategory === "telecallerOrders" ? "ad-dropdown-item-active" : isDarkMode ? "ad-dropdown-item-dark" : "ad-dropdown-item-light"
                   }`}
                 >
-                  TeleCaller Orders
+                  Telecaller Orders
                 </Link>
               </div>
             )}
           </div>
-
-          <Link
-              to='/admin/all-products'
-            onClick={() => setSelectedCategory("products")}
-            className={`flex items-center py-2.5 px-4 rounded-lg transition duration-200 ${
-              selectedCategory === "products"
-                ? "bg-indigo-600 text-white"
-                : isDarkMode
-                ? "hover:bg-gray-700 text-gray-200"
-                : "hover:bg-indigo-600 text-gray-700 hover:text-white"
-            }`}
-          >
-            <MdLocalOffer size={24} className="mr-3" />
-            Products
-          </Link>
-          <div className="relative">
-            <a
-              onClick={toggleUserDropdown}
-              className={`flex items-center py-2.5 px-4 rounded-lg transition duration-200 cursor-pointer ${
-                isDarkMode
-                  ? "hover:bg-gray-700 text-gray-200"
-                  : "hover:bg-indigo-600 text-gray-700 hover:text-white"
-              }`}
-            >
-              <MdPeople size={24} className="mr-3" />
-              Users
-            </a>
-            {isUserDropdownOpen && (
-              <div
-                className={`mt-2 pl-6 space-y-1 ${
-                  isDarkMode
-                    ? "bg-gray-800 text-gray-200"
-                    : "bg-white text-gray-700"
-                } shadow-lg rounded-lg z-10`}
-              >
-                <Link
-                  to='/admin/all-users'
-                  onClick={() => setSelectedCategory("allUsers")}
-                  className={`block py-2 px-4 hover:bg-indigo-600 hover:text-white transition duration-200 rounded-t-lg ${
-                    selectedCategory === "allUsers"
-                      ? "bg-indigo-600 text-white"
-                      : isDarkMode
-                      ? "text-gray-200"
-                      : "text-gray-700"
-                  }`}
-                >
-                  All Users
-                </Link>
-                <Link
-                  to='/admin/all-marketers'
-                  onClick={() => setSelectedCategory("allMarketers")}
-                  className={`block py-2 px-4 hover:bg-indigo-600 hover:text-white transition duration-200 ${
-                    selectedCategory === "allMarketers"
-                      ? "bg-indigo-600 text-white"
-                      : isDarkMode
-                      ? "text-gray-200"
-                      : "text-gray-700"
-                  }`}
-                >
-                  All Marketers
-                </Link>
-                <Link
-                  to='/admin/all-wholesalers'
-                  onClick={() => setSelectedCategory("allWholesalers")}
-                  className={`block py-2 px-4 hover:bg-indigo-600 hover:text-white transition duration-200 rounded-b-lg ${
-                    selectedCategory === "allWholesalers"
-                      ? "bg-indigo-600 text-white"
-                      : isDarkMode
-                      ? "text-gray-200"
-                      : "text-gray-700"
-                  }`}
-                >
-                  All Wholesalers
-                </Link>
-              </div>
-            )}
-          </div>
-          <Link
-              to='/admin/analytics'
-            onClick={() => setSelectedCategory("analytics")}
-            className={`flex items-center py-2.5 px-4 rounded-lg transition duration-200 ${
-              selectedCategory === "analytics"
-                ? "bg-indigo-600 text-white"
-                : isDarkMode
-                ? "hover:bg-gray-700 text-gray-200"
-                : "hover:bg-indigo-600 text-gray-700 hover:text-white"
-            }`}
-          >
-            <MdAssessment size={24} className="mr-3" />
-            Analytics
-          </Link>
         </nav>
-
-        {/* Profile Section */}
-        <div className="absolute bottom-0 w-full border-t border-gray-200">
-          <div
-            className="p-4 text-center cursor-pointer"
-            onClick={toggleProfileDropdown}
-          >
-            <div
-              className={`flex items-center justify-center space-x-2 p-2 rounded-lg transition duration-200 ${
-                isDarkMode
-                  ? "bg-gray-700 text-gray-200"
-                  : "bg-gray-100 text-gray-700"
-              }`}
-            >
-              <MdPerson size={24} />
-              <span className="font-medium">Admin</span>
-            </div>
-            {isProfileDropdownOpen && (
-              <div
-                className={`mt-2 p-2 ${
-                  isDarkMode
-                    ? "bg-gray-800 text-gray-200"
-                    : "bg-white text-gray-700"
-                } shadow-lg rounded-lg z-10`}
-              >
-                <Link
-                  to={"/admin/profile"}
-                  onClick={() => setSelectedCategory("profile")}
-                  className={`flex mb-1 items-center justify-center py-2.5 px-4 rounded-lg transition duration-200 ${
-                    selectedCategory === "profile"
-                      ? "bg-indigo-600 text-white"
-                      : isDarkMode
-                      ? "hover:bg-gray-700 text-gray-200"
-                      : "hover:bg-indigo-600 text-gray-700 hover:text-white"
-                  }`}
-                >
-                  Profile
-                  <IoPersonCircleOutline size={23} className="ml-1" />
-                </Link>
-                <Link
-                  to={"/admin/settings"}
-                  onClick={() => setSelectedCategory("settings")}
-                  className={`flex mb-1 items-center justify-center py-2.5 px-4 rounded-lg transition duration-200 ${
-                    selectedCategory === "settings"
-                      ? "bg-indigo-600 text-white"
-                      : isDarkMode
-                      ? "hover:bg-gray-700 text-gray-200"
-                      : "hover:bg-indigo-600 text-gray-700 hover:text-white"
-                  }`}
-                >
-                  Settings
-                  <IoSettings size={20} className="ml-1" />
-                </Link>
-                <a
-                  href="#"
-                  className={`block py-2 px-4 hover:bg-indigo-600 hover:text-white transition duration-200 rounded-b-lg`}
-                >
-                  Logout
-                  {/* <CiLogout /> */}
-                </a>
-              </div>
-            )}
-          </div>
-        </div>
       </div>
 
       {/* Main Content */}
-      <div
-        className={`flex-1 ml-64 p-8 overflow-y-auto ${
-          isDarkMode ? "bg-gray-900 text-gray-200" : "bg-gray-100 text-gray-800"
-        }`}
-      >
-        
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-4xl font-bold">Dashboard</h1>
-          <div className="flex items-center space-x-4">
-            {/* Notification Icon */}
-            <button className="p-2 rounded-full bg-gray-800 text-white">
-              <MdNotifications size={24} />
-            </button>
-            {/* Dark/Light Mode Toggle */}
+      <div className={`ad-main-content ${isDarkMode ? "ad-main-content-dark" : "ad-main-content-light"}`}>
+        <div className="ad-header">
+          <h1>Dashboard</h1>
+          <div>
             <button
-              onClick={toggleDarkMode}
-              className={`p-2 rounded-full ${
-                isDarkMode ? "bg-yellow-400" : "bg-gray-800"
-              } text-white`}
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className={`ad-toggle ${isDarkMode ? "ad-toggle-dark" : "ad-toggle-light"}`}
             >
-              {isDarkMode ? (
-                <MdWbSunny size={24} />
-              ) : (
-                <MdNightlight size={24} />
-              )}
-            </button>
-            {/* Enroll a Marketer Button */}
-            <button className="px-6 py-2 bg-gradient-to-r from-indigo-600 to-blue-500 text-white rounded-full shadow-md hover:shadow-lg transition duration-200">
-              <Link to={"/register-marketer"}>Enroll a Marketer</Link>
+              {isDarkMode ? <MdWbSunny /> : <MdNightlight />}
             </button>
           </div>
         </div>
-        
-        <div>
-          <Outlet/>
-        </div>
+        <Outlet />
       </div>
     </div>
   );

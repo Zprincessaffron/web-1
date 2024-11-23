@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../../styles/LoginPagee.css'
 import profile from '../../assets/profile.png'
 import { IoMailSharp } from "react-icons/io5";
@@ -9,12 +9,14 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaMobileAlt } from "react-icons/fa";
-
+import { jwtDecode } from "jwt-decode";
+import { userContext } from '../../context/UserContext';
 function LoginPagee() {
   const navigate = useNavigate()
   const [email,setEmail]=useState()
   const [password,setPassword]=useState()
   const [loading,setLoading]=useState(true)
+  const { setUser }=useContext(userContext)
   const [mobileIcon,setMobileIcon] = useState(false)
   const [values, setValues] = useState({
     "email": "",
@@ -40,12 +42,23 @@ function LoginPagee() {
               email:values.email,
               password:values.password
             }).then((res)=>{
-              setLoading(true)
-              navigate("/")
+              localStorage.setItem("token",res.data.token)
+              console.log('tokken',res.data.token)
+              
+              const decodedToken = jwtDecode(res.data.token);
+              setUser(decodedToken)
+              if(res.data.role){
+                setLoading(true)
+              setTimeout(() => {
+                navigate('/')
+              }, 1000);
+              }
+
+              // Extract relevant information from the token
+              const { name,email,role,id  } = decodedToken;
+              
               toast("Successfully Loged")
             })
-      
-            
       
       
           } catch (error) {
@@ -67,7 +80,9 @@ function LoginPagee() {
           password:values.password
         }).then((res)=>{
           setLoading(true)
-          navigate("/")
+          console.log("tryna")
+          
+          
           toast("Successfully Loged")
         })
   

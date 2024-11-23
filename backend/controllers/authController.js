@@ -171,7 +171,7 @@ export const loginUser = async (req, res) => {
 
     // Generate JWT token
     const token = jwt.sign(
-      { email: user.email, id: user._id, role },
+      { email: user.email, id: user._id, role,name: user.name,uniqueId: user.uniqueId },
       process.env.JWT_SECRET,
       {}
     );
@@ -182,7 +182,7 @@ export const loginUser = async (req, res) => {
       id: user._id,
       name: user.name,
       role,
-      token,
+      token
     });
   } catch (error) {
     console.error(error);
@@ -221,40 +221,70 @@ const getUserByEmail = async (email, role) => {
   }
 };
 
+// export const getProfile = async (req, res) => {
+//   const { token } = req.cookies;
+
+
+
+
+//   if (token) {
+//     jwt.verify(token, process.env.JWT_SECRET, {}, async (err, user) => {
+
+//       if (err) {
+//         return res.status(403).json({ error: "Invalid token" });
+//       }
+
+//       try {
+//         const userData = await getUserByEmail(user.email, user.role); // Fetch user data from the appropriate collection
+
+//         if (!userData) {
+//           return res.status(404).json({ error: "User not found" });
+//         }
+
+//         res.json({
+//           name: userData.name,
+//           email: userData.email,
+//           id: userData._id,
+//           phone: userData.phone,
+//           role: userData.role,
+//         });
+//       } catch (error) {
+//         console.error("Error fetching user data:", error);
+//         res.status(500).json({ error: "Internal server error" });
+//       }
+//     });
+//   } else {
+//     res.status(401).json({ error: "No token provided" });
+
+//   }
+// };
+                 
 export const getProfile = async (req, res) => {
-  const { token } = req.cookies;
+  const { id } = req.params; // Extract the id from the URL parameters
 
-  if (token) {
-    jwt.verify(token, process.env.JWT_SECRET, {}, async (err, user) => {
-      if (err) {
-        return res.status(403).json({ error: "Invalid token" });
-      }
+  try {
+    // Fetch user data by id from the appropriate collection
+    const userData = await getUserById(id); 
 
-      try {
-        const userData = await getUserByEmail(user.email, user.role); // Fetch user data from the appropriate collection
+    if (!userData) {
+      return res.status(404).json({ error: "User not found" });
+    }
 
-        if (!userData) {
-          return res.status(404).json({ error: "User not found" });
-        }
-
-        res.json({
-          name: userData.name,
-          email: userData.email,
-          id: userData._id,
-          phone: userData.phone,
-          role: userData.role,
-        });
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-        res.status(500).json({ error: "Internal server error" });
-      }
+    res.json({
+      name: userData.name,
+      email: userData.email,
+      id: userData._id,
+      phone: userData.phone,
+      role: userData.role,
     });
-  } else {
-    res.status(401).json({ error: "No token provided" });
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
 // Middleware to verify JWT and attach user data to request
+
 export const authenticate = (req, res, next) => {
   const { token } = req.cookies;
 

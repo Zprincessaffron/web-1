@@ -27,6 +27,7 @@ gsap.registerPlugin(ScrollTrigger);
 function MainPageTrial() {
   const navigate = useNavigate()
   const showproduct = true 
+  const {user } = useContext(userContext)
   const { mainpageItems,setMainPageItems,CustomCuser,setCustomCuser,isMouse,setIsMouse,isMobile,profileHover, setProfileHover, menuSlider, setMenuSlider, sideBar, setSideBar, setShowNav, showLogin } = useUserContext()
   const [showEnd, setShowEnd] = useState(true)
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -35,7 +36,7 @@ function MainPageTrial() {
   const [zPrinces, setZPrincess] = useState(true);
   const [videoPlay, setVideoPlay] = useState(true);
   const [showFinalProduct, setFinalProduct] = useState(false);
-
+  console.log("user",user)
   ///////////////////////////
   useEffect(() => {
     setMenuSlider(false);
@@ -43,7 +44,7 @@ function MainPageTrial() {
     setTimeout(() => {
       setMainPageItems(true)
     }, 300);
-  }, []);
+  }, [ ] );
 
   const cursorRoundedRef = useRef(null);
   const cursorPointedRef = useRef(null);
@@ -84,7 +85,7 @@ function MainPageTrial() {
     return () => {
       window.removeEventListener("mousemove", moveCursor);
     };
-  }, []);
+  }, [user ]);
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;

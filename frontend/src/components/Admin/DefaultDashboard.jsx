@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Line, Bar, Pie } from 'react-chartjs-2';
+import './styles/DefaultDashboard.css'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,7 +11,7 @@ import {
   Title,
   Tooltip,
   Legend,
-  ArcElement
+  ArcElement,
 } from 'chart.js';
 
 ChartJS.register(
@@ -25,7 +26,9 @@ ChartJS.register(
   ArcElement
 );
 
-const DefaultDashboard = ({ isDarkMode }) => {
+const DefaultDashboard = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
   // Sample data for Line Chart
   const lineChartData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
@@ -33,8 +36,8 @@ const DefaultDashboard = ({ isDarkMode }) => {
       {
         label: 'Sales',
         data: [4000, 3000, 2000, 2780, 1890, 2390, 3490],
-        borderColor: isDarkMode ? '#9d4edd' : '#8884d8',
-        backgroundColor: isDarkMode
+        borderColor: darkMode ? '#9d4edd' : '#8884d8',
+        backgroundColor: darkMode
           ? 'rgba(157, 77, 237, 0.2)'
           : 'rgba(136, 132, 216, 0.2)',
       },
@@ -48,10 +51,8 @@ const DefaultDashboard = ({ isDarkMode }) => {
       {
         label: 'Revenue',
         data: [5000, 4000, 3000, 4500, 3200, 2900, 4000],
-        backgroundColor: isDarkMode
-          ? 'rgba(75, 192, 192, 0.6)'
-          : 'rgba(75, 192, 192, 0.6)',
-        borderColor: isDarkMode ? '#4bc0c0' : '#4bc0c0',
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        borderColor: '#4bc0c0',
         borderWidth: 1,
       },
     ],
@@ -64,34 +65,35 @@ const DefaultDashboard = ({ isDarkMode }) => {
       {
         label: 'Top Selling Products',
         data: [300, 250, 200, 150],
-        backgroundColor: isDarkMode
+        backgroundColor: darkMode
           ? ['#ff6b6b', '#4ecdc4', '#f9ca24', '#d1d8e0']
           : ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56'],
-        borderColor: isDarkMode ? '#343a40' : '#fff',
+        borderColor: darkMode ? '#343a40' : '#fff',
         borderWidth: 1,
       },
     ],
   };
 
   return (
-    <div className={`p-6 ${isDarkMode ? 'bg-gray-900 text-gray-800' : 'bg-white text-gray-800'}`}>
-      <h2 className={`text-3xl font-bold mb-6 ${isDarkMode ? "text-white" : "text-gray-800"}`}>Analytics Overview</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Line Chart */}
-        <div className="p-4 bg-white shadow-lg rounded-lg dark:bg-gray-800 dark:text-gray-200">
-          <h3 className="text-xl font-semibold mb-4">Sales Data</h3>
+    <div className={`dd-container ${darkMode ? 'dd-dark' : 'dd-light'}`}>
+      <button
+        className="dd-toggle-mode"
+        onClick={() => setDarkMode(!darkMode)}
+      >
+        Toggle {darkMode ? 'Light' : 'Dark'} Mode
+      </button>
+      <h2 className="dd-title">Analytics Overview</h2>
+      <div className="dd-grid">
+        <div className="dd-chart-card">
+          <h3 className="dd-chart-title">Sales Data</h3>
           <Line data={lineChartData} options={{ responsive: true }} />
         </div>
-
-        {/* Bar Chart */}
-        <div className="p-4 bg-white shadow-lg rounded-lg dark:bg-gray-800 dark:text-gray-200">
-          <h3 className="text-xl font-semibold mb-4">Revenue Data</h3>
+        <div className="dd-chart-card">
+          <h3 className="dd-chart-title">Revenue Data</h3>
           <Bar data={barChartData} options={{ responsive: true }} />
         </div>
-
-        {/* Pie Chart (Top Selling Products) */}
-        <div className="p-4 bg-white shadow-lg rounded-lg dark:bg-gray-800 dark:text-gray-200">
-          <h3 className="text-xl font-semibold mb-4">Top Selling Products</h3>
+        <div className="dd-chart-card">
+          <h3 className="dd-chart-title">Top Selling Products</h3>
           <Pie data={pieChartData} options={{ responsive: true }} />
         </div>
       </div>

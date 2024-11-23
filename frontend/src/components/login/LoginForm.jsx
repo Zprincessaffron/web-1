@@ -30,10 +30,12 @@ const LoginForm = () => {
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     setUserEmail(values.email);
     try {
-      const response = await axios.post("/login", values);
-      console.log("Registration Successful", response.data);
-      resetForm();
-      navigate("/");
+      console.log("trying....")
+      const response = await axios.post("/login", values)
+      console.log("res",response.data)
+      
+      // resetForm();
+
     } catch (error) {
       console.error("Registration Error", error.response.data);
       // Handle registration error
