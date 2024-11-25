@@ -16,7 +16,7 @@ import axios from "axios";
 
 function SideBar() {
   const navigate = useNavigate();
-  const [showStyle, setShowStyle] = useState(); 
+  const [showStyle, setShowStyle] = useState();
   const [products, setProducts] = useState([]);
   const { user } = useContext(userContext);
   const {
@@ -333,7 +333,7 @@ function SideBar() {
                   style={itemAnimation3}
                 >
                   <IoMdArrowRoundBack className="sidebar_arrow" />
-                  KASHMIR SAFFRON
+                  SPAIN SAFFRON
                 </animated.div>
                 <animated.div
                   onClick={() => handleProductClick(0)}
@@ -361,7 +361,7 @@ function SideBar() {
                   style={itemAnimation3}
                 >
                   <IoMdArrowRoundBack className="sidebar_arrow" />
-                  SPAIN SAFFRON
+                  KASHMIRI SAFFRON
                 </animated.div>
                 <animated.div
                   onClick={() => handleProductClick(2)}
