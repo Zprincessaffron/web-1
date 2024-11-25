@@ -336,7 +336,7 @@ function SideBar() {
                   KASHMIRI SAFFRON
                 </animated.div>
                 <animated.div
-                  onClick={() => handleProductClick(0)}
+                  onClick={() => handleProductClick(2)}
                   className="menu-item"
                   style={itemAnimation2}
                 >
@@ -344,7 +344,7 @@ function SideBar() {
                   2 GRAMS{" "}
                 </animated.div>
                 <animated.div
-                  onClick={() => handleProductClick(1)}
+                  onClick={() => handleProductClick(3)}
                   className="menu-item"
                   style={itemAnimation1}
                 >
@@ -364,7 +364,7 @@ function SideBar() {
                   SPAIN SAFFRON
                 </animated.div>
                 <animated.div
-                  onClick={() => handleProductClick(2)}
+                  onClick={() => handleProductClick(0)}
                   className="menu-item"
                   style={itemAnimation2}
                 >
@@ -372,7 +372,7 @@ function SideBar() {
                   2 GRAMS{" "}
                 </animated.div>
                 <animated.div
-                  onClick={() => handleProductClick(3)}
+                  onClick={() => handleProductClick(1)}
                   className="menu-item"
                   style={itemAnimation1}
                 >
