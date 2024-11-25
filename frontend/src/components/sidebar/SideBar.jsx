@@ -320,7 +320,7 @@ function SideBar() {
                   className="menu-item"
                   style={itemAnimation1}
                 >
-                  SPAIN SAFFRON
+                  KASHMIRI SAFFRON
                 </animated.div>
               </>
             )}
@@ -333,7 +333,7 @@ function SideBar() {
                   style={itemAnimation3}
                 >
                   <IoMdArrowRoundBack className="sidebar_arrow" />
-                  KASHMIRI SAFFRON
+                  SPAIN SAFFRON
                 </animated.div>
                 <animated.div
                   onClick={() => handleProductClick(0)}
@@ -361,7 +361,7 @@ function SideBar() {
                   style={itemAnimation3}
                 >
                   <IoMdArrowRoundBack className="sidebar_arrow" />
-                  SPAIN SAFFRON
+                  KASHMIRI SAFFRON
                 </animated.div>
                 <animated.div
                   onClick={() => handleProductClick(2)}
