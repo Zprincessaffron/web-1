@@ -1,9 +1,11 @@
-import { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
-import { userContext } from '../../context/UserContext';
+import { useContext, useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
+import { userContext } from "../../context/UserContext";
+import { jwtDecode } from "jwt-decode";
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
-  const { user } = useContext(userContext); 
+  const { user,setUser } = useContext(userContext);
+ 
 
   // Loading state or fallback
   if (user === undefined) {

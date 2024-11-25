@@ -9,13 +9,8 @@
   font-style: normal; 
 } 
  
-.rounded{
-  width: 30px;
-  height: 30px;
-  border: 2px solid #fff; 
-  border-radius: 50%;
 
-}
+
 .rrmc-cursor-icon.play{
   background: url(../assets/curserpoint.png) ;
 }
@@ -262,12 +257,10 @@
   .mainpage_div1{
     letter-spacing: .8rem;
     opacity: 0;
-
     text-transform: uppercase;
     font-size: 3.5rem;
     color: white;
-    font-weight: bold;
-
+    font-weight: thin;
     font-family: 'Riviera Nights';
     transition: all 0.3s ease-in-out;
     transform: translateY(30px);
@@ -520,12 +513,10 @@
   
 }
 .mainpagetrialdiv{
-    height: 60vh;
     padding-top: 5%;
     background:none;
    
 }
-
 
 
 .parallax-item {
@@ -685,12 +676,11 @@
 .setus{
   width:100%;
   font-family: 'Riviera Nights';
-height: 100%;
 }
 .setus_div1{
-  height: 20%;
   text-align: center;
   justify-content: center;
+  overflow: hidden;
   padding: 20px;
   font-size: calc(0.256rem + 2vw);
   letter-spacing: 0.3rem;
@@ -698,9 +688,10 @@ height: 100%;
   font-weight: bold;
 }
 .setus_div2{
-  height: 50%;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+
   display: flex;
   align-items: start;
   gap: 100px;
@@ -709,6 +700,7 @@ height: 100%;
 }
 .setus_div2>div{
   width: 30%;
+  overflow: hidden;
 }
 .setus_div2 div h1{
   font-size: calc(0.0066rem + 1.5vw);
@@ -742,11 +734,12 @@ height: 100%;
     text-transform: uppercase;
     font-size: 2rem;
     color: white;
-    font-weight: bold;
+    font-weight: 100;
     font-family: 'Riviera Nights';
   }
   .mainpage_div2{
     font-size: 1rem;
+    font-weight: 100;
     
   }
   .line_l{

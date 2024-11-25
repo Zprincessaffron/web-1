@@ -7,7 +7,8 @@ import medicinalslider from '../../images/medicinalsidebar.jpeg'
 import pregnancyslider from '../../images/pregnancyslider.jpg'
 import beautyslider from '../../images/beautysliderold.jpg'
 // import culinaryslide from '../../images/culinaryuses3.jpg'
-import culinaryslide from '../../images/foodslider3.jpg'
+// import culinaryslide from '../../images/foodslider3.jpg'
+import culinaryslide from '../../images/saffronpick1.jpg'
 
  
 

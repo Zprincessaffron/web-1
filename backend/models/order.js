@@ -11,6 +11,7 @@ const orderSchema = new Schema({
     zip: String,
     country: String,
     mobile: String,
+    shipmentId: String,
   },
   cartItems: [{
     variantId: { type: mongoose.Schema.Types.ObjectId, required: true },
@@ -34,6 +35,7 @@ const orderSchema = new Schema({
     id: String,
     name: String,
     email: String,
+    phone: String,
     role: String
   },
   payment: {

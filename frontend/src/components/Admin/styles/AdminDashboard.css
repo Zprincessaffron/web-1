@@ -1,0 +1,7 @@
+
+
+.tailwind-container{
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+}

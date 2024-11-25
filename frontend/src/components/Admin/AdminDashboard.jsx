@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import {
   MdWbSunny,
   MdNightlight,
@@ -13,6 +13,7 @@ import {
 } from "react-icons/md";
 import { IoPersonCircleOutline, IoSettings } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
+import './styles/AdminDashboard.css'
 
 const AdminDashboard = () => {
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
@@ -20,6 +21,7 @@ const AdminDashboard = () => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const navigate = useNavigate();
 
   const toggleUserDropdown = () => {
     setIsUserDropdownOpen(!isUserDropdownOpen);
@@ -37,9 +39,19 @@ const AdminDashboard = () => {
     setIsDarkMode(!isDarkMode);
   };
 
+  const handleLogout = async () => {
+    try {
+      await axios.post("/logout", {}, { withCredentials: true });
+      // Redirect to login page
+      navigate("/"); 
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
 
   return (
-    <div
+    <div className="tailwind-container">
+    <div 
       className={`flex h-screen ${isDarkMode ? "bg-gray-900" : "bg-gray-100"}`}
     >
       {/* Sidebar */}
@@ -263,7 +275,8 @@ const AdminDashboard = () => {
                   Profile
                   <IoPersonCircleOutline size={23} className="ml-1" />
                 </Link>
-                <Link
+
+                {/* <Link
                   to={"/admin/settings"}
                   onClick={() => setSelectedCategory("settings")}
                   className={`flex mb-1 items-center justify-center py-2.5 px-4 rounded-lg transition duration-200 ${
@@ -276,14 +289,18 @@ const AdminDashboard = () => {
                 >
                   Settings
                   <IoSettings size={20} className="ml-1" />
-                </Link>
+                </Link> */}
+
                 <a
-                  href="#"
                   className={`block py-2 px-4 hover:bg-indigo-600 hover:text-white transition duration-200 rounded-b-lg`}
                 >
+                <button
+                  onClick={handleLogout}
+                >
                   Logout
-                  {/* <CiLogout /> */}
+                </button>
                 </a>
+                
               </div>
             )}
           </div>
@@ -301,9 +318,9 @@ const AdminDashboard = () => {
           <h1 className="text-4xl font-bold">Dashboard</h1>
           <div className="flex items-center space-x-4">
             {/* Notification Icon */}
-            <button className="p-2 rounded-full bg-gray-800 text-white">
+            {/* <button className="p-2 rounded-full bg-gray-800 text-white">
               <MdNotifications size={24} />
-            </button>
+            </button> */}
             {/* Dark/Light Mode Toggle */}
             <button
               onClick={toggleDarkMode}
@@ -324,10 +341,11 @@ const AdminDashboard = () => {
           </div>
         </div>
         
-        <div>
+        <div className="tailwind-container">
           <Outlet/>
         </div>
       </div>
+    </div>
     </div>
   );
 };

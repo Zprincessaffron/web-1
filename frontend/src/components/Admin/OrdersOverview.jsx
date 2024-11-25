@@ -16,7 +16,8 @@ const OrdersOverview = () => {
   }, []);
 
   return (
-    <div className="p-4 bg-white shadow-md rounded-md">
+    <div className="tailwind-container">
+    <div  id="tailwind-container" className="p-4 bg-white shadow-md rounded-md">
       <h2 className="text-xl font-semibold mb-4">Recent Orders</h2>
       <ul>
         {orders.map((order) => (
@@ -25,6 +26,7 @@ const OrdersOverview = () => {
           </li>
         ))}
       </ul>
+    </div>
     </div>
   );
 };

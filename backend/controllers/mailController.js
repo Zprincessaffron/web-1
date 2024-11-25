@@ -5,14 +5,12 @@ dotenv.config()
 
 export const sendMail = (req, res) => {
   const { name, email, message } = req.body;
-
   const mailOptions = {
     from: email,
     to: process.env.EMAIL,
     subject: `query from ${name}`,
     text: `from ${email} ${message}`,
   };
-
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.error(error);

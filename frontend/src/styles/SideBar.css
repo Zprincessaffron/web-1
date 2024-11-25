@@ -44,6 +44,7 @@
     height: 10%;
     padding: 20px;
     color: white;
+    overflow: hidden;
 
 }
 .subitemspace{
@@ -53,7 +54,7 @@
 }
 .sidebar_div2{
     width: 100%;
-
+    overflow: hidden;
 
 
 }
@@ -165,33 +166,41 @@
 }
 .menu-img-item{
     width: 100%;
+    
     background-position: center;
     background-size: cover;
     height: 30vh;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+    position: relative;
 
 }
 .menu-img-item>div{
-    height: 100%;
-    width: 100%;
+   
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.532);
+    background-color: rgba(0, 0, 0, 0.323);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
 }
 .menu-img-item.culinary{
-    background-image: url(../images/culinaryslide.jpg);
+    background-image: url(../images/saffronpick1.jpg);
 
 }
 .menu-img-item.medicine{
-    background-image: url(../images/medicinalslider.jpg);
+    background-image: url(../images/medicinalsidebar.jpeg);
 
 }
 .menu-img-item.beauty{
-    background-image: url(../images/beautyslider.jpg);
+    background-image: url(../images/beautysliderold.jpg);
 
 }
 .menu-img-item.pregnancy{

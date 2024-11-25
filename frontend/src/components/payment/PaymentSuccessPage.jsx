@@ -39,14 +39,14 @@ const PaymentSuccessPage = () => {
           >
             Payment Successful!
           </motion.h1>
-          <motion.img
+          {/* <motion.img
             src={PaymentSuccess}
             alt="Payment Successful"
             className="ps-image"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-          />
+          /> */}
           <motion.p
             className="ps_text_thank"
             initial={{ opacity: 0, x: -20 }}
@@ -64,8 +64,8 @@ const PaymentSuccessPage = () => {
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <h2 className="ps-receipt-title">Receipt</h2>
-            <p className="ps-recipt-order">Order Number: <span className="font-bold">{receiptData.orderNumber}</span></p>
-            <p className="ps-recipt-order">Date: <span className="font-bold">{receiptData.date}</span></p>
+            <p className="ps-recipt-order">Order Number : <span className="font-bold">{receiptData.orderNumber}</span></p>
+            <p className="ps-recipt-order">Date : <span className="font-bold">{receiptData.date}</span></p>
             <ul className="mb-4">
               {receiptData.items && receiptData.items.map((item, index) => (
                 <li key={index} className="ps-receipt-item">

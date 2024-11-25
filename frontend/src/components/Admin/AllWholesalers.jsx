@@ -27,7 +27,8 @@ const AllWholesalers = () => {
   const totalPages = Math.ceil(wholesalers.length / itemsPerPage);
 
   return (
-    <div className="p-6 bg-white shadow-lg rounded-lg overflow-x-auto">
+    <div className="tailwind-container">
+    <div   className="p-6 bg-white shadow-lg rounded-lg overflow-x-auto">
       <h2 className="text-2xl font-semibold text-gray-700 mb-4">All Wholesalers</h2>
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
@@ -77,6 +78,7 @@ const AllWholesalers = () => {
           </button>
         </nav>
       </div>
+    </div>
     </div>
   );
 };

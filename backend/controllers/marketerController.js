@@ -1,56 +1,107 @@
 import { hashPassword } from "../helpers/auth.js";
 import Marketer from "../models/marketer.js";
+import dotenv from "dotenv";
+import bcrypt from "bcrypt";
+import twilio from 'twilio';
+import nodemailer from "nodemailer";
 
+dotenv.config();
+
+// OTP generation helper
+const generateOtp = () => Math.floor(100000 + Math.random() * 900000).toString();
+
+// Send OTP via Email
+const sendEmailOtp = async (email, otp) => {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
+    },
+  });
+
+  const mailOptions = {
+    from: process.env.EMAIL,
+    to: email,
+    subject: 'Your OTP for Registration',
+    text: `Your OTP is ${otp}. It is valid for 10 minutes.`,
+  };
+
+  await transporter.sendMail(mailOptions);
+};
+
+// Send OTP via SMS using Twilio
+const sendSmsOtp = async (phone, otp) => {
+  const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+  await client.messages.create({
+    body: `Your OTP is ${otp}. It is valid for 10 minutes.`,
+    from: process.env.TWILIO_PHONE_NUMBER,
+    to: `+91${phone}`,
+  });
+};
+
+// Register Marketer Controller
 export const registerMarketer = async (req, res) => {
-  const {
-    name,
-    email,
-    password,
-    phone
-  } = req.body;
+  const { name, emailOrPhone, password, otp } = req.body;
+
   try {
-    // check if name was entered
-    if (!name) {
-      return res.json({
-        error: "Name is required",
-      });
-    }
-    //check if password is good
-    if (!password || password.length < 6) {
-      return res.json({
-        error: "Password is required and should be at least 6 Characters",
-      });
+    const marketer = await Marketer.findOne({ $or: [{ email: emailOrPhone }, { phone: emailOrPhone }] });
+
+    if (!marketer || marketer.otp !== otp || marketer.otpExpires < Date.now()) {
+      return res.status(400).json({ error: 'Invalid or expired OTP' });
     }
 
-    // check if phone number was entered
-    if(!phone){
-      return res.json({
-        error: "Mobile Number is required"
-      })
-    }
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    // check if email exist
-    const exist = await Marketer.findOne({ email });
-    if (exist) {
-      return res.json({
-        error: "Email already Exist",
-      });
-    }
+    marketer.name = name; // Update the name
+    // Update the marketer with hashed password and clear OTP
+    marketer.password = hashedPassword;
+    marketer.otp = undefined;
+    marketer.otpExpires = undefined;
 
-    const hashedPassword = await hashPassword(password);
-    const user = await Marketer.create({
-      name,
-      email,
-      password: hashedPassword,
-      phone
-    });
-    // Exclude password in response
-    const { password: _, ...userWithoutPassword } = user.toObject();
-    res.json(userWithoutPassword);
+    await marketer.save();
+
+    res.status(201).json({ message: 'Marketer registered successfully' });
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
   }
 };
+
+// Send OTP Controller
+export const sendOtp = async (req, res) => {
+  const { emailOrPhone, isEmail } = req.body;
+
+  try {
+    const otp = generateOtp();
+    const otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes from now
+
+    let marketer;
+    if (isEmail) {
+      marketer = await Marketer.findOneAndUpdate(
+        { email: emailOrPhone },
+        { email: emailOrPhone, otp, otpExpires },
+        { upsert: true, new: true }
+      );
+      await sendEmailOtp(emailOrPhone, otp);
+    } else {
+      marketer = await Marketer.findOneAndUpdate(
+        { phone: emailOrPhone },
+        { phone: emailOrPhone, otp, otpExpires },
+        { upsert: true, new: true }
+      );
+      await sendSmsOtp(emailOrPhone, otp);
+    }
+
+    res.status(200).json({ message: `OTP sent to ${isEmail ? 'email' : 'phone'}` });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error sending OTP' });
+  }
+};
+
+
 
 export const getMarketer = async (req, res) => {
   try {

@@ -47,7 +47,8 @@ const WholesalerOrders = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <div className="tailwind-container">
+    <div   className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Wholesaler Orders</h1>
       <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
         <table className="min-w-full divide-y divide-gray-200 bg-white">
@@ -144,6 +145,7 @@ const WholesalerOrders = () => {
           </button>
         </div>
       )}
+    </div>
     </div>
   );
 };

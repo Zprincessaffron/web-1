@@ -23,7 +23,9 @@
     letter-spacing: 1px;
     color: white;
     letter-spacing: 0.3rem;
-   
+    transform: translateY(-100px);
+   text-align: center;
+   width: 100%;
   
 }
 .mu_main{

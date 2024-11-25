@@ -71,13 +71,16 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 40%;
+    width: 50%;
+    border: 1px solid rgba(128, 128, 128, 0.215);
   }
   
   .payment-card-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
   }
   
   /* Label and select input */
@@ -85,6 +88,7 @@
     display: block;
     font-size: 1rem;
     margin-bottom: 8px;
+    letter-spacing: 1.5px;
   }
   
   .payment-select-input {
@@ -92,22 +96,25 @@
     padding: 10px;
     border-radius: 4px;
     border: 1px solid #ddd;
+    letter-spacing: 1px;
   }
   
   /* Button styling */
   .payment-button {
-    background-color: #3399cc;
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 1px;
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin: 1rem 0;
     transition: background-color 0.3s ease;
   }
   
   .payment-button:hover {
-    background-color: #287ab8;
+    background-color: #2c2c2cec;
   }
   
   /* Order summary card */
@@ -116,8 +123,9 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 40%;
+    width: 50%;
     height: fit-content;
+    border: 1px solid rgba(128, 128, 128, 0.215);
   }
   
   .payment-summary-title {
@@ -125,7 +133,8 @@
     font-weight: bold;
     margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
   }
   
   /* Styling for cart items */
@@ -150,6 +159,7 @@
   
   .payment-item-name {
     font-size: 1rem;
+    letter-spacing: 1px;
     font-weight: bold;
   }
   
@@ -159,6 +169,7 @@
     color: #000000;
     font-family: "Roboto", system-ui;
     font-weight: 300;
+    letter-spacing: 0.8px;
   }
   
   /* Total price section */
@@ -190,11 +201,11 @@
         overflow: hidden;
       }
       .payment-flex>div{
-        width: 90%;
+        width: 100%;
       }
       .payment-order-summary {
         height: fit-content;
-
+        padding: 30px;
       }
       .payment-card {
         background-color: #ffffff;
@@ -203,6 +214,50 @@
         padding: 10px;
         width: 70%;
         height: fit-content;
+        padding: 30px;
       }
-  
+
+      .payment-summary-title {
+        font-size: 0.9rem;
+      }
+
+      .payment-item-name {
+        font-size: 0.8rem;
+      }
+      
+      .payment-item-quantity,
+      .payment-item-price {
+        font-size: 0.6rem;
+      }
+
+      .payment-total {
+        font-size: 1rem;
+      }
+
+      .payment-card-title {
+        font-size: 0.9rem;
+      }
+      
+      /* Label and select input */
+      .payment-select-label {
+        font-size: 0.8rem;
+
+      }
+      
+      .payment-select-input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        letter-spacing: 1px;
+        font-size: 13px;
+      }
+      
+      /* Button styling */
+      .payment-button {
+        background-color: #000000;
+        padding: 7px 13px;
+        font-size: 0.8rem;
+        margin: 0.8rem 0;
+      }
   }

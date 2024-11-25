@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import '../../styles/UserDashboard.css'
-
+import { userContext } from "../../context/UserContext";
 const Settings = () => {
+  const { logOut } = useContext(userContext)
   const [personalInfo, setPersonalInfo] = useState({
     name: "",
     phone: "",
@@ -80,9 +81,7 @@ const Settings = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("/logout", {}, { withCredentials: true });
-      // Redirect to login page
-      navigate("/login"); 
+      logOut()
     } catch (error) {
       console.error("Error logging out:", error);
     }

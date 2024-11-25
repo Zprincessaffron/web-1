@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const UserOrders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const [statusError, setStatusError] = useState(""); // New state for status error
 
   useEffect(() => {
     const fetchUserOrders = async () => {
       try {
-        const response = await axios.get('/admin/user-orders'); // Adjust the endpoint as needed
+        const response = await axios.get("/admin/user-orders"); // Adjust the endpoint as needed
         setOrders(response.data);
         setLoading(false);
       } catch (err) {
@@ -24,22 +25,62 @@ const UserOrders = () => {
 
   const handleStatusUpdate = async (orderId, newStatus) => {
     try {
-      const response = await axios.patch('/orders/update-status', { orderId, status: newStatus });
-      setOrders(orders.map(order => 
-        order._id === orderId ? { ...order, status: newStatus } : order
-      ));
-      if (selectedOrder && selectedOrder._id === orderId) {
-        setSelectedOrder({ ...selectedOrder, status: newStatus });
+      // Find the order we're updating
+      const orderToUpdate = orders.find((order) => order._id === orderId);
+
+      // Check if the new status is 'Shipped' and shipmentId is missing
+      const shipmentId = orderToUpdate.shippingDetails.shipmentId;
+      if (newStatus === "Shipped" && (!shipmentId || shipmentId === "")) {
+        setStatusError(
+          'Shipment ID is required to update the status to "Shipped".'
+        );
+        return;
+      }
+
+      // Clear any previous status error
+      setStatusError("");
+
+      // Proceed with the status update
+      const response = await axios.patch("/orders/update-status", {
+        orderId,
+        status: newStatus,
+        shipmentId,
+      });
+
+      // Check if the response is successful
+      if (response.status === 200) {
+        // Update the state for orders
+        setOrders(
+          orders.map((order) =>
+            order._id === orderId ? { ...order, status: newStatus } : order
+          )
+        );
+
+        // If the selected order is the one being updated, reflect the change in its state
+        if (selectedOrder && selectedOrder._id === orderId) {
+          setSelectedOrder({ ...selectedOrder, status: newStatus });
+        }
+
+        // Display a message if the status is updated to "Accepted"
+        if (newStatus === "Accepted") {
+          alert(
+            "Your order has been accepted! Thank you for placing the order."
+          );
+        }
+      } else {
+        console.error("Failed to update order status");
       }
     } catch (err) {
-      console.error('Error updating status:', err.message);
+      console.error("Error updating status:", err.message);
     }
   };
 
   if (loading) {
-    return <div className="flex justify-center items-center h-screen">
-      <div className="text-2xl text-gray-500">Loading...</div>
-    </div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="text-2xl text-gray-500">Loading...</div>
+      </div>
+    );
   }
 
   if (error) {
@@ -47,27 +88,54 @@ const UserOrders = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <div className="tailwind-container">
+    <div   className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">User Orders</h1>
       <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
         <table className="min-w-full divide-y divide-gray-200 bg-white">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Order ID
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                User
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Total
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Status
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {orders.map(order => (
+            {orders.map((order) => (
               <tr key={order._id} className="hover:bg-gray-50 transition">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{order._id}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{order.user.name} ({order.user.email})</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${order.total.toFixed(2)}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  {order._id}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {order.user.name} ({order.user.email} {order.user.phone})
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  ₹{order.total.toFixed(2)}
+                </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${order.status === 'Delivered' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
+                  <span
+                    className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                      order.status === "Delivered"
+                        ? "bg-green-100 text-green-800"
+                        : order.status === "Cancelled"
+                        ? "bg-red-100 text-red-600"
+                        : order.status === "Shipped"
+                        ? "bg-blue-100 text-blue-600"
+                        : "bg-yellow-100 text-yellow-800"
+                    }`}
+                  >
                     {order.status}
                   </span>
                 </td>
@@ -87,18 +155,40 @@ const UserOrders = () => {
 
       {selectedOrder && (
         <div className="mt-8 p-6 bg-gray-50 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Order Details for {selectedOrder._id}</h2>
-          
+          <h2 className="text-2xl font-semibold mb-4">
+            Order Details for {selectedOrder._id}
+          </h2>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-4">
             <div>
               <h3 className="text-lg font-semibold mb-2">Shipping Details</h3>
-              <p className="text-sm text-gray-600"><strong>Name:</strong> {selectedOrder.shippingDetails.name}</p>
-              <p className="text-sm text-gray-600"><strong>Address:</strong> {selectedOrder.shippingDetails.address}</p>
-              <p className="text-sm text-gray-600"><strong>City:</strong> {selectedOrder.shippingDetails.city}</p>
-              <p className="text-sm text-gray-600"><strong>State:</strong> {selectedOrder.shippingDetails.state}</p>
-              <p className="text-sm text-gray-600"><strong>ZIP:</strong> {selectedOrder.shippingDetails.zip}</p>
-              <p className="text-sm text-gray-600"><strong>Country:</strong> {selectedOrder.shippingDetails.country}</p>
-              <p className="text-sm text-gray-600"><strong>Mobile:</strong> {selectedOrder.shippingDetails.mobile}</p>
+              <p className="text-sm text-gray-600">
+                <strong>Name:</strong> {selectedOrder.shippingDetails.name}
+              </p>
+              <p className="text-sm text-gray-600">
+                <strong>Address:</strong>{" "}
+                {selectedOrder.shippingDetails.address}
+              </p>
+              <p className="text-sm text-gray-600">
+                <strong>City:</strong> {selectedOrder.shippingDetails.city}
+              </p>
+              <p className="text-sm text-gray-600">
+                <strong>State:</strong> {selectedOrder.shippingDetails.state}
+              </p>
+              <p className="text-sm text-gray-600">
+                <strong>ZIP:</strong> {selectedOrder.shippingDetails.zip}
+              </p>
+              <p className="text-sm text-gray-600">
+                <strong>Country:</strong>{" "}
+                {selectedOrder.shippingDetails.country}
+              </p>
+              <p className="text-sm text-gray-600">
+                <strong>Mobile:</strong> {selectedOrder.shippingDetails.mobile}
+              </p>
+              <p className="text-sm text-gray-600">
+                <strong>ShipmentId:</strong>{" "}
+                {selectedOrder.shippingDetails.shipmentId || "Not Assigned"}
+              </p>
             </div>
 
             <div>
@@ -106,27 +196,43 @@ const UserOrders = () => {
               <ul className="text-sm text-gray-600">
                 {selectedOrder.cartItems.map((item, index) => (
                   <li key={index} className="mb-2">
-                    <strong>Item {index + 1}:</strong> {item.name} - {item.quantity} x ${item.price.toFixed(2)}
+                    <strong>Item {index + 1}:</strong> {item.name} -{" "}
+                    {item.quantity} x ₹{item.price.toFixed(2)}
                   </li>
                 ))}
               </ul>
-              <p className="text-sm text-gray-600"><strong>Total:</strong> ${selectedOrder.total.toFixed(2)}</p>
+              <p className="text-sm text-gray-600">
+                <strong>Total:</strong> ₹{selectedOrder.total.toFixed(2)}
+              </p>
             </div>
           </div>
 
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Payment Details</h3>
-            <p className="text-sm text-gray-600"><strong>Payment ID:</strong> {selectedOrder.payment.paymentId}</p>
-            <p className="text-sm text-gray-600"><strong>Payment Method:</strong> {selectedOrder.payment.paymentMethod}</p>
-            <p className="text-sm text-gray-600"><strong>Payment Status:</strong> {selectedOrder.payment.paymentStatus}</p>
+            <p className="text-sm text-gray-600">
+              <strong>Payment ID:</strong> {selectedOrder.payment.paymentId}
+            </p>
+            <p className="text-sm text-gray-600">
+              <strong>Payment Method:</strong>{" "}
+              {selectedOrder.payment.paymentMethod}
+            </p>
+            <p className="text-sm text-gray-600">
+              <strong>Payment Status:</strong>{" "}
+              {selectedOrder.payment.paymentStatus}
+            </p>
           </div>
 
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Update Order Status</h3>
+            {statusError && (
+              <p className="text-sm text-red-500 mb-2">{statusError}</p> // Display error if any
+            )}
             <select
               className="block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               value={selectedOrder.status}
-              onChange={(e) => handleStatusUpdate(selectedOrder._id, e.target.value)}
+              onChange={(e) =>
+                handleStatusUpdate(selectedOrder._id, e.target.value)
+              }
             >
               <option value="Processed">Processed</option>
               <option value="Accepted">Accepted</option>
@@ -135,7 +241,6 @@ const UserOrders = () => {
               <option value="Cancelled">Cancelled</option>
             </select>
           </div>
-
           <button
             className="mt-4 text-indigo-600 font-semibold hover:text-indigo-800"
             onClick={() => setSelectedOrder(null)}
@@ -144,6 +249,7 @@ const UserOrders = () => {
           </button>
         </div>
       )}
+    </div>
     </div>
   );
 };

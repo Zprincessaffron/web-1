@@ -1,0 +1,66 @@
+/* AdminDashboard.css */
+.dd-container {
+    padding: 1.5rem;
+    background-color: white;
+    color: #1f2937;
+  }
+  
+  .dd-container-dark {
+    background-color: #1f2937;
+    color: #e5e7eb;
+  }
+  
+  .dd-heading {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  
+  .dd-heading-dark {
+    color: white;
+  }
+  
+  .dd-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .dd-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .dd-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .dd-card {
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+  }
+  
+  .dd-card-dark {
+    background-color: #2d3748;
+    color: #e5e7eb;
+  }
+  
+  .dd-card-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .dd-card-chart {
+    margin-bottom: 1rem;
+  }
+  
+  .dd-card-heading-dark {
+    color: #e5e7eb;
+  }
+  

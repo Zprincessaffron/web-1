@@ -27,6 +27,7 @@ const CheckoutPage = () => {
     country: "",
     mobile: "",
     landmark: "",
+    shipmentId: ""
   });
   const [orderID, setOrderID] = useState(null);
   const [error, setError] = useState(null);
@@ -108,6 +109,9 @@ const CheckoutPage = () => {
 
   return (
     <>
+    <Navbar/>
+    <SideBar/>
+    <MenuSlider/>
     <div className="checkout_main">
       <div className="ckeckout_div1">
         <div className="ckeckout_div2">
@@ -127,11 +131,11 @@ const CheckoutPage = () => {
                  <div className="checkout_row_form">
                  <div className="checkout_single_form">
                     <label htmlFor="">Landmark:</label>
-                    <input id="landmark"type="text"name="landmark"value={shippingDetails.landmark} onChange={handleChange}/>
+                    <input id="landmark"type="text"name="landmark" value={shippingDetails.landmark} onChange={handleChange}/>
                   </div>
                   <div className="checkout_single_form">
                     <label htmlFor="">ZIPcode:</label>
-                    <input type="text" name="name" id="" />
+                    <input id="zip" type="text" name="zip" value={shippingDetails.zip} onChange={handleChange}  required/>
                   </div>
                  </div>
 
@@ -220,8 +224,7 @@ const CheckoutPage = () => {
       </div>
 
     </div>
-   
-    
+    <Footer/>
    </>
   );
 };

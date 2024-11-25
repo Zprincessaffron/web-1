@@ -91,7 +91,6 @@ function LoginPagee() {
     }
 
   }
-console.log(values)
   // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -113,9 +112,11 @@ console.log(values)
 
   return (
     <div className='loginpageemain'>
-       <video loop muted autoPlay>
+      <div>
+      <video loop muted autoPlay>
                 <source src={backvideo} type="video/mp4" />
               </video>
+      </div>
       
         <div className='loginpagee_div1'>
         <div className='loginpagee_div11'>

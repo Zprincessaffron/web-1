@@ -4,21 +4,27 @@ import { Schema } from "mongoose";
 const marketerSchema = new Schema({
   name: {
     type: String,
-    required: true
+    // required: true,
   },
   email: {
     type: String,
-    required: true,
-    unique: true
+    unique: true,
+    sparse: true, // Allows either email or phone to be optional
+  },
+  phone: {
+    type: String,
+    unique: true,
+    sparse: true, // Allows either phone or email to be optional
   },
   password: {
     type: String,
     required: true,
-    minLength: 6,
   },
-  phone: {
-    type: String,
-    required: true
+  otp: {
+    type: String, // To store the OTP temporarily
+  },
+  otpExpires: {
+    type: Date, // OTP expiry time
   },
   role: {
     type: String,

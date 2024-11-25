@@ -1,6 +1,11 @@
 import User from "../models/user.js";
 import Order from "../models/order.js";
 import mongoose from "mongoose";
+import nodemailer from 'nodemailer';
+import crypto from 'crypto';
+import dotenv from "dotenv";
+
+dotenv.config();
 
 
 // getting all the User's data
@@ -58,6 +63,52 @@ export const updateProfile = async (req, res) => {
     res.status(500).json({ error: 'Failed to update user' });
   }
 };
+
+let otpStore = {}; // In-memory store for OTPs
+
+// Endpoint to send OTP
+export const sendAdminOTP = async(req,res)=>{
+  const { email } = req.body;
+  const otp = crypto.randomInt(100000, 999999).toString(); // Generate a 6-digit OTP
+
+  // Send OTP to email
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail', // or use another email service provider
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+  });
+
+  const mailOptions = {
+    from: process.env.EMAIL,
+    to: email,
+    subject: 'Your OTP Code',
+    text: `Your OTP code is ${otp}`,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    otpStore[email] = otp; // Store OTP for verification
+    res.status(200).json({ message: 'OTP sent to your email' });
+  } catch (error) {
+    console.error('Error sending OTP:', error);
+    res.status(500).json({ error: 'Failed to send OTP' });
+  }
+};
+
+// Endpoint to verify OTP
+export const verifyAdminOTP = async(req,res)=>{
+  const { email, otp } = req.body;
+
+  if (otpStore[email] === otp) {
+    delete otpStore[email]; // Clear the OTP after successful verification
+    return res.status(200).json({ message: 'OTP verified successfully' });
+  } else {
+    return res.status(400).json({ error: 'Invalid OTP' });
+  }
+};
+
 
 export const userLogout = async(req,res)=>{
   try {

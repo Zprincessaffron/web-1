@@ -21,7 +21,8 @@ const AdminSetting = () => {
   };
 
   return (
-    <div className="p-8 bg-gray-50 shadow-lg rounded-lg max-w-lg mx-auto">
+    <div className="tailwind-container">
+    <div  className="p-8 bg-gray-50 shadow-lg rounded-lg max-w-lg mx-auto">
       <h2 className="text-3xl font-semibold text-gray-800 mb-6">Account Settings</h2>
 
       <div className="bg-white p-6 shadow-md rounded-lg mb-6">
@@ -64,6 +65,7 @@ const AdminSetting = () => {
           Save Settings
         </button>
       </div>
+    </div>
     </div>
   );
 };

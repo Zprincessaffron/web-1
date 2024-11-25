@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import '../../styles/UserDashboard.css'
+import { userContext } from '../../context/UserContext';
 
 const Profile = () => {
+  const {user} = useContext(userContext)
+  console.log(user)
   const [personalInfo, setPersonalInfo] = useState({
     name: '',
     email: '',
@@ -10,23 +13,8 @@ const Profile = () => {
   });
 
   useEffect(() => {
-    // Fetch the user profile data from the backend
-    const fetchProfile = async () => {
-      try {
-        const response = await axios.get('/profile', {
-          withCredentials: true, // To include cookies in the request
-        });
-        if (response.data) {
-          setPersonalInfo(response.data);
-        } else {
-          console.error('No user data found.');
-        }
-      } catch (error) {
-        console.error('Error fetching profile data:', error);
-      }
-    };
+    setPersonalInfo(user)
 
-    fetchProfile();
   }, []);
 
   return (

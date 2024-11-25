@@ -10,6 +10,9 @@ import bcrypt from 'bcrypt';
 
 dotenv.config();
 
+const twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+
+
 export const test = (req, res) => {
   res.json("test is working");
 };
@@ -23,23 +26,32 @@ export const registerUser = async (req, res) => {
     phone
   } = req.body;
   try {
+    if(email){
+      
     let user = await User.findOne({ email });
-    if (user) {
-        if(user.isVerified){
-        return res.status(400).json({ msg: 'User already exists' });}
-        else{
-            const salt = await bcrypt.genSalt(10);
-            user.password = await bcrypt.hash(password, salt);
+    }
+    if(phone){
+      
+      let user = await User.findOne({ phone });
+      }
+    // Check if the user exists by email or phone
     
-            const otp = Math.floor(100000 + Math.random() * 900000).toString();
-            user.otp = otp;
-            user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
-            await user.save();
-            await sendOTP(email, otp);
-            res.status(200).json({ msg: 'OTP sent to email' });
-            return
-        }
 
+    if (user) {
+      if (user.isVerified) {
+        return res.status(400).json({ msg: "User already exists" });
+      } else {
+        const salt = await bcrypt.genSalt(10);
+        user.password = await bcrypt.hash(password, salt);
+
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
+        user.otp = otp;
+        user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
+        await user.save();
+        await sendOTP(email, otp);
+        res.status(200).json({ msg: "OTP sent to email" });
+        return;
+      }
     }
 
    
@@ -47,30 +59,32 @@ export const registerUser = async (req, res) => {
       name,
       email,
       password,
-      phone
-      
-  });
+      phone,
+    });
 
-  const salt = await bcrypt.genSalt(10);
-  user.password = await bcrypt.hash(password, salt);
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(password, salt);
 
-  const otp = Math.floor(100000 + Math.random() * 900000).toString();
-  user.otp = otp;
-  user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    user.otp = otp;
+    user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
 
-  await user.save();
+    await user.save();
 
   await sendOTP(email, otp);
 
   res.status(200).json({ msg: 'OTP sent to email' });
   } catch (error) {
     console.log(error);
+    res.status(500).json({ msg: 'Server error' });
   }
 };
+
+
 //verify otp
 
 export const verifyOTP = async (req, res) => {
-  const { email, otp } = req.body;
+  const { identifier, otp } = req.body; // "identifier" can be email or phone
 
   try {
       let user = await User.findOne({ email });
@@ -83,11 +97,11 @@ export const verifyOTP = async (req, res) => {
           return res.status(400).json({ msg: 'Invalid OTP or OTP expired' });
       }
 
-      user.isVerified = true;
-      user.otp = undefined;
-      user.otpExpires = undefined;
+    user.isVerified = true;
+    user.otp = undefined;
+    user.otpExpires = undefined;
 
-      await user.save();
+    await user.save();
 
       res.status(200).json({ msg: 'Email verified successfully' });
   } catch (err) {
@@ -95,10 +109,12 @@ export const verifyOTP = async (req, res) => {
       res.status(500).send('Server error');
   }
 };
+
+
 //resend otp
 
 export const resendOTP = async (req, res) => {
-  const { email } = req.body;
+  const { identifier } = req.body; // Use identifier to support email and phone
 
   try {
       let user = await User.findOne({ email });
@@ -131,8 +147,8 @@ export const loginUser = async (req, res) => {
     // Attempt to find the user in the possible collections
     const collections = [Marketer, Wholesaler, User];
     let user = null;
-    let role = '';
-    if(email){
+    let role = "";
+    if (email) {
       for (const Collection of collections) {
         user = await Collection.findOne({ email });
         if (user) {
@@ -144,9 +160,8 @@ export const loginUser = async (req, res) => {
           break;
         }
       }
-  
     }
-    if(phone){
+    if (phone) {
       for (const Collection of collections) {
         user = await Collection.findOne({ phone });
         if (user) {
@@ -158,9 +173,8 @@ export const loginUser = async (req, res) => {
           break;
         }
       }
-  
     }
-    
+
     // If user is not found in any collection
     if (!user) {
       return res.status(404).json({ msg: "User Not found" });
@@ -182,18 +196,18 @@ export const loginUser = async (req, res) => {
 
     // Generate JWT token
     const token = jwt.sign(
-      { email: user.email, id: user._id, role },
+      { email: user.email, id: user._id, role,name: user.name,uniqueId: user.uniqueId },
       process.env.JWT_SECRET,
       {}
     );
 
     // Return the response with the token and user details
-    res.cookie("token", token)
-    .json({
+    res.cookie("token", token).json({
       email: user.email,
       id: user._id,
       name: user.name,
       role,
+      token
     });
   } catch (error) {
     console.error(error);
@@ -211,7 +225,6 @@ export const getUserData = async (req, res) => {
     res.status(500).json({ message: "Error retrieving data", error });
   }
 };
-
 
 // user profile tracking
 
@@ -235,41 +248,70 @@ const getUserByEmail = async (email, role) => {
   }
 };
 
+// export const getProfile = async (req, res) => {
+//   const { token } = req.cookies;
+
+
+
+
+//   if (token) {
+//     jwt.verify(token, process.env.JWT_SECRET, {}, async (err, user) => {
+
+//       if (err) {
+//         return res.status(403).json({ error: "Invalid token" });
+//       }
+
+//       try {
+//         const userData = await getUserByEmail(user.email, user.role); // Fetch user data from the appropriate collection
+
+//         if (!userData) {
+//           return res.status(404).json({ error: "User not found" });
+//         }
+
+//         res.json({
+//           name: userData.name,
+//           email: userData.email,
+//           id: userData._id,
+//           phone: userData.phone,
+//           role: userData.role,
+//         });
+//       } catch (error) {
+//         console.error("Error fetching user data:", error);
+//         res.status(500).json({ error: "Internal server error" });
+//       }
+//     });
+//   } else {
+//     res.status(401).json({ error: "No token provided" });
+
+//   }
+// };
+                 
 export const getProfile = async (req, res) => {
-  const { token } = req.cookies;
+  const { id } = req.params; // Extract the id from the URL parameters
 
-  if (token) {
-    jwt.verify(token, process.env.JWT_SECRET, {}, async (err, user) => {
-      if (err) {
-        return res.status(403).json({ error: "Invalid token" });
-      }
+  try {
+    // Fetch user data by id from the appropriate collection
+    const userData = await getUserById(id); 
 
-      try {
-        const userData = await getUserByEmail(user.email, user.role); // Fetch user data from the appropriate collection
+    if (!userData) {
+      return res.status(404).json({ error: "User not found" });
+    }
 
-        if (!userData) {
-          return res.status(404).json({ error: "User not found" });
-        }
-
-        res.json({
-          name: userData.name,
-          email: userData.email,
-          id: userData._id,
-          phone: userData.phone,
-          role: userData.role,
-        });
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-        res.status(500).json({ error: "Internal server error" });
-      }
+    res.json({
+      name: userData.name,
+      email: userData.email,
+      id: userData._id,
+      phone: userData.phone,
+      role: userData.role,
     });
-  } else {
-    res.status(401).json({ error: "No token provided" });
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
-
 // Middleware to verify JWT and attach user data to request
+
 export const authenticate = (req, res, next) => {
   const { token } = req.cookies;
 
@@ -299,18 +341,16 @@ export const authorize = (roles) => {
   };
 };
 
-
-export const getAdmin = async(req,res) =>{
+export const getAdmin = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
-    console.log(user)
-    if (user && user.role === 'admin') {
+    console.log(user);
+    if (user && user.role === "admin") {
       res.json(user);
     } else {
-      res.status(403).json({ message: 'Forbidden' });
+      res.status(403).json({ message: "Forbidden" });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-}
-
+};

@@ -1,6 +1,9 @@
 import Order from "../models/order.js";
 import Product from "../models/product.js";
 import mongoose from "mongoose";
+import nodemailer from 'nodemailer';
+import twilio from 'twilio';
+import User from "../models/user.js";
 
 
 // creating order and update the product stock
@@ -110,33 +113,102 @@ export const OrderData = async (req, res) => {
 };
 
 
-// updating order status
+// Twilio configuration
+const twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
+
+// Nodemailer configuration
+const transporter = nodemailer.createTransport({
+  service: 'Gmail', // or any other email service
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD
+  }
+});
+
 export const updateOrderStatus = async (req, res) => {
   try {
-    const { orderId, status } = req.body;
+    const { orderId, status, shipmentId } = req.body;
 
     // Validate input
     if (!orderId || !status) {
-      return res.status(400).json({ message: "Missing orderId or status" });
+      return res.status(400).json({ message: 'Missing orderId or status' });
     }
 
-    // Find the order by ID and update its status
-    const updatedOrder = await Order.findByIdAndUpdate(
-      orderId,
-      { status },
-      { new: true }
-    );
+    // Find the order by ID
+    const order = await Order.findById(orderId).populate('user');
 
-    if (!updatedOrder) {
-      return res.status(404).json({ message: "Order not found" });
+    if (!order) {
+      return res.status(404).json({ message: 'Order not found' });
     }
 
-    res.status(200).json(updatedOrder);
+    // Update order status
+    order.status = status;
+
+    // If status is 'Shipped', ensure shipmentId is provided
+    if (status === 'Shipped' && !shipmentId) {
+      return res.status(400).json({ message: 'Missing shipmentId for shipped order' });
+    }
+
+    if (status === 'Shipped') {
+      order.shippingDetails.shipmentId = shipmentId;
+    }
+
+    await order.save();
+
+    // Check whether the user enrolled using email or phone
+    const user = order.user;
+
+    let notificationMessage = '';
+
+    // Prepare notification based on the status
+    if (status === 'Accepted') {
+      notificationMessage = `Hello ${user.name}, your order has been accepted. Thank you for placing this order! We will process it shortly.`;
+    } else if (status === 'Shipped') {
+      notificationMessage = `Hello ${user.name}, your order has been shipped. Track your order using shipment ID: ${shipmentId}. Thank you for shopping with us!`;
+    } else if (status === 'Delivered') {
+      notificationMessage = `Hello ${user.name}, your order has been delivered. Thank you for your purchase! We hope to see you again!`;
+    } else if (status === 'Cancelled') {
+      notificationMessage = `Hello ${user.name}, your order has been cancelled. If you have any questions, please contact us.`;
+    }
+
+    // Send email or SMS notification based on available contact method
+    if (user.email) {
+      // Send email notification
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: user.email,
+        subject: `Order Status Updated to ${status}`,
+        text: notificationMessage
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error('Error sending email:', error);
+        } else {
+          console.log('Email sent:', info.response);
+        }
+      });
+    } else if (user.phone) {
+      // Send SMS notification
+      twilioClient.messages
+        .create({
+          body: notificationMessage,
+          from: process.env.TWILIO_PHONE_NUMBER,
+          to: `+91${user.phone}`
+        })
+        .then(message => console.log('SMS sent:', message.sid))
+        .catch(error => console.error('Error sending SMS:', error));
+    } else {
+      console.error('User does not have an email or phone number');
+    }
+
+    res.status(200).json({ message: 'Order status updated and notification sent', order });
   } catch (error) {
-    console.error("Error updating order status:", error);
-    res.status(500).json({ message: "Internal server error" });
+    console.error('Error updating order status:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
+
 
 // user's all orders except delivered
 
@@ -223,3 +295,39 @@ export const getUserOrders = async (req, res) => {
     res.status(500).json({ error: error.message }); // Handle errors
   }
 };
+
+// Route to get all orders
+export const getAllOrders = async (req, res) => {
+  try {
+    const orders = await Order.find({
+      "shippingDetails.shipmentId" : ""
+    }); // Fetch all orders
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch orders' });
+  }
+};
+
+// Route to update the shipment ID for an order
+export const updateShipmentId = async (req, res) => {
+  const { orderId } = req.params;
+  const { shipmentId } = req.body;
+
+  try {
+    // Find the order by ID and update the shipment ID
+    const updatedOrder = await Order.findByIdAndUpdate(
+      orderId,
+      { 'shippingDetails.shipmentId': shipmentId }, // Update the shipmentId field
+      { new: true }
+    );
+
+    if (!updatedOrder) {
+      return res.status(404).json({ error: 'Order not found' });
+    }
+
+    res.json(updatedOrder);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update shipment ID' });
+  }
+};
+
