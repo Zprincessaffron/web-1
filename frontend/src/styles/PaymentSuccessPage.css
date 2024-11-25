@@ -30,14 +30,15 @@ font-family: "Roboto", system-ui;
     font-size: 2rem;
     font-weight: bold;
     color: #00796b;
-    margin-bottom: 20px;
-    letter-spacing: 0.1rem;
+    margin-bottom: 30px;
+    letter-spacing: 0.3rem;
     text-transform: uppercase;
   }
   .ps_text_thank{
     margin-bottom: 1rem;
     color: black;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
+    margin-bottom: 30px;
   }
   .ps-image {
     width: 150px;
@@ -53,6 +54,7 @@ font-family: "Roboto", system-ui;
   
   .ps-receipt-section {
     background: #ffffff;
+    border: 1px solid rgba(95, 95, 95, 0.331);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -65,7 +67,7 @@ font-family: "Roboto", system-ui;
     font-weight: bold;
     color: #064d45;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin-bottom: 10px;
   }
   
@@ -89,7 +91,7 @@ font-family: "Roboto", system-ui;
     font-family: "Roboto", system-ui;
     font-weight: 300;
     margin-top: 0.5rem;
-
+    letter-spacing: 1px;
   }
   .ps-total {
     display: flex;
@@ -100,6 +102,7 @@ font-family: "Roboto", system-ui;
     padding: 10px 0;
     font-family: "Roboto", system-ui;
     font-weight: 300;
+    letter-spacing: 1px;
   }
   
   .ps-button {
@@ -111,11 +114,50 @@ font-family: "Roboto", system-ui;
     font-size: 1rem;
     font-weight: bold;
     margin-top: 2rem;
-
     transition: background-color 0.3s ease;
   }
   
   .ps-button:hover {
     background-color: #479a8c;
   }
+
+@media only screen and (max-width: 480px){
+  .ps-heading {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.25rem;
+
+  }
+  .ps_text_thank{
+    font-size: 12px;
+  }
+  .ps-recipt-order{
+    color: black;
+    text-align: left;
+    font-family: "Roboto", system-ui;
+    font-weight: 300;
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
+    font-size: 12px;
+  }
+  .ps-total {
+    font-size: 14px;
+  }
+  .ps-receipt-title {
+    font-size: 1rem;
+    letter-spacing: 1.7px;
+  }
+  .ps-button {
+    background-color: #0b4e46;
+    color: #ffffff;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    transition: background-color 0.3s ease;
+  }
+
+}  
   

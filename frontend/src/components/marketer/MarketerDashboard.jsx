@@ -50,22 +50,22 @@ const MarketerDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
-      <aside className="w-full lg:w-1/4 bg-indigo-800 p-6 shadow-xl">
-        <h1 className="text-3xl font-bold mb-8 text-center">Marketer Dashboard</h1>
+    <div className="min-h-screen flex flex-col lg:flex-row bg-[#8cb09c] text-white">
+      <aside className="w-full lg:w-1/4  bg-sky-350 p-6 shadow-xl">
+        <h1 className="uppercase text-lg tracking-[4px] font-bold mb-8 text-center bg-white text-[#8cb09c] py-4 px-1 rounded-md">Marketer Dashboard</h1>
         <nav>
           <button
             onClick={() => setActiveSection('profile')}
-            className={`w-full text-left py-3 px-4 mb-4 transition-colors duration-300 ease-in-out rounded-lg ${
-              activeSection === 'profile' ? 'bg-purple-600' : 'bg-indigo-700 hover:bg-indigo-600'
+            className={`w-full text-center font-bold tracking-[3px] py-3 px-4 mb-4 transition-colors duration-300 ease-in-out rounded-full ${
+              activeSection === 'profile' ? 'text-[#8cb09c] bg-white' : 'bg-[#8cb09c] text-white border-2'
             }`}
           >
             Profile
           </button>
           <button
             onClick={() => setActiveSection('wholesalers')}
-            className={`w-full text-left py-3 px-4 transition-colors duration-300 ease-in-out rounded-lg ${
-              activeSection === 'wholesalers' ? 'bg-purple-600' : 'bg-indigo-700 hover:bg-indigo-600'
+            className={`w-full text-center font-bold tracking-[3px] py-3 px-4 transition-colors duration-300 ease-in-out rounded-full ${
+              activeSection === 'wholesalers' ? 'text-[#8cb09c] bg-white' : 'bg-[#8cb09c] text-white border-2'
             }`}
           >
             Wholesale Customers
@@ -73,7 +73,7 @@ const MarketerDashboard = () => {
         </nav>
         <div className="mt-8">
           <button
-            className="w-full py-3 px-4 bg-purple-600 text-white font-semibold rounded-lg shadow-lg hover:bg-purple-700 transition duration-300 ease-in-out"
+            className="w-full py-3 px-4 text-[#8cb09c] bg-white text-center tracking-[3px] font-bold rounded-full shadow-lg hover:bg-[#8cb09c] hover:text-white hover:border-2 transition duration-300 ease-in-out"
             onClick={handleRegisterClick}
           >
             Register Wholesaler
@@ -84,9 +84,9 @@ const MarketerDashboard = () => {
       <main className="flex-1 p-8">
         {activeSection === 'profile' && (
           <section className="bg-white text-gray-800 p-8 rounded-lg shadow-xl border border-gray-300">
-            <h2 className="text-3xl font-bold mb-6">Profile</h2>
+            <h2 className="text-3xl font-bold uppercase tracking-wider mb-6">Profile</h2>
             {marketer ? (
-              <div className="space-y-4">
+              <div className="space-y-4 tracking-widest">
                 <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-4">
                   <FaUser className="text-gray-600" />
                   <p className="text-lg"><strong>Name:</strong> {marketer.name}</p>
@@ -97,7 +97,7 @@ const MarketerDashboard = () => {
                 </div>
                 <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-4">
                   <FaPhone className="text-gray-600" />
-                  <p className="text-lg"><strong>Phone:</strong> {marketer.phone}</p>
+                  <p className="text-lg"><strong>Phone:</strong> <span className='font-mono'>{marketer.phone}</span></p>
                 </div>
                 <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-4">
                   <FaUserTag className="text-gray-600" />
@@ -105,7 +105,7 @@ const MarketerDashboard = () => {
                 </div>
                 <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-4">
                   <FaCalendarAlt className="text-gray-600" />
-                  <p className="text-lg"><strong>Created At:</strong> {new Date(marketer.createdAt).toLocaleString()}</p>
+                  <p className="text-lg"><strong>Created At:</strong> <span className='font-mono'>{new Date(marketer.createdAt).toLocaleString()}</span></p>
                 </div>
               </div>
             ) : (
@@ -116,8 +116,8 @@ const MarketerDashboard = () => {
 
         {activeSection === 'wholesalers' && (
           <section className="bg-white text-gray-800 p-8 rounded-lg shadow-xl border border-gray-300">
-            <h2 className="lg:text-3xl text-2xl font-bold mb-6">Wholesale Customers</h2>
-            <div className="overflow-x-auto">
+            <h2 className="lg:text-2xl uppercase tracking-widest text-xl font-bold mb-6">Wholesale Customers</h2>
+            <div className="overflow-x-auto tracking-wider">
               <table className="min-w-full bg-white rounded-lg shadow-md border border-gray-300">
                 <thead>
                   <tr className="bg-gray-200 border-b border-gray-300">
@@ -148,7 +148,7 @@ const MarketerDashboard = () => {
               </table>
             </div>
 
-            <div className="flex justify-between items-center mt-6">
+            <div className="flex tracking-wider justify-between items-center mt-6">
               <button
                 className="py-2 px-4 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300 transition-colors duration-300"
                 disabled={currentPage === 1}

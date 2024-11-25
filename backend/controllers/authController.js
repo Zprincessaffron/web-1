@@ -6,9 +6,12 @@ import jwt from "jsonwebtoken";
 import UserData from "../models/userData.js";
 import dotenv from "dotenv";
 import { sendOTP } from "../utils/email.js";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcrypt';
 
 dotenv.config();
+
+const twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+
 
 export const test = (req, res) => {
   res.json("test is working");
@@ -16,9 +19,24 @@ export const test = (req, res) => {
 
 // user Registration endpoint
 export const registerUser = async (req, res) => {
-  const { name, email, password, phone } = req.body;
+  const {
+    name,
+    email,
+    password,
+    phone
+  } = req.body;
   try {
+    if(email){
+      
     let user = await User.findOne({ email });
+    }
+    if(phone){
+      
+      let user = await User.findOne({ phone });
+      }
+    // Check if the user exists by email or phone
+    
+
     if (user) {
       if (user.isVerified) {
         return res.status(400).json({ msg: "User already exists" });
@@ -36,6 +54,7 @@ export const registerUser = async (req, res) => {
       }
     }
 
+   
     user = new User({
       name,
       email,
@@ -52,28 +71,31 @@ export const registerUser = async (req, res) => {
 
     await user.save();
 
-    await sendOTP(email, otp);
+  await sendOTP(email, otp);
 
-    res.status(200).json({ msg: "OTP sent to email" });
+  res.status(200).json({ msg: 'OTP sent to email' });
   } catch (error) {
     console.log(error);
+    res.status(500).json({ msg: 'Server error' });
   }
 };
+
+
 //verify otp
 
 export const verifyOTP = async (req, res) => {
-  const { email, otp } = req.body;
+  const { identifier, otp } = req.body; // "identifier" can be email or phone
 
   try {
-    let user = await User.findOne({ email });
+      let user = await User.findOne({ email });
 
-    if (!user) {
-      return res.status(400).json({ msg: "Invalid email or OTP" });
-    }
+      if (!user) {
+          return res.status(400).json({ msg: 'Invalid email or OTP' });
+      }
 
-    if (user.otp !== otp || user.otpExpires < Date.now()) {
-      return res.status(400).json({ msg: "Invalid OTP or OTP expired" });
-    }
+      if (user.otp !== otp || user.otpExpires < Date.now()) {
+          return res.status(400).json({ msg: 'Invalid OTP or OTP expired' });
+      }
 
     user.isVerified = true;
     user.otp = undefined;
@@ -81,38 +103,41 @@ export const verifyOTP = async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({ msg: "Email verified successfully" });
+      res.status(200).json({ msg: 'Email verified successfully' });
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Server error");
+      console.error(err.message);
+      res.status(500).send('Server error');
   }
 };
+
+
 //resend otp
 
 export const resendOTP = async (req, res) => {
-  const { email } = req.body;
+  const { identifier } = req.body; // Use identifier to support email and phone
 
   try {
-    let user = await User.findOne({ email });
+      let user = await User.findOne({ email });
 
-    if (!user) {
-      return res.status(400).json({ msg: "User does not exist" });
-    }
+      if (!user) {
+          return res.status(400).json({ msg: 'User does not exist' });
+      }
 
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    user.otp = otp;
-    user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
+      const otp = Math.floor(100000 + Math.random() * 900000).toString();
+      user.otp = otp;
+      user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
 
-    await user.save();
+      await user.save();
 
-    await sendOTP(email, otp);
+      await sendOTP(email, otp);
 
-    res.status(200).json({ msg: "OTP resent to email" });
+      res.status(200).json({ msg: 'OTP resent to email' });
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Server error");
+      console.error(err.message);
+      res.status(500).send('Server error');
   }
 };
+
 
 // user login endpoint
 export const loginUser = async (req, res) => {
@@ -189,6 +214,8 @@ export const loginUser = async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 };
+
+
 
 export const getUserData = async (req, res) => {
   try {

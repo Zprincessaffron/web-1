@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import TotalSales from './TotalSales';
+import TotalRevenue from './TotalRevenue';
 import TopSellingProducts from './TopSellingProducts';
-import ActiveUsers from './ActiveUsers';
+import TotalUsers from './TotalUsers';
 import SalesOverTime from './SalesOverTime';
 import UserGrowth from './UserGrowth';
 import RevenueByProduct from './RevenueByProduct';
 import AnalyticsFilters from './AnalyticsFilters';
+import axios from 'axios';
+
+import '../styles/Analytics.css'; // Import the external CSS file
 import '../styles/Analytics.css'; // Import the external CSS file
 
 const Analytics = () => {
@@ -40,7 +43,7 @@ const Analytics = () => {
   const handleApplyFilters = (filters) => {
     // Logic to filter analyticsData based on filters
     // For simplicity, we're not implementing the actual filtering here.
-    setFilteredData(analyticsData);
+    setFilteredData(analyticsData); 
   };
 
   return (
@@ -49,28 +52,29 @@ const Analytics = () => {
         {/* Filters */}
         <AnalyticsFilters onApplyFilters={handleApplyFilters} />
 
-        <div className="analytics-grid">
-          {/* Total Sales */}
-          <TotalSales salesData={filteredData.salesData} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Total Sales */}
+        <TotalSales salesData={filteredData.salesData} />
 
-          {/* Active Users */}
-          <ActiveUsers users={filteredData.users} />
+        {/* Active Users */}
+        <ActiveUsers users={filteredData.users} />
 
-          {/* Top Selling Products */}
-          <TopSellingProducts products={filteredData.topSellingProducts} />
+        {/* Top Selling Products */}
+        <TopSellingProducts products={filteredData.topSellingProducts} />
 
-          {/* Sales Over Time */}
-          <SalesOverTime salesData={filteredData.salesOverTime} />
+        {/* Sales Over Time */}
+        <SalesOverTime salesData={filteredData.salesOverTime} />
 
-          {/* User Growth */}
-          <UserGrowth userGrowthData={filteredData.userGrowth} />
+        {/* User Growth */}
+        <UserGrowth userGrowthData={filteredData.userGrowth} />
 
-          {/* Revenue by Product Category */}
-          <RevenueByProduct revenueData={filteredData.revenueByProduct} />
-        </div>
+        {/* Revenue by Product Category */}
+        <RevenueByProduct revenueData={filteredData.revenueByProduct} />
       </div>
+    </div>
     </div>
   );
 };
 
 export default Analytics;
+

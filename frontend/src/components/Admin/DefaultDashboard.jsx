@@ -1,5 +1,6 @@
-import React from 'react';
-import { Line, Bar, Pie } from 'react-chartjs-2';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Line, Bar, Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,8 +11,8 @@ import {
   Title,
   Tooltip,
   Legend,
-  ArcElement
-} from 'chart.js';
+  ArcElement,
+} from "chart.js";
 
 ChartJS.register(
   CategoryScale,
@@ -28,51 +29,87 @@ ChartJS.register(
 import './styles/DefaultDashboard.css'
 
 const DefaultDashboard = ({ isDarkMode }) => {
-  // Sample data for Line Chart
-  const lineChartData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-    datasets: [
-      {
-        label: 'Sales',
-        data: [4000, 3000, 2000, 2780, 1890, 2390, 3490],
-        borderColor: isDarkMode ? '#9d4edd' : '#8884d8',
-        backgroundColor: isDarkMode
-          ? 'rgba(157, 77, 237, 0.2)'
-          : 'rgba(136, 132, 216, 0.2)',
-      },
-    ],
+  const [lineChartData, setLineChartData] = useState(null);
+  const [barChartData, setBarChartData] = useState(null);
+  const [pieChartData, setPieChartData] = useState(null);
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  const fetchData = (year) => {
+    axios
+      .get(`/admin/default-analytics?year=${year}`)
+      .then((response) => {
+        const { salesData, revenueData, productSales } = response.data || {};
+        console.log(response.data);
+
+        // Prepare data for Line Chart (Sales Data)
+        setLineChartData({
+          labels: Object.keys(salesData || {}),
+          datasets: [
+            {
+              label: `Sales - ${year}`,
+              data: Object.values(salesData || {}),
+              borderColor: isDarkMode ? "#9d4edd" : "#8884d8",
+              backgroundColor: isDarkMode
+                ? "rgba(157, 77, 237, 0.2)"
+                : "rgba(136, 132, 216, 0.2)",
+            },
+          ],
+        });
+
+        // Prepare data for Bar Chart (Revenue Data)
+        setBarChartData({
+          labels: Object.keys(revenueData || {}),
+          datasets: [
+            {
+              label: `Revenue - ${year}`,
+              data: Object.values(revenueData || {}),
+              backgroundColor: isDarkMode
+                ? "rgba(75, 192, 192, 0.6)"
+                : "rgba(75, 192, 192, 0.6)",
+              borderColor: isDarkMode ? "#4bc0c0" : "#4bc0c0",
+              borderWidth: 1,
+            },
+          ],
+        });
+
+        // Prepare data for Pie Chart (Top Selling Products)
+        const products = (Array.isArray(productSales) ? productSales : [])
+          .filter((product) => product.name && product.quantity)
+          .map((product) => ({
+            name: product.name,
+            quantity: product.quantity,
+          }));
+
+        setPieChartData({
+          labels: products.map((product) => product.name),
+          datasets: [
+            {
+              label: "Top Selling Products",
+              data: products.map((product) => product.quantity),
+              backgroundColor: isDarkMode
+                ? ["#ff6b6b", "#4ecdc4", "#f9ca24", "#d1d8e0"]
+                : ["#ff6384", "#36a2eb", "#cc65fe", "#ffce56"],
+              borderColor: isDarkMode ? "#343a40" : "#fff",
+              borderWidth: 1,
+            },
+          ],
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching analytics data:", error);
+      });
   };
 
-  // Sample data for Bar Chart
-  const barChartData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-    datasets: [
-      {
-        label: 'Revenue',
-        data: [5000, 4000, 3000, 4500, 3200, 2900, 4000],
-        backgroundColor: isDarkMode
-          ? 'rgba(75, 192, 192, 0.6)'
-          : 'rgba(75, 192, 192, 0.6)',
-        borderColor: isDarkMode ? '#4bc0c0' : '#4bc0c0',
-        borderWidth: 1,
-      },
-    ],
+  useEffect(() => {
+    fetchData(currentYear);
+  }, [isDarkMode, currentYear]);
+
+  const handlePrevYear = () => {
+    setCurrentYear((prevYear) => prevYear - 1);
   };
 
-  // Sample data for Pie Chart (Top Selling Products)
-  const pieChartData = {
-    labels: ['Product A', 'Product B', 'Product C', 'Product D'],
-    datasets: [
-      {
-        label: 'Top Selling Products',
-        data: [300, 250, 200, 150],
-        backgroundColor: isDarkMode
-          ? ['#ff6b6b', '#4ecdc4', '#f9ca24', '#d1d8e0']
-          : ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56'],
-        borderColor: isDarkMode ? '#343a40' : '#fff',
-        borderWidth: 1,
-      },
-    ],
+  const handleNextYear = () => {
+    setCurrentYear((prevYear) => prevYear + 1);
   };
 
   return (

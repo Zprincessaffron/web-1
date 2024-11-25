@@ -53,7 +53,6 @@ function Footer() {
             >
               ABOUT
             </div>
-            <div>PRODUCTS</div>
           </div>
 
           <div className="footer_div22">

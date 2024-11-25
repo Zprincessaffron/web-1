@@ -44,6 +44,7 @@
     height: 10%;
     padding: 20px;
     color: white;
+    overflow: hidden;
 
 }
 .subitemspace{
@@ -53,7 +54,7 @@
 }
 .sidebar_div2{
     width: 100%;
-
+    overflow: hidden;
 
 
 }

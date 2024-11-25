@@ -178,7 +178,7 @@
   }
   
   .cart-checkout-button:hover {
-    background-color: #059669; /* Tailwind's hover:bg-green-700 */
+    background-color: #2c2c2c; /* Tailwind's hover:bg-green-700 */
   }
   /* //////cart/////// */
   .cart_main{
@@ -228,7 +228,7 @@
     flex-direction: column;
   }
   .cart-div2>div>h1{
-    font-size: calc(0.3rem + 1vw);
+    font-size: calc(0.2rem + 0.8vw);
     text-transform: uppercase;
     letter-spacing: 1px;
   }

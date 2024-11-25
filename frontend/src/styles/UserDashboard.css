@@ -5,7 +5,6 @@
     align-items: center;
     justify-content: center;
     color: #4a5568;
-
 }
  
 .dashboard-main {
@@ -14,6 +13,7 @@
     width: 100vw;
     padding: 10px;
     background-color: #808B9A;
+    font-family: "Jost";
 }
 .dashboard-welcome{
     height: 15%;
@@ -46,6 +46,7 @@
     font-size: large;
     letter-spacing: 3px;
     text-transform: uppercase;
+    font-family: "Jost";
 }
 .dashboard-welcome-png>img{
     width: 40%;
@@ -82,11 +83,11 @@
     display: flex;
     flex-direction: column;
     border: none;
+    font-weight: 200;
 }
 
 .dashboard-menu li {
     margin: 1rem 0;
-
 }
 
 .dashboard-link {
@@ -94,16 +95,14 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1rem;
-    font-size: 1.125rem;
-    font-weight: 500;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 1px;
     color: rgb(67, 64, 64);
     text-decoration: none;
     transition: background-color 0.3s ease;
-    font-family: 'riviera';
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
-
+    letter-spacing: 2px;
 }
 .dashboard-link.true{
     background-color: #393d42;
@@ -130,8 +129,7 @@
     margin-left: 10px;
     background-color: #ffffff;
     padding-right: 5vw;
-    font-family: 'riviera';
-
+    font-family: 'Jost';
 }
 
 .content-box {
@@ -150,7 +148,7 @@
 
 .oh-title {font-weight: 600; /* font-semibold */
     margin-bottom: 2rem; 
-    font-family: 'riviera';
+    font-family: 'Jost';
     font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
@@ -241,7 +239,7 @@
 .order-container {
     margin: 2rem auto;
     padding: 1rem;
-    font-family: 'riviera';
+    font-family: 'Jost';
 
     max-width: 80rem; /* max-w-7xl */
 }
@@ -264,7 +262,7 @@
 .order-card-subtitle {
     font-weight: 600; /* font-semibold */
     margin-bottom: 2rem; 
-    font-family: 'riviera';
+    font-family: 'Jost';
     font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
@@ -423,7 +421,7 @@
 .set-subtitle {
     font-weight: 600; /* font-semibold */
     margin-bottom: 2rem; 
-    font-family: 'riviera';
+    font-family: 'Jost';
     font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
@@ -522,18 +520,17 @@
 .profile-container {
     margin: 2rem auto;
     padding: 1rem;
-    font-family: 'riviera';
+    font-family: 'Jost';
 
 }
 .profile-container label{
     font-size: 1rem;
     letter-spacing: 1.5px;
-    font-weight: bold;
     color: black;
 }
 .profile-title {
     font-size: 1.5rem; /* text-2xl */
-    font-weight: 700; /* font-bold */
+    font-weight: 300; /* font-bold */
 }
 
 .profile-card {
@@ -542,9 +539,9 @@
 }
 
 .profile-subtitle {
-    font-weight: 600; /* font-semibold */
+    font-weight: 400; /* font-semibold */
     margin-bottom: 2rem; 
-    font-family: 'riviera';
+    font-family: 'Jost';
     font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
@@ -560,8 +557,8 @@
 
 .profile-label {
     display: block;
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 500; /* font-medium */
+    font-size: 0.8rem; /* text-sm */
+    font-weight: 350; /* font-medium */
     color: #000000; /* text-gray-700 */
 }
 
@@ -580,6 +577,7 @@
     border: 1px solid #d1d5db; /* border-gray-300 */
     background-color: #f3f4f6; /* bg-gray-100 */
     padding: 0.5rem 20px; /* p-2 */
+    text-transform: lowercase;
 }
 @media only screen and (max-width: 480px) {
 
@@ -667,12 +665,12 @@
 .profile-container label{
     font-size: 0.8rem;
     letter-spacing: 1.5px;
-    font-weight: bold;
+    font-weight: 300;
     color: black;
 }
 .profile-title {
     font-size: 1.5rem; /* text-2xl */
-    font-weight: 700; /* font-bold */
+    font-weight: 300; /* font-bold */
 }
 
 .profile-card,.order-card {
@@ -696,8 +694,8 @@
 
 .profile-label {
     display: block;
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 500; /* font-medium */
+    font-size: 0.7rem; /* text-sm */
+    font-weight: 300; /* font-medium */
     color: #000000; /* text-gray-700 */
 }
 

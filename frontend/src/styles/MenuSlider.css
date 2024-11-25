@@ -63,10 +63,11 @@ animation: fadeIn 0.5s forwards;
 animation: fadeIn 0.5s forwards;
 }
 .ms_div>button{
-    padding: 15px 50px;
+    padding: 10px 35px;
     letter-spacing: 2px;
     border-radius: 25px;
     border: none;
+    background-color: white;
 }
 .ms_div>h1{
     font-size: 3rem;

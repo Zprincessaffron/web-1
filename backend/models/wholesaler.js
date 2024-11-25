@@ -12,16 +12,9 @@ const WholesalerSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
     trim: true,
     lowercase: true,
     unique: true,
-    validate: {
-      validator: function(v) {
-        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(v);
-      },
-      message: props => `${props.value} is not a valid email!`
-    }
   },
   password: {
     type: String,
@@ -30,7 +23,6 @@ const WholesalerSchema = new Schema({
   },
   phone: {
     type: String,
-    required: true,
     trim: true,
     match: [phoneRegex, 'Please fill a valid phone number']
   },
@@ -57,6 +49,9 @@ const WholesalerSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Marketer',
     required: true
+  },
+  otp: {
+    type: String
   }
 });
 

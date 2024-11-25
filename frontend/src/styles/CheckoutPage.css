@@ -1,14 +1,12 @@
 .checkout_main{
   width: 100vw;
   font-family: 'Riviera Nights';
-
-  background-image: linear-gradient(45deg,rgb(164, 214, 164),rgb(201, 161, 168));
+  /* background-image: linear-gradient(45deg,rgb(164, 214, 164),rgb(201, 161, 168)); */
 }
 .ckeckout_div1{
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.545);
-
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
@@ -17,10 +15,10 @@
 .ckeckout_div2{
   width: 90%;
   height: 80%;
-  background-color: rgba(255, 255, 255, 0.155);
+  background-color: rgba(159, 159, 159, 0.073);
   backdrop-filter: blur(10px);
   border-radius: 25px;
-  border: 6px solid white;
+  border: 6px solid rgba(102, 102, 102, 0.055);
   margin: 5rem  0;
 }
 .ckeckout_div21{
@@ -28,23 +26,26 @@
   flex-direction: row;
   margin: 5rem;
   justify-content: center;
-
+  gap: 30px;
 }
 .ckeckout_div211{
   width: 50%;
- 
+  border: 1px solid rgba(159, 157, 157, 0.247);
+  border-radius: 20px;
+  padding: 30px;
+  background-color: white;
 }
 .ckeckout_div212{
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
   padding: 0 3rem;
-
-
+  border: 1px solid rgba(159, 157, 157, 0.247);
 }
 .ckeckout_div211>div>h1{
   font-size: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
+  font-weight: 600;
 }
 .ckeckout_div211>div>h2{
   font-size: 1rem;
@@ -75,8 +76,9 @@
 }
 .checkout_single_form>input{
   background-color: white;
-  border: none;
-  outline: none;
+  /* border: none; */
+  /* outline: none; */
+  border: 1px solid rgba(151, 151, 151, 0.619);
   padding: 10px 20px;
   border-radius: 5px;
   width: fit-content;
@@ -84,7 +86,7 @@
 }
 .checkout_single_form>textarea{
   background-color: white;
-  border: none;
+  border: 1px solid rgba(151, 151, 151, 0.619);
   outline: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -277,19 +279,16 @@ font-size: 0.9rem;
   
   }
   .ckeckout_div211{
-    width: 90%;
+    width: 100%;
     margin-top: 2rem;
-   
   }
   .ckeckout_div212{
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     padding: 0 1rem;
-  
-  
   }
   .ckeckout_div211>div>h1{
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     text-align: center;
   }
@@ -298,7 +297,7 @@ font-size: 0.9rem;
 
   
 .ckeckout_div211>div>h2{
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   margin-top: 0.4rem;
 
 }
@@ -325,20 +324,16 @@ font-size: 0.9rem;
 }
 .checkout_single_form>input{
   background-color: white;
-  border: none;
-  outline: none;
-  padding: 10px 20px;
+  padding: 3px 20px;
   border-radius: 5px;
-  width: 80%;
+  width: 100%;
 
 }
 .checkout_single_form>textarea{
   background-color: white;
-  border: none;
-  outline: none;
-  padding: 10px 20px;
+  padding: 3px 10px;
   border-radius: 5px;
-  width: 80%;
+  width: 100%;
 }
 .checkout_row_form{
   display: flex;
@@ -349,6 +344,7 @@ font-size: 0.9rem;
   display: flex;
   justify-content: center;
   margin-top: 3rem;
+  font-size: 10px;
 }
 .checkout_submit_button>button{
   padding: 10px 25px;
@@ -379,7 +375,7 @@ font-size: 0.9rem;
   padding-top: 0.5rem;
 }
 .checkout_cartitems{
-  width: 95%;
+  width: 100%;
   display: flex;
   flex-direction: row;
 
@@ -404,10 +400,10 @@ font-size: 0.9rem;
   align-items: start;
 }
 .checkout_cartitems2>h2{
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 .checkout_cartitems2>h3,.checkout_cartitems2>h4{
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-family: "Roboto", system-ui;
   font-weight: 300;
   letter-spacing: 1px;
@@ -424,7 +420,7 @@ font-size: 0.9rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  font-size: 12px;
   font-family: "Roboto", system-ui;
   gap: 10px;
   color: rgb(64, 64, 64);
@@ -443,7 +439,7 @@ font-size: 0.9rem;
   align-items: center;
   color: rgb(64, 64, 64);
   font-family: "Roboto", system-ui;
-
+  font-size: 8px;
 }
 .checkout_price{
   width: 100%;
@@ -457,13 +453,13 @@ font-size: 0.9rem;
 .checkout_price h3{
   font-family: "Roboto", system-ui;
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
 
   
 }
 .checkout_price h2{
   font-weight: 100;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   
 }
 .checkout_price>div{
@@ -488,7 +484,7 @@ font-size: 0.9rem;
 }
 .checkout_total h2{
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 .checkout_total h3{
 font-family: "Roboto", system-ui;
@@ -502,7 +498,7 @@ font-size: 0.9rem;
   float: left;
   text-decoration: underline;
   text-underline-offset: 2px;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 
 }
 .checkout_cartitems2>button:hover{

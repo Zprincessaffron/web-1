@@ -9,13 +9,8 @@
   font-style: normal; 
 } 
  
-.rounded{
-  width: 30px;
-  height: 30px;
-  border: 2px solid #fff; 
-  border-radius: 50%;
 
-}
+
 .rrmc-cursor-icon.play{
   background: url(../assets/curserpoint.png) ;
 }
@@ -518,12 +513,10 @@
   
 }
 .mainpagetrialdiv{
-    height: 60vh;
     padding-top: 5%;
     background:none;
    
 }
-
 
 
 .parallax-item {
@@ -683,12 +676,11 @@
 .setus{
   width:100%;
   font-family: 'Riviera Nights';
-height: 100%;
 }
 .setus_div1{
-  height: 20%;
   text-align: center;
   justify-content: center;
+  overflow: hidden;
   padding: 20px;
   font-size: calc(0.256rem + 2vw);
   letter-spacing: 0.3rem;
@@ -696,9 +688,10 @@ height: 100%;
   font-weight: bold;
 }
 .setus_div2{
-  height: 50%;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+
   display: flex;
   align-items: start;
   gap: 100px;
@@ -707,6 +700,7 @@ height: 100%;
 }
 .setus_div2>div{
   width: 30%;
+  overflow: hidden;
 }
 .setus_div2 div h1{
   font-size: calc(0.0066rem + 1.5vw);

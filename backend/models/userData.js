@@ -5,6 +5,11 @@ const userDataSchema = new Schema({
   recommendation: {
     useCases: [String],
   },
+  gender: { 
+    type: String, 
+    enum: ['male', 'female', 'others'], 
+    required: true 
+  }, 
   culinary: {
     cuisine: String,
     dishes: [String],
@@ -31,7 +36,12 @@ const userDataSchema = new Schema({
     usingDuringPregnancy: String, // Keep as String for received data
     knownAllergies: String
   },
-  uniqueId: { type: String, unique: true },
+  user: {
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    role: String,
+  },
 });
 
 const UserData = mongoose.model("UserData", userDataSchema);

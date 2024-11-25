@@ -1,12 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 import { FaUserCircle } from 'react-icons/fa';
-// import { useUser } from '../contexts/UserContext'; // Adjust the path based on your project structure
 import { userContext } from '../../context/UserContext';
 
 const AdminProfile = () => {
-  const { user } = useContext(userContext); // Access user and setUser from context
+  const { user, setUser } = useContext(userContext);
   const [editMode, setEditMode] = useState(false);
-  const [profileData, setProfileData] = useState(user); // Initialize with user data
+  const [profileData, setProfileData] = useState(user);
+  const [otp, setOtp] = useState('');
+  const [showOtpInput, setShowOtpInput] = useState(false);
+  const [otpSent, setOtpSent] = useState(false);
+
+  useEffect(() => {
+    setProfileData(user);
+  }, [user]);
 
   const handleEditToggle = () => {
     setEditMode(!editMode);
@@ -19,14 +26,41 @@ const AdminProfile = () => {
     });
   };
 
-  const handleSave = () => {
-    // Simulate saving data to backend or update the context
-    setEditMode(false); // Exit edit mode
+  const handleSave = async () => {
+    try {
+      // Step 1: Send OTP to the user's email
+      const otpResponse = await axios.post("/admin/send-otp", { email: profileData.email });
+      if (otpResponse.status === 200) {
+        setOtpSent(true);
+        setShowOtpInput(true);
+      }
+    } catch (error) {
+      console.error("Error sending OTP:", error);
+    }
   };
 
-  useEffect(() => {
-    setProfileData(user); // Sync local state with context if it changes
-  }, [user]);
+  const handleVerifyOtp = async () => {
+    try {
+      // Step 2: Verify OTP
+      const verifyResponse = await axios.post("/admin/verify-otp", { email: profileData.email, otp });
+      if (verifyResponse.status === 200) {
+        // Step 3: Update user information
+        const response = await axios.put("/profile", profileData, {
+          withCredentials: true,
+        });
+        if (response.status === 200) {
+          setUser(response.data);
+          setEditMode(false);
+          setShowOtpInput(false);
+          setOtpSent(false);
+          setOtp(''); // Clear OTP input
+        }
+      }
+    } catch (error) {
+      console.error("Error verifying OTP:", error);
+      // Optionally show an error message
+    }
+  };
 
   return (
     <div className="tailwind-container">
@@ -54,6 +88,7 @@ const AdminProfile = () => {
           <div className="mb-4">
             <label className="block text-gray-700 font-medium">Email:</label>
             <input
+              disabled
               type="email"
               name="email"
               value={profileData.email}
@@ -71,11 +106,34 @@ const AdminProfile = () => {
               className="mt-1 block w-full border border-gray-300 rounded-lg px-4 py-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+          {otpSent && showOtpInput && (
+            <div className="mb-4">
+              <label className="block text-gray-700 font-medium">Enter OTP:</label>
+              <input
+                type="text"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+                className="mt-1 block w-full border border-gray-300 rounded-lg px-4 py-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                onClick={handleVerifyOtp}
+                className="mt-2 px-5 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-200"
+              >
+                Verify OTP
+              </button>
+            </div>
+          )}
           <div className="flex justify-end space-x-3">
-            <button onClick={handleSave} className="px-5 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-200">
-              Save
+            <button
+              onClick={handleSave}
+              className="px-5 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-200"
+            >
+              {otpSent ? 'Resend OTP' : 'Save'}
             </button>
-            <button onClick={handleEditToggle} className="px-5 py-2 bg-gray-300 text-gray-700 rounded-lg shadow-md hover:bg-gray-400 transition duration-200">
+            <button
+              onClick={handleEditToggle}
+              className="px-5 py-2 bg-gray-300 text-gray-700 rounded-lg shadow-md hover:bg-gray-400 transition duration-200"
+            >
               Cancel
             </button>
           </div>
