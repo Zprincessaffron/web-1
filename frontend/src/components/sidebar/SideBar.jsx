@@ -320,39 +320,11 @@ function SideBar() {
                   className="menu-item"
                   style={itemAnimation1}
                 >
-                  KASHMIRI SAFFRON
+                  SPAIN SAFFRON
                 </animated.div>
               </>
             )}
             {menuSubItems == "kashmir" && (
-              <>
-                <animated.div
-                  id="sidebar_kh"
-                  className="menu-item"
-                  onClick={handleProductBack}
-                  style={itemAnimation3}
-                >
-                  <IoMdArrowRoundBack className="sidebar_arrow" />
-                  SPAIN SAFFRON
-                </animated.div>
-                <animated.div
-                  onClick={() => handleProductClick(0)}
-                  className="menu-item"
-                  style={itemAnimation2}
-                >
-                  {" "}
-                  2 GRAMS{" "}
-                </animated.div>
-                <animated.div
-                  onClick={() => handleProductClick(1)}
-                  className="menu-item"
-                  style={itemAnimation1}
-                >
-                  5 GRAMS
-                </animated.div>
-              </>
-            )}
-            {menuSubItems == "spain" && (
               <>
                 <animated.div
                   id="sidebar_kh"
@@ -373,6 +345,34 @@ function SideBar() {
                 </animated.div>
                 <animated.div
                   onClick={() => handleProductClick(3)}
+                  className="menu-item"
+                  style={itemAnimation1}
+                >
+                  5 GRAMS
+                </animated.div>
+              </>
+            )}
+            {menuSubItems == "spain" && (
+              <>
+                <animated.div
+                  id="sidebar_kh"
+                  className="menu-item"
+                  onClick={handleProductBack}
+                  style={itemAnimation3}
+                >
+                  <IoMdArrowRoundBack className="sidebar_arrow" />
+                  SPAIN SAFFRON
+                </animated.div>
+                <animated.div
+                  onClick={() => handleProductClick(0)}
+                  className="menu-item"
+                  style={itemAnimation2}
+                >
+                  {" "}
+                  2 GRAMS{" "}
+                </animated.div>
+                <animated.div
+                  onClick={() => handleProductClick(1)}
                   className="menu-item"
                   style={itemAnimation1}
                 >
