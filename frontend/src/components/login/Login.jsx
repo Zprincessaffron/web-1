@@ -6,7 +6,6 @@ import { useUserContext } from "../../context/MainContext";
 import { useNavigate } from "react-router-dom";
 import RegisterForm from "./RegisterForm";
 import Otp from "./Otp";
-import back_register from "../../images/back_register.jpg";
 import LoginForm from "./LoginForm";
 function Login() {
   const { navOtp, setNavOtp, isMobile } = useUserContext();
