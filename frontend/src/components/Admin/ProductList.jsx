@@ -13,10 +13,10 @@ const ProductList = () => {
               <p className="pl-product-description">{product.description}</p>
               <p className="pl-product-price">Price: ₹{product.price}</p>
               <p className="pl-product-rating">Rating: {product.rating}</p>
-              <button className="pl-btn pl-btn-edit">
+              <button className="pl_btn_edit" style={{color:"black",backgroundColor:"gray", padding:"7px 20px",borderRadius:"20px",margin:'5px'}}>
                 Edit
               </button>
-              <button className="pl-btn pl-btn-delete">
+              <button className="pl_btn_delete" style={{color:"black",backgroundColor:"lightpink", padding:"7px 20px",borderRadius:"20px",margin:'5px'}}>
                 Delete
               </button>
             </div>
