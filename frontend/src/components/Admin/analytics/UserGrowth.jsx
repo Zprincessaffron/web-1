@@ -54,7 +54,7 @@ const UserGrowth = ({ filters }) => {
 
   return (
     <div className="tailwind-container">
-    <div   className="p-4 bg-white shadow-lg rounded-lg h-auto max-h-[500px] overflow-hidden">
+    <div   className="p-4 bg-white shadow-lg rounded-lg">
       <h2 className="text-xl font-bold mb-2">User Growth</h2>
       {userGrowthData.labels.length > 0 ? (
         <div className="relative h-[300px]">

@@ -12,18 +12,12 @@ import { FaMobileAlt } from "react-icons/fa";
 import { jwtDecode } from "jwt-decode";
 import { userContext } from '../../context/UserContext';
 function LoginPagee() {
-  const navigate = useNavigate();
-  const [email,setEmail]=useState();
-  const [password,setPassword]=useState();
-  const [loading,setLoading]=useState(true);
+  const navigate = useNavigate()
+  const [email,setEmail]=useState()
+  const [password,setPassword]=useState()
+  const [loading,setLoading]=useState(true)
   const { setUser }=useContext(userContext)
-  const [mobileIcon,setMobileIcon] = useState(false);
-  const [forgotPassword,setForgotPassword] = useState(false); // Track state for forgot password
-  const [otpSent, setOtpSent] = useState(false); // Track OTP state
-  const [otp, setOtp] = useState(""); // OTP input state
-  const [newPassword, setNewPassword] = useState(""); // New password state
-  const [confirmPassword, setConfirmPassword] = useState(""); // Confirm password state
-
+  const [mobileIcon,setMobileIcon] = useState(false)
   const [values, setValues] = useState({
     "email": "",
     "password": ""

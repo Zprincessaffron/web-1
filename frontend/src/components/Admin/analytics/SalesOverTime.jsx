@@ -89,33 +89,9 @@ const SalesOverTime = ({ filters }) => {
 
   return (
     <div className="tailwind-container">
-    <div  className="p-4 bg-white shadow-lg rounded-lg h-auto max-h-[500px] overflow-hidden">
-      <h2 className="text-xl font-normal mb-2 font-sans">Sales and Revenue for {currentYear}</h2>
-      <div className="flex justify-between items-center mb-4">
-        <button
-          onClick={handlePrevYear}
-          className="px-4 py-2 bg-gray-200 text-black"
-          disabled={currentYear <= Math.min(...salesData.labels.map(label => parseInt(label.slice(-4), 10)))}
-        >
-          Previous Year
-        </button>
-        <button
-          onClick={handleNextYear}
-          className="px-4 py-2 bg-gray-200 text-black"
-          disabled={currentYear >= Math.max(...salesData.labels.map(label => parseInt(label.slice(-4), 10)))}
-        >
-          Next Year
-        </button>
-      </div>
-      {filteredData.labels.length ? (
-        <div className="relative h-[300px]"> {/* Set a fixed height for the chart container */}
-          <Bar data={data} options={options} />
-        </div>
-      ) : (
-        <p className="text-sm font-semibold text-black tracking-wider">
-          No sales data for {currentYear}
-        </p>
-      )}
+    <div  className="p-4 bg-white shadow-lg rounded-lg">
+      <h2 className="text-xl font-bold mb-2">Sales Over Time</h2>
+      <Line data={data} />
     </div>
     </div>
   );

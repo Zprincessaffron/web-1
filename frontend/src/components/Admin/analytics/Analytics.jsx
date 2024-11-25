@@ -9,33 +9,42 @@ import AnalyticsFilters from './AnalyticsFilters';
 import axios from 'axios';
 
 import '../styles/Analytics.css'; // Import the external CSS file
+import '../styles/Analytics.css'; // Import the external CSS file
 
 const Analytics = () => {
-  const [filters, setFilters] = useState({
-    startDate: null,
-    endDate: null,
-  });
-
-  const handleApplyFilters = (filterData) => {
-    setFilters(filterData); // Set filters from the child component
-    console.log("Filters applied:", filterData); // Debugging applied filters
+  const analyticsData = {
+    salesData: {
+      total: 100000,
+      dates: ["Jan", "Feb", "Mar"],
+      values: [1000, 2000, 3000],
+    },
+    users: { active: 1200 },
+    topSellingProducts: [
+      { name: "Product A", sales: 5000 },
+      { name: "Product B", sales: 4000 },
+      { name: "Product C", sales: 3000 },
+    ],
+    salesOverTime: {
+      dates: ["Jan", "Feb", "Mar"],
+      values: [1000, 2000, 3000],
+    },
+    userGrowth: {
+      dates: ["Jan", "Feb", "Mar"],
+      values: [50, 100, 150],
+    },
+    revenueByProduct: {
+      categories: ["Category A", "Category B", "Category C"],
+      values: [5000, 3000, 2000],
+    },
   };
-  const [data, setData] = useState({});
 
-  // const handleApplyFilters = async ({ startDate, endDate }) => {
-  //   setFilters({ startDate, endDate });
-  //   console.log({ startDate, endDate })
+  const [filteredData, setFilteredData] = useState(analyticsData);
 
-  //   try {
-  //     const response = await axios.post('/admin/users/analytics', {
-  //       startDate,
-  //       endDate,
-  //     });
-  //     setData(response.data);
-  //   } catch (error) {
-  //     console.error('Error fetching analytics data:', error);
-  //   }
-  // };
+  const handleApplyFilters = (filters) => {
+    // Logic to filter analyticsData based on filters
+    // For simplicity, we're not implementing the actual filtering here.
+    setFilteredData(analyticsData); 
+  };
 
   return (
     <div className="analytics-container">
@@ -43,26 +52,24 @@ const Analytics = () => {
         {/* Filters */}
         <AnalyticsFilters onApplyFilters={handleApplyFilters} />
 
-        <div className="analytics-grid mb-4">
-          {/* Total Sales */}
-          <TotalRevenue filters={filters} totalRevenue={data.totalRevenue}  />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Total Sales */}
+        <TotalSales salesData={filteredData.salesData} />
 
-          {/* Total Users */}
-          <TotalUsers filters={filters} totalUsers={data.totalUsers}  />
+        {/* Active Users */}
+        <ActiveUsers users={filteredData.users} />
 
-          {/* Top Selling Products */}
-          <TopSellingProducts filters={filters} products={data.topSellingProducts} />
-      </div>
-      <div className="grid grid-cols-1  gap-6">
-          {/* Sales Over Time */}
-          <SalesOverTime filters={filters} salesData={data.salesRevenueOverTime} />
+        {/* Top Selling Products */}
+        <TopSellingProducts products={filteredData.topSellingProducts} />
 
-          {/* User Growth */}
-          <UserGrowth filters={filters} userGrowthData={data.userGrowth} />
+        {/* Sales Over Time */}
+        <SalesOverTime salesData={filteredData.salesOverTime} />
 
-          {/* Revenue by Product Category */}
-          <RevenueByProduct filters={filters} revenueData={data.revenueByProductCategory} />
-        </div>
+        {/* User Growth */}
+        <UserGrowth userGrowthData={filteredData.userGrowth} />
+
+        {/* Revenue by Product Category */}
+        <RevenueByProduct revenueData={filteredData.revenueByProduct} />
       </div>
     </div>
   );

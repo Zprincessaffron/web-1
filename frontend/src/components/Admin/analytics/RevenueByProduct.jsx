@@ -64,7 +64,7 @@ const RevenueByProduct = ({ filters }) => {
 
   return (
     <div className="tailwind-container">
-    <div className="p-4 bg-white shadow-lg rounded-lg h-auto max-h-[500px] overflow-hidden w-[40%]">
+    <div className="p-4 bg-white shadow-lg rounded-lg">
       <h2 className="text-xl font-bold mb-2">Revenue by Product Category</h2>
       {revenueData.categories.length ? (
         <div className="relative h-[300px]">
@@ -78,7 +78,3 @@ const RevenueByProduct = ({ filters }) => {
     </div>
     </div>
     
-  );
-};
-
-export default RevenueByProduct;
