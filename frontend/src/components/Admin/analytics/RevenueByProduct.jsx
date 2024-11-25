@@ -77,4 +77,6 @@ const RevenueByProduct = ({ filters }) => {
       )}
     </div>
     </div>
+  )
+}
     

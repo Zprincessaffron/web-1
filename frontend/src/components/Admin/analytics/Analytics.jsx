@@ -72,6 +72,7 @@ const Analytics = () => {
         <RevenueByProduct revenueData={filteredData.revenueByProduct} />
       </div>
     </div>
+    </div>
   );
 };
 
