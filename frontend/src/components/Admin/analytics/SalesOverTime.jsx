@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Line, Bar, Pie } from "react-chartjs-2";
+
 import 'chart.js/auto';
 
 const SalesOverTime = ({ filters }) => {

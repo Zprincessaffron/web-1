@@ -9,6 +9,8 @@ const RevenueByProduct = ({ filters }) => {
     values: [],
   });
 
+  
+
   useEffect(() => {
     const fetchRevenueData = async () => {
       try {
@@ -24,6 +26,7 @@ const RevenueByProduct = ({ filters }) => {
               },
             }
           );
+          
         } else {
           // Fetch data without filters (default)
           response = await axios.get(
@@ -31,6 +34,7 @@ const RevenueByProduct = ({ filters }) => {
           );
         }
         setRevenueData(response.data); // Set the fetched revenue data
+        console.log(response.data)
       } catch (error) {
         console.error("Error fetching revenue by product category:", error);
       }
@@ -80,3 +84,5 @@ const RevenueByProduct = ({ filters }) => {
   )
 }
     
+
+export default RevenueByProduct

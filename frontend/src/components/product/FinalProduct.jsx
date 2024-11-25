@@ -29,8 +29,8 @@ const FinalProduct = () => {
           weight: data[0].variants[0].weight,
           fullProduct: data[0],
           stock: data[0].variants[0].stock,
-          image: product1,
-          flipimage: product4,
+          image: data[0].variants[0].img1,
+          flipimage: data[0].variants[0].img2,
         },
         {
           _id: data[0]._id + "-1", // Unique ID for variant 2 of product 1
@@ -39,8 +39,8 @@ const FinalProduct = () => {
           weight: data[0].variants[1].weight,
           fullProduct: data[0],
           stock: data[0].variants[1].stock,
-          image: product2,
-          flipimage: product1,
+          image: data[0].variants[1].img2,
+          flipimage: data[0].variants[1].img1,
         },
         {
           _id: data[1]._id + "-0", // Unique ID for variant 1 of product 2
@@ -49,8 +49,8 @@ const FinalProduct = () => {
           weight: data[1].variants[0].weight,
           fullProduct: data[1],
           stock: data[1].variants[0].stock,
-          image: product3,
-          flipimage: product2,
+          image: data[1].variants[0].img1,
+          flipimage: data[1].variants[0].img2
         },
         {
           _id: data[1]._id + "-1", // Unique ID for variant 2 of product 2
@@ -59,8 +59,8 @@ const FinalProduct = () => {
           weight: data[1].variants[1].weight,
           fullProduct: data[1],
           stock: data[1].variants[1].stock,
-          image: product4,
-          flipimage: product3,
+          image: data[1].variants[1].img2,
+          flipimage: data[1].variants[1].img1,
         },
       ];
       setProducts(splitProducts);

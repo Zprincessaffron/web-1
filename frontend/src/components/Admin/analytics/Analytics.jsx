@@ -7,6 +7,8 @@ import UserGrowth from './UserGrowth';
 import RevenueByProduct from './RevenueByProduct';
 import AnalyticsFilters from './AnalyticsFilters';
 import axios from 'axios';
+import TotalSales from './TotalSales.jsx'
+import ActiveUsers from './ActiveUsers.jsx'
 
 import '../styles/Analytics.css'; // Import the external CSS file
 import '../styles/Analytics.css'; // Import the external CSS file
