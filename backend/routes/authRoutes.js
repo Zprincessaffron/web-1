@@ -42,9 +42,9 @@ router.get('/getuserdata', getUserData);
 router.post('/analyzeData', analyzeData);
 
 // orders
-router.post('/orders', authenticate, authorize(['user', 'wholesaler']),OrderData);
-router.get("/user-orders", authenticate, authorize(['user', 'wholesaler']),userOrders);
-router.get('/track/:orderId', authenticate, authorize(['user', 'wholesaler']),getOrderData);
+router.post('/orders' ,OrderData);
+router.get("/user-orders", userOrders);
+router.get('/track/:orderId',getOrderData);
 router.get('/history/:id', authenticate, authorize(['user', 'wholesaler']),getUserOrders);
 router.patch('/orders/update-status',updateOrderStatus);
 router.get("/orders/all-orders", getAllOrders);
