@@ -5,13 +5,8 @@ import { useUserContext } from "../../context/MainContext";
 import { useSpring, animated } from "react-spring";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { FaL } from "react-icons/fa6";
 import { userContext } from "../../context/UserContext";
-import { FaAngleRight } from "react-icons/fa6";
-import product1 from "../../images/product1.jpeg";
-import product2 from "../../images/product2.jpg";
-import product3 from "../../images/product3.jpg";
-import product4 from "../../images/product4.jpg";
+
 import axios from "axios";
 
 function SideBar() {
@@ -53,8 +48,6 @@ function SideBar() {
           weight: data[0].variants[0].weight,
           fullProduct: data[0],
           stock: data[0].variants[0].stock,
-          image: product1,
-          flipimage: product4,
         },
         {
           _id: data[0]._id + "-1", // Unique ID for variant 2 of product 1
@@ -63,8 +56,6 @@ function SideBar() {
           weight: data[0].variants[1].weight,
           fullProduct: data[0],
           stock: data[0].variants[1].stock,
-          image: product2,
-          flipimage: product1,
         },
         {
           _id: data[1]._id + "-0", // Unique ID for variant 1 of product 2
@@ -73,8 +64,6 @@ function SideBar() {
           weight: data[1].variants[0].weight,
           fullProduct: data[1],
           stock: data[1].variants[0].stock,
-          image: product3,
-          flipimage: product2,
         },
         {
           _id: data[1]._id + "-1", // Unique ID for variant 2 of product 2
@@ -83,8 +72,6 @@ function SideBar() {
           weight: data[1].variants[1].weight,
           fullProduct: data[1],
           stock: data[1].variants[1].stock,
-          image: product4,
-          flipimage: product3,
         },
       ];
       setProducts(splitProducts);
