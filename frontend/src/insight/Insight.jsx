@@ -9,10 +9,6 @@ import saffronrice from "../images/culinarymilk.jpeg";
 import saffrontea from "../images/newinsightmedicine.jpeg";
 // import insightback from '../images/insightback.mp4'
 import insightback from "../images/insightvideo.mp4";
-import insight_back from "../images/insight_back.png";
-import saffronc from "../images/saffronc.jpg";
-import insight1 from "../images/insight1.jpg";
-import insight2 from "../images/insight2.jpg";
 import SideBar from "../components/sidebar/SideBar";
 import MenuSlider from "../components/sidebar/MenuSlider";
 import ScrollToTop from "../components/ScrollToTop";

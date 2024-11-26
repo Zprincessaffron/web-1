@@ -7,8 +7,6 @@ import { IoSend } from "react-icons/io5";
 import { MdArrowBack } from "react-icons/md";
 import { FaRobot } from "react-icons/fa6";
 import BotProductList from "./BotProductList";
-import SalesExecutive from "../../assets/gif/Animation - 1723113918679.gif";
-import Client from "../../assets/gif/Animation - 1723117354452.gif";
 import { userContext } from "../../context/UserContext";
 
 const useCaseQuestions = {

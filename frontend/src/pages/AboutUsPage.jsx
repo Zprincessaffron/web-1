@@ -1,34 +1,26 @@
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
-const images = [
-  "/saffron1-img.jpg",
-  "/Saffron2-img.jpg",
-  "/saffron3-img.jpg"
-];
+const images = ["/saffron1-img.jpg", "/Saffron2-img.jpg", "/saffron3-img.jpg"];
 
-const textOverlay = [
-  "குங்குமப்பூ",
-  "Saffron",
-  "Шафран"
-];
+const textOverlay = ["குங்குமப்பூ", "Saffron", "Шафран"];
 
 const quotes = [
   "மணமும் நெய்யும் தான் எங்களை அழகு செய்கின்றன.",
   "Saffron is the gold of spices.",
-  "Шафран – золото пряностей."
+  "Шафран – золото пряностей.",
 ];
 
 const verticalImages = [
   "/Saffron2-img.jpg",
   "/saffron3-img.jpg",
-  "/saffron1-img.jpg"
+  "/saffron1-img.jpg",
 ];
 
 const thirukkuralQuotes = [
   "அன்பினால் உலகம் வாழ்க; யாவரால் துணைவது துறை.",
   "Love makes the world thrive; it is the key to coexistence.",
-  "Любовь делает мир процветающим; это ключ к сосуществованию."
+  "Любовь делает мир процветающим; это ключ к сосуществованию.",
 ];
 
 const AboutUsPage = () => {
@@ -52,7 +44,9 @@ const AboutUsPage = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setThirukkuralIndex((prevIndex) => (prevIndex + 1) % thirukkuralQuotes.length);
+      setThirukkuralIndex(
+        (prevIndex) => (prevIndex + 1) % thirukkuralQuotes.length
+      );
     }, 2000);
     return () => clearInterval(interval);
   }, []);
@@ -81,9 +75,7 @@ const AboutUsPage = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           key={currentIndex}
         >
-          <motion.p className='text-white'>
-            {quotes[currentIndex]}
-          </motion.p>
+          <motion.p className="text-white">{quotes[currentIndex]}</motion.p>
         </motion.div>
 
         {images.map((image, index) => (
@@ -91,7 +83,10 @@ const AboutUsPage = () => {
             key={index}
             className="absolute inset-0"
             initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: currentIndex === index ? 1 : 0, scale: currentIndex === index ? 1 : 1.1 }}
+            animate={{
+              opacity: currentIndex === index ? 1 : 0,
+              scale: currentIndex === index ? 1 : 1.1,
+            }}
             transition={{ duration: 1, ease: "easeInOut" }}
           >
             <img
@@ -120,7 +115,9 @@ const AboutUsPage = () => {
           {images.map((_, index) => (
             <div
               key={index}
-              className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-yellow-500' : 'bg-gray-300'}`}
+              className={`w-3 h-3 rounded-full ${
+                currentIndex === index ? "bg-yellow-500" : "bg-gray-300"
+              }`}
             ></div>
           ))}
         </div>
@@ -133,7 +130,10 @@ const AboutUsPage = () => {
             key={index}
             className="w-full h-1/3 overflow-hidden shadow-black drop-shadow-xl shadow-md"
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: verticalIndex === index ? 1 : 0, scale: verticalIndex === index ? 1 : 0.9 }}
+            animate={{
+              opacity: verticalIndex === index ? 1 : 0,
+              scale: verticalIndex === index ? 1 : 0.9,
+            }}
             transition={{ duration: 0.5 }}
           >
             <img
