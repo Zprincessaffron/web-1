@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/FinalProduct.css";
-import product1 from "../../images/product1.jpeg";
-import product2 from "../../images/product2.jpg";
-import product3 from "../../images/product3.jpg";
-import product4 from "../../images/product4.jpg";
 import { CartContext } from "../../context/CartContext";
 import { useUserContext } from "../../context/MainContext";
 import axios from "axios";
@@ -50,7 +46,7 @@ const FinalProduct = () => {
           fullProduct: data[1],
           stock: data[1].variants[0].stock,
           image: data[1].variants[0].img1,
-          flipimage: data[1].variants[0].img2
+          flipimage: data[1].variants[0].img2,
         },
         {
           _id: data[1]._id + "-1", // Unique ID for variant 2 of product 2
