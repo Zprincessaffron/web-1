@@ -2,46 +2,30 @@ import React, { useEffect, useState } from "react";
 import { Pie } from "react-chartjs-2";
 import "chart.js/auto";
 import axios from "axios";
+import { useAnalyticsContext } from "./context/AnalyticsContext";
+const RevenueByProduct = () => {
 
-const RevenueByProduct = ({ filters }) => {
-  const [revenueData, setRevenueData] = useState({
-    categories: [],
-    values: [],
-  });
+  const { revenueData, setRevenueData,fetchRevenueData }=useAnalyticsContext()
 
+
+  const fetchRevenueDa = async () => {
   
+    try {
+      let response = await axios.get(
+        "/admin/revenue/total-revenue-by-products"
+      );
+    
+    setRevenueData(response.data)
+    } catch (error) {
+      console.error("Error fetching revenue by product category:", error);
+    }
+  }
 
   useEffect(() => {
-    const fetchRevenueData = async () => {
-      try {
-        let response;
-        if (filters && filters.startDate && filters.endDate) {
-          // Include the filters in the query parameters if they exist
-          response = await axios.get(
-            "/admin/revenue/total-revenue-by-products",
-            {
-              params: {
-                startDate: filters.startDate,
-                endDate: filters.endDate,
-              },
-            }
-          );
-          
-        } else {
-          // Fetch data without filters (default)
-          response = await axios.get(
-            "/admin/revenue/total-revenue-by-products"
-          );
-        }
-        setRevenueData(response.data); // Set the fetched revenue data
-        console.log(response.data)
-      } catch (error) {
-        console.error("Error fetching revenue by product category:", error);
-      }
-    };
-
-    fetchRevenueData();
-  }, [filters]); // Re-fetch the data whenever the filters change
+   
+    fetchRevenueDa();
+  }, [])
+  
 
   const data = {
     labels: revenueData.categories,
@@ -67,19 +51,17 @@ const RevenueByProduct = ({ filters }) => {
   };
 
   return (
-    <div className="tailwind-container">
-    <div className="p-4 bg-white shadow-lg rounded-lg">
-      <h2 className="text-xl font-bold mb-2">Revenue by Product Category</h2>
-      {revenueData.categories.length ? (
-        <div className="relative h-[300px]">
-          <Pie data={data} />
-        </div>
-      ) : (
-        <p className="text-sm font-semibold text-black tracking-wider">
-          No Revenue data for the selected date range{" "}
-        </p>
-      )}
-    </div>
+<div className="rbp-container">
+      <div className="rbp-card">
+        <h2 className="rbp-title">Revenue by Product Category</h2>
+        {revenueData.categories.length ? (
+          <div className="rbp-chart">
+            <Pie data={data} />
+          </div>
+        ) : (
+          <p className="rbp-message">No Revenue data for the selected date range</p>
+        )}
+      </div>
     </div>
   )
 }

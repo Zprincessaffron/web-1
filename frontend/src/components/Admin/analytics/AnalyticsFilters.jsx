@@ -2,17 +2,23 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns'; // Add date-fns for formatting
-
+import { useAnalyticsContext } from './context/AnalyticsContext';
 const AnalyticsFilters = ({ onApplyFilters }) => {
+  const { fetchRevenueData,filterByDateRange } = useAnalyticsContext()
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  
 
   const handleApplyFilters = () => {
     // Format the dates in 'YYYY-MM-DD' format
     const formattedStartDate = format(startDate, 'yyyy-MM-dd');
     const formattedEndDate = format(endDate, 'yyyy-MM-dd');
+    console.log(formattedStartDate)
+    console.log(formattedEndDate)
 
     onApplyFilters({ startDate: formattedStartDate, endDate: formattedEndDate });
+    fetchRevenueData(formattedStartDate,formattedEndDate)
+    filterByDateRange(formattedStartDate,formattedEndDate)
   };
 
   const handleResetFilters = () => {
@@ -26,6 +32,7 @@ const AnalyticsFilters = ({ onApplyFilters }) => {
     // Optionally, you can apply the default filter when resetting
     const formattedStartDate = format(defaultStartDate, 'yyyy-MM-dd');
     const formattedEndDate = format(defaultEndDate, 'yyyy-MM-dd');
+
     onApplyFilters({ startDate: formattedStartDate, endDate: formattedEndDate });
   };
 

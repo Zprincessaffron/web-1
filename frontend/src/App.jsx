@@ -75,7 +75,7 @@ import TeleCallerDashboard from "./components/Telecaller/TeleCallerDashboard.jsx
 import TeleCallerDash from "./components/Telecaller/TeleCallerDash.jsx";
 import TelecallerSidebar from "./components/Telecaller/TelecallerSidebar.jsx";
 import ForgotPasswordPage from "./components/login/ForgotPasswordPage.jsx";
-
+import { AnalyticsProvider } from "./components/Admin/analytics/context/AnalyticsContext.jsx";
 function App() {
   // const { pathname } = useLocation();
 
@@ -89,6 +89,7 @@ function App() {
   
   return (
     <UserProvider>
+      <AnalyticsProvider>
       <UserContextProvider>
         <CartProvider>
           <ParallaxProvider>
@@ -302,6 +303,7 @@ function App() {
           </ParallaxProvider>
         </CartProvider>
       </UserContextProvider>
+      </AnalyticsProvider>
     </UserProvider>
   );
 }

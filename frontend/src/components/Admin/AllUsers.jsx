@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import { useAnalyticsContext } from './analytics/context/AnalyticsContext';
 const AllUsers = () => {
-  const [users, setUsers] = useState([]);
+  const { users, setUsers,fetchUsers } = useAnalyticsContext()
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);  // Updated to 5 items per page
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await axios.get('/all/users');
-        setUsers(response.data);
-      } catch (error) {
-        console.error("Error fetching users", error);
-      }
-    };
-
     fetchUsers();
   }, []);
 

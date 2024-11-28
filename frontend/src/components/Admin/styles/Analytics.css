@@ -25,7 +25,15 @@
 .analytics-container {
     padding: 1.5rem;
   }
-  
+  .a_con{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .a_con>div{
+    width: 100%;
+    
+  }
   .analytics-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -101,21 +109,34 @@
   
 
   /* RevenueByProduct.css */
-.rbp-container {
-    padding: 1rem;
+  .rbp-container {
+    width: 50%;
   }
   
   .rbp-card {
-    padding: 1rem;
+    padding: 16px;
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
   }
   
-  .rbp-heading {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+  .rbp-title {
+    font-size: 1.25rem; /* equivalent to text-xl */
+    font-weight: 700; /* equivalent to font-bold */
+    margin-bottom: 8px; /* equivalent to mb-2 */
+  }
+  
+  .rbp-chart {
+    position: relative;
+    height: auto; /* equivalent to h-[300px] */
+    width: 90%;
+  }
+  
+  .rbp-message {
+    font-size: 0.875rem; /* equivalent to text-sm */
+    font-weight: 600; /* equivalent to font-semibold */
+    color: black;
+    letter-spacing: 0.05em; /* equivalent to tracking-wider */
   }
   
   
@@ -206,4 +227,10 @@
     font-weight: 700; /* Equivalent to font-bold */
     margin-bottom: 0.5rem; /* Equivalent to mb-2 */
   }
-  
+
+
+  .tailwind-container{
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    }
