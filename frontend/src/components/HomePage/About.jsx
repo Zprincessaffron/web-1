@@ -10,7 +10,7 @@ import MenuSlider from "../sidebar/MenuSlider";
 import Footer from "../../footer/Footer";
 import ScrollToTop from "../ScrollToTop";
 import AboutUsPage from "../../pages/AboutUsPage";
-
+import bff from '../../images/aboutback1.png'
 function About() {
   const { pathname } = useLocation();
 
@@ -60,7 +60,7 @@ function About() {
       <Navbar />
       <SideBar />
       <MenuSlider />
-      {/* <div className="about_div1">
+      <div className="about_div1">
         {isMobile ? (
           <div className="about_div1_mobile">
             <div>
@@ -79,8 +79,7 @@ function About() {
             </div>
           </>
         )}
-      </div> */}
-      <AboutUsPage />
+      </div>
       <div className="aboutmain">
         <div className="about_div2">
           <h1>WHO WE ARE</h1>
