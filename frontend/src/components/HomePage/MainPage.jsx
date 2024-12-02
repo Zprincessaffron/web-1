@@ -204,7 +204,7 @@ function MainPageTrial() {
                   {/* //////////////// */}Z PRINCESS SAFFRON
                   {/* /////////////// */}
                 </div>
-                <div className={`line_l ${mainpageItems?"true":""}`}></div>
+                {/* <div className={`line_l ${mainpageItems?"true":""}`}></div> */}
                 <div className={`mainpage_div2 ${mainpageItems?"true":"false"}`}>World's Finest Saffron</div>
                 <div className={`mainpage_div3 ${mainpageItems?"true":"false"}`} >
                   <Arrowbtn

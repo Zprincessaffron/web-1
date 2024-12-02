@@ -8,6 +8,7 @@ export const useAnalyticsContext = ()=> useContext(AnalyticsContext)
 export const AnalyticsProvider = ({children})=>{
   const [users, setUsers] = useState([]);
   const [filteredUsers,setFilteredUsers]=useState()
+  const [buttonChange,setButtonChange]=useState('')
   const fetchUsers = async () => {
     try {
       const response = await axios.get('/all/users');
@@ -92,7 +93,7 @@ export const AnalyticsProvider = ({children})=>{
   
 
     return(
-        <AnalyticsContext.Provider value={{ fetchUsers,filteredUsers,setFilteredUsers,users, setUsers,filteredData,setFilteredData ,analyticsData,revenueData, setRevenueData,fetchRevenueData,filterByDateRange}} >
+        <AnalyticsContext.Provider value={{ buttonChange,setButtonChange,fetchUsers,filteredUsers,setFilteredUsers,users, setUsers,filteredData,setFilteredData ,analyticsData,revenueData, setRevenueData,fetchRevenueData,filterByDateRange}} >
             {children}
         </AnalyticsContext.Provider>
     )

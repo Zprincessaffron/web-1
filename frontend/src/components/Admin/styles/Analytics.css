@@ -69,6 +69,11 @@
   
 
   /* analytics filter */
+  .af_filterbtn{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
   /* Analytics.css */
 .analytics-container {
     padding: 1.5rem;
@@ -79,7 +84,14 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+  .af_filterbtn .quater_btn,.af_filterbtn .half_btn,.af_filterbtn .year_btn{
+    background-color: #24355c;
+    padding: 7px 25px;
+    border-radius: 25px;
+    color: rgb(255, 255, 255);
+    height: fit-content;
+  }
+
   @media (min-width: 640px) {
     .analytics-grid {
       grid-template-columns: repeat(2, 1fr);
