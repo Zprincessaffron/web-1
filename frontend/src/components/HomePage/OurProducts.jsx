@@ -11,7 +11,7 @@ function OurProducts({ setFinalProduct }) {
   function handleMouse() {
     setMouse(true); 
   }
-
+  
   function handleLeave() {
     setMouse(false);
   }
