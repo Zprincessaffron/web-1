@@ -15,7 +15,7 @@ import ScrollToTop from "../components/ScrollToTop";
 function Insight() {
   const { setShowNav, setSideBar, setMenuSlider } = useUserContext();
   const [showhealth, setshowHealth] = useState(false);
-  const [showbeauty, setshowBeauty] = useState(false);
+  const [showbeauty, setshowBeauty] = useState(false); 
   const [showculinary, setshowCulinary] = useState(false);
   const [width, setWidth] = useState(70);
   const [width1, setWidth1] = useState(70);

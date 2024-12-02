@@ -141,6 +141,7 @@
 }
 .sidebar_div2{
     width: 100%;
+    overflow-y: scroll;
 
 
 }
@@ -154,7 +155,7 @@
     z-index: 3;
     padding-left: 0%;
     text-align: right;
-    margin-left: 50px;
+    margin-left: 20px;
 }
 
 #sidebar_kh{
@@ -169,7 +170,7 @@
     
     background-position: center;
     background-size: cover;
-    height: 30vh;
+    height: 23vh;
     
     display: flex;
     justify-content: center;
