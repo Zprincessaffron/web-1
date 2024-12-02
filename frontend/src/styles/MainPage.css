@@ -733,9 +733,9 @@
 
 @media only screen and (max-width: 480px) {
   .mainpage_div1{
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.4rem;
     text-transform: uppercase;
-    font-size: 1.8rem;
+    font-size: calc(2vw + 0.7rem);
     color: white;
     font-weight: 100;
     font-family: 'Riviera Nights';
@@ -743,6 +743,7 @@
   .mainpage_div2{
     font-size: 0.7rem;
     font-weight: 100;
+    margin-top: 0.6rem;
     
   }
   .mainpage_div3{
