@@ -208,4 +208,22 @@
     background-image: url(../images/pregnancyslider.jpg);
 
 }
+.parent{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 20px;
+
+}
+.menu_main_right{
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease-in-out;
+    font-size: 0.5rem;
+
+}
+.menu_main_right.true{
+    opacity: 1;
+    transform: translateX(10px);
+}
 }

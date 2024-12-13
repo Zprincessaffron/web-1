@@ -6,6 +6,7 @@ import { useSpring, animated } from "react-spring";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../../context/UserContext";
+import { delay, motion } from "framer-motion";
 
 import axios from "axios";
 
@@ -77,6 +78,32 @@ function SideBar() {
       setProducts(splitProducts);
     });
   }, []);
+
+  const parentVariants = {
+    hidden: { x: "-100vw", opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+        staggerChildren: 0.3, // Stagger animation for children
+      },
+    },
+  };
+  
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 40 },
+    },
+  };
+  
+
+
   const handleProductClick = (val) => {
     // Navigate to product details page with the full product data
     const product = products[val];
@@ -258,28 +285,28 @@ function SideBar() {
                   style={itemAnimation4}
                 >
                   <IoMdArrowRoundBack className="sidebar_arrow" />
-                  KNOWLEDGE HUB
+                   KNOWLEDGE HUB
                 </animated.div>
                 <animated.div
                   className="menu-item"
                   onClick={() => navigate("/insight")}
                   style={itemAnimation3}
                 >
-                  INSIGHT{" "}
+                {isMobile? <>&nbsp;</>:""} INSIGHT{" "}
                 </animated.div>
                 <animated.div
                   className="menu-item"
                   onClick={() => navigate("/kashmiri-saffron")}
                   style={itemAnimation2}
                 >
-                  KASHMIRI SAFFRON
+                 {isMobile? <>&nbsp;</>:""} KASHMIRI SAFFRON
                 </animated.div>
                 <animated.div
                   className="menu-item"
                   onClick={() => navigate("/spain-saffron")}
                   style={itemAnimation1}
                 >
-                  SPAIN SAFFRON
+                  {isMobile? <>&nbsp;</>:""}  SPAIN SAFFRON
                 </animated.div>
               </>
             )}
@@ -292,7 +319,7 @@ function SideBar() {
                   style={itemAnimation3}
                 >
                   <IoMdArrowRoundBack className="sidebar_arrow" />
-                  PRODUCTS
+                   PRODUCTS
                 </animated.div>
                 <animated.div
                   onClick={handleKasmir}
@@ -300,14 +327,14 @@ function SideBar() {
                   style={itemAnimation2}
                 >
                   {" "}
-                  KASHMIRI SAFFRON
+                  {isMobile? <>&nbsp;</>:""}  KASHMIRI SAFFRON
                 </animated.div>
                 <animated.div
                   onClick={handleSpain}
                   className="menu-item"
                   style={itemAnimation1}
                 >
-                  SPAIN SAFFRON
+                {isMobile? <>&nbsp;</>:""}   SPAIN SAFFRON
                 </animated.div>
               </>
             )}
@@ -328,14 +355,14 @@ function SideBar() {
                   style={itemAnimation2}
                 >
                   {" "}
-                  2 GRAMS{" "}
+                  {isMobile? <>&nbsp;</>:""}  2 GRAMS{" "}
                 </animated.div>
                 <animated.div
                   onClick={() => handleProductClick(3)}
                   className="menu-item"
                   style={itemAnimation1}
                 >
-                  5 GRAMS
+                 {isMobile? <>&nbsp;</>:""}  5 GRAMS
                 </animated.div>
               </>
             )}
@@ -356,14 +383,14 @@ function SideBar() {
                   style={itemAnimation2}
                 >
                   {" "}
-                  2 GRAMS{" "}
+                  {isMobile? <>&nbsp;</>:""}  2 GRAMS{" "}
                 </animated.div>
                 <animated.div
                   onClick={() => handleProductClick(1)}
                   className="menu-item"
                   style={itemAnimation1}
                 >
-                  5 GRAMS
+                 {isMobile? <>&nbsp;</>:""}  5 GRAMS
                 </animated.div>
               </>
             )}
@@ -381,42 +408,90 @@ function SideBar() {
                 </animated.div>
                 {isMobile ? (
                   <>
-                    <animated.div
+                   <motion.div
+      className="parent"
+      variants={parentVariants}
+      initial="hidden"
+      animate="visible"
+      
+    >
+                    <motion.div
                       onClick={() => {
                         navigate("/culinary-use");
                       }}
                       className="menu-img-item culinary"
-                      style={itemAnimation2}
+                      variants={
+                        {
+                          hidden: { opacity: 0, x: -100 },
+                          visible: {
+                            opacity: 1,
+                            x: 0,
+          
+                            transition: { type: "spring", stiffness: 40, delay:0 },
+                          },
+                        }
+                      }
                     >
                       <div>CULINARY USES</div>
-                    </animated.div>
-                    <animated.div
+                    </motion.div>
+                    <motion.div
                       onClick={() => {
                         navigate("/medicine-use");
                       }}
                       className="menu-img-item medicine"
-                      style={itemAnimation3}
+                      variants={
+                        {
+                          hidden: { opacity: 0, x: -100 },
+                          visible: {
+                            opacity: 1,
+                            x: 0,
+          
+                            transition: { type: "spring", stiffness: 40, delay:0.3 },
+                          },
+                        }
+                      }
                     >
                       <div>MEDICINAL USES</div>
-                    </animated.div>
-                    <animated.div
+                    </motion.div>
+                    <motion.div
                       onClick={() => {
                         navigate("/beauty-use");
                       }}
                       className="menu-img-item beauty"
-                      style={itemAnimation4}
+                      variants={
+                        {
+                          hidden: { opacity: 0, x: -100 },
+                          visible: {
+                            opacity: 1,
+                            x: 0,
+          
+                            transition: { type: "spring", stiffness: 40, delay:0.6 },
+                          },
+                        }
+                      }
                     >
                       <div>BEAUTY USES</div>
-                    </animated.div>
-                    <animated.div
+                    </motion.div>
+                    <motion.div
                       onClick={() => {
                         navigate("/pregnancy-use");
                       }}
                       className="menu-img-item pregnancy"
-                      style={itemAnimation5}
+                      variants={
+                        {
+                          hidden: { opacity: 0, x: -100 },
+                          visible: {
+                            opacity: 1,
+                            x: 0,
+          
+                            transition: { type: "spring", stiffness: 40, delay:0.9 },
+                          },
+                        }
+                      }
                     >
                       <div>PREGNANT WOMAN</div>
-                    </animated.div>
+                    </motion.div>
+                    </motion.div>
                   </>
                 ) : (
                   <>
