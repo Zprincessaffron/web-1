@@ -120,11 +120,11 @@ function ContactUs() {
           </p>
           <p>
             <IoMdCall />
-            +91 72001 50577
+            +91 72001 50588
           </p>
           <p>
             <CgMail />
-            zprincessaffron@gmail.com
+            zprincessaffron07@gmail.com
           </p>
         </div>
         <div className={`contact_div121 ${showForm ? "true" : ""}`}>
